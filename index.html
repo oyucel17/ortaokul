@@ -6,6 +6,7 @@
 <meta name="description" content="6. ve 7. sinif 2026-2027 Maarif Modeli: yillik takvim, haftalik program, unite ozetleri, sorular ve cevap anahtari.">
 <meta name="theme-color" content="#F6F7F4">
 <title>Ortaokul Yol Haritası</title>
+<meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
@@ -213,6 +214,25 @@
   .kv li::marker{color:var(--sc)}
   .trap{background:var(--bad-soft);border-radius:8px;padding:10px 13px;font-size:13.6px;max-width:72ch}
   .trap b{color:var(--bad);font-weight:600}
+
+  /* video linkleri */
+  .vids{display:flex;flex-direction:column;gap:6px;max-width:72ch}
+  .vids a{display:flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid var(--line);
+    border-radius:8px;background:var(--card-2);text-decoration:none;color:var(--ink);font-size:13.6px}
+  .vids a:hover{border-color:var(--sc);background:var(--card)}
+  .vids .yt{width:22px;height:16px;flex:none;border-radius:4px;background:#E62117;display:grid;place-items:center}
+  .vids .vt{flex:1;min-width:0}
+  .vids .vk{font-family:"IBM Plex Mono",monospace;font-size:9.5px;color:var(--ink-faint);
+    text-transform:uppercase;letter-spacing:.07em;flex:none}
+
+  /* su an islenen konu */
+  .now-badge{font-size:10px;font-weight:600;background:var(--ok-soft);color:var(--ok);
+    padding:2px 8px;border-radius:20px;flex:none;letter-spacing:.02em;white-space:nowrap}
+  .now-strip{background:var(--ok-soft);border:1px solid var(--ok);border-radius:var(--radius);
+    padding:13px 16px;margin-bottom:18px}
+  .now-strip .nt{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;
+    text-transform:uppercase;color:var(--ok);font-weight:600;margin-bottom:9px}
+  .now-strip .chip{background:var(--card);border-color:var(--line)}
   @media(max-width:600px){ .unit-body{padding-left:17px} }
 
   .rbox{background:var(--rb,var(--card-2));border-left:3px solid var(--sc);border-radius:0 8px 8px 0;
@@ -399,6 +419,7 @@
     <div>
       <div class="block-head"><h2>Ders ders üniteler</h2><span class="note">Ünite adları MEB resmî öğretim programından</span></div>
       <p class="lede" id="derslerLede">…</p>
+      <div id="nowStrip"></div>
       <div class="subjects" id="subjects"></div>
     </div>
   </section>
@@ -563,6 +584,9 @@
           ["6","Hem 2 hem 3 ile bölünüyor","132"],["9","Rakamlar toplamı 9'un katı","5 481 → 18"],
           ["10","Son rakam 0","2 730"]]}],
        box:[{t:"EBOB mu EKOK mu?", h:"Soruda <b>\"en büyük parça, en fazla kişiye eşit paylaştırma, kalansız bölme\"</b> geçiyorsa EBOB. <b>\"en az kaç, aynı anda tekrar, en küçük ortak süre\"</b> geçiyorsa EKOK."}],
+       vid:[{t:"Çarpanlar ve Katlar — 6MAT1 #2026", u:"https://www.youtube.com/watch?v=doe7_S1-CaA"},
+            {t:"Asal Sayılar ve Asal Çarpanlar — 6MAT3 #2026", u:"https://www.youtube.com/watch?v=vzWTuEEHYAQ"},
+            {t:"Asal Sayılar ve Asal Çarpanlar, Konu Özeti — 6MAT3 #2026", u:"https://www.youtube.com/watch?v=G74dS4-n4lU"}],
        trap:"EBOB ile EKOK'u ters kullanmak. Sonuç ilk sayılardan küçük çıkması gerekiyorsa EBOB, büyük çıkması gerekiyorsa EKOK'tur — cevabı bulunca mantık kontrolü yap.",
        q:["4 320 sayısı 2, 3, 5 ve 9 ile kalansız bölünür mü? Her biri için kuralı yazarak gerekçelendir.",
           "84 sayısını asal çarpanlarına ayır.",
@@ -728,6 +752,8 @@
        box:[{t:"Gezegenler büyükten küçüğe", h:"<b>Jüpiter &gt; Satürn &gt; Uranüs &gt; Neptün &gt; Dünya &gt; Venüs &gt; Mars &gt; Merkür</b><br><br>İki noktaya dikkat:<ul><li><b>Uranüs, Neptün'den büyüktür</b> (çapı daha geniş) — ama <b>kütlece Neptün daha ağırdır</b>. Soru \"büyüklük\" diyorsa <b>çapa</b> bakılır.</li><li>Bu sıralamayı <b>Güneş'e yakınlık</b> sıralamasıyla karıştırma: o sıralama <b>Merkür, Venüs, Dünya, Mars, Jüpiter, Satürn, Uranüs, Neptün</b>'dür.</li></ul>"},
             {t:"İki tutulmayı karıştırmamak için", h:"<ul><li><b>Güneş tutulması:</b> Ay, Dünya ile Güneş'in arasına girer. Sıralama <code>Güneş – Ay – Dünya</code>. <b>Yeni Ay</b> evresinde, <b>gündüz</b>.</li><li><b>Ay tutulması:</b> Dünya, Güneş ile Ay'ın arasına girer. Sıralama <code>Güneş – Dünya – Ay</code>. <b>Dolunay</b> evresinde, <b>gece</b>.</li><li>Her Yeni Ay'da tutulma olmaz: Ay'ın yörüngesi Dünya'nın yörünge düzlemine yaklaşık 5° eğiktir.</li></ul>"}],
        trap:"Tutulmalarda ortadaki gök cismini şaşırmak. Adı ne tutuluyorsa o <b>arkada</b> kalır: Güneş tutulmasında ortada Ay vardır.",
+       vid:[{t:"Güneş Sistemi, Konu Özeti — 6FEN1 #2026", u:"https://www.youtube.com/watch?v=jVT7NdRGNpw"},
+            {t:"Güneş ve Ay Tutulmaları — 6FEN2 #2026", u:"https://www.youtube.com/watch?v=_z2s1FB23vg"}],
        q:["Gezegenleri Güneş'e yakınlıklarına göre sırayla yaz.",
           "Gezegenleri <b>büyükten küçüğe</b> doğru sırala.",
           "Uranüs ile Neptün'den hangisi daha büyüktür? Kütle bakımından durum nasıldır?",
@@ -876,6 +902,8 @@
           "<b>Terim anlam:</b> bir bilim, sanat ya da meslek dalına ait özel anlam. \"Cümlede <u>özne</u> bulunur.\""],
        box:[{t:"Anlam ilişkileri", h:"<ul><li><b>Eş anlam:</b> siyah – kara, okul – mektep</li><li><b>Zıt anlam:</b> uzun – kısa, genç – yaşlı</li><li><b>Eş sesli (sesteş):</b> yazılışı aynı, anlamı bambaşka. yüz (100 / surat / yüzmek)</li><li><b>Somut – soyut:</b> duyularla algılanan (taş, su) – algılanamayan (sevgi, akıl)</li></ul>"}],
        trap:"Yan anlam ile mecaz anlamı karıştırmak. Yan anlamda <b>somut bir benzerlik</b> vardır (masanın ayağı insan ayağına benzer); mecazda benzerlik soyuttur, anlam tamamen kopmuştur.",
+       vid:[{t:"6. Sınıf Türkçe — Sözcükte Anlam", u:"https://www.youtube.com/watch?v=n7grai_hjpM"},
+            {t:"6. Sınıf Türkçe — tonguçCUP 2025-2026 (tüm konular)", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjBY_0TMFms79jJ_FX7534QZ"}],
        q:["\"Çocuğun soğuk bakışları beni ürküttü.\" cümlesinde \"soğuk\" hangi anlamdadır?",
           "\"Masanın ayağı kırıldı.\" cümlesinde \"ayak\" hangi anlamdadır?",
           "\"Cümlede özne ve yüklem bulunur.\" cümlesinde \"özne\" hangi anlamdadır?",
@@ -1042,6 +1070,7 @@
           "<b>Toplumsal sorun:</b> toplumun çoğunu etkileyen, çözümü ortak çaba gerektiren sorun — trafik, çevre kirliliği, israf, bilgi kirliliği.",
           "<b>Çocuk Hakları Sözleşmesi</b>, Birleşmiş Milletler tarafından <b>1989</b>'da kabul edildi; Türkiye de taraftır."],
        trap:"Sosyal rolü meslekle sınırlı sanmak. Kardeş olmak, komşu olmak, takım oyuncusu olmak da birer sosyal roldür.",
+       vid:[{t:"6. Sınıf Sosyal — tonguçCUP 2025-2026 (tüm konular)", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjCLO23ekG1_euuJfrHI5qU_"}],
        q:["Aynı kişinin sahip olabileceği dört farklı sosyal rol yaz.",
           "Sosyal rollerin zamanla değiştiğini bir örnekle açıkla.",
           "Hak ile sorumluluk arasındaki ilişkiyi bir cümleyle anlat.",
@@ -1400,6 +1429,9 @@
           "Mutlak değer bir uzaklıktır, bu yüzden hiçbir zaman negatif olamaz.",
           "Kesirlerde bölme: ikinci kesir ters çevrilip çarpılır."],
        box:[{t:"Devirli ondalığı kesre çevirme", h:"Devreden basamak sayısı kadar <b>9</b> yaz. 0,7̄ = 7/9 · 0,2̄3̄ = 23/99. Devretmeyen basamak varsa: 0,1̄6̄'da olduğu gibi payda 90, 990… olur."}],
+       vid:[{t:"Rasyonel Sayılar — 7MAT4 #2026", u:"https://www.youtube.com/watch?v=se6P3m48-jQ"},
+            {t:"Rasyonel Sayılar, Konu Özeti — 7MAT4 #2026", u:"https://www.youtube.com/watch?v=6JBYQftWdss"},
+            {t:"Rasyonel Sayı Problemleri, Konu Özeti — 7MAT7 #2026", u:"https://www.youtube.com/watch?v=XIWB0UNjeQk"}],
        trap:"Negatif kesirleri paydaları eşitlemeden karşılaştırmak. −2/3 ile −3/4 için önce −8/12 ve −9/12 yaz, sonra karar ver.",
        q:["−3/4 ile −2/3 sayılarından hangisi büyüktür? Nedenini gösterek yaz.",
           "0,4̄ devirli ondalık sayısını kesir olarak yaz.",
@@ -1615,6 +1647,9 @@
           ["Kuyruklu yıldız","Buz ve tozdan oluşan, Güneş'e yaklaşınca kuyruk oluşturan cisim"]]}],
        box:[{t:"Işık yılı", h:"Işığın <b>bir yılda aldığı yol</b>dur — yaklaşık <b>9,5 trilyon km</b>. Bir zaman birimi değil, <b>uzaklık</b> birimidir. \"4 ışık yılı uzaklıkta\" demek, oradan gelen ışığın bize 4 yılda ulaştığı anlamına gelir."}],
        trap:"Işık yılını süre sanmak. \"Bu yıldız 4 ışık yılı uzakta\" demek bir MESAFE bildirir.",
+       vid:[{t:"Uzay Araştırmaları — 7FEN1 #2026", u:"https://www.youtube.com/watch?v=a7mvElT0EkE"},
+            {t:"Uzay Araştırmaları, Konu Özeti — 7FEN1 #2026", u:"https://www.youtube.com/watch?v=bUcBVn20JCM"},
+            {t:"7. Sınıf Fen — tonguçCUP 2025-2026 (tüm konular)", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBm8SgZEFz_jTGmIbO5zHiJP"}],
        q:["Yıldız ile gezegen arasındaki temel farkı yaz.",
           "Işık yılı neyin birimidir? Bir cümleyle açıkla.",
           "Meteor ile meteorit arasındaki fark nedir?",
@@ -1811,6 +1846,7 @@
           ["Emir","eki yoktur","gel, gelsin","Dilek"]]}],
        box:[{t:"Anlam (zaman) kayması", h:"Bir kip eki, cümlede <b>başka bir zamanı</b> anlatabilir. \"Yarın <u>geliyorum</u>.\" → şimdiki zaman eki, gelecek zaman anlamı. \"Fatih İstanbul'u <u>fetheder</u>.\" → geniş zaman eki, geçmiş zaman anlamı. Soruda \"hangi cümlede anlam kayması var\" diye sorulur."}],
        trap:"Gelecek zaman (−ecek) ile istek kipini (−e) karıştırmak. \"Gideyim\" istek, \"gideceğim\" gelecek zamandır.",
+       vid:[{t:"Fiiller — 7. Sınıf Türkçe #2025", u:"https://www.youtube.com/watch?v=cTGNSPuKdF0"}],
        q:["\"Sabah erken kalkmalıyım.\" cümlesindeki fiilin kipini ve kişisini yaz.",
           "Haber kipleri ile dilek kipleri arasındaki temel farkı yaz.",
           "\"Yarın İstanbul'a gidiyorum.\" cümlesinde anlam kayması var mıdır? Açıkla.",
@@ -1978,6 +2014,7 @@
           ["Hiç dinlemiyorsun beni.","Sözüm kesilince anlatamıyorum."],
           ["Çok bencilsin.","Sıra bana gelmeyince üzülüyorum."]]}],
        trap:"\"Ben\" sözcüğüyle başlayan her cümleyi ben dili sanmak. \"Ben senin yüzünden…\" hâlâ suçlamadır.",
+       vid:[{t:"7. Sınıf Sosyal — tonguçCUP 2025-2026 (tüm konular)", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBlGst2Xz9L__iwsxZc1fak_"}],
        q:["Ben dili ile sen dili arasındaki farkı bir örnekle açıkla.",
           "Ben dilinin üç parçasını yaz ve bir cümlede birleştir.",
           "Empati nedir? Sempatiden farkı nedir?",
@@ -2730,6 +2767,14 @@
   }
   function uid(sk, u){ return sk + "-" + slug(u.n); }
 
+  /* Takvimdeki ay adlarıyla eşleşen gerçek ay — "şu an işleniyor" işareti için. */
+  var AYLAR = ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
+  function buAy(){ return AYLAR[new Date().getMonth()]; }
+  function suAnMi(u){ return !!(u.w && u.w.indexOf(buAy()) !== -1); }
+
+  var YT = '<span class="yt" aria-hidden="true"><svg width="8" height="9" viewBox="0 0 8 9" fill="none">'
+         + '<path d="M0 0.5v8l7-4-7-4z" fill="#fff"/></svg></span>';
+
   var CHEV = '<svg class="unit-chev" width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   var CHEV_BIG = '<svg class="subj-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   var TICK = '<svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -2875,6 +2920,7 @@
             + '<button class="unit-open" data-unit="'+id+'" aria-expanded="'+uo+'">'
             + '<span class="unit-no">'+esc(s.lbl)+' '+(i+1)+'</span>'
             + '<span class="unit-name">'+esc(u.n)+'</span>'
+            + (suAnMi(u) ? '<span class="now-badge">şimdi işleniyor</span>' : '')
             + '<span class="unit-when">'+esc(u.w)+'</span>'+CHEV+'</button></div>';
           if(uo){
             h += '<div class="unit-body">';
@@ -2889,6 +2935,16 @@
             });
             if(u.tbl) u.tbl.forEach(function(t){ h += tableHTML(t); });
             if(u.trap) h += '<div class="trap"><b>Sık yapılan hata.</b> '+u.trap+'</div>';
+            if(u.vid && u.vid.length){
+              h += '<div class="kv"><h5>Konu anlatımı videoları</h5><div class="vids">';
+              u.vid.forEach(function(v){
+                var liste = v.u.indexOf("playlist") !== -1;
+                h += '<a href="'+v.u+'" target="_blank" rel="noopener">'+YT
+                   + '<span class="vt">'+esc(v.t)+'</span>'
+                   + '<span class="vk">'+(liste?"oynatma listesi":"video")+'</span></a>';
+              });
+              h += '</div></div>';
+            }
             if(u.q && u.q.length){
               h += '<div class="qs"><p class="qs-t">Sorular</p><ol>';
               u.q.forEach(function(x){ h += '<li>'+x+'</li>'; });
@@ -2907,6 +2963,21 @@
       h += '</article>';
     });
     el("subjects").innerHTML = h;
+  }
+
+  function renderNowStrip(){
+    var a = buAy(), row = null, box = el("nowStrip");
+    cur().cal.forEach(function(r){ if(!r.b && r.m === a) row = r; });
+    if(!row){ box.innerHTML = ""; box.hidden = true; return; }
+    box.hidden = false;
+    var h = '<div class="now-strip"><div class="nt">Bu ay işlenen konular · '
+          + esc(row.m)+' '+esc(row.d)+'</div><div class="chips">';
+    row.items.forEach(function(it){
+      var s = subjByKey(it[0]);
+      if(!s) return;
+      h += '<span class="chip"><i style="background:'+s.color+'"></i><b>'+esc(s.name)+':</b>&nbsp;'+esc(it[1])+'</span>';
+    });
+    box.innerHTML = h + '</div></div>';
   }
 
   function renderRing(){
@@ -3024,7 +3095,7 @@
     el("noteQ").textContent = countQ(grade);
     el("g6").setAttribute("aria-pressed", grade==="g6" ? "true" : "false");
     el("g7").setAttribute("aria-pressed", grade==="g7" ? "true" : "false");
-    renderTimeline(); renderWeek(); renderSubjects(); renderRing(); renderQuiz(); renderProgress();
+    renderTimeline(); renderWeek(); renderNowStrip(); renderSubjects(); renderRing(); renderQuiz(); renderProgress();
   }
   function setGrade(g){
     if(grade === g) return;

@@ -35,6 +35,14 @@
   }
   function uid(sk, u){ return sk + "-" + slug(u.n); }
 
+  /* Takvimdeki ay adlarıyla eşleşen gerçek ay — "şu an işleniyor" işareti için. */
+  var AYLAR = ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
+  function buAy(){ return AYLAR[new Date().getMonth()]; }
+  function suAnMi(u){ return !!(u.w && u.w.indexOf(buAy()) !== -1); }
+
+  var YT = '<span class="yt" aria-hidden="true"><svg width="8" height="9" viewBox="0 0 8 9" fill="none">'
+         + '<path d="M0 0.5v8l7-4-7-4z" fill="#fff"/></svg></span>';
+
   var CHEV = '<svg class="unit-chev" width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   var CHEV_BIG = '<svg class="subj-chev" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   var TICK = '<svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -180,6 +188,7 @@
             + '<button class="unit-open" data-unit="'+id+'" aria-expanded="'+uo+'">'
             + '<span class="unit-no">'+esc(s.lbl)+' '+(i+1)+'</span>'
             + '<span class="unit-name">'+esc(u.n)+'</span>'
+            + (suAnMi(u) ? '<span class="now-badge">şimdi işleniyor</span>' : '')
             + '<span class="unit-when">'+esc(u.w)+'</span>'+CHEV+'</button></div>';
           if(uo){
             h += '<div class="unit-body">';
@@ -194,6 +203,16 @@
             });
             if(u.tbl) u.tbl.forEach(function(t){ h += tableHTML(t); });
             if(u.trap) h += '<div class="trap"><b>Sık yapılan hata.</b> '+u.trap+'</div>';
+            if(u.vid && u.vid.length){
+              h += '<div class="kv"><h5>Konu anlatımı videoları</h5><div class="vids">';
+              u.vid.forEach(function(v){
+                var liste = v.u.indexOf("playlist") !== -1;
+                h += '<a href="'+v.u+'" target="_blank" rel="noopener">'+YT
+                   + '<span class="vt">'+esc(v.t)+'</span>'
+                   + '<span class="vk">'+(liste?"oynatma listesi":"video")+'</span></a>';
+              });
+              h += '</div></div>';
+            }
             if(u.q && u.q.length){
               h += '<div class="qs"><p class="qs-t">Sorular</p><ol>';
               u.q.forEach(function(x){ h += '<li>'+x+'</li>'; });
@@ -212,6 +231,21 @@
       h += '</article>';
     });
     el("subjects").innerHTML = h;
+  }
+
+  function renderNowStrip(){
+    var a = buAy(), row = null, box = el("nowStrip");
+    cur().cal.forEach(function(r){ if(!r.b && r.m === a) row = r; });
+    if(!row){ box.innerHTML = ""; box.hidden = true; return; }
+    box.hidden = false;
+    var h = '<div class="now-strip"><div class="nt">Bu ay işlenen konular · '
+          + esc(row.m)+' '+esc(row.d)+'</div><div class="chips">';
+    row.items.forEach(function(it){
+      var s = subjByKey(it[0]);
+      if(!s) return;
+      h += '<span class="chip"><i style="background:'+s.color+'"></i><b>'+esc(s.name)+':</b>&nbsp;'+esc(it[1])+'</span>';
+    });
+    box.innerHTML = h + '</div></div>';
   }
 
   function renderRing(){
@@ -329,7 +363,7 @@
     el("noteQ").textContent = countQ(grade);
     el("g6").setAttribute("aria-pressed", grade==="g6" ? "true" : "false");
     el("g7").setAttribute("aria-pressed", grade==="g7" ? "true" : "false");
-    renderTimeline(); renderWeek(); renderSubjects(); renderRing(); renderQuiz(); renderProgress();
+    renderTimeline(); renderWeek(); renderNowStrip(); renderSubjects(); renderRing(); renderQuiz(); renderProgress();
   }
   function setGrade(g){
     if(grade === g) return;

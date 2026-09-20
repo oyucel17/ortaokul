@@ -1,4 +1,5 @@
 <title>Ortaokul Yol Haritası</title>
+<meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
@@ -206,6 +207,25 @@
   .kv li::marker{color:var(--sc)}
   .trap{background:var(--bad-soft);border-radius:8px;padding:10px 13px;font-size:13.6px;max-width:72ch}
   .trap b{color:var(--bad);font-weight:600}
+
+  /* video linkleri */
+  .vids{display:flex;flex-direction:column;gap:6px;max-width:72ch}
+  .vids a{display:flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid var(--line);
+    border-radius:8px;background:var(--card-2);text-decoration:none;color:var(--ink);font-size:13.6px}
+  .vids a:hover{border-color:var(--sc);background:var(--card)}
+  .vids .yt{width:22px;height:16px;flex:none;border-radius:4px;background:#E62117;display:grid;place-items:center}
+  .vids .vt{flex:1;min-width:0}
+  .vids .vk{font-family:"IBM Plex Mono",monospace;font-size:9.5px;color:var(--ink-faint);
+    text-transform:uppercase;letter-spacing:.07em;flex:none}
+
+  /* su an islenen konu */
+  .now-badge{font-size:10px;font-weight:600;background:var(--ok-soft);color:var(--ok);
+    padding:2px 8px;border-radius:20px;flex:none;letter-spacing:.02em;white-space:nowrap}
+  .now-strip{background:var(--ok-soft);border:1px solid var(--ok);border-radius:var(--radius);
+    padding:13px 16px;margin-bottom:18px}
+  .now-strip .nt{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;
+    text-transform:uppercase;color:var(--ok);font-weight:600;margin-bottom:9px}
+  .now-strip .chip{background:var(--card);border-color:var(--line)}
   @media(max-width:600px){ .unit-body{padding-left:17px} }
 
   .rbox{background:var(--rb,var(--card-2));border-left:3px solid var(--sc);border-radius:0 8px 8px 0;
@@ -390,6 +410,7 @@
     <div>
       <div class="block-head"><h2>Ders ders üniteler</h2><span class="note">Ünite adları MEB resmî öğretim programından</span></div>
       <p class="lede" id="derslerLede">…</p>
+      <div id="nowStrip"></div>
       <div class="subjects" id="subjects"></div>
     </div>
   </section>
