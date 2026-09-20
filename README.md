@@ -72,6 +72,30 @@ Oynatma listeleri için `url=https://www.youtube.com/playlist?list=LISTE_ID` kul
 Videolar **ay ay** ekleniyor; şu an Eylül ve Ekim üniteleri kaplı.
 Tonguç video başlıklarındaki `6MAT3 #2026` gibi kodlar dersi, sırayı ve müfredat yılını gösterir — `#2026` olanları tercih et.
 
+## Aylık bakım
+
+Her ayın sonunda, gelecek ay için:
+
+1. **Videolar** — `CAL6`/`CAL7` takviminden gelecek ayın ünitelerini bul, `vid:[]` alanına ekle (doğrulama yöntemi yukarıda).
+2. **Sorular** — hedef ünite başına **10 çoktan seçmeli**. Tüm yılı birden yazma; müfredatın 1-2 ay önünden git.
+3. **Zayıf üniteler** — İlerleme sekmesindeki *Tekrar gerektiren üniteler* listesine bak. Orada çıkan ünitelere **yeni** sorular yaz; eskileri çocuk zaten çözmüştür.
+
+### Soru ekleme
+
+Sorular `src/08-testler.js` içinde, `Q6` ve `Q7` altında ders ders duruyor:
+
+```js
+{u:"TEMA 1 · Sayılar ve Nicelikler (1)", q:"Soru metni",
+ o:["A şıkkı","B şıkkı","C şıkkı","D şıkkı"], a:2, w:"Neden doğru olduğunun açıklaması"}
+```
+
+`u` alanı **Dersler sekmesindeki ünite başlığıyla birebir aynı** olmalı (`TEMA 1 · …`, `ÜNİTE 3 · …`,
+`KONU 5 · …`, `ALAN 2 · …`) — ünite filtresi ve zayıf ünite listesi bu alana göre gruplar.
+`a` doğru şıkkın **sıfırdan başlayan** indisidir. Şıklar sayfada karıştırıldığı için sıra önemli değil.
+
+Yeni soruyu dizinin sonuna eklemek güvenlidir: "yanlışlarım" kayıtları soru metninden türeyen
+kimliğe bağlı, indise değil.
+
 ### "Şimdi işleniyor" rozeti
 
 Ünitenin `w` alanı (ör. `"Eylül–Ekim"`) cihazın o anki ay adını içeriyorsa yeşil **şimdi işleniyor**,
