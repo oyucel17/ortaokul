@@ -59,8 +59,15 @@
     }, 900);
   }
 
+  /* Kullanıcı bu oturumda hangi sınıfa dokunduysa, buluttan gelen
+     eski veri onun üstüne YAZILMAZ. Aksi hâlde sayfa açılır açılmaz
+     işaretlemeye başlayan çocuğun işaretleri, geç gelen bulut
+     cevabıyla silinir. */
+  var dokunuldu = {};
+
   var _persist = persist;
   persist = function(){
+    dokunuldu[grade] = true;
     _persist();
     bulutaYazGecikmeli(grade);
   };
@@ -74,6 +81,7 @@
       satirlar.forEach(function(r){
         var g = r.sinif;
         if(g !== "g6" && g !== "g7") return;
+        if(dokunuldu[g]) return;        // bu oturumda elle değiştirildi, dokunma
         var yerel = (state[g].son || "");
         var bulut = (r.veri && r.veri.son) || r.guncelleme || "";
         if(bulut > yerel){
