@@ -122,7 +122,11 @@
       satirlar.forEach(function(r){
         if(r.sinif !== "g6" && r.sinif !== "g7") return;
         var S = r.veri || {};
-        if(!S.son && r.guncelleme) S.son = r.guncelleme;
+        /* son bilgisi yoksa ama gerçek veri varsa satırın zamanını kullan;
+           tamamen boş satırda "henüz kayıt yok" yazsın diye boş bırak */
+        var doluMu = Object.keys(S.done || {}).length || Object.keys(S.quiz || {}).length
+                  || Object.keys(S.wrong || {}).length;
+        if(!S.son && doluMu && r.guncelleme) S.son = r.guncelleme;
         kart[r.sinif] = veliKartObje(durumObje(r.sinif, S));
       });
       var k = Object.keys(kart).sort();
