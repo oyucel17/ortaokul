@@ -4601,7 +4601,8 @@
     var S = state[g] || {};
     var govde = [{
       sinif: g,
-      veri: { done:S.done || {}, quiz:S.quiz || {}, wrong:S.wrong || {}, son:S.son || "" },
+      veri: { done:S.done || {}, quiz:S.quiz || {}, wrong:S.wrong || {},
+              cevap:S.cevap || {}, video:S.video || {}, son:S.son || "" },
       guncelleme: new Date().toISOString()
     }];
     return fetch(SB_URL + "/rest/v1/" + SB_TABLO + "?on_conflict=sinif", {
@@ -4662,6 +4663,8 @@
           state[g].done  = (r.veri && r.veri.done)  || {};
           state[g].quiz  = (r.veri && r.veri.quiz)  || {};
           state[g].wrong = (r.veri && r.veri.wrong) || {};
+          state[g].cevap = (r.veri && r.veri.cevap) || {};
+          state[g].video = (r.veri && r.veri.video) || {};
           state[g].son   = bulut;
           degisti = true;
         }
@@ -4699,7 +4702,8 @@
         /* son bilgisi yoksa ama gerçek veri varsa satırın zamanını kullan;
            tamamen boş satırda "henüz kayıt yok" yazsın diye boş bırak */
         var doluMu = Object.keys(S.done || {}).length || Object.keys(S.quiz || {}).length
-                  || Object.keys(S.wrong || {}).length;
+                  || Object.keys(S.wrong || {}).length || Object.keys(S.cevap || {}).length
+                  || Object.keys(S.video || {}).length;
         if(!S.son && doluMu && r.guncelleme) S.son = r.guncelleme;
         kart[r.sinif] = veliKartObje(durumObje(r.sinif, S));
       });
