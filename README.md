@@ -50,11 +50,33 @@ git add -A && git commit -m "Aciklama" && git push
   box:[{t:"Kutu başlığı", h:"HTML içerik"}], // Kural / formül kutusu
   tbl:[{h:["Sütun1","Sütun2"], r:[["a","b"]]}],
   trap:"Sık yapılan hata",
+  vid:[{t:"Video başlığı", u:"https://www.youtube.com/watch?v=..."}],
   q:["Soru 1","Soru 2"],                     // Açık uçlu
   a:["Cevap 1","Cevap 2"] }                  // Cevap anahtarı — q ile aynı sırada
 ```
 
 Tüm alanlar isteğe bağlıdır (`n` ve `w` hariç). `a` dizisi `q` ile **birebir aynı sırada** olmalıdır.
+
+### Video linki eklerken
+
+Link uydurma. Ekleyeceğin her videoyu önce doğrula:
+
+```bash
+curl -s "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=VIDEO_ID&format=json"
+```
+
+Başlık ve kanal adı dönüyorsa video gerçek. `author_name` alanı `tonguç 6. SINIF` / `tonguç 7. SINIF` olmalı.
+Oynatma listeleri için `url=https://www.youtube.com/playlist?list=LISTE_ID` kullan.
+`u` alanında `playlist` geçerse sayfa otomatik olarak "oynatma listesi" etiketi basar.
+
+Videolar **ay ay** ekleniyor; şu an Eylül ve Ekim üniteleri kaplı.
+Tonguç video başlıklarındaki `6MAT3 #2026` gibi kodlar dersi, sırayı ve müfredat yılını gösterir — `#2026` olanları tercih et.
+
+### "Şimdi işleniyor" rozeti
+
+Ünitenin `w` alanı (ör. `"Eylül–Ekim"`) cihazın o anki ay adını içeriyorsa yeşil **şimdi işleniyor**,
+bir sonraki ayın adını içeriyorsa mavi **sonraki ay** rozeti basılır. Kod tarafında ayar gerekmez,
+ay değişince kendiliğinden kayar. Üstteki şerit ise takvimden (`CAL6` / `CAL7`) okunur.
 
 ### İlerleme kayıtları güvenli mi?
 
