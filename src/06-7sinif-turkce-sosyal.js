@@ -103,6 +103,7 @@
           ["Tiyatro","Sahnede oynanmak için yazılır, diyalogdan oluşur, perde ve sahnelere ayrılır"],
           ["Deneme","Yazarın kendi düşüncelerini serbestçe anlattığı yazı"]]}],
        trap:"Kişileştirme ile benzetmeyi karıştırmak. \"Ağaçlar el salladı\" kişileştirme, \"ağaç gibi uzun\" benzetmedir.",
+       vid:[{t:"Söz Sanatları — 7TURK3 #2026", u:"https://www.youtube.com/watch?v=Lxnzq7Z8nsc"}],
        q:["Benzetmenin dört ögesini bir örnek üzerinde göster.",
           "\"Dalgalar kıyıya öfkeyle saldırıyordu.\" cümlesindeki söz sanatı nedir?",
           "Kişileştirme ile konuşturma arasındaki ilişki nedir?",

@@ -260,6 +260,8 @@
           ["Yere göre","Değişmez","Değişir (Ay'da 1/6)"]]}],
        box:[{t:"İş ne zaman yapılır?", h:"Üç şart birlikte gerekir: (1) bir <b>kuvvet</b> uygulanmalı, (2) cisim <b>yol almalı</b>, (3) yol kuvvetin <b>doğrultusunda</b> olmalı. Duvarı itip hareket ettirememek, çantayı elde tutup düz yürümek → <b>iş sıfırdır</b>."}],
        trap:"Duvarı iterken yorulmayı \"iş yapmak\" sanmak. Duvar hareket etmediği için yapılan iş sıfırdır.",
+       vid:[{t:"Kuvvet, İş ve Enerji İlişkisi — 7FEN7 #2026", u:"https://www.youtube.com/watch?v=1V6KQrtJSIk"},
+            {t:"7. Sınıf Fen — tonguçCUP 2025-2026 (tüm konular)", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBm8SgZEFz_jTGmIbO5zHiJP"}],
        q:["Kütle ile ağırlık arasındaki üç farkı yaz.",
           "40 N'luk kuvvetle bir cisim kuvvet yönünde 6 m taşınırsa yapılan iş kaç joule'dür?",
           "Bir kişi çantayı elinde tutarak 20 m düz yürüyor. Yapılan iş kaçtır? Nedenini yaz.",

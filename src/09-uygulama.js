@@ -38,7 +38,9 @@
   /* Takvimdeki ay adlarıyla eşleşen gerçek ay — "şu an işleniyor" işareti için. */
   var AYLAR = ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
   function buAy(){ return AYLAR[new Date().getMonth()]; }
+  function sonrakiAy(){ return AYLAR[(new Date().getMonth()+1) % 12]; }
   function suAnMi(u){ return !!(u.w && u.w.indexOf(buAy()) !== -1); }
+  function sonrakiMi(u){ return !!(u.w && u.w.indexOf(sonrakiAy()) !== -1); }
 
   var YT = '<span class="yt" aria-hidden="true"><svg width="8" height="9" viewBox="0 0 8 9" fill="none">'
          + '<path d="M0 0.5v8l7-4-7-4z" fill="#fff"/></svg></span>';
@@ -188,7 +190,8 @@
             + '<button class="unit-open" data-unit="'+id+'" aria-expanded="'+uo+'">'
             + '<span class="unit-no">'+esc(s.lbl)+' '+(i+1)+'</span>'
             + '<span class="unit-name">'+esc(u.n)+'</span>'
-            + (suAnMi(u) ? '<span class="now-badge">şimdi işleniyor</span>' : '')
+            + (suAnMi(u) ? '<span class="now-badge">şimdi işleniyor</span>'
+               : sonrakiMi(u) ? '<span class="next-badge">sonraki ay</span>' : '')
             + '<span class="unit-when">'+esc(u.w)+'</span>'+CHEV+'</button></div>';
           if(uo){
             h += '<div class="unit-body">';
@@ -234,18 +237,23 @@
   }
 
   function renderNowStrip(){
-    var a = buAy(), row = null, box = el("nowStrip");
-    cur().cal.forEach(function(r){ if(!r.b && r.m === a) row = r; });
-    if(!row){ box.innerHTML = ""; box.hidden = true; return; }
-    box.hidden = false;
-    var h = '<div class="now-strip"><div class="nt">Bu ay işlenen konular · '
-          + esc(row.m)+' '+esc(row.d)+'</div><div class="chips">';
-    row.items.forEach(function(it){
-      var s = subjByKey(it[0]);
-      if(!s) return;
-      h += '<span class="chip"><i style="background:'+s.color+'"></i><b>'+esc(s.name)+':</b>&nbsp;'+esc(it[1])+'</span>';
+    var box = el("nowStrip"), h = "", bulunan = 0;
+    [[buAy(), "Bu ay işlenen konular", ""], [sonrakiAy(), "Sonraki ay", " next"]].forEach(function(p){
+      var row = null;
+      cur().cal.forEach(function(r){ if(!r.b && r.m === p[0]) row = r; });
+      if(!row) return;
+      bulunan++;
+      h += '<div class="now-strip'+p[2]+'"><div class="nt">'+p[1]+' · '
+         + esc(row.m)+' '+esc(row.d)+'</div><div class="chips">';
+      row.items.forEach(function(it){
+        var s = subjByKey(it[0]);
+        if(!s) return;
+        h += '<span class="chip"><i style="background:'+s.color+'"></i><b>'+esc(s.name)+':</b>&nbsp;'+esc(it[1])+'</span>';
+      });
+      h += '</div></div>';
     });
-    box.innerHTML = h + '</div></div>';
+    box.innerHTML = h;
+    box.hidden = bulunan === 0;
   }
 
   function renderRing(){

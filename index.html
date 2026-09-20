@@ -233,6 +233,10 @@
   .now-strip .nt{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;
     text-transform:uppercase;color:var(--ok);font-weight:600;margin-bottom:9px}
   .now-strip .chip{background:var(--card);border-color:var(--line)}
+  .now-strip.next{background:var(--accent-soft);border-color:var(--accent)}
+  .now-strip.next .nt{color:var(--accent-ink)}
+  .next-badge{font-size:10px;font-weight:600;background:var(--accent-soft);color:var(--accent-ink);
+    padding:2px 8px;border-radius:20px;flex:none;letter-spacing:.02em;white-space:nowrap}
   @media(max-width:600px){ .unit-body{padding-left:17px} }
 
   .rbox{background:var(--rb,var(--card-2));border-left:3px solid var(--sc);border-radius:0 8px 8px 0;
@@ -612,6 +616,8 @@
           "<b>Sütun grafiği</b> grupları karşılaştırmak, <b>çizgi grafiği</b> zamanla değişimi göstermek içindir."],
        box:[{t:"Merkezî eğilim ölçüleri ve açıklık", h:"<ul><li><b>Aritmetik ortalama</b> = verilerin toplamı ÷ veri sayısı</li><li><b>Ortanca (medyan)</b> = sıralandığında tam ortadaki veri; veri sayısı çiftse ortadaki iki verinin ortalaması</li><li><b>Tepe değer (mod)</b> = en çok tekrar eden veri</li><li><b>Açıklık</b> = en büyük veri − en küçük veri</li></ul>"}],
        trap:"Ortancayı bulurken veriyi sıralamamak. Soruda verilen sıra çoğu zaman karışıktır; önce küçükten büyüğe diz.",
+       vid:[{t:"Veri Toplama ve Değerlendirme — 6. Sınıf Matematik #2025", u:"https://www.youtube.com/watch?v=Zldrna_cpys"},
+            {t:"6. Sınıf Matematik — tonguçCUP 2025-2026 (tüm konular)", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjBzFaWUgW2cdKv3pL_8Buxr"}],
        q:["12, 15, 9, 20, 14 verilerinin aritmetik ortalamasını bul.",
           "Aynı veri grubunun açıklığı kaçtır?",
           "7, 3, 9, 3, 5, 8 verilerinin ortancasını ve tepe değerini bul.",
@@ -779,6 +785,9 @@
             {t:"Sürat", h:"<code>Sürat = alınan yol ÷ geçen süre</code> · <code>Yol = sürat · süre</code> · <code>Süre = yol ÷ sürat</code>. Birimi m/s veya km/h'dir."}],
        p:["Dengelenmiş kuvvet \"hareket yok\" demek değildir — sabit süratle giden cisimde de kuvvetler dengelenmiştir."],
        trap:"Dengelenmiş kuvvetleri \"cisim mutlaka duruyor\" diye anlamak. Sabit süratle doğrusal giden bir cisimde de bileşke kuvvet sıfırdır.",
+       vid:[{t:"Bileşke Kuvvet, Konu Özeti — 6FEN3 #2026", u:"https://www.youtube.com/watch?v=iuhA6vp1PaY"},
+            {t:"Sabit Süratli Hareket — 6. Sınıf Fen #2025", u:"https://www.youtube.com/watch?v=R4HDZiyTXJ4"},
+            {t:"6. Sınıf Fen — tonguçCUP 2025-2026 (tüm konular)", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjDznWPQy4PkvygYjDvO-tSw"}],
        q:["Bir cisme aynı yönde 15 N ve 25 N'luk iki kuvvet uygulanıyor. Bileşke kuvvetin büyüklüğü ve yönü nedir?",
           "Bir cisme zıt yönde 30 N ve 18 N'luk kuvvetler uygulanıyor. Bileşke kuvvet kaç N'dur ve hangi yöndedir?",
           "180 km yolu 3 saatte alan bir aracın sürati kaç km/h'dir?","20 m/s süratle 15 saniye hareket eden bir cisim kaç metre yol alır?",
@@ -902,7 +911,8 @@
           "<b>Terim anlam:</b> bir bilim, sanat ya da meslek dalına ait özel anlam. \"Cümlede <u>özne</u> bulunur.\""],
        box:[{t:"Anlam ilişkileri", h:"<ul><li><b>Eş anlam:</b> siyah – kara, okul – mektep</li><li><b>Zıt anlam:</b> uzun – kısa, genç – yaşlı</li><li><b>Eş sesli (sesteş):</b> yazılışı aynı, anlamı bambaşka. yüz (100 / surat / yüzmek)</li><li><b>Somut – soyut:</b> duyularla algılanan (taş, su) – algılanamayan (sevgi, akıl)</li></ul>"}],
        trap:"Yan anlam ile mecaz anlamı karıştırmak. Yan anlamda <b>somut bir benzerlik</b> vardır (masanın ayağı insan ayağına benzer); mecazda benzerlik soyuttur, anlam tamamen kopmuştur.",
-       vid:[{t:"6. Sınıf Türkçe — Sözcükte Anlam", u:"https://www.youtube.com/watch?v=n7grai_hjpM"},
+       vid:[{t:"Sözcükte Anlam — 6TURK2 #2026", u:"https://www.youtube.com/watch?v=dzzHe4R03vk"},
+            {t:"6. Sınıf Türkçe — Sözcükte Anlam", u:"https://www.youtube.com/watch?v=n7grai_hjpM"},
             {t:"6. Sınıf Türkçe — tonguçCUP 2025-2026 (tüm konular)", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjBY_0TMFms79jJ_FX7534QZ"}],
        q:["\"Çocuğun soğuk bakışları beni ürküttü.\" cümlesinde \"soğuk\" hangi anlamdadır?",
           "\"Masanın ayağı kırıldı.\" cümlesinde \"ayak\" hangi anlamdadır?",
@@ -923,6 +933,7 @@
           "<b>Konuşturma (intak):</b> insan dışı varlığı konuşturmak. Konuşturma varsa kişileştirme de vardır.",
           "<b>Abartma (mübalağa):</b> olağandan çok büyütmek. \"Sesi dağları inletti.\""],
        trap:"Konuşturma olan bir cümlede kişileştirmeyi görmemek. Bir varlık konuşuyorsa zaten kişileştirilmiştir — ikisi birlikte bulunur.",
+       vid:[{t:"Deyimler ve Atasözleri — 6TURK5 #2026", u:"https://www.youtube.com/watch?v=Mse9D9_eKRY"}],
        q:["\"İğneden ipliğe dönmek\" deyiminin anlamı nedir?",
           "\"Ağaç yaşken eğilir.\" bir deyim midir atasözü müdür? Anlamını yaz.",
           "\"Rüzgâr pencereyi dövüyordu.\" cümlesinde hangi söz sanatı vardır?",
@@ -1677,6 +1688,8 @@
           ["Yere göre","Değişmez","Değişir (Ay'da 1/6)"]]}],
        box:[{t:"İş ne zaman yapılır?", h:"Üç şart birlikte gerekir: (1) bir <b>kuvvet</b> uygulanmalı, (2) cisim <b>yol almalı</b>, (3) yol kuvvetin <b>doğrultusunda</b> olmalı. Duvarı itip hareket ettirememek, çantayı elde tutup düz yürümek → <b>iş sıfırdır</b>."}],
        trap:"Duvarı iterken yorulmayı \"iş yapmak\" sanmak. Duvar hareket etmediği için yapılan iş sıfırdır.",
+       vid:[{t:"Kuvvet, İş ve Enerji İlişkisi — 7FEN7 #2026", u:"https://www.youtube.com/watch?v=1V6KQrtJSIk"},
+            {t:"7. Sınıf Fen — tonguçCUP 2025-2026 (tüm konular)", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBm8SgZEFz_jTGmIbO5zHiJP"}],
        q:["Kütle ile ağırlık arasındaki üç farkı yaz.",
           "40 N'luk kuvvetle bir cisim kuvvet yönünde 6 m taşınırsa yapılan iş kaç joule'dür?",
           "Bir kişi çantayı elinde tutarak 20 m düz yürüyor. Yapılan iş kaçtır? Nedenini yaz.",
@@ -1929,6 +1942,7 @@
           ["Tiyatro","Sahnede oynanmak için yazılır, diyalogdan oluşur, perde ve sahnelere ayrılır"],
           ["Deneme","Yazarın kendi düşüncelerini serbestçe anlattığı yazı"]]}],
        trap:"Kişileştirme ile benzetmeyi karıştırmak. \"Ağaçlar el salladı\" kişileştirme, \"ağaç gibi uzun\" benzetmedir.",
+       vid:[{t:"Söz Sanatları — 7TURK3 #2026", u:"https://www.youtube.com/watch?v=Lxnzq7Z8nsc"}],
        q:["Benzetmenin dört ögesini bir örnek üzerinde göster.",
           "\"Dalgalar kıyıya öfkeyle saldırıyordu.\" cümlesindeki söz sanatı nedir?",
           "Kişileştirme ile konuşturma arasındaki ilişki nedir?",
@@ -2770,7 +2784,9 @@
   /* Takvimdeki ay adlarıyla eşleşen gerçek ay — "şu an işleniyor" işareti için. */
   var AYLAR = ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
   function buAy(){ return AYLAR[new Date().getMonth()]; }
+  function sonrakiAy(){ return AYLAR[(new Date().getMonth()+1) % 12]; }
   function suAnMi(u){ return !!(u.w && u.w.indexOf(buAy()) !== -1); }
+  function sonrakiMi(u){ return !!(u.w && u.w.indexOf(sonrakiAy()) !== -1); }
 
   var YT = '<span class="yt" aria-hidden="true"><svg width="8" height="9" viewBox="0 0 8 9" fill="none">'
          + '<path d="M0 0.5v8l7-4-7-4z" fill="#fff"/></svg></span>';
@@ -2920,7 +2936,8 @@
             + '<button class="unit-open" data-unit="'+id+'" aria-expanded="'+uo+'">'
             + '<span class="unit-no">'+esc(s.lbl)+' '+(i+1)+'</span>'
             + '<span class="unit-name">'+esc(u.n)+'</span>'
-            + (suAnMi(u) ? '<span class="now-badge">şimdi işleniyor</span>' : '')
+            + (suAnMi(u) ? '<span class="now-badge">şimdi işleniyor</span>'
+               : sonrakiMi(u) ? '<span class="next-badge">sonraki ay</span>' : '')
             + '<span class="unit-when">'+esc(u.w)+'</span>'+CHEV+'</button></div>';
           if(uo){
             h += '<div class="unit-body">';
@@ -2966,18 +2983,23 @@
   }
 
   function renderNowStrip(){
-    var a = buAy(), row = null, box = el("nowStrip");
-    cur().cal.forEach(function(r){ if(!r.b && r.m === a) row = r; });
-    if(!row){ box.innerHTML = ""; box.hidden = true; return; }
-    box.hidden = false;
-    var h = '<div class="now-strip"><div class="nt">Bu ay işlenen konular · '
-          + esc(row.m)+' '+esc(row.d)+'</div><div class="chips">';
-    row.items.forEach(function(it){
-      var s = subjByKey(it[0]);
-      if(!s) return;
-      h += '<span class="chip"><i style="background:'+s.color+'"></i><b>'+esc(s.name)+':</b>&nbsp;'+esc(it[1])+'</span>';
+    var box = el("nowStrip"), h = "", bulunan = 0;
+    [[buAy(), "Bu ay işlenen konular", ""], [sonrakiAy(), "Sonraki ay", " next"]].forEach(function(p){
+      var row = null;
+      cur().cal.forEach(function(r){ if(!r.b && r.m === p[0]) row = r; });
+      if(!row) return;
+      bulunan++;
+      h += '<div class="now-strip'+p[2]+'"><div class="nt">'+p[1]+' · '
+         + esc(row.m)+' '+esc(row.d)+'</div><div class="chips">';
+      row.items.forEach(function(it){
+        var s = subjByKey(it[0]);
+        if(!s) return;
+        h += '<span class="chip"><i style="background:'+s.color+'"></i><b>'+esc(s.name)+':</b>&nbsp;'+esc(it[1])+'</span>';
+      });
+      h += '</div></div>';
     });
-    box.innerHTML = h + '</div></div>';
+    box.innerHTML = h;
+    box.hidden = bulunan === 0;
   }
 
   function renderRing(){
