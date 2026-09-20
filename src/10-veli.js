@@ -49,7 +49,8 @@
     G[g].subj.forEach(function(s){
       var hepsi = ((G[g].quiz || {})[s.key] || []).concat(((G[g].havuz || {})[s.key] || []));
       hepsi.forEach(function(qq){
-        if(!(S.wrong || {})[wkeyFor(s.key, qq)]) return;
+        var c_ = (S.cevap || {})[wkeyFor(s.key, qq)];
+        if(c_ === undefined || c_ === qq.a) return;   // yanlis, cevaplardan turetilir
         for(var i = 0; i < EL.length; i++){
           if(EL[i].sk === s.key && EL[i].u === qq.u){ sayim[i] = (sayim[i] || 0) + 1; break; }
         }
@@ -103,7 +104,8 @@
     G[g].subj.forEach(function(s){
       var hepsi = ((G[g].quiz || {})[s.key] || []).concat(((G[g].havuz || {})[s.key] || []));
       hepsi.forEach(function(qq){
-        if(!(S.wrong || {})[wkeyFor(s.key, qq)]) return;
+        var c_ = (S.cevap || {})[wkeyFor(s.key, qq)];
+        if(c_ === undefined || c_ === qq.a) return;   // yanlis, cevaplardan turetilir
         for(var i = 0; i < EL.length; i++){
           if(EL[i].sk === s.key && EL[i].u === qq.u){ sayim[i] = (sayim[i] || 0) + 1; break; }
         }

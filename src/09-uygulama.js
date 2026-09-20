@@ -41,6 +41,21 @@
   function wkeyFor(sk, q){ return sk + "|" + qid(q); }
   function wkey(q){ return wkeyFor(curQuiz, q); }
 
+  /* Hata defteri artık ayrı tutulmuyor, verilen cevaplardan TÜRETİLİYOR.
+     Ayrı tutulunca "bu cihazda kayıt yok" ile "sonradan düzeltildi"
+     birbirinden ayrılamıyor ve cihazlar birleşirken yanlışlar diriliyordu. */
+  function yanlisHesapla(g){
+    var S = state[g], W = {};
+    G[g].subj.forEach(function(s){
+      var hepsi = ((G[g].quiz || {})[s.key] || []).concat(((G[g].havuz || {})[s.key] || []));
+      hepsi.forEach(function(q){
+        var k = wkeyFor(s.key, q), c = (S.cevap || {})[k];
+        if(c !== undefined && c !== q.a) W[k] = true;
+      });
+    });
+    S.wrong = W;
+  }
+
   /* Deterministik karıştırma: aynı tohum aynı sırayı verir, böylece
      tıkladıkça sıra değişmez; "Testi sıfırla" yeni tohum üretir. */
   var seeds = {};
@@ -628,8 +643,7 @@
     var k = wkey(q);
     if(st().cevap[k] !== undefined) return;
     st().cevap[k] = sec;                       // verdiği cevap kalıcı kaydedilir
-    /* hata defteri: yanlışsa kaydet, doğruysa listeden çıkar */
-    if(sec === q.a) delete st().wrong[k]; else st().wrong[k] = true;
+    yanlisHesapla(grade);                      // hata defteri cevaplardan türetilir
     persist();
     renderQuiz();
     renderProgress();
@@ -665,6 +679,7 @@
   el("qReset").addEventListener("click", function(){
     var C = st().cevap;
     gosterilecek().forEach(function(it){ delete C[wkeyFor(curQuiz, it.q)]; });
+    yanlisHesapla(grade);
     reveal = false;
     seeds[grade+"-"+curQuiz] = Math.floor(Math.random()*1e9);  // yeni karışım
     persist();
@@ -702,6 +717,7 @@
 
   /* ---------- açılış ---------- */
   readLocal();
+  yanlisHesapla("g6"); yanlisHesapla("g7");
   try{
     var g = localStorage.getItem(LS+"-grade");
     if(g === "g6" || g === "g7") grade = g;

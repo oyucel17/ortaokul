@@ -60,18 +60,43 @@
     }, 900);
   }
 
-  /* Kullanıcı bu oturumda hangi sınıfa dokunduysa, buluttan gelen
-     eski veri onun üstüne YAZILMAZ. Aksi hâlde sayfa açılır açılmaz
-     işaretlemeye başlayan çocuğun işaretleri, geç gelen bulut
-     cevabıyla silinir. */
-  var dokunuldu = {};
-
   var _persist = persist;
   persist = function(){
-    dokunuldu[grade] = true;
     _persist();
     bulutaYazGecikmeli(grade);
   };
+
+  /* Cihazlar arası BİRLEŞTİRME.
+     Üzerine yazmak iki yönde de veri kaybediyordu: bulut geç gelince
+     yeni işaretlemeleri, erken gelince diğer cihazdakileri siliyordu.
+     Kayıtların hepsi "olan biten" listesi olduğu için birleşim doğru
+     davranış. Tek ödünü: bir cihazda kaldırılan ünite işareti, diğer
+     cihazda duruyorsa geri gelir. */
+  function birlestir(g, uzak){
+    var S = state[g];
+    uzak = uzak || {};
+
+    Object.keys(uzak.done || {}).forEach(function(k){ if(uzak.done[k]) S.done[k] = true; });
+
+    Object.keys(uzak.cevap || {}).forEach(function(k){
+      if(S.cevap[k] === undefined) S.cevap[k] = uzak.cevap[k];   // çakışmada yereli koru
+    });
+
+    Object.keys(uzak.video || {}).forEach(function(k){
+      var a = S.video[k], b = uzak.video[k];
+      if(!a){ S.video[k] = b; return; }
+      a.n = Math.max(a.n || 0, b.n || 0);
+      if((b.son || "") > (a.son || "")) a.son = b.son;
+    });
+
+    Object.keys(uzak.quiz || {}).forEach(function(k){
+      var a = S.quiz[k], b = uzak.quiz[k];
+      if(b && (!a || b.best > a.best)) S.quiz[k] = b;
+    });
+
+    if((uzak.son || "") > (S.son || "")) S.son = uzak.son;
+    yanlisHesapla(g);
+  }
 
   /* Açılışta buluttan çek: bulut daha yeniyse onu al (cihazlar arası senkron) */
   function bulutuGetir(){
@@ -82,16 +107,9 @@
       satirlar.forEach(function(r){
         var g = r.sinif;
         if(g !== "g6" && g !== "g7") return;
-        if(dokunuldu[g]) return;        // bu oturumda elle değiştirildi, dokunma
-        var yerel = (state[g].son || "");
-        var bulut = (r.veri && r.veri.son) || r.guncelleme || "";
-        if(bulut > yerel){
-          state[g].done  = (r.veri && r.veri.done)  || {};
-          state[g].quiz  = (r.veri && r.veri.quiz)  || {};
-          state[g].wrong = (r.veri && r.veri.wrong) || {};
-          state[g].cevap = (r.veri && r.veri.cevap) || {};
-          state[g].video = (r.veri && r.veri.video) || {};
-          state[g].son   = bulut;
+        var oncesi = JSON.stringify([state[g].done, state[g].cevap, state[g].video, state[g].quiz]);
+        birlestir(g, r.veri || {});
+        if(JSON.stringify([state[g].done, state[g].cevap, state[g].video, state[g].quiz]) !== oncesi){
           degisti = true;
         }
       });
@@ -99,6 +117,7 @@
         writeLocal();
         renderSubjects(); renderRing(); renderProgress(); renderQuiz();
         setSaveNote(true, "Diğer cihazdaki ilerleme alındı.");
+        bulutaYaz(grade);          // birleşmiş hâli geri yaz, cihazlar aynı noktada buluşsun
       } else {
         setSaveNote(true, "Kaydedildi ve ailenle paylaşıldı.");
       }
