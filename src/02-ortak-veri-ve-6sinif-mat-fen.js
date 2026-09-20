@@ -110,6 +110,7 @@
 
   var S6 = [
     {key:"mat", name:"Matematik", color:"var(--s-mat)", meta:"7 tema · MEB TYMM resmî program", lbl:"TEMA",
+     plist:{t:"6. Sınıf Matematik — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjBQiwKtt4aLD1xKfNia8cjI"},
      note:"Yeni programda matematik \"ünite\" değil <b>tema</b> başlıkları altında işleniyor. Aşağıdaki sıra, yıllık planın öğretim sırası. Eski kaynaklardaki <b>tam sayılar, kümeler, oran, üslü ifadeler ve hacim</b> bu programda 6. sınıfta yok — başka sınıflara taşındı.",
      units:[
       {n:"Sayılar ve Nicelikler (1): Çarpanlar, Katlar, Asal Sayılar", w:"Eylül–Ekim",
@@ -152,8 +153,7 @@
           "<b>Sütun grafiği</b> grupları karşılaştırmak, <b>çizgi grafiği</b> zamanla değişimi göstermek içindir."],
        box:[{t:"Merkezî eğilim ölçüleri ve açıklık", h:"<ul><li><b>Aritmetik ortalama</b> = verilerin toplamı ÷ veri sayısı</li><li><b>Ortanca (medyan)</b> = sıralandığında tam ortadaki veri; veri sayısı çiftse ortadaki iki verinin ortalaması</li><li><b>Tepe değer (mod)</b> = en çok tekrar eden veri</li><li><b>Açıklık</b> = en büyük veri − en küçük veri</li></ul>"}],
        trap:"Ortancayı bulurken veriyi sıralamamak. Soruda verilen sıra çoğu zaman karışıktır; önce küçükten büyüğe diz.",
-       vid:[{t:"Veri Toplama ve Değerlendirme — 6. Sınıf Matematik #2025", u:"https://www.youtube.com/watch?v=Zldrna_cpys"},
-            {t:"6. Sınıf Matematik — tonguçCUP 2025-2026 (tüm konular)", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjBzFaWUgW2cdKv3pL_8Buxr"}],
+       vid:[{t:"Veri Toplama ve Değerlendirme — 6. Sınıf Matematik #2025", u:"https://www.youtube.com/watch?v=Zldrna_cpys"}],
        q:["12, 15, 9, 20, 14 verilerinin aritmetik ortalamasını bul.",
           "Aynı veri grubunun açıklığı kaçtır?",
           "7, 3, 9, 3, 5, 8 verilerinin ortancasını ve tepe değerini bul.",
@@ -274,6 +274,7 @@
      ]},
 
     {key:"fen", name:"Fen Bilimleri", color:"var(--s-fen)", meta:"7 ünite · MEB TYMM resmî program", lbl:"ÜNİTE",
+     plist:{t:"6. Sınıf Fen — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjDznWPQy4PkvygYjDvO-tSw"},
      note:"Eski programdaki <b>Ses ve Özellikleri</b> ile <b>Bitki ve Hayvanlarda Üreme</b> üniteleri bu programda yok; yerlerine <b>Işığın Yansıması ve Renkler</b> ile <b>Sürdürülebilir Yaşam ve Etkileşim</b> geldi.",
      units:[
       {n:"Güneş Sistemi ve Tutulmalar", w:"Eylül–Ekim",
@@ -322,8 +323,7 @@
        p:["Dengelenmiş kuvvet \"hareket yok\" demek değildir — sabit süratle giden cisimde de kuvvetler dengelenmiştir."],
        trap:"Dengelenmiş kuvvetleri \"cisim mutlaka duruyor\" diye anlamak. Sabit süratle doğrusal giden bir cisimde de bileşke kuvvet sıfırdır.",
        vid:[{t:"Bileşke Kuvvet, Konu Özeti — 6FEN3 #2026", u:"https://www.youtube.com/watch?v=iuhA6vp1PaY"},
-            {t:"Sabit Süratli Hareket — 6. Sınıf Fen #2025", u:"https://www.youtube.com/watch?v=R4HDZiyTXJ4"},
-            {t:"6. Sınıf Fen — tonguçCUP 2025-2026 (tüm konular)", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjDznWPQy4PkvygYjDvO-tSw"}],
+            {t:"Sabit Süratli Hareket — 6. Sınıf Fen #2025", u:"https://www.youtube.com/watch?v=R4HDZiyTXJ4"}],
        q:["Bir cisme aynı yönde 15 N ve 25 N'luk iki kuvvet uygulanıyor. Bileşke kuvvetin büyüklüğü ve yönü nedir?",
           "Bir cisme zıt yönde 30 N ve 18 N'luk kuvvetler uygulanıyor. Bileşke kuvvet kaç N'dur ve hangi yöndedir?",
           "180 km yolu 3 saatte alan bir aracın sürati kaç km/h'dir?","20 m/s süratle 15 saniye hareket eden bir cisim kaç metre yol alır?",

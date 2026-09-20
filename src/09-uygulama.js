@@ -181,7 +181,17 @@
         + '<div class="subj-title"><h3>'+esc(s.name)+'</h3><div class="meta">'+esc(s.meta)+'</div></div>'
         + '<span class="subj-prog">'+dc+'/'+s.units.length+'</span>'+CHEV_BIG+'</button>';
       if(isOpen){
-        if(s.note) h += '<div class="subj-note">'+s.note+'</div>';
+        if(s.note || s.plist){
+          h += '<div class="subj-extra">';
+          if(s.note) h += '<div class="subj-note">'+s.note+'</div>';
+          if(s.plist){
+            var liste = s.plist.u.indexOf("playlist") !== -1;
+            h += '<div class="vids"><a href="'+s.plist.u+'" target="_blank" rel="noopener">'+YT
+               + '<span class="vt">'+esc(s.plist.t)+'</span>'
+               + '<span class="vk">'+(liste?"oynatma listesi":"kanal")+'</span></a></div>';
+          }
+          h += '</div>';
+        }
         s.units.forEach(function(u,i){
           var id = uid(s.key, u), isDone = !!D[id], uo = !!OU[id];
           h += '<div class="unit" data-done="'+(isDone?1:0)+'" data-open="'+(uo?1:0)+'">'

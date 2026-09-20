@@ -1,4 +1,5 @@
     {key:"tur", name:"Türkçe", color:"var(--s-tur)", meta:"6 tema · MEB TYMM resmî program", lbl:"TEMA",
+     plist:{t:"tonguç 7. SINIF kanalında Türkçe videoları", u:"https://www.youtube.com/@tonguc7/search?query=T%C3%BCrk%C3%A7e"},
      note:"Tema adları metin temalarıdır; dil bilgisi konuları bu temaların içine dağıtılmıştır. Aşağıda her temanın yanına o temada ağırlıklı işlenen dil bilgisi konusu eklendi.",
      units:[
       {n:"Hayat Boyu Gelişim", w:"Eylül–Ekim",
@@ -174,6 +175,7 @@
      ]},
 
     {key:"sos", name:"Sosyal Bilgiler", color:"var(--s-sos)", meta:"6 öğrenme alanı · MEB TYMM resmî program", lbl:"ALAN",
+     plist:{t:"7. Sınıf Sosyal — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBlGst2Xz9L__iwsxZc1fak_"},
      note:"Öğrenme alanı adları 6. sınıfla aynıdır; içerik 7. sınıf düzeyinde derinleşir. Eski programdaki \"Birey ve Toplum, Kültür ve Miras…\" başlıkları artık kullanılmıyor.",
      units:[
       {n:"Birlikte Yaşamak", w:"Eylül–Ekim",
@@ -189,7 +191,6 @@
           ["Hiç dinlemiyorsun beni.","Sözüm kesilince anlatamıyorum."],
           ["Çok bencilsin.","Sıra bana gelmeyince üzülüyorum."]]}],
        trap:"\"Ben\" sözcüğüyle başlayan her cümleyi ben dili sanmak. \"Ben senin yüzünden…\" hâlâ suçlamadır.",
-       vid:[{t:"7. Sınıf Sosyal — tonguçCUP 2025-2026 (tüm konular)", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBlGst2Xz9L__iwsxZc1fak_"}],
        q:["Ben dili ile sen dili arasındaki farkı bir örnekle açıkla.",
           "Ben dilinin üç parçasını yaz ve bir cümlede birleştir.",
           "Empati nedir? Sempatiden farkı nedir?",

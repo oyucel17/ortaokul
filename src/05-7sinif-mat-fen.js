@@ -2,6 +2,7 @@
 
   var S7 = [
     {key:"mat", name:"Matematik", color:"var(--s-mat)", meta:"9 tema · MEB TYMM resmî program", lbl:"TEMA",
+     plist:{t:"7. Sınıf Matematik — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBkJB0sv8aW58-o4CAsje7Vp"},
      note:"7. sınıf 2026–2027'de <b>ilk kez</b> Maarif Modeli ile okuyor. Matematik \"ünite\" değil <b>tema</b> başlıkları altında işleniyor; ünite adları geçen yılki kaynaklarla birebir uyuşmaz.",
      units:[
       {n:"Sayılar ve Nicelikler (1)", w:"Eylül–Ekim",
@@ -212,6 +213,7 @@
      ]},
 
     {key:"fen", name:"Fen Bilimleri", color:"var(--s-fen)", meta:"7 ünite · MEB TYMM resmî program", lbl:"ÜNİTE",
+     plist:{t:"7. Sınıf Fen — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBm8SgZEFz_jTGmIbO5zHiJP"},
      note:"Ünite adları resmî programdan birebir alındı. Eski kaynaklardaki <b>Hücre ve Bölünmeler</b> ile <b>Saf Madde ve Karışımlar</b> başlıkları bu programda farklı adlar altında yeniden düzenlendi.",
      units:[
       {n:"Uzay Çağı", w:"Eylül–Ekim",
@@ -231,8 +233,7 @@
        box:[{t:"Işık yılı", h:"Işığın <b>bir yılda aldığı yol</b>dur — yaklaşık <b>9,5 trilyon km</b>. Bir zaman birimi değil, <b>uzaklık</b> birimidir. \"4 ışık yılı uzaklıkta\" demek, oradan gelen ışığın bize 4 yılda ulaştığı anlamına gelir."}],
        trap:"Işık yılını süre sanmak. \"Bu yıldız 4 ışık yılı uzakta\" demek bir MESAFE bildirir.",
        vid:[{t:"Uzay Araştırmaları — 7FEN1 #2026", u:"https://www.youtube.com/watch?v=a7mvElT0EkE"},
-            {t:"Uzay Araştırmaları, Konu Özeti — 7FEN1 #2026", u:"https://www.youtube.com/watch?v=bUcBVn20JCM"},
-            {t:"7. Sınıf Fen — tonguçCUP 2025-2026 (tüm konular)", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBm8SgZEFz_jTGmIbO5zHiJP"}],
+            {t:"Uzay Araştırmaları, Konu Özeti — 7FEN1 #2026", u:"https://www.youtube.com/watch?v=bUcBVn20JCM"}],
        q:["Yıldız ile gezegen arasındaki temel farkı yaz.",
           "Işık yılı neyin birimidir? Bir cümleyle açıkla.",
           "Meteor ile meteorit arasındaki fark nedir?",
@@ -260,8 +261,7 @@
           ["Yere göre","Değişmez","Değişir (Ay'da 1/6)"]]}],
        box:[{t:"İş ne zaman yapılır?", h:"Üç şart birlikte gerekir: (1) bir <b>kuvvet</b> uygulanmalı, (2) cisim <b>yol almalı</b>, (3) yol kuvvetin <b>doğrultusunda</b> olmalı. Duvarı itip hareket ettirememek, çantayı elde tutup düz yürümek → <b>iş sıfırdır</b>."}],
        trap:"Duvarı iterken yorulmayı \"iş yapmak\" sanmak. Duvar hareket etmediği için yapılan iş sıfırdır.",
-       vid:[{t:"Kuvvet, İş ve Enerji İlişkisi — 7FEN7 #2026", u:"https://www.youtube.com/watch?v=1V6KQrtJSIk"},
-            {t:"7. Sınıf Fen — tonguçCUP 2025-2026 (tüm konular)", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBm8SgZEFz_jTGmIbO5zHiJP"}],
+       vid:[{t:"Kuvvet, İş ve Enerji İlişkisi — 7FEN7 #2026", u:"https://www.youtube.com/watch?v=1V6KQrtJSIk"}],
        q:["Kütle ile ağırlık arasındaki üç farkı yaz.",
           "40 N'luk kuvvetle bir cisim kuvvet yönünde 6 m taşınırsa yapılan iş kaç joule'dür?",
           "Bir kişi çantayı elinde tutarak 20 m düz yürüyor. Yapılan iş kaçtır? Nedenini yaz.",

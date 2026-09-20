@@ -1,4 +1,5 @@
     {key:"tur", name:"Türkçe", color:"var(--s-tur)", meta:"8 konu · MEB TYMM resmî program", lbl:"KONU",
+     plist:{t:"6. Sınıf Türkçe — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjBY_0TMFms79jJ_FX7534QZ"},
      note:"Türkçe programı <b>metin temaları</b> üzerine kurulu: Dilimizin Zenginliği, Bağımsızlık Yolu, Farklı Dünyalar, İletişim ve Sosyal İlişkiler, Bilim ve Teknoloji, Lider Ruhlar. Dil bilgisi ve anlam bilgisi bu temaların içine dağıtılmış durumda; çalışırken kolay olsun diye aşağıda konu konu toplandı.",
      units:[
       {n:"Sözcükte Anlam", w:"Eylül",
@@ -10,8 +11,7 @@
        box:[{t:"Anlam ilişkileri", h:"<ul><li><b>Eş anlam:</b> siyah – kara, okul – mektep</li><li><b>Zıt anlam:</b> uzun – kısa, genç – yaşlı</li><li><b>Eş sesli (sesteş):</b> yazılışı aynı, anlamı bambaşka. yüz (100 / surat / yüzmek)</li><li><b>Somut – soyut:</b> duyularla algılanan (taş, su) – algılanamayan (sevgi, akıl)</li></ul>"}],
        trap:"Yan anlam ile mecaz anlamı karıştırmak. Yan anlamda <b>somut bir benzerlik</b> vardır (masanın ayağı insan ayağına benzer); mecazda benzerlik soyuttur, anlam tamamen kopmuştur.",
        vid:[{t:"Sözcükte Anlam — 6TURK2 #2026", u:"https://www.youtube.com/watch?v=dzzHe4R03vk"},
-            {t:"6. Sınıf Türkçe — Sözcükte Anlam", u:"https://www.youtube.com/watch?v=n7grai_hjpM"},
-            {t:"6. Sınıf Türkçe — tonguçCUP 2025-2026 (tüm konular)", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjBY_0TMFms79jJ_FX7534QZ"}],
+            {t:"6. Sınıf Türkçe — Sözcükte Anlam", u:"https://www.youtube.com/watch?v=n7grai_hjpM"}],
        q:["\"Çocuğun soğuk bakışları beni ürküttü.\" cümlesinde \"soğuk\" hangi anlamdadır?",
           "\"Masanın ayağı kırıldı.\" cümlesinde \"ayak\" hangi anlamdadır?",
           "\"Cümlede özne ve yüklem bulunur.\" cümlesinde \"özne\" hangi anlamdadır?",
@@ -169,6 +169,7 @@
      ]},
 
     {key:"sos", name:"Sosyal Bilgiler", color:"var(--s-sos)", meta:"6 öğrenme alanı · MEB TYMM resmî program", lbl:"ALAN",
+     plist:{t:"6. Sınıf Sosyal — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjCLO23ekG1_euuJfrHI5qU_"},
      note:"Bu dersin ünite adları yeni programda tamamen değişti. Eski \"Birey ve Toplum, Kültür ve Miras, İnsanlar Yerler ve Çevreler…\" başlıkları artık kullanılmıyor.",
      units:[
       {n:"Birlikte Yaşamak", w:"Eylül–Ekim",
@@ -179,7 +180,6 @@
           "<b>Toplumsal sorun:</b> toplumun çoğunu etkileyen, çözümü ortak çaba gerektiren sorun — trafik, çevre kirliliği, israf, bilgi kirliliği.",
           "<b>Çocuk Hakları Sözleşmesi</b>, Birleşmiş Milletler tarafından <b>1989</b>'da kabul edildi; Türkiye de taraftır."],
        trap:"Sosyal rolü meslekle sınırlı sanmak. Kardeş olmak, komşu olmak, takım oyuncusu olmak da birer sosyal roldür.",
-       vid:[{t:"6. Sınıf Sosyal — tonguçCUP 2025-2026 (tüm konular)", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjCLO23ekG1_euuJfrHI5qU_"}],
        q:["Aynı kişinin sahip olabileceği dört farklı sosyal rol yaz.",
           "Sosyal rollerin zamanla değiştiğini bir örnekle açıkla.",
           "Hak ile sorumluluk arasındaki ilişkiyi bir cümleyle anlat.",

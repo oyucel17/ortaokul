@@ -1,4 +1,5 @@
     {key:"ing", name:"İngilizce", color:"var(--s-ing)", meta:"8 tema · Çoklu Yabancı Dil Eğitim Modeli", lbl:"TEMA",
+     plist:{t:"tonguç 6. SINIF kanalında İngilizce videoları", u:"https://www.youtube.com/@tonguc6/search?query=%C4%B0ngilizce"},
      note:"Tema adları MEB'in güncel programından; 6. sınıf <b>A2.2</b> düzeyindedir. Temaların altındaki dil yapıları bu düzeyde o temalarda işlenen tipik yapılardır — okulunun kitabında sıra biraz farklı olabilir.",
      units:[
       {n:"Classroom Life", w:"Eylül",
@@ -101,6 +102,7 @@
      ]},
 
     {key:"din", name:"Din Kültürü ve Ahlak Bilgisi", color:"var(--s-din)", meta:"5 ünite · MEB TYMM resmî program", lbl:"ÜNİTE",
+     plist:{t:"tonguç 6. SINIF kanalında Din Kültürü videoları", u:"https://www.youtube.com/@tonguc6/search?query=Din"},
      note:"Ünite adları yeni programda değişti: eski programdaki <b>Namaz</b>, <b>Zararlı Alışkanlıklar</b> ve <b>Temel Değerlerimiz</b> başlıkları yerine <b>Ramazan ve Oruç</b>, <b>Ahlaki Davranışlar</b> ve <b>Kültürümüzdeki Dinî Motifler</b> geldi.",
      units:[
       {n:"Peygamber ve İlahi Kitap İnancı", w:"Eylül–Ekim",

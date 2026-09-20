@@ -1,4 +1,5 @@
     {key:"ing", name:"İngilizce", color:"var(--s-ing)", meta:"8 tema · Çoklu Yabancı Dil Eğitim Modeli", lbl:"TEMA",
+     plist:{t:"7. Sınıf İngilizce — tonguçCUP 2024-2025 · tüm konular", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBksl4DQJRlkizS0bBePQ_BX"},
      note:"Tema adları MEB'in resmî programından birebir alındı. 7. sınıf haftada <b>7 saat</b> İngilizce okuyor. Temaların altındaki dil yapıları bu düzeyde o temalarda işlenen tipik yapılardır — okulunun kitabında sıra farklı olabilir.",
      units:[
       {n:"Theme 1 — School Life & Education", w:"Eylül",
@@ -128,6 +129,7 @@
      ]},
 
     {key:"din", name:"Din Kültürü ve Ahlak Bilgisi", color:"var(--s-din)", meta:"5 ünite · MEB TYMM resmî program", lbl:"ÜNİTE",
+     plist:{t:"tonguç 7. SINIF kanalında Din Kültürü videoları", u:"https://www.youtube.com/@tonguc7/search?query=Din"},
      note:"Ünite adları resmî programdan birebir alındı.",
      units:[
       {n:"Melek ve Ahiret İnancı", w:"Eylül–Ekim",

@@ -186,7 +186,9 @@
   .subj-prog{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--ink-soft);flex:none;font-variant-numeric:tabular-nums}
   .subj-chev{color:var(--ink-faint);transition:transform .18s ease;flex:none}
   .subj[data-open="1"] .subj-chev{transform:rotate(180deg)}
-  .subj-note{padding:0 17px 14px;font-size:13.5px;color:var(--ink-soft);max-width:72ch;border-bottom:1px solid var(--line-soft)}
+  .subj-extra{padding:0 17px 14px;border-bottom:1px solid var(--line-soft)}
+  .subj-note{font-size:13.5px;color:var(--ink-soft);max-width:72ch}
+  .subj-extra .vids{margin-top:11px}
 
   .unit{border-bottom:1px solid var(--line-soft)}
   .unit:last-child{border-bottom:none}
@@ -354,7 +356,6 @@
 <header class="top">
   <div class="wrap top-in">
     <div class="brand">
-      <div class="eyebrow">2026–2027 · Türkiye Yüzyılı Maarif Modeli</div>
       <h1>Ortaokul Yol Haritası</h1>
       <p class="sub" id="subLine">…</p>
       <div class="seg" role="group" aria-label="Sınıf seç" style="margin-top:14px">
@@ -574,6 +575,7 @@
 
   var S6 = [
     {key:"mat", name:"Matematik", color:"var(--s-mat)", meta:"7 tema · MEB TYMM resmî program", lbl:"TEMA",
+     plist:{t:"6. Sınıf Matematik — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjBQiwKtt4aLD1xKfNia8cjI"},
      note:"Yeni programda matematik \"ünite\" değil <b>tema</b> başlıkları altında işleniyor. Aşağıdaki sıra, yıllık planın öğretim sırası. Eski kaynaklardaki <b>tam sayılar, kümeler, oran, üslü ifadeler ve hacim</b> bu programda 6. sınıfta yok — başka sınıflara taşındı.",
      units:[
       {n:"Sayılar ve Nicelikler (1): Çarpanlar, Katlar, Asal Sayılar", w:"Eylül–Ekim",
@@ -616,8 +618,7 @@
           "<b>Sütun grafiği</b> grupları karşılaştırmak, <b>çizgi grafiği</b> zamanla değişimi göstermek içindir."],
        box:[{t:"Merkezî eğilim ölçüleri ve açıklık", h:"<ul><li><b>Aritmetik ortalama</b> = verilerin toplamı ÷ veri sayısı</li><li><b>Ortanca (medyan)</b> = sıralandığında tam ortadaki veri; veri sayısı çiftse ortadaki iki verinin ortalaması</li><li><b>Tepe değer (mod)</b> = en çok tekrar eden veri</li><li><b>Açıklık</b> = en büyük veri − en küçük veri</li></ul>"}],
        trap:"Ortancayı bulurken veriyi sıralamamak. Soruda verilen sıra çoğu zaman karışıktır; önce küçükten büyüğe diz.",
-       vid:[{t:"Veri Toplama ve Değerlendirme — 6. Sınıf Matematik #2025", u:"https://www.youtube.com/watch?v=Zldrna_cpys"},
-            {t:"6. Sınıf Matematik — tonguçCUP 2025-2026 (tüm konular)", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjBzFaWUgW2cdKv3pL_8Buxr"}],
+       vid:[{t:"Veri Toplama ve Değerlendirme — 6. Sınıf Matematik #2025", u:"https://www.youtube.com/watch?v=Zldrna_cpys"}],
        q:["12, 15, 9, 20, 14 verilerinin aritmetik ortalamasını bul.",
           "Aynı veri grubunun açıklığı kaçtır?",
           "7, 3, 9, 3, 5, 8 verilerinin ortancasını ve tepe değerini bul.",
@@ -738,6 +739,7 @@
      ]},
 
     {key:"fen", name:"Fen Bilimleri", color:"var(--s-fen)", meta:"7 ünite · MEB TYMM resmî program", lbl:"ÜNİTE",
+     plist:{t:"6. Sınıf Fen — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjDznWPQy4PkvygYjDvO-tSw"},
      note:"Eski programdaki <b>Ses ve Özellikleri</b> ile <b>Bitki ve Hayvanlarda Üreme</b> üniteleri bu programda yok; yerlerine <b>Işığın Yansıması ve Renkler</b> ile <b>Sürdürülebilir Yaşam ve Etkileşim</b> geldi.",
      units:[
       {n:"Güneş Sistemi ve Tutulmalar", w:"Eylül–Ekim",
@@ -786,8 +788,7 @@
        p:["Dengelenmiş kuvvet \"hareket yok\" demek değildir — sabit süratle giden cisimde de kuvvetler dengelenmiştir."],
        trap:"Dengelenmiş kuvvetleri \"cisim mutlaka duruyor\" diye anlamak. Sabit süratle doğrusal giden bir cisimde de bileşke kuvvet sıfırdır.",
        vid:[{t:"Bileşke Kuvvet, Konu Özeti — 6FEN3 #2026", u:"https://www.youtube.com/watch?v=iuhA6vp1PaY"},
-            {t:"Sabit Süratli Hareket — 6. Sınıf Fen #2025", u:"https://www.youtube.com/watch?v=R4HDZiyTXJ4"},
-            {t:"6. Sınıf Fen — tonguçCUP 2025-2026 (tüm konular)", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjDznWPQy4PkvygYjDvO-tSw"}],
+            {t:"Sabit Süratli Hareket — 6. Sınıf Fen #2025", u:"https://www.youtube.com/watch?v=R4HDZiyTXJ4"}],
        q:["Bir cisme aynı yönde 15 N ve 25 N'luk iki kuvvet uygulanıyor. Bileşke kuvvetin büyüklüğü ve yönü nedir?",
           "Bir cisme zıt yönde 30 N ve 18 N'luk kuvvetler uygulanıyor. Bileşke kuvvet kaç N'dur ve hangi yöndedir?",
           "180 km yolu 3 saatte alan bir aracın sürati kaç km/h'dir?","20 m/s süratle 15 saniye hareket eden bir cisim kaç metre yol alır?",
@@ -901,6 +902,7 @@
           "Örnek: çöplerin ayrıştırılmadan atılması. Çözüm: geri dönüşüm kutuları kullanmak; bez çanta tercih etmek."]}
      ]},
     {key:"tur", name:"Türkçe", color:"var(--s-tur)", meta:"8 konu · MEB TYMM resmî program", lbl:"KONU",
+     plist:{t:"6. Sınıf Türkçe — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjBY_0TMFms79jJ_FX7534QZ"},
      note:"Türkçe programı <b>metin temaları</b> üzerine kurulu: Dilimizin Zenginliği, Bağımsızlık Yolu, Farklı Dünyalar, İletişim ve Sosyal İlişkiler, Bilim ve Teknoloji, Lider Ruhlar. Dil bilgisi ve anlam bilgisi bu temaların içine dağıtılmış durumda; çalışırken kolay olsun diye aşağıda konu konu toplandı.",
      units:[
       {n:"Sözcükte Anlam", w:"Eylül",
@@ -912,8 +914,7 @@
        box:[{t:"Anlam ilişkileri", h:"<ul><li><b>Eş anlam:</b> siyah – kara, okul – mektep</li><li><b>Zıt anlam:</b> uzun – kısa, genç – yaşlı</li><li><b>Eş sesli (sesteş):</b> yazılışı aynı, anlamı bambaşka. yüz (100 / surat / yüzmek)</li><li><b>Somut – soyut:</b> duyularla algılanan (taş, su) – algılanamayan (sevgi, akıl)</li></ul>"}],
        trap:"Yan anlam ile mecaz anlamı karıştırmak. Yan anlamda <b>somut bir benzerlik</b> vardır (masanın ayağı insan ayağına benzer); mecazda benzerlik soyuttur, anlam tamamen kopmuştur.",
        vid:[{t:"Sözcükte Anlam — 6TURK2 #2026", u:"https://www.youtube.com/watch?v=dzzHe4R03vk"},
-            {t:"6. Sınıf Türkçe — Sözcükte Anlam", u:"https://www.youtube.com/watch?v=n7grai_hjpM"},
-            {t:"6. Sınıf Türkçe — tonguçCUP 2025-2026 (tüm konular)", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjBY_0TMFms79jJ_FX7534QZ"}],
+            {t:"6. Sınıf Türkçe — Sözcükte Anlam", u:"https://www.youtube.com/watch?v=n7grai_hjpM"}],
        q:["\"Çocuğun soğuk bakışları beni ürküttü.\" cümlesinde \"soğuk\" hangi anlamdadır?",
           "\"Masanın ayağı kırıldı.\" cümlesinde \"ayak\" hangi anlamdadır?",
           "\"Cümlede özne ve yüklem bulunur.\" cümlesinde \"özne\" hangi anlamdadır?",
@@ -1071,6 +1072,7 @@
      ]},
 
     {key:"sos", name:"Sosyal Bilgiler", color:"var(--s-sos)", meta:"6 öğrenme alanı · MEB TYMM resmî program", lbl:"ALAN",
+     plist:{t:"6. Sınıf Sosyal — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjCLO23ekG1_euuJfrHI5qU_"},
      note:"Bu dersin ünite adları yeni programda tamamen değişti. Eski \"Birey ve Toplum, Kültür ve Miras, İnsanlar Yerler ve Çevreler…\" başlıkları artık kullanılmıyor.",
      units:[
       {n:"Birlikte Yaşamak", w:"Eylül–Ekim",
@@ -1081,7 +1083,6 @@
           "<b>Toplumsal sorun:</b> toplumun çoğunu etkileyen, çözümü ortak çaba gerektiren sorun — trafik, çevre kirliliği, israf, bilgi kirliliği.",
           "<b>Çocuk Hakları Sözleşmesi</b>, Birleşmiş Milletler tarafından <b>1989</b>'da kabul edildi; Türkiye de taraftır."],
        trap:"Sosyal rolü meslekle sınırlı sanmak. Kardeş olmak, komşu olmak, takım oyuncusu olmak da birer sosyal roldür.",
-       vid:[{t:"6. Sınıf Sosyal — tonguçCUP 2025-2026 (tüm konular)", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjCLO23ekG1_euuJfrHI5qU_"}],
        q:["Aynı kişinin sahip olabileceği dört farklı sosyal rol yaz.",
           "Sosyal rollerin zamanla değiştiğini bir örnekle açıkla.",
           "Hak ile sorumluluk arasındaki ilişkiyi bir cümleyle anlat.",
@@ -1208,6 +1209,7 @@
           "Haberin <b>kaynağına</b> ve tarihine bakılır, aynı haberin <b>başka güvenilir kaynaklarda</b> da yer alıp almadığı kontrol edilir."]}
      ]},
     {key:"ing", name:"İngilizce", color:"var(--s-ing)", meta:"8 tema · Çoklu Yabancı Dil Eğitim Modeli", lbl:"TEMA",
+     plist:{t:"tonguç 6. SINIF kanalında İngilizce videoları", u:"https://www.youtube.com/@tonguc6/search?query=%C4%B0ngilizce"},
      note:"Tema adları MEB'in güncel programından; 6. sınıf <b>A2.2</b> düzeyindedir. Temaların altındaki dil yapıları bu düzeyde o temalarda işlenen tipik yapılardır — okulunun kitabında sıra biraz farklı olabilir.",
      units:[
       {n:"Classroom Life", w:"Eylül",
@@ -1310,6 +1312,7 @@
      ]},
 
     {key:"din", name:"Din Kültürü ve Ahlak Bilgisi", color:"var(--s-din)", meta:"5 ünite · MEB TYMM resmî program", lbl:"ÜNİTE",
+     plist:{t:"tonguç 6. SINIF kanalında Din Kültürü videoları", u:"https://www.youtube.com/@tonguc6/search?query=Din"},
      note:"Ünite adları yeni programda değişti: eski programdaki <b>Namaz</b>, <b>Zararlı Alışkanlıklar</b> ve <b>Temel Değerlerimiz</b> başlıkları yerine <b>Ramazan ve Oruç</b>, <b>Ahlaki Davranışlar</b> ve <b>Kültürümüzdeki Dinî Motifler</b> geldi.",
      units:[
       {n:"Peygamber ve İlahi Kitap İnancı", w:"Eylül–Ekim",
@@ -1430,6 +1433,7 @@
 
   var S7 = [
     {key:"mat", name:"Matematik", color:"var(--s-mat)", meta:"9 tema · MEB TYMM resmî program", lbl:"TEMA",
+     plist:{t:"7. Sınıf Matematik — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBkJB0sv8aW58-o4CAsje7Vp"},
      note:"7. sınıf 2026–2027'de <b>ilk kez</b> Maarif Modeli ile okuyor. Matematik \"ünite\" değil <b>tema</b> başlıkları altında işleniyor; ünite adları geçen yılki kaynaklarla birebir uyuşmaz.",
      units:[
       {n:"Sayılar ve Nicelikler (1)", w:"Eylül–Ekim",
@@ -1640,6 +1644,7 @@
      ]},
 
     {key:"fen", name:"Fen Bilimleri", color:"var(--s-fen)", meta:"7 ünite · MEB TYMM resmî program", lbl:"ÜNİTE",
+     plist:{t:"7. Sınıf Fen — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBm8SgZEFz_jTGmIbO5zHiJP"},
      note:"Ünite adları resmî programdan birebir alındı. Eski kaynaklardaki <b>Hücre ve Bölünmeler</b> ile <b>Saf Madde ve Karışımlar</b> başlıkları bu programda farklı adlar altında yeniden düzenlendi.",
      units:[
       {n:"Uzay Çağı", w:"Eylül–Ekim",
@@ -1659,8 +1664,7 @@
        box:[{t:"Işık yılı", h:"Işığın <b>bir yılda aldığı yol</b>dur — yaklaşık <b>9,5 trilyon km</b>. Bir zaman birimi değil, <b>uzaklık</b> birimidir. \"4 ışık yılı uzaklıkta\" demek, oradan gelen ışığın bize 4 yılda ulaştığı anlamına gelir."}],
        trap:"Işık yılını süre sanmak. \"Bu yıldız 4 ışık yılı uzakta\" demek bir MESAFE bildirir.",
        vid:[{t:"Uzay Araştırmaları — 7FEN1 #2026", u:"https://www.youtube.com/watch?v=a7mvElT0EkE"},
-            {t:"Uzay Araştırmaları, Konu Özeti — 7FEN1 #2026", u:"https://www.youtube.com/watch?v=bUcBVn20JCM"},
-            {t:"7. Sınıf Fen — tonguçCUP 2025-2026 (tüm konular)", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBm8SgZEFz_jTGmIbO5zHiJP"}],
+            {t:"Uzay Araştırmaları, Konu Özeti — 7FEN1 #2026", u:"https://www.youtube.com/watch?v=bUcBVn20JCM"}],
        q:["Yıldız ile gezegen arasındaki temel farkı yaz.",
           "Işık yılı neyin birimidir? Bir cümleyle açıkla.",
           "Meteor ile meteorit arasındaki fark nedir?",
@@ -1688,8 +1692,7 @@
           ["Yere göre","Değişmez","Değişir (Ay'da 1/6)"]]}],
        box:[{t:"İş ne zaman yapılır?", h:"Üç şart birlikte gerekir: (1) bir <b>kuvvet</b> uygulanmalı, (2) cisim <b>yol almalı</b>, (3) yol kuvvetin <b>doğrultusunda</b> olmalı. Duvarı itip hareket ettirememek, çantayı elde tutup düz yürümek → <b>iş sıfırdır</b>."}],
        trap:"Duvarı iterken yorulmayı \"iş yapmak\" sanmak. Duvar hareket etmediği için yapılan iş sıfırdır.",
-       vid:[{t:"Kuvvet, İş ve Enerji İlişkisi — 7FEN7 #2026", u:"https://www.youtube.com/watch?v=1V6KQrtJSIk"},
-            {t:"7. Sınıf Fen — tonguçCUP 2025-2026 (tüm konular)", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBm8SgZEFz_jTGmIbO5zHiJP"}],
+       vid:[{t:"Kuvvet, İş ve Enerji İlişkisi — 7FEN7 #2026", u:"https://www.youtube.com/watch?v=1V6KQrtJSIk"}],
        q:["Kütle ile ağırlık arasındaki üç farkı yaz.",
           "40 N'luk kuvvetle bir cisim kuvvet yönünde 6 m taşınırsa yapılan iş kaç joule'dür?",
           "Bir kişi çantayı elinde tutarak 20 m düz yürüyor. Yapılan iş kaçtır? Nedenini yaz.",
@@ -1838,6 +1841,7 @@
           "Avantaj: <b>temiz ve tükenmez</b>. Dezavantaj: <b>rüzgâr olmadığında üretim durur</b> (gürültü ve kuş göç yollarına etkisi de kabul)."]}
      ]},
     {key:"tur", name:"Türkçe", color:"var(--s-tur)", meta:"6 tema · MEB TYMM resmî program", lbl:"TEMA",
+     plist:{t:"tonguç 7. SINIF kanalında Türkçe videoları", u:"https://www.youtube.com/@tonguc7/search?query=T%C3%BCrk%C3%A7e"},
      note:"Tema adları metin temalarıdır; dil bilgisi konuları bu temaların içine dağıtılmıştır. Aşağıda her temanın yanına o temada ağırlıklı işlenen dil bilgisi konusu eklendi.",
      units:[
       {n:"Hayat Boyu Gelişim", w:"Eylül–Ekim",
@@ -2013,6 +2017,7 @@
      ]},
 
     {key:"sos", name:"Sosyal Bilgiler", color:"var(--s-sos)", meta:"6 öğrenme alanı · MEB TYMM resmî program", lbl:"ALAN",
+     plist:{t:"7. Sınıf Sosyal — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBlGst2Xz9L__iwsxZc1fak_"},
      note:"Öğrenme alanı adları 6. sınıfla aynıdır; içerik 7. sınıf düzeyinde derinleşir. Eski programdaki \"Birey ve Toplum, Kültür ve Miras…\" başlıkları artık kullanılmıyor.",
      units:[
       {n:"Birlikte Yaşamak", w:"Eylül–Ekim",
@@ -2028,7 +2033,6 @@
           ["Hiç dinlemiyorsun beni.","Sözüm kesilince anlatamıyorum."],
           ["Çok bencilsin.","Sıra bana gelmeyince üzülüyorum."]]}],
        trap:"\"Ben\" sözcüğüyle başlayan her cümleyi ben dili sanmak. \"Ben senin yüzünden…\" hâlâ suçlamadır.",
-       vid:[{t:"7. Sınıf Sosyal — tonguçCUP 2025-2026 (tüm konular)", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBlGst2Xz9L__iwsxZc1fak_"}],
        q:["Ben dili ile sen dili arasındaki farkı bir örnekle açıkla.",
           "Ben dilinin üç parçasını yaz ve bir cümlede birleştir.",
           "Empati nedir? Sempatiden farkı nedir?",
@@ -2173,6 +2177,7 @@
           "Kişisel veriler ele geçirilirse <b>dolandırıcılık, kimlik hırsızlığı ve ayrımcılık</b> için kullanılabilir; bu yüzden paylaşılmadan önce kimin istediği doğrulanmalıdır."]},
      ]},
     {key:"ing", name:"İngilizce", color:"var(--s-ing)", meta:"8 tema · Çoklu Yabancı Dil Eğitim Modeli", lbl:"TEMA",
+     plist:{t:"7. Sınıf İngilizce — tonguçCUP 2024-2025 · tüm konular", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBksl4DQJRlkizS0bBePQ_BX"},
      note:"Tema adları MEB'in resmî programından birebir alındı. 7. sınıf haftada <b>7 saat</b> İngilizce okuyor. Temaların altındaki dil yapıları bu düzeyde o temalarda işlenen tipik yapılardır — okulunun kitabında sıra farklı olabilir.",
      units:[
       {n:"Theme 1 — School Life & Education", w:"Eylül",
@@ -2302,6 +2307,7 @@
      ]},
 
     {key:"din", name:"Din Kültürü ve Ahlak Bilgisi", color:"var(--s-din)", meta:"5 ünite · MEB TYMM resmî program", lbl:"ÜNİTE",
+     plist:{t:"tonguç 7. SINIF kanalında Din Kültürü videoları", u:"https://www.youtube.com/@tonguc7/search?query=Din"},
      note:"Ünite adları resmî programdan birebir alındı.",
      units:[
       {n:"Melek ve Ahiret İnancı", w:"Eylül–Ekim",
@@ -2927,7 +2933,17 @@
         + '<div class="subj-title"><h3>'+esc(s.name)+'</h3><div class="meta">'+esc(s.meta)+'</div></div>'
         + '<span class="subj-prog">'+dc+'/'+s.units.length+'</span>'+CHEV_BIG+'</button>';
       if(isOpen){
-        if(s.note) h += '<div class="subj-note">'+s.note+'</div>';
+        if(s.note || s.plist){
+          h += '<div class="subj-extra">';
+          if(s.note) h += '<div class="subj-note">'+s.note+'</div>';
+          if(s.plist){
+            var liste = s.plist.u.indexOf("playlist") !== -1;
+            h += '<div class="vids"><a href="'+s.plist.u+'" target="_blank" rel="noopener">'+YT
+               + '<span class="vt">'+esc(s.plist.t)+'</span>'
+               + '<span class="vk">'+(liste?"oynatma listesi":"kanal")+'</span></a></div>';
+          }
+          h += '</div>';
+        }
         s.units.forEach(function(u,i){
           var id = uid(s.key, u), isDone = !!D[id], uo = !!OU[id];
           h += '<div class="unit" data-done="'+(isDone?1:0)+'" data-open="'+(uo?1:0)+'">'
