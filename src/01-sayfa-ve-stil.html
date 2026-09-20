@@ -1,0 +1,427 @@
+<title>Ortaokul Yol Haritası</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<style>
+  :root{
+    --paper:#F6F7F4; --card:#FFFFFF; --card-2:#FBFBF9;
+    --ink:#161A21; --ink-soft:#525A68; --ink-faint:#868D98;
+    --line:#DDE0D9; --line-soft:#EAECE6;
+    --accent:#2C4A8F; --accent-ink:#223C77; --accent-soft:#E6EBF6;
+    --ok:#2E7D5B; --ok-soft:#E1F0E9;
+    --warn:#A76A14; --warn-soft:#F7EEDF;
+    --bad:#B23A48; --bad-soft:#F8E6E8;
+    --s-tur:#B23A48; --s-mat:#2C4A8F; --s-fen:#1E7A62;
+    --s-sos:#A9671C; --s-ing:#6A4C93; --s-din:#5C7A29;
+    --shadow:0 1px 2px rgba(22,26,33,.05), 0 6px 18px -10px rgba(22,26,33,.18);
+    --radius:10px; --grid-ink:rgba(44,74,143,.07);
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#12151A; --card:#191D24; --card-2:#1D222A;
+      --ink:#E9EBE6; --ink-soft:#A2AAB6; --ink-faint:#6E7785;
+      --line:#2B313A; --line-soft:#232830;
+      --accent:#86A6EC; --accent-ink:#A8C0F3; --accent-soft:#1B2436;
+      --ok:#5FC495; --ok-soft:#14261F;
+      --warn:#DFA94A; --warn-soft:#2A2113;
+      --bad:#E98A95; --bad-soft:#2B1A1D;
+      --s-tur:#E98A95; --s-mat:#8AA8EA; --s-fen:#5CC4A5;
+      --s-sos:#E0A055; --s-ing:#B396DB; --s-din:#A3C266;
+      --shadow:0 1px 2px rgba(0,0,0,.30), 0 8px 22px -12px rgba(0,0,0,.6);
+      --grid-ink:rgba(134,166,236,.08);
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#12151A; --card:#191D24; --card-2:#1D222A;
+    --ink:#E9EBE6; --ink-soft:#A2AAB6; --ink-faint:#6E7785;
+    --line:#2B313A; --line-soft:#232830;
+    --accent:#86A6EC; --accent-ink:#A8C0F3; --accent-soft:#1B2436;
+    --ok:#5FC495; --ok-soft:#14261F;
+    --warn:#DFA94A; --warn-soft:#2A2113;
+    --bad:#E98A95; --bad-soft:#2B1A1D;
+    --s-tur:#E98A95; --s-mat:#8AA8EA; --s-fen:#5CC4A5;
+    --s-sos:#E0A055; --s-ing:#B396DB; --s-din:#A3C266;
+    --shadow:0 1px 2px rgba(0,0,0,.30), 0 8px 22px -12px rgba(0,0,0,.6);
+    --grid-ink:rgba(134,166,236,.08);
+    color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"IBM Plex Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+    font-size:15.5px;line-height:1.62;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+  h1,h2,h3,h4{font-family:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;font-weight:700;margin:0;
+    text-wrap:balance;letter-spacing:-.015em}
+  p{margin:0}
+  button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+  code{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.88em;background:var(--card-2);
+    border:1px solid var(--line-soft);padding:.1em .34em;border-radius:4px}
+  b,strong{font-weight:600}
+  u{text-decoration-color:var(--sc,var(--accent));text-underline-offset:2px}
+
+  .wrap{max-width:1000px;margin:0 auto;padding-inline:18px}
+
+  /* ---------- header ---------- */
+  header.top{background:
+      repeating-linear-gradient(to right, var(--grid-ink) 0 1px, transparent 1px 22px),
+      repeating-linear-gradient(to bottom, var(--grid-ink) 0 1px, transparent 1px 22px),
+      var(--card);
+    border-bottom:1px solid var(--line)}
+  .top-in{display:flex;align-items:flex-start;gap:20px;flex-wrap:wrap;padding-block:20px 18px}
+  .brand{flex:1 1 320px;min-width:0}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--accent);font-weight:600}
+  h1{font-size:clamp(25px,5vw,36px);line-height:1.08;margin-top:6px;font-weight:800}
+  .sub{color:var(--ink-soft);font-size:14px;margin-top:8px;max-width:58ch}
+
+  .seg{display:inline-flex;background:var(--card-2);border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px}
+  .seg button{padding:7px 17px;border-radius:999px;font-size:14px;font-weight:600;color:var(--ink-soft);white-space:nowrap}
+  .seg button[aria-pressed="true"]{background:var(--accent);color:#fff}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .seg button[aria-pressed="true"]{color:var(--paper)} }
+  :root[data-theme="dark"] .seg button[aria-pressed="true"]{color:var(--paper)}
+
+  .top-right{display:flex;flex-direction:column;gap:11px;align-items:flex-end}
+  .ring-box{display:flex;align-items:center;gap:13px;background:var(--card-2);border:1px solid var(--line);
+    border-radius:var(--radius);padding:10px 15px 10px 10px}
+  .ring{width:50px;height:50px;flex:none;display:block}
+  .ring-txt .n{font-family:"IBM Plex Mono",monospace;font-size:18px;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
+  .ring-txt .l{font-size:11.5px;color:var(--ink-soft)}
+
+  /* ---------- tabs ---------- */
+  nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);
+    border-bottom:1px solid var(--line)}
+  .tabs-in{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;align-items:center}
+  .tabs-in::-webkit-scrollbar{display:none}
+  .tab{padding:12px 15px;font-size:14px;font-weight:600;color:var(--ink-soft);white-space:nowrap;
+    border-bottom:2.5px solid transparent;margin-bottom:-1px;display:flex;align-items:center;gap:7px}
+  .tab:hover{color:var(--ink)}
+  .tab[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+  .tab .badge{font-family:"IBM Plex Mono",monospace;font-size:10.5px;background:var(--accent-soft);
+    color:var(--accent-ink);padding:1px 6px;border-radius:20px;font-weight:600}
+  .tabs-act{margin-left:auto;display:flex;gap:7px;padding-left:12px}
+
+  main{padding-block:26px 64px}
+  section[role="tabpanel"]{display:flex;flex-direction:column;gap:34px}
+
+  .block-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .block-head h2{font-size:20px}
+  .block-head .note{font-size:13px;color:var(--ink-faint)}
+  .lede{color:var(--ink-soft);font-size:14.5px;max-width:70ch;margin-bottom:18px}
+
+  .btn{padding:6px 13px;border:1px solid var(--line);border-radius:7px;font-size:12.5px;font-weight:600;
+    background:var(--card);color:var(--ink-soft);white-space:nowrap}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .btn[aria-pressed="true"]{color:var(--paper)} }
+  :root[data-theme="dark"] .btn[aria-pressed="true"]{color:var(--paper)}
+  .btn.danger:hover{border-color:var(--bad);color:var(--bad)}
+
+  /* ---------- timeline ---------- */
+  .tl{position:relative;padding-left:26px}
+  .tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line);border-radius:2px}
+  .tl-item{position:relative;margin-bottom:11px}
+  .tl-item::before{content:"";position:absolute;left:-23px;top:15px;width:10px;height:10px;border-radius:50%;
+    background:var(--card);border:2.5px solid var(--accent)}
+  .tl-item.is-break::before{border-color:var(--warn);background:var(--warn)}
+  .tl-item.is-now::before{border-color:var(--ok);background:var(--ok);box-shadow:0 0 0 4px var(--ok-soft)}
+  .tl-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:12px 15px;box-shadow:var(--shadow)}
+  .tl-item.is-now .tl-card{border-color:var(--ok)}
+  .tl-item.is-break .tl-card{background:var(--warn-soft);border-color:transparent;box-shadow:none}
+  .tl-top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:7px}
+  .tl-month{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:15.5px}
+  .tl-date{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-faint)}
+  .tl-now{font-size:10.5px;font-weight:600;background:var(--ok-soft);color:var(--ok);padding:2px 8px;border-radius:20px}
+  .tl-break-txt{font-size:13.5px;color:var(--warn);font-weight:500}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{font-size:12px;padding:3px 9px;border-radius:20px;border:1px solid var(--line);background:var(--card-2);
+    color:var(--ink-soft);display:inline-flex;align-items:center;gap:6px}
+  .chip i{width:6px;height:6px;border-radius:50%;flex:none;display:block;font-style:normal}
+
+  /* ---------- week ---------- */
+  .week{display:flex;flex-direction:column;gap:9px}
+  .day{display:grid;grid-template-columns:120px 1fr;gap:12px;align-items:start;
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:12px 15px}
+  .day.rest{background:var(--card-2);border-style:dashed}
+  .day-name{font-weight:600;font-size:14px}
+  .day-name small{display:block;font-weight:400;font-size:11.5px;color:var(--ink-faint);font-family:"IBM Plex Mono",monospace}
+  .slots{display:flex;flex-direction:column;gap:7px}
+  .slot{display:flex;gap:11px;align-items:baseline;flex-wrap:wrap}
+  .slot time{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--accent);font-weight:600;
+    flex:none;min-width:88px}
+  .slot span{font-size:13.5px;color:var(--ink-soft)}
+  .slot b{color:var(--ink)}
+  @media(max-width:560px){ .day{grid-template-columns:1fr;gap:8px} }
+
+  .methods{display:grid;grid-template-columns:repeat(auto-fit,minmax(224px,1fr));gap:12px}
+  .method{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:15px 16px}
+  .method h4{font-size:14.5px;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+  .method h4 .num{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--accent);
+    background:var(--accent-soft);border-radius:4px;padding:2px 6px;font-weight:600}
+  .method p{font-size:13.5px;color:var(--ink-soft)}
+
+  /* ---------- subjects ---------- */
+  .subjects{display:flex;flex-direction:column;gap:16px}
+  .subj{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sc);
+    border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+  .subj-head{width:100%;display:flex;align-items:center;gap:14px;padding:15px 17px;text-align:left}
+  .subj-head:hover{background:var(--card-2)}
+  .subj-title{flex:1;min-width:0}
+  .subj-title h3{font-size:17px;color:var(--sc)}
+  .subj-title .meta{font-size:12.5px;color:var(--ink-faint);margin-top:3px}
+  .subj-prog{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--ink-soft);flex:none;font-variant-numeric:tabular-nums}
+  .subj-chev{color:var(--ink-faint);transition:transform .18s ease;flex:none}
+  .subj[data-open="1"] .subj-chev{transform:rotate(180deg)}
+  .subj-note{padding:0 17px 14px;font-size:13.5px;color:var(--ink-soft);max-width:72ch;border-bottom:1px solid var(--line-soft)}
+
+  .unit{border-bottom:1px solid var(--line-soft)}
+  .unit:last-child{border-bottom:none}
+  .unit-row{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;padding:10px 17px 10px 14px}
+  .tick{width:23px;height:23px;flex:none;border:1.5px solid var(--line);border-radius:6px;background:var(--card-2);
+    display:grid;place-items:center;color:transparent;transition:all .13s ease}
+  .tick:hover{border-color:var(--sc)}
+  .tick[aria-pressed="true"]{background:var(--sc);border-color:var(--sc);color:var(--card)}
+  .unit-open{display:flex;align-items:center;gap:11px;text-align:left;width:100%;min-width:0}
+  .unit-no{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--sc);flex:none;
+    letter-spacing:.05em;font-weight:600;width:52px}
+  .unit-name{font-size:14.4px;font-weight:500;flex:1;min-width:0}
+  .unit[data-done="1"] .unit-name{color:var(--ink-faint);text-decoration:line-through;text-decoration-thickness:1px}
+  .unit-when{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint);flex:none;white-space:nowrap}
+  .unit-chev{color:var(--ink-faint);flex:none;transition:transform .18s ease}
+  .unit[data-open="1"] .unit-chev{transform:rotate(180deg)}
+  @media(max-width:600px){ .unit-when{display:none} .unit-no{width:auto} }
+
+  .unit-body{padding:4px 17px 20px 49px;display:flex;flex-direction:column;gap:14px}
+  .unit-body .lead{font-size:14.2px;color:var(--ink-soft);max-width:70ch}
+  .kv h5,.qs-t{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+    color:var(--ink-faint);font-weight:600;margin:0 0 8px}
+  .kv ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+  .kv li{font-size:14px;max-width:70ch}
+  .kv li::marker{color:var(--sc)}
+  .trap{background:var(--bad-soft);border-radius:8px;padding:10px 13px;font-size:13.6px;max-width:72ch}
+  .trap b{color:var(--bad);font-weight:600}
+  @media(max-width:600px){ .unit-body{padding-left:17px} }
+
+  .rbox{background:var(--rb,var(--card-2));border-left:3px solid var(--sc);border-radius:0 8px 8px 0;
+    padding:12px 15px;max-width:72ch}
+  .rbox .rb-t{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+    color:var(--sc);font-weight:600;margin:0 0 7px}
+  .rbox ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+  .rbox li{font-size:13.8px}
+  .rbox li::marker{color:var(--sc)}
+  .rbox p{font-size:13.8px}
+
+  .tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+  table{border-collapse:collapse;width:100%;min-width:330px;font-size:13.8px}
+  th,td{padding:8px 13px;text-align:left;border-bottom:1px solid var(--line-soft);vertical-align:top}
+  thead th{background:var(--card-2);font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--ink-faint);font-weight:600;white-space:nowrap}
+  tbody tr:last-child td{border-bottom:none}
+  td:first-child{font-weight:600}
+
+  .qs ol{list-style:none;counter-reset:q;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+  .qs ol li{counter-increment:q;position:relative;padding-left:32px;max-width:70ch;font-size:14px}
+  .qs ol li::before{content:counter(q);position:absolute;left:0;top:1px;font-family:"IBM Plex Mono",monospace;
+    font-size:11.5px;font-weight:600;color:var(--sc);background:var(--card-2);border:1px solid var(--line);
+    width:22px;height:22px;display:grid;place-items:center;border-radius:5px}
+  details.ans{border:1px solid var(--line);border-radius:8px;background:var(--card-2)}
+  details.ans > summary{list-style:none;cursor:pointer;padding:9px 14px;display:flex;align-items:center;gap:9px;
+    font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--ink-faint)}
+  details.ans > summary::-webkit-details-marker{display:none}
+  details.ans > summary::before{content:"+";font-size:15px;line-height:1;color:var(--sc);width:11px;text-align:center}
+  details.ans[open] > summary::before{content:"\2013"}
+  details.ans[open] > summary{border-bottom:1px solid var(--line);color:var(--sc)}
+  .ans-list{margin:0;padding:12px 16px 14px 36px;display:flex;flex-direction:column;gap:8px;
+    font-size:13.8px;color:var(--ink-soft)}
+  .ans-list li{max-width:68ch}
+  .ans-list li::marker{font-family:"IBM Plex Mono",monospace;font-weight:600;color:var(--sc);font-size:.86em}
+  .ans-list b{color:var(--ink)}
+
+  /* ---------- quiz ---------- */
+  .pills{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px}
+  .pill{padding:7px 14px;border:1px solid var(--line);border-radius:20px;font-size:13.5px;font-weight:500;
+    background:var(--card);color:var(--ink-soft)}
+  .pill:hover{border-color:var(--sc,var(--accent));color:var(--ink)}
+  .pill[aria-pressed="true"]{background:var(--sc);border-color:var(--sc);color:var(--card);font-weight:600}
+  .score-bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:13px 16px;margin-bottom:18px}
+  .score-bar .big{font-family:"IBM Plex Mono",monospace;font-size:22px;font-weight:600;font-variant-numeric:tabular-nums}
+  .score-bar .lab{font-size:13px;color:var(--ink-soft);flex:1;min-width:150px}
+  .qlist{display:flex;flex-direction:column;gap:13px}
+  .q{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:15px 17px}
+  .q-top{display:flex;gap:11px;align-items:baseline;margin-bottom:12px}
+  .q-no{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-faint);flex:none;padding-top:2px}
+  .q-txt{font-size:14.5px;font-weight:500;max-width:66ch}
+  .q-unit{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--sc);margin-top:5px;
+    letter-spacing:.03em;text-transform:uppercase}
+  .opts{display:flex;flex-direction:column;gap:7px}
+  .opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;padding:9px 12px;
+    border:1px solid var(--line);border-radius:8px;background:var(--card-2);font-size:13.8px;transition:all .12s ease}
+  .opt:hover:not(:disabled){border-color:var(--sc)}
+  .opt:disabled{cursor:default}
+  .opt .let{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-faint);flex:none;font-weight:600}
+  .opt.correct{background:var(--ok-soft);border-color:var(--ok)}
+  .opt.correct .let{color:var(--ok)}
+  .opt.wrong{background:var(--bad-soft);border-color:var(--bad)}
+  .opt.wrong .let{color:var(--bad)}
+  .why{margin-top:11px;font-size:13.3px;color:var(--ink-soft);border-left:2.5px solid var(--sc);padding-left:12px;max-width:68ch}
+  .why b{color:var(--ink)}
+
+  /* ---------- progress ---------- */
+  .bars{display:flex;flex-direction:column;gap:13px}
+  .bar-row{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:13px 16px}
+  .bar-top{display:flex;align-items:baseline;gap:10px;margin-bottom:9px}
+  .bar-top h4{font-size:14.5px;color:var(--sc);flex:1}
+  .bar-top .n{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+  .track{height:7px;background:var(--line-soft);border-radius:20px;overflow:hidden}
+  .fill{height:100%;background:var(--sc);border-radius:20px;transition:width .3s ease}
+  .bar-quiz{font-size:12.5px;color:var(--ink-faint);margin-top:8px;font-family:"IBM Plex Mono",monospace}
+  .stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:20px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+  .stat .v{font-family:"IBM Plex Mono",monospace;font-size:25px;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
+  .stat .k{font-size:12.5px;color:var(--ink-soft);margin-top:4px}
+  .save-note{font-size:12.5px;color:var(--ink-faint);display:flex;align-items:center;gap:7px;margin-top:6px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--ink-faint);flex:none}
+  .dot.on{background:var(--ok)}
+
+  .flag{background:var(--warn-soft);border-radius:8px;padding:12px 15px;font-size:13.4px;max-width:74ch;margin-bottom:18px}
+  .flag b{color:var(--warn)}
+
+  footer{border-top:1px solid var(--line);margin-top:10px;padding-block:22px 34px;color:var(--ink-faint);font-size:12.5px}
+  footer a{color:var(--accent)}
+  footer p+p{margin-top:7px}
+
+  @media (prefers-reduced-motion: reduce){ *{transition:none!important;animation:none!important} }
+
+  /* ---------- print ---------- */
+  @media print{
+    :root{--paper:#fff;--card:#fff;--card-2:#f4f4f1;--ink:#000;--ink-soft:#222;--ink-faint:#555;
+          --line:#ccc;--line-soft:#ddd;--shadow:none;--grid-ink:transparent}
+    nav.tabs,.top-right,.seg,.tabs-act,.noprint,.tick,.unit-chev,.subj-chev,.save-note{display:none!important}
+    body{font-size:10.5pt}
+    .wrap{max-width:none;padding-inline:0}
+    section[role="tabpanel"][hidden]{display:none!important}
+    .subj{break-inside:auto;box-shadow:none;page-break-inside:auto}
+    .unit{break-inside:avoid}
+    .unit-body{padding-left:0}
+    details.ans{break-inside:avoid}
+    details.ans:not([open]) .ans-list{display:none}
+    .rbox,.trap,.qs ol li::before,.subj{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    a{color:inherit;text-decoration:none}
+  }
+</style>
+
+<header class="top">
+  <div class="wrap top-in">
+    <div class="brand">
+      <div class="eyebrow">2026–2027 · Türkiye Yüzyılı Maarif Modeli</div>
+      <h1>Ortaokul Yol Haritası</h1>
+      <p class="sub" id="subLine">…</p>
+      <div class="seg" role="group" aria-label="Sınıf seç" style="margin-top:14px">
+        <button id="g6" aria-pressed="false">6. Sınıf</button>
+        <button id="g7" aria-pressed="true">7. Sınıf</button>
+      </div>
+    </div>
+    <div class="top-right">
+      <div class="ring-box">
+        <svg class="ring" viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="16" fill="none" stroke="var(--line)" stroke-width="5"></circle>
+          <circle id="ringFill" cx="20" cy="20" r="16" fill="none" stroke="var(--accent)" stroke-width="5"
+                  stroke-linecap="round" stroke-dasharray="100.5" stroke-dashoffset="100.5"
+                  transform="rotate(-90 20 20)"></circle>
+        </svg>
+        <div class="ring-txt">
+          <div class="n" id="ringPct">%0</div>
+          <div class="l" id="ringLab">0 / 0 ünite</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Bölümler">
+  <div class="wrap tabs-in" role="tablist">
+    <button class="tab" role="tab" id="tab-plan" aria-controls="p-plan" aria-selected="true">Plan</button>
+    <button class="tab" role="tab" id="tab-dersler" aria-controls="p-dersler" aria-selected="false">Dersler <span class="badge" id="badgeU">…</span></button>
+    <button class="tab" role="tab" id="tab-testler" aria-controls="p-testler" aria-selected="false">Testler <span class="badge" id="badgeQ">…</span></button>
+    <button class="tab" role="tab" id="tab-ilerleme" aria-controls="p-ilerleme" aria-selected="false">İlerleme</button>
+    <span class="tabs-act">
+      <button class="btn" id="ansBtn" aria-pressed="false">Cevapları aç</button>
+      <button class="btn" id="printBtn">Yazdır</button>
+    </span>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section id="p-plan" role="tabpanel" aria-labelledby="tab-plan">
+    <div>
+      <div class="block-head"><h2>Yıl takvimi</h2><span class="note mono">14 Eylül 2026 → 25 Haziran 2027</span></div>
+      <p class="lede">Tatil ve dönem tarihleri MEB'in resmî 2026–2027 çalışma takviminden. Ayların hangi üniteye denk geldiği ders saatlerine göre çıkarılmış bir çerçevedir — okulun kendi ünitelendirilmiş yıllık planı esastır, sapma olursa ona göre kaydır.</p>
+      <div class="tl" id="timeline"></div>
+    </div>
+    <div>
+      <div class="block-head"><h2>Haftalık program</h2><span class="note">Okul sonrası, günde ~1,5 saat</span></div>
+      <p class="lede">Amaç uzun saatler değil, kaçırmadan devam etmek. Günde iki kısa blok + akşam 20 dakikalık tekrar; odak dersi her gün değişiyor, böylece hiçbir ders bir haftadan fazla beklemiyor.</p>
+      <div class="week" id="week"></div>
+    </div>
+    <div>
+      <div class="block-head"><h2>Çalışma yöntemi</h2><span class="note">Dört kural</span></div>
+      <div class="methods">
+        <div class="method"><h4><span class="num">01</span> Aralıklı tekrar</h4>
+          <p>Yeni konuyu aynı gün, 1 hafta sonra ve 1 ay sonra tekrar et. Üç dokunuş, on dokunuştan daha kalıcı.</p></div>
+        <div class="method"><h4><span class="num">02</span> Kitabı kapat, anlat</h4>
+          <p>Okumak öğrenmek değil. Defteri kapat, konuyu kendi cümlelerinle yaz ya da sesli anlat. Takıldığın yer, çalışman gereken yerdir.</p></div>
+        <div class="method"><h4><span class="num">03</span> 25 dakika + 5 dakika</h4>
+          <p>25 dakika telefon başka odada çalış, 5 dakika kalk. İki turdan sonra 15 dakika ara. Bir blok = iki tur.</p></div>
+        <div class="method"><h4><span class="num">04</span> Hata defteri</h4>
+          <p>Yanlış yaptığın her soruyu tek deftere yaz: soru, yaptığın hata, doğrusu. Sınav öncesi sadece bu defteri oku.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="p-dersler" role="tabpanel" aria-labelledby="tab-dersler" hidden>
+    <div>
+      <div class="block-head"><h2>Ders ders üniteler</h2><span class="note">Ünite adları MEB resmî öğretim programından</span></div>
+      <p class="lede" id="derslerLede">…</p>
+      <div class="subjects" id="subjects"></div>
+    </div>
+  </section>
+
+  <section id="p-testler" role="tabpanel" aria-labelledby="tab-testler" hidden>
+    <div>
+      <div class="block-head"><h2>Kendini sına</h2><span class="note"><span id="noteQ">…</span> çoktan seçmeli soru · anında geri bildirim</span></div>
+      <p class="lede">Her soru üstünde yazan üniteye ait. Şıkka tıkladığın anda doğru cevap ve nedeni açılır. Açık uçlu sorular ve cevap anahtarı <b>Dersler</b> sekmesinde, her ünitenin içinde.</p>
+      <div class="pills" id="quizPills"></div>
+      <div class="score-bar">
+        <div class="big" id="qScore">0 / 0</div>
+        <div class="lab" id="qLab">Başlamak için bir şıkka tıkla.</div>
+        <button class="btn" id="qReset">Testi sıfırla</button>
+      </div>
+      <div class="qlist" id="qlist"></div>
+    </div>
+  </section>
+
+  <section id="p-ilerleme" role="tabpanel" aria-labelledby="tab-ilerleme" hidden>
+    <div>
+      <div class="block-head"><h2>Nerede kaldın</h2><span class="note" id="progWho">…</span></div>
+      <div class="stat-row" id="stats"></div>
+      <div class="bars" id="bars"></div>
+      <div class="save-note"><span class="dot" id="saveDot"></span><span id="saveTxt">Kaydediliyor…</span></div>
+      <p style="margin-top:18px"><button class="btn danger" id="resetAll">Bu sınıfın ilerlemesini sıfırla</button></p>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p><b>Kaynaklar.</b> Ünite ve tema adları MEB Türkiye Yüzyılı Maarif Modeli resmî öğretim programlarından (<a href="https://tymm.meb.gov.tr/ogretim-programlari" target="_blank" rel="noopener">tymm.meb.gov.tr</a>); tatil ve dönem tarihleri MEB 2026–2027 çalışma takviminden alındı.</p>
+  <p><b>Geçiş yılı uyarısı.</b> 2026–2027, hem 6. hem 7. sınıfın yeni programla okuduğu dönem. 6. sınıf ikinci yılında, 7. sınıf ise ilk yılında. Eski basım kaynaklar ünite adları ve içerik bakımından birebir uymaz.</p>
+  <p>İki sınıfın ilerlemesi birbirinden tamamen ayrı tutulur. Konu özetleri ve sorular çalışma amaçlıdır, ders kitabının yerini tutmaz.</p>
+</footer>
+
+<script>
+(function(){
+  "use strict";
