@@ -56,6 +56,9 @@
   }
 
   *{box-sizing:border-box}
+  /* Sekme panellerini gizleyen kural. section[role="tabpanel"]{display:flex}
+     tarayicinin varsayilan [hidden] kuralini ezdigi icin !important sart. */
+  [hidden]{display:none!important}
   body{margin:0;background:var(--paper);color:var(--ink);
     font-family:"IBM Plex Sans","Segoe UI",system-ui,-apple-system,sans-serif;
     font-size:15.5px;line-height:1.62;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
