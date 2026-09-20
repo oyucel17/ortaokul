@@ -17,7 +17,7 @@
   var LS = "ortaokul-yol-haritasi-v1";
   var dbRef = null, saveTimer = null;
   var openSubj = {g6:{},g7:{}}, openUnit = {g6:{},g7:{}};
-  var answers = {}, curQuiz = "mat", ansOpen = false, reveal = false;
+  var answers = {}, curQuiz = "mat", ansOpen = false, reveal = false, qFilter = null;
 
   function el(id){ return document.getElementById(id); }
   function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
@@ -288,16 +288,40 @@
     });
     el("quizPills").innerHTML = h;
   }
+  /* Testteki ünite filtresi — soruların özgün sırası korunur,
+     sadece görünmeyenler atlanır; böylece cevaplar kaymaz. */
+  function renderQuizUnits(){
+    var list = cur().quiz[curQuiz] || [], s = subjByKey(curQuiz);
+    var sira = [], adet = {};
+    list.forEach(function(q){
+      if(adet[q.u] === undefined){ sira.push(q.u); adet[q.u] = 0; }
+      adet[q.u]++;
+    });
+    var box = el("quizUnits");
+    box.style.setProperty("--sc", s.color);
+    var h = '<button class="ufilter" data-uf="" aria-pressed="'+(qFilter===null)+'">'
+          + 'Tümü <span class="n">'+list.length+'</span></button>';
+    sira.forEach(function(u){
+      h += '<button class="ufilter" data-uf="'+esc(u)+'" aria-pressed="'+(qFilter===u)+'">'
+         + esc(u)+' <span class="n">'+adet[u]+'</span></button>';
+    });
+    box.innerHTML = h;
+  }
+
   function renderQuiz(){
     var Q = cur().quiz;
     if(!Q[curQuiz]) curQuiz = "mat";
     var s = subjByKey(curQuiz), list = Q[curQuiz] || [];
+    if(qFilter !== null && !list.some(function(q){ return q.u === qFilter; })) qFilter = null;
     var box = el("qlist"), h = "";
     list.forEach(function(q,i){
+      if(qFilter !== null && q.u !== qFilter) return;
       var given = answers[grade+"-"+curQuiz+"-"+i];
       var goster = (given !== undefined) || reveal;   // cevaplandı ya da "cevapları göster" açık
-      h += '<div class="q" style="--sc:'+s.color+'"><div class="q-top"><span class="q-no">'+(i+1)+'</span>'
-        + '<div><div class="q-txt">'+esc(q.q)+'</div><div class="q-unit">'+esc(q.u)+'</div></div></div><div class="opts">';
+      h += '<div class="q" style="--sc:'+s.color+'">'
+        + '<div class="q-unit">'+esc(q.u)+'</div>'
+        + '<div class="q-top"><span class="q-no">'+(i+1)+'</span>'
+        + '<div class="q-txt">'+esc(q.q)+'</div></div><div class="opts">';
       q.o.forEach(function(o,j){
         var cls = "opt", dis = "";
         if(goster){
@@ -320,6 +344,7 @@
     box.innerHTML = h;
     renderScore();
     renderQuizPills();
+    renderQuizUnits();
   }
   function renderScore(){
     var list = cur().quiz[curQuiz] || [], right = 0, ans = 0;
@@ -334,6 +359,7 @@
     else if(right === list.length) lab = "Tamamı doğru. Bu ders sende.";
     else lab = "Bitti. Yanlışlarını hata defterine yaz — asıl çalışma o.";
     if(reveal && ans < list.length) lab = "Cevaplar gösteriliyor — bu tur puana sayılmaz. Gizlemek için üstteki düğmeye bas.";
+    if(qFilter !== null) lab = "Yalnızca “"+qFilter+"” soruları gösteriliyor. Puan dersin tamamı üzerinden. " + lab;
     el("qLab").textContent = lab;
     if(ans === list.length && list.length){
       var prev = st().quiz[curQuiz];
@@ -394,7 +420,7 @@
     if(grade === g) return;
     grade = g;
     curQuiz = "mat";
-    reveal = false;
+    reveal = false; qFilter = null;
     try{ localStorage.setItem(LS+"-grade", g); }catch(e){}
     renderAll();
     syncAnsBtn();
@@ -468,8 +494,17 @@
     var p = ev.target.closest("[data-quiz]");
     if(!p) return;
     curQuiz = p.getAttribute("data-quiz");
-    reveal = false;
+    reveal = false; qFilter = null;
     renderQuiz(); syncAnsBtn();
+  });
+
+  el("quizUnits").addEventListener("click", function(ev){
+    var b = ev.target.closest("[data-uf]");
+    if(!b) return;
+    var v = b.getAttribute("data-uf");
+    qFilter = (v === "" || v === qFilter) ? null : v;
+    renderQuiz();
+    el("qlist").scrollIntoView({block:"start", behavior:"auto"});
   });
 
   el("qlist").addEventListener("click", function(ev){

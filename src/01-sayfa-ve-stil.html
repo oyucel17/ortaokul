@@ -285,8 +285,17 @@
   .q-top{display:flex;gap:11px;align-items:baseline;margin-bottom:12px}
   .q-no{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-faint);flex:none;padding-top:2px}
   .q-txt{font-size:14.5px;font-weight:500;max-width:66ch}
-  .q-unit{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--sc);margin-top:5px;
-    letter-spacing:.03em;text-transform:uppercase}
+  .q-unit{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:600;
+    color:var(--sc);background:var(--card-2);border:1px solid var(--line);border-radius:20px;
+    padding:3px 11px;letter-spacing:.04em;margin-bottom:12px}
+
+  /* ünite filtresi */
+  .ufilters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+  .ufilter{padding:5px 11px;border:1px solid var(--line);border-radius:20px;font-size:12.5px;
+    background:var(--card-2);color:var(--ink-soft);display:inline-flex;align-items:center;gap:7px}
+  .ufilter:hover{border-color:var(--sc);color:var(--ink)}
+  .ufilter[aria-pressed="true"]{background:var(--sc);border-color:var(--sc);color:var(--card);font-weight:600}
+  .ufilter .n{font-family:"IBM Plex Mono",monospace;font-size:10.5px;opacity:.75}
   .opts{display:flex;flex-direction:column;gap:7px}
   .opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;padding:9px 12px;
     border:1px solid var(--line);border-radius:8px;background:var(--card-2);font-size:13.8px;transition:all .12s ease}
@@ -425,6 +434,7 @@
       <div class="block-head"><h2>Kendini sına</h2><span class="note"><span id="noteQ">…</span> çoktan seçmeli soru · anında geri bildirim</span></div>
       <p class="lede">Her soru üstünde yazan üniteye ait. Şıkka tıkladığın anda doğru cevap ve nedeni açılır. Açık uçlu sorular ve cevap anahtarı <b>Dersler</b> sekmesinde, her ünitenin içinde.</p>
       <div class="pills" id="quizPills"></div>
+      <div class="ufilters" id="quizUnits"></div>
       <div class="score-bar">
         <div class="big" id="qScore">0 / 0</div>
         <div class="lab" id="qLab">Başlamak için bir şıkka tıkla.</div>
