@@ -139,6 +139,25 @@ Okulun kendi ünitelendirilmiş yıllık planı her durumda esastır.
 
 ---
 
+## Veli görünümü
+
+Çocuğun cihazındaki ilerleme kendi tarayıcısında durur, dışarı çıkmaz. Veliye ulaştırmak için
+**durum kodu** kullanılır:
+
+1. Çocuk: **İlerleme → Durum kodumu üret** → çıkan metni gönderir (~30–400 karakter)
+2. Veli: `…/ortaokul/?veli` adresini açar, kodu yapıştırır, **Kodu ekle** der
+
+Rapor: bitirilen ünite sayısı ve yüzdesi, bitirilen test sayısı ve başarı oranı, ders ders ilerleme,
+bitirilen ünitelerin adları, yanlış sayısına göre sıralı zayıf konular, son çalışma tarihi.
+İki sınıfın raporu yan yana durur; kodlar velinin bilgisayarında saklanır.
+
+Kod kısa kalsın diye ünite ve konu adları değil, **kanonik sıra indeksi** taşınır — iki taraf da
+aynı sayfayı çalıştırdığı için indeksten ada çevirme sorunsuz olur. Ünite listesi değişirse
+eski kodlar kayabilir; büyük bir yeniden düzenlemeden sonra çocuktan yeni kod iste.
+
+Otomatik ve anlık takip isteniyorsa (Supabase gibi bir arka uç) yalnızca verinin taşınması değişir;
+`src/10-veli.js` içindeki rapor ekranı aynen kullanılır.
+
 ## Yayın
 
 `index.html` tek dosyadır, sunucu gerektirmez. GitHub Pages `main` dalının kökünden servis eder;
