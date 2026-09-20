@@ -13,7 +13,7 @@
   function countQ(g){ var c=0; Object.keys(G[g].quiz).forEach(function(k){ c += G[g].quiz[k].length; }); return c; }
 
   var grade = "g7";
-  var state = { g6:{done:{},quiz:{}}, g7:{done:{},quiz:{}} };
+  var state = { g6:{done:{},quiz:{},wrong:{}}, g7:{done:{},quiz:{},wrong:{}} };
   var LS = "ortaokul-yol-haritasi-v1";
   var dbRef = null, saveTimer = null;
   var openSubj = {g6:{},g7:{}}, openUnit = {g6:{},g7:{}};
@@ -34,6 +34,35 @@
       .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 30);
   }
   function uid(sk, u){ return sk + "-" + slug(u.n); }
+
+  /* Soru kimliği metinden türetilir — araya soru eklense de
+     "yanlışlarım" kayıtları doğru soruya bağlı kalır. */
+  function qid(q){ return slug(q.q).slice(0, 42); }
+  function wkeyFor(sk, q){ return sk + "|" + qid(q); }
+  function wkey(q){ return wkeyFor(curQuiz, q); }
+
+  /* Deterministik karıştırma: aynı tohum aynı sırayı verir, böylece
+     tıkladıkça sıra değişmez; "Testi sıfırla" yeni tohum üretir. */
+  var seeds = {};
+  function seedOf(){
+    var k = grade + "-" + curQuiz;
+    if(seeds[k] === undefined) seeds[k] = Math.floor(Math.random() * 1e9);
+    return seeds[k];
+  }
+  function rnd(s){
+    return function(){
+      s = s + 0x6D2B79F5 | 0;
+      var t = Math.imul(s ^ s >>> 15, 1 | s);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+  function perm(n, seed){
+    var a = [], r = rnd(seed), i, j, t;
+    for(i = 0; i < n; i++) a.push(i);
+    for(i = n - 1; i > 0; i--){ j = Math.floor(r() * (i + 1)); t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a;
+  }
 
   /* Takvimdeki ay adlarıyla eşleşen gerçek ay — "şu an işleniyor" işareti için. */
   var AYLAR = ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
@@ -56,7 +85,7 @@
       if(raw){ var o = JSON.parse(raw);
         if(o && typeof o === "object"){
           ["g6","g7"].forEach(function(g){
-            if(o[g]){ state[g].done = o[g].done || {}; state[g].quiz = o[g].quiz || {}; }
+            if(o[g]){ state[g].done = o[g].done || {}; state[g].quiz = o[g].quiz || {}; state[g].wrong = o[g].wrong || {}; }
           });
         }
       }
@@ -103,7 +132,7 @@
         if(snap.metadata && snap.metadata.hasPendingWrites) return;
         var d = snap.data() || {};
         ["g6","g7"].forEach(function(g){
-          if(d[g]){ state[g].done = d[g].done || {}; state[g].quiz = d[g].quiz || {}; }
+          if(d[g]){ state[g].done = d[g].done || {}; state[g].quiz = d[g].quiz || {}; state[g].wrong = d[g].wrong || {}; }
         });
         writeLocal();
         renderSubjects(); renderProgress(); renderRing(); renderQuiz();
@@ -297,10 +326,13 @@
       if(adet[q.u] === undefined){ sira.push(q.u); adet[q.u] = 0; }
       adet[q.u]++;
     });
-    var box = el("quizUnits");
+    var box = el("quizUnits"), W = st().wrong, yanlis = 0;
+    list.forEach(function(q){ if(W[wkey(q)]) yanlis++; });
     box.style.setProperty("--sc", s.color);
     var h = '<button class="ufilter" data-uf="" aria-pressed="'+(qFilter===null)+'">'
           + 'Tümü <span class="n">'+list.length+'</span></button>';
+    if(yanlis) h += '<button class="ufilter hata" data-uf="__yanlis__" aria-pressed="'+(qFilter==="__yanlis__")+'">'
+                  + 'Yanlışlarım <span class="n">'+yanlis+'</span></button>';
     sira.forEach(function(u){
       h += '<button class="ufilter" data-uf="'+esc(u)+'" aria-pressed="'+(qFilter===u)+'">'
          + esc(u)+' <span class="n">'+adet[u]+'</span></button>';
@@ -311,37 +343,51 @@
   function renderQuiz(){
     var Q = cur().quiz;
     if(!Q[curQuiz]) curQuiz = "mat";
-    var s = subjByKey(curQuiz), list = Q[curQuiz] || [];
-    if(qFilter !== null && !list.some(function(q){ return q.u === qFilter; })) qFilter = null;
-    var box = el("qlist"), h = "";
-    list.forEach(function(q,i){
-      if(qFilter !== null && q.u !== qFilter) return;
+    var s = subjByKey(curQuiz), list = Q[curQuiz] || [], W = st().wrong;
+    if(qFilter !== null && qFilter !== "__yanlis__"
+       && !list.some(function(q){ return q.u === qFilter; })) qFilter = null;
+    if(qFilter === "__yanlis__" && !list.some(function(q){ return W[wkey(q)]; })) qFilter = null;
+
+    var seed = seedOf(), sira = perm(list.length, seed);
+    var box = el("qlist"), h = "", sayac = 0;
+
+    sira.forEach(function(i){
+      var q = list[i];
+      if(qFilter === "__yanlis__"){ if(!W[wkey(q)]) return; }
+      else if(qFilter !== null && q.u !== qFilter) return;
+      sayac++;
+
       var given = answers[grade+"-"+curQuiz+"-"+i];
       var goster = (given !== undefined) || reveal;   // cevaplandı ya da "cevapları göster" açık
+      var sik = perm(q.o.length, seed + i * 7919);    // şık sırası da karışır
+
       h += '<div class="q" style="--sc:'+s.color+'">'
         + '<div class="q-unit">'+esc(q.u)+'</div>'
-        + '<div class="q-top"><span class="q-no">'+(i+1)+'</span>'
+        + (W[wkey(q)] && given === undefined ? '<div class="q-again">Bunu daha önce yanlış yapmıştın</div>' : '')
+        + '<div class="q-top"><span class="q-no">'+sayac+'</span>'
         + '<div class="q-txt">'+esc(q.q)+'</div></div><div class="opts">';
-      q.o.forEach(function(o,j){
+
+      sik.forEach(function(oi, j){
         var cls = "opt", dis = "";
         if(goster){
           dis = " disabled";
-          if(j === q.a) cls += " correct";
-          else if(j === given) cls += " wrong";
+          if(oi === q.a) cls += " correct";
+          else if(oi === given) cls += " wrong";
         }
-        h += '<button class="'+cls+'" data-ans="'+i+'-'+j+'"'+dis+'>'
-          + '<span class="let">'+String.fromCharCode(65+j)+'</span><span>'+esc(o)+'</span></button>';
+        h += '<button class="'+cls+'" data-ans="'+i+'-'+oi+'"'+dis+'>'
+          + '<span class="let">'+String.fromCharCode(65+j)+'</span><span>'+esc(q.o[oi])+'</span></button>';
       });
       h += '</div>';
+
       if(goster){
-        var harf = String.fromCharCode(65+q.a);
+        var harf = String.fromCharCode(65 + sik.indexOf(q.a));
         var etiket = (given === undefined) ? "Cevap "+harf+"."
                    : (given === q.a ? "Doğru." : "Doğru cevap "+harf+".");
         h += '<div class="why"><b>'+etiket+'</b> '+esc(q.w)+'</div>';
       }
       h += '</div>';
     });
-    box.innerHTML = h;
+    box.innerHTML = h || '<p class="lede">Bu seçimde gösterilecek soru kalmadı.</p>';
     renderScore();
     renderQuizPills();
     renderQuizUnits();
@@ -403,6 +449,35 @@
       h += '</div>';
     });
     el("bars").innerHTML = h;
+    renderZayif();
+  }
+
+  /* Yanlış yapılan sorulardan hangi ünitelerin zayıf olduğunu çıkarır.
+     Bu liste, o ünitelere yeni soru yazılması gerektiğini gösterir. */
+  function renderZayif(){
+    var W = st().wrong, Q = cur().quiz, adet = {}, renk = {};
+    Object.keys(Q).forEach(function(k){
+      var s = subjByKey(k);
+      if(!s) return;
+      Q[k].forEach(function(q){
+        if(!W[wkeyFor(k, q)]) return;
+        var ad = s.name + " — " + q.u;
+        adet[ad] = (adet[ad] || 0) + 1;
+        renk[ad] = s.color;
+      });
+    });
+    var sira = Object.keys(adet).sort(function(a,b){ return adet[b] - adet[a]; });
+    var box = el("zayif");
+    if(!sira.length){ box.innerHTML = ""; box.hidden = true; return; }
+    box.hidden = false;
+    var h = '<div class="zayif-box"><div class="nt">Tekrar gerektiren üniteler</div>'
+          + '<p class="zayif-not">Yanlış yapılan soru sayısına göre sıralı. Testler sekmesinde '
+          + '<b>Yanlışlarım</b> filtresiyle bunları tekrar çözebilirsin. Liste uzadıysa bana söyle, '
+          + 'bu ünitelere yeni sorular eklerim.</p><ul class="zayif-list">';
+    sira.forEach(function(ad){
+      h += '<li><i style="background:'+renk[ad]+'"></i><span>'+esc(ad)+'</span><b>'+adet[ad]+' yanlış</b></li>';
+    });
+    el("zayif").innerHTML = h + '</ul></div>';
   }
 
   /* ---------- sınıf değiştir ---------- */
@@ -511,22 +586,32 @@
     var b = ev.target.closest("[data-ans]");
     if(!b || b.disabled) return;
     var parts = b.getAttribute("data-ans").split("-");
-    var key = grade+"-"+curQuiz+"-"+parts[0];
+    var i = parseInt(parts[0],10), sec = parseInt(parts[1],10);
+    var key = grade+"-"+curQuiz+"-"+i;
     if(answers[key] !== undefined) return;
-    answers[key] = parseInt(parts[1],10);
+    answers[key] = sec;
+    /* hata defteri: yanlışsa kaydet, doğruysa listeden çıkar */
+    var q = (cur().quiz[curQuiz] || [])[i];
+    if(q){
+      var w = wkey(q);
+      if(sec === q.a) delete st().wrong[w]; else st().wrong[w] = true;
+      persist();
+    }
     renderQuiz();
+    renderProgress();
   });
 
   el("qReset").addEventListener("click", function(){
     var pre = grade+"-"+curQuiz+"-";
     Object.keys(answers).forEach(function(k){ if(k.indexOf(pre) === 0) delete answers[k]; });
     reveal = false;
+    seeds[grade+"-"+curQuiz] = Math.floor(Math.random()*1e9);  // yeni karışım
     renderQuiz(); syncAnsBtn();
   });
 
   el("resetAll").addEventListener("click", function(){
     if(!window.confirm(cur().label+" için işaretlenen tüm üniteler ve test sonuçları silinecek. Diğer sınıf etkilenmez. Emin misin?")) return;
-    state[grade] = {done:{}, quiz:{}};
+    state[grade] = {done:{}, quiz:{}, wrong:{}};
     var pre = grade+"-";
     Object.keys(answers).forEach(function(k){ if(k.indexOf(pre) === 0) delete answers[k]; });
     persist(); renderSubjects(); renderRing(); renderProgress(); renderQuiz();
