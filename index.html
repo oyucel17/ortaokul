@@ -2763,7 +2763,7 @@
   var LS = "ortaokul-yol-haritasi-v1";
   var dbRef = null, saveTimer = null;
   var openSubj = {g6:{},g7:{}}, openUnit = {g6:{},g7:{}};
-  var answers = {}, curQuiz = "mat", ansOpen = false;
+  var answers = {}, curQuiz = "mat", ansOpen = false, reveal = false;
 
   function el(id){ return document.getElementById(id); }
   function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
@@ -3031,11 +3031,12 @@
     var box = el("qlist"), h = "";
     list.forEach(function(q,i){
       var given = answers[grade+"-"+curQuiz+"-"+i];
+      var goster = (given !== undefined) || reveal;   // cevaplandı ya da "cevapları göster" açık
       h += '<div class="q" style="--sc:'+s.color+'"><div class="q-top"><span class="q-no">'+(i+1)+'</span>'
         + '<div><div class="q-txt">'+esc(q.q)+'</div><div class="q-unit">'+esc(q.u)+'</div></div></div><div class="opts">';
       q.o.forEach(function(o,j){
         var cls = "opt", dis = "";
-        if(given !== undefined){
+        if(goster){
           dis = " disabled";
           if(j === q.a) cls += " correct";
           else if(j === given) cls += " wrong";
@@ -3044,7 +3045,12 @@
           + '<span class="let">'+String.fromCharCode(65+j)+'</span><span>'+esc(o)+'</span></button>';
       });
       h += '</div>';
-      if(given !== undefined) h += '<div class="why"><b>'+(given===q.a?"Doğru.":"Doğru cevap "+String.fromCharCode(65+q.a)+".")+'</b> '+esc(q.w)+'</div>';
+      if(goster){
+        var harf = String.fromCharCode(65+q.a);
+        var etiket = (given === undefined) ? "Cevap "+harf+"."
+                   : (given === q.a ? "Doğru." : "Doğru cevap "+harf+".");
+        h += '<div class="why"><b>'+etiket+'</b> '+esc(q.w)+'</div>';
+      }
       h += '</div>';
     });
     box.innerHTML = h;
@@ -3063,6 +3069,7 @@
     else if(ans < list.length) lab = ans+" soru cevaplandı, "+(list.length-ans)+" soru kaldı.";
     else if(right === list.length) lab = "Tamamı doğru. Bu ders sende.";
     else lab = "Bitti. Yanlışlarını hata defterine yaz — asıl çalışma o.";
+    if(reveal && ans < list.length) lab = "Cevaplar gösteriliyor — bu tur puana sayılmaz. Gizlemek için üstteki düğmeye bas.";
     el("qLab").textContent = lab;
     if(ans === list.length && list.length){
       var prev = st().quiz[curQuiz];
@@ -3123,8 +3130,10 @@
     if(grade === g) return;
     grade = g;
     curQuiz = "mat";
+    reveal = false;
     try{ localStorage.setItem(LS+"-grade", g); }catch(e){}
     renderAll();
+    syncAnsBtn();
     window.scrollTo({top:0, behavior:"auto"});
   }
   el("g6").addEventListener("click", function(){ setGrade("g6"); });
@@ -3132,6 +3141,29 @@
 
   /* ---------- sekmeler ---------- */
   var TABS = ["plan","dersler","testler","ilerleme"];
+  function aktifSekme(){
+    var r = "plan";
+    TABS.forEach(function(k){ if(el("tab-"+k).getAttribute("aria-selected") === "true") r = k; });
+    return r;
+  }
+  /* "Cevaplar" düğmesi sekmeye göre farklı iş yapar:
+     Dersler → açık uçlu cevap anahtarlarını açar/kapatır
+     Testler → çoktan seçmeli soruların doğru şıkkını gösterir (puana sayılmaz)
+     Plan / İlerleme → gösterilecek cevap yok, düğme gizlenir */
+  function syncAnsBtn(){
+    var t = aktifSekme(), b = el("ansBtn");
+    if(t === "dersler"){
+      b.hidden = false;
+      b.setAttribute("aria-pressed", ansOpen ? "true" : "false");
+      b.textContent = ansOpen ? "Cevap anahtarını kapat" : "Cevap anahtarını aç";
+    } else if(t === "testler"){
+      b.hidden = false;
+      b.setAttribute("aria-pressed", reveal ? "true" : "false");
+      b.textContent = reveal ? "Cevapları gizle" : "Cevapları göster";
+    } else {
+      b.hidden = true;
+    }
+  }
   function switchTab(id){
     TABS.forEach(function(k){
       var t = el("tab-"+k), p = el("p-"+k);
@@ -3139,6 +3171,7 @@
       t.setAttribute("aria-selected", on ? "true" : "false");
       p.hidden = !on;
     });
+    syncAnsBtn();
     try{ localStorage.setItem(LS+"-tab", id); }catch(e){}
   }
   TABS.forEach(function(k){ el("tab-"+k).addEventListener("click", function(){ switchTab(k); }); });
@@ -3171,7 +3204,8 @@
     var p = ev.target.closest("[data-quiz]");
     if(!p) return;
     curQuiz = p.getAttribute("data-quiz");
-    renderQuiz();
+    reveal = false;
+    renderQuiz(); syncAnsBtn();
   });
 
   el("qlist").addEventListener("click", function(ev){
@@ -3187,7 +3221,8 @@
   el("qReset").addEventListener("click", function(){
     var pre = grade+"-"+curQuiz+"-";
     Object.keys(answers).forEach(function(k){ if(k.indexOf(pre) === 0) delete answers[k]; });
-    renderQuiz();
+    reveal = false;
+    renderQuiz(); syncAnsBtn();
   });
 
   el("resetAll").addEventListener("click", function(){
@@ -3199,11 +3234,16 @@
   });
 
   el("ansBtn").addEventListener("click", function(){
-    ansOpen = !ansOpen;
-    this.setAttribute("aria-pressed", ansOpen ? "true" : "false");
-    this.textContent = ansOpen ? "Cevapları kapat" : "Cevapları aç";
-    Array.prototype.forEach.call(document.querySelectorAll("details.ans"), function(d){ d.open = ansOpen; });
-    try{ localStorage.setItem(LS+"-ans", ansOpen ? "1" : "0"); }catch(e){}
+    var t = aktifSekme();
+    if(t === "dersler"){
+      ansOpen = !ansOpen;
+      Array.prototype.forEach.call(document.querySelectorAll("details.ans"), function(d){ d.open = ansOpen; });
+      try{ localStorage.setItem(LS+"-ans", ansOpen ? "1" : "0"); }catch(e){}
+    } else if(t === "testler"){
+      reveal = !reveal;
+      renderQuiz();
+    }
+    syncAnsBtn();
   });
 
   el("printBtn").addEventListener("click", function(){
@@ -3223,16 +3263,13 @@
     if(g === "g6" || g === "g7") grade = g;
     ansOpen = localStorage.getItem(LS+"-ans") === "1";
   }catch(e){}
-  if(ansOpen){
-    el("ansBtn").setAttribute("aria-pressed","true");
-    el("ansBtn").textContent = "Cevapları kapat";
-  }
   openSubj[grade].mat = true;
   renderAll();
   try{
     var last = localStorage.getItem(LS+"-tab");
     if(last && el("tab-"+last)) switchTab(last);
   }catch(e){}
+  syncAnsBtn();
   initStore();
 })();
 </script>
