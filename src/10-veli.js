@@ -57,7 +57,35 @@
     });
     var wrong = Object.keys(sayim).map(function(i){ return { i:parseInt(i,10), n:sayim[i] }; });
 
-    return { g:g, son:(S.son || "").slice(0,10), done:done, quiz:quiz, wrong:wrong };
+    /* çözülen sorular: soru metni, çocuğun işaretlediği şık, doğru şık */
+    var cevaplar = [];
+    G[g].subj.forEach(function(s){
+      var hepsi = ((G[g].quiz || {})[s.key] || []).concat(((G[g].havuz || {})[s.key] || []));
+      hepsi.forEach(function(qq){
+        var verilen = (S.cevap || {})[wkeyFor(s.key, qq)];
+        if(verilen === undefined) return;
+        cevaplar.push({
+          sad: s.name, renk: s.color, u: qq.u, soru: qq.q,
+          verilen: qq.o[verilen], dogru: qq.o[qq.a], ok: verilen === qq.a
+        });
+      });
+    });
+
+    /* izlenen videolar */
+    var videolar = [];
+    Object.keys(S.video || {}).forEach(function(url){
+      var v = S.video[url];
+      var s = null;
+      G[g].subj.forEach(function(x){ if(x.key === v.s) s = x; });
+      videolar.push({
+        sad: s ? s.name : v.s, renk: s ? s.color : "var(--ink-faint)",
+        u: v.u || "", t: v.t || url, n: v.n || 1, son: v.son || "", url: url
+      });
+    });
+    videolar.sort(function(a,b){ return (b.son || "").localeCompare(a.son || ""); });
+
+    return { g:g, son:(S.son || "").slice(0,10), done:done, quiz:quiz, wrong:wrong,
+             cevaplar:cevaplar, videolar:videolar };
   }
 
   function kodUret(g){
@@ -195,6 +223,45 @@
       h += '<p class="zayif-not" style="margin-top:10px">Toplam ' + yanlisTop
          + ' yanlış. Çocuk bunları <b>Testler → Yanlışlarım</b> ile tekrar çözebilir; '
          + 'aynı ünitelerin havuzdaki yeni soruları da orada çıkar.</p>';
+    }
+    h += '</div>';
+
+    /* izlediği videolar */
+    var vid = o.videolar || [];
+    h += '<div class="veli-bolum"><h4>İzlediği konu anlatımları</h4>';
+    if(!vid.length){ h += '<p class="veli-bos">Henüz video açılmamış.</p>'; }
+    else {
+      vid.forEach(function(v){
+        h += '<div class="veli-satir"><i style="background:' + v.renk + '"></i>'
+           + '<span><b style="font-weight:600">' + esc(v.sad) + '</b>'
+           + (v.u ? ' — ' + esc(v.u) : '') + '<br>'
+           + '<a href="' + esc(v.url) + '" target="_blank" rel="noopener" class="veli-vlink">'
+           + esc(v.t) + '</a></span>'
+           + '<b>' + v.n + '×' + (v.son ? ' · ' + esc(tarihYaz(v.son.slice(0,10))) : '') + '</b></div>';
+      });
+    }
+    h += '</div>';
+
+    /* çözdüğü sorular */
+    var cev = o.cevaplar || [];
+    var dogruS = cev.filter(function(c){ return c.ok; }).length;
+    h += '<div class="veli-bolum"><h4>Çözdüğü sorular'
+       + (cev.length ? ' — ' + cev.length + ' soru, ' + dogruS + ' doğru' : '') + '</h4>';
+    if(!cev.length){ h += '<p class="veli-bos">Henüz soru çözülmemiş.</p>'; }
+    else {
+      h += '<details class="ans"><summary>' + cev.length + ' sorunun tamamını göster</summary>'
+         + '<div class="cev-liste">';
+      cev.forEach(function(c){
+        h += '<div class="cev-kart' + (c.ok ? ' ok' : ' hata') + '">'
+           + '<div class="cev-ust"><i style="background:' + c.renk + '"></i>'
+           + '<span>' + esc(c.sad) + ' · ' + esc(c.u) + '</span>'
+           + '<b>' + (c.ok ? 'doğru' : 'yanlış') + '</b></div>'
+           + '<div class="cev-soru">' + esc(c.soru) + '</div>'
+           + '<div class="cev-sik"><em>işaretlediği:</em> ' + esc(c.verilen) + '</div>'
+           + (c.ok ? '' : '<div class="cev-sik dogru"><em>doğrusu:</em> ' + esc(c.dogru) + '</div>')
+           + '</div>';
+      });
+      h += '</div></details>';
     }
     h += '</div></div>';
     return h;

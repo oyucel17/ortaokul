@@ -357,6 +357,26 @@
   .veli-bos{font-size:13.4px;color:var(--ink-faint);padding:4px 0}
   .veli-sil{font-size:11.5px;color:var(--ink-faint);background:none;border:none;padding:0;text-decoration:underline}
   .veli-sil:hover{color:var(--bad)}
+  .veli-vlink{font-size:12.8px;color:var(--accent);text-decoration:none}
+  .veli-vlink:hover{text-decoration:underline}
+  .veli-satir span br + .veli-vlink{display:inline-block;margin-top:2px}
+
+  .cev-liste{display:flex;flex-direction:column;gap:10px;padding:13px 15px 15px}
+  .cev-kart{border:1px solid var(--line);border-left:3px solid var(--ok);border-radius:8px;
+    padding:11px 13px;background:var(--card)}
+  .cev-kart.hata{border-left-color:var(--bad)}
+  .cev-ust{display:flex;align-items:center;gap:9px;margin-bottom:7px;
+    font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--ink-faint)}
+  .cev-ust i{width:6px;height:6px;border-radius:50%;flex:none;display:block}
+  .cev-ust span{flex:1;min-width:0}
+  .cev-ust b{flex:none;color:var(--ok)}
+  .cev-kart.hata .cev-ust b{color:var(--bad)}
+  .cev-soru{font-size:13.8px;margin-bottom:8px;max-width:70ch}
+  .cev-sik{font-size:13.2px;color:var(--ink-soft)}
+  .cev-sik em{font-style:normal;font-family:"IBM Plex Mono",monospace;font-size:10.5px;
+    text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);margin-right:6px}
+  .cev-sik.dogru{color:var(--ok);margin-top:3px}
   .opts{display:flex;flex-direction:column;gap:7px}
   .opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;padding:9px 12px;
     border:1px solid var(--line);border-radius:8px;background:var(--card-2);font-size:13.8px;transition:all .12s ease}
@@ -3514,11 +3534,11 @@
   function countQ(g){ var c=0; Object.keys(G[g].quiz).forEach(function(k){ c += G[g].quiz[k].length; }); return c; }
 
   var grade = "g7";
-  var state = { g6:{done:{},quiz:{},wrong:{}}, g7:{done:{},quiz:{},wrong:{}} };
+  var state = { g6:{done:{},quiz:{},wrong:{},cevap:{},video:{}}, g7:{done:{},quiz:{},wrong:{},cevap:{},video:{}} };
   var LS = "ortaokul-yol-haritasi-v1";
   var dbRef = null, saveTimer = null;
   var openSubj = {g6:{},g7:{}}, openUnit = {g6:{},g7:{}};
-  var answers = {}, curQuiz = "mat", ansOpen = false, reveal = false, qFilter = null;
+  var curQuiz = "mat", ansOpen = false, reveal = false, qFilter = null;
 
   function el(id){ return document.getElementById(id); }
   function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
@@ -3586,7 +3606,7 @@
       if(raw){ var o = JSON.parse(raw);
         if(o && typeof o === "object"){
           ["g6","g7"].forEach(function(g){
-            if(o[g]){ state[g].done = o[g].done || {}; state[g].quiz = o[g].quiz || {}; state[g].wrong = o[g].wrong || {}; state[g].son = o[g].son || ""; }
+            if(o[g]){ state[g].done = o[g].done || {}; state[g].quiz = o[g].quiz || {}; state[g].wrong = o[g].wrong || {}; state[g].cevap = o[g].cevap || {}; state[g].video = o[g].video || {}; state[g].son = o[g].son || ""; }
           });
         }
       }
@@ -3634,7 +3654,7 @@
         if(snap.metadata && snap.metadata.hasPendingWrites) return;
         var d = snap.data() || {};
         ["g6","g7"].forEach(function(g){
-          if(d[g]){ state[g].done = d[g].done || {}; state[g].quiz = d[g].quiz || {}; state[g].wrong = d[g].wrong || {}; }
+          if(d[g]){ state[g].done = d[g].done || {}; state[g].quiz = d[g].quiz || {}; state[g].wrong = d[g].wrong || {}; state[g].cevap = d[g].cevap || {}; state[g].video = d[g].video || {}; }
         });
         writeLocal();
         renderSubjects(); renderProgress(); renderRing(); renderQuiz();
@@ -3886,7 +3906,7 @@
       var it = kume[k], q = it.q;
       sayac++;
 
-      var given = answers[grade+"-"+curQuiz+"-"+it.id];
+      var given = st().cevap[wkeyFor(curQuiz, q)];
       var goster = (given !== undefined) || reveal;   // cevaplandı ya da "cevapları göster" açık
       var sik = perm(q.o.length, seed + hashNum(it.id) * 7919);   // şık sırası da karışır
 
@@ -3922,11 +3942,12 @@
     renderScore();
     renderQuizPills();
     renderQuizUnits();
+    syncResetBtn();
   }
   function renderScore(){
     var list = cur().quiz[curQuiz] || [], right = 0, ans = 0;
     list.forEach(function(q,i){
-      var g = answers[grade+"-"+curQuiz+"-"+i];
+      var g = st().cevap[wkeyFor(curQuiz, q)];
       if(g !== undefined){ ans++; if(g === q.a) right++; }
     });
     el("qScore").textContent = right+" / "+list.length;
@@ -4121,35 +4142,59 @@
     if(!b || b.disabled) return;
     var parts = b.getAttribute("data-ans").split("-");
     var id = parts[0], sec = parseInt(parts[1],10);
-    var key = grade+"-"+curQuiz+"-"+id;
-    if(answers[key] !== undefined) return;
-    answers[key] = sec;
-    /* hata defteri: yanlışsa kaydet, doğruysa listeden çıkar */
     var q = (id.charAt(0) === "h")
           ? hav()[parseInt(id.slice(1),10)]
           : anaListe()[parseInt(id,10)];
-    if(q){
-      var w = wkey(q);
-      if(sec === q.a) delete st().wrong[w]; else st().wrong[w] = true;
-      persist();
-    }
+    if(!q) return;
+    var k = wkey(q);
+    if(st().cevap[k] !== undefined) return;
+    st().cevap[k] = sec;                       // verdiği cevap kalıcı kaydedilir
+    /* hata defteri: yanlışsa kaydet, doğruysa listeden çıkar */
+    if(sec === q.a) delete st().wrong[k]; else st().wrong[k] = true;
+    persist();
     renderQuiz();
     renderProgress();
   });
 
+  /* İzlenen video kaydı — hangi ders, hangi ünite, hangi video */
+  el("subjects").addEventListener("click", function(ev){
+    var a = ev.target.closest('a[href*="youtube.com"]');
+    if(!a) return;
+    var kart = a.closest(".subj");
+    var unite = a.closest(".unit");
+    var sk = kart ? kart.querySelector("[data-subj]").getAttribute("data-subj") : "";
+    var ad = unite ? unite.querySelector(".unit-name").textContent : "(ders geneli)";
+    var url = a.getAttribute("href");
+    var v = st().video[url] || { s:sk, u:ad, t:(a.querySelector(".vt") || {}).textContent || "", n:0 };
+    v.n++; v.son = new Date().toISOString();
+    st().video[url] = v;
+    persist();
+  });
+
+  /* Sıfırlama YALNIZCA ekranda görünen soruları kapsar ve düğme kaç
+     soru sileceğini yazar. Eskiden filtre açıkken bile dersin tamamını
+     siliyordu; bu yanlış anlaşılıyordu. */
+  function syncResetBtn(){
+    var b = el("qReset");
+    if(!b) return;
+    var n = gosterilecek().length;
+    if(qFilter === "__yanlis__") b.textContent = "Bu " + n + " soruyu sıfırla";
+    else if(qFilter !== null)    b.textContent = "Bu ünitenin " + n + " sorusunu sıfırla";
+    else                         b.textContent = "Bu dersin " + n + " sorusunu sıfırla";
+  }
+
   el("qReset").addEventListener("click", function(){
-    var pre = grade+"-"+curQuiz+"-";
-    Object.keys(answers).forEach(function(k){ if(k.indexOf(pre) === 0) delete answers[k]; });
+    var C = st().cevap;
+    gosterilecek().forEach(function(it){ delete C[wkeyFor(curQuiz, it.q)]; });
     reveal = false;
     seeds[grade+"-"+curQuiz] = Math.floor(Math.random()*1e9);  // yeni karışım
-    renderQuiz(); syncAnsBtn();
+    persist();
+    renderQuiz(); syncAnsBtn(); renderProgress();
   });
 
   el("resetAll").addEventListener("click", function(){
     if(!window.confirm(cur().label+" için işaretlenen tüm üniteler ve test sonuçları silinecek. Diğer sınıf etkilenmez. Emin misin?")) return;
-    state[grade] = {done:{}, quiz:{}, wrong:{}};
-    var pre = grade+"-";
-    Object.keys(answers).forEach(function(k){ if(k.indexOf(pre) === 0) delete answers[k]; });
+    state[grade] = {done:{}, quiz:{}, wrong:{}, cevap:{}, video:{}};
     persist(); renderSubjects(); renderRing(); renderProgress(); renderQuiz();
   });
 
@@ -4250,7 +4295,35 @@
     });
     var wrong = Object.keys(sayim).map(function(i){ return { i:parseInt(i,10), n:sayim[i] }; });
 
-    return { g:g, son:(S.son || "").slice(0,10), done:done, quiz:quiz, wrong:wrong };
+    /* çözülen sorular: soru metni, çocuğun işaretlediği şık, doğru şık */
+    var cevaplar = [];
+    G[g].subj.forEach(function(s){
+      var hepsi = ((G[g].quiz || {})[s.key] || []).concat(((G[g].havuz || {})[s.key] || []));
+      hepsi.forEach(function(qq){
+        var verilen = (S.cevap || {})[wkeyFor(s.key, qq)];
+        if(verilen === undefined) return;
+        cevaplar.push({
+          sad: s.name, renk: s.color, u: qq.u, soru: qq.q,
+          verilen: qq.o[verilen], dogru: qq.o[qq.a], ok: verilen === qq.a
+        });
+      });
+    });
+
+    /* izlenen videolar */
+    var videolar = [];
+    Object.keys(S.video || {}).forEach(function(url){
+      var v = S.video[url];
+      var s = null;
+      G[g].subj.forEach(function(x){ if(x.key === v.s) s = x; });
+      videolar.push({
+        sad: s ? s.name : v.s, renk: s ? s.color : "var(--ink-faint)",
+        u: v.u || "", t: v.t || url, n: v.n || 1, son: v.son || "", url: url
+      });
+    });
+    videolar.sort(function(a,b){ return (b.son || "").localeCompare(a.son || ""); });
+
+    return { g:g, son:(S.son || "").slice(0,10), done:done, quiz:quiz, wrong:wrong,
+             cevaplar:cevaplar, videolar:videolar };
   }
 
   function kodUret(g){
@@ -4388,6 +4461,45 @@
       h += '<p class="zayif-not" style="margin-top:10px">Toplam ' + yanlisTop
          + ' yanlış. Çocuk bunları <b>Testler → Yanlışlarım</b> ile tekrar çözebilir; '
          + 'aynı ünitelerin havuzdaki yeni soruları da orada çıkar.</p>';
+    }
+    h += '</div>';
+
+    /* izlediği videolar */
+    var vid = o.videolar || [];
+    h += '<div class="veli-bolum"><h4>İzlediği konu anlatımları</h4>';
+    if(!vid.length){ h += '<p class="veli-bos">Henüz video açılmamış.</p>'; }
+    else {
+      vid.forEach(function(v){
+        h += '<div class="veli-satir"><i style="background:' + v.renk + '"></i>'
+           + '<span><b style="font-weight:600">' + esc(v.sad) + '</b>'
+           + (v.u ? ' — ' + esc(v.u) : '') + '<br>'
+           + '<a href="' + esc(v.url) + '" target="_blank" rel="noopener" class="veli-vlink">'
+           + esc(v.t) + '</a></span>'
+           + '<b>' + v.n + '×' + (v.son ? ' · ' + esc(tarihYaz(v.son.slice(0,10))) : '') + '</b></div>';
+      });
+    }
+    h += '</div>';
+
+    /* çözdüğü sorular */
+    var cev = o.cevaplar || [];
+    var dogruS = cev.filter(function(c){ return c.ok; }).length;
+    h += '<div class="veli-bolum"><h4>Çözdüğü sorular'
+       + (cev.length ? ' — ' + cev.length + ' soru, ' + dogruS + ' doğru' : '') + '</h4>';
+    if(!cev.length){ h += '<p class="veli-bos">Henüz soru çözülmemiş.</p>'; }
+    else {
+      h += '<details class="ans"><summary>' + cev.length + ' sorunun tamamını göster</summary>'
+         + '<div class="cev-liste">';
+      cev.forEach(function(c){
+        h += '<div class="cev-kart' + (c.ok ? ' ok' : ' hata') + '">'
+           + '<div class="cev-ust"><i style="background:' + c.renk + '"></i>'
+           + '<span>' + esc(c.sad) + ' · ' + esc(c.u) + '</span>'
+           + '<b>' + (c.ok ? 'doğru' : 'yanlış') + '</b></div>'
+           + '<div class="cev-soru">' + esc(c.soru) + '</div>'
+           + '<div class="cev-sik"><em>işaretlediği:</em> ' + esc(c.verilen) + '</div>'
+           + (c.ok ? '' : '<div class="cev-sik dogru"><em>doğrusu:</em> ' + esc(c.dogru) + '</div>')
+           + '</div>';
+      });
+      h += '</div></details>';
     }
     h += '</div></div>';
     return h;

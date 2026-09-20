@@ -13,11 +13,11 @@
   function countQ(g){ var c=0; Object.keys(G[g].quiz).forEach(function(k){ c += G[g].quiz[k].length; }); return c; }
 
   var grade = "g7";
-  var state = { g6:{done:{},quiz:{},wrong:{}}, g7:{done:{},quiz:{},wrong:{}} };
+  var state = { g6:{done:{},quiz:{},wrong:{},cevap:{},video:{}}, g7:{done:{},quiz:{},wrong:{},cevap:{},video:{}} };
   var LS = "ortaokul-yol-haritasi-v1";
   var dbRef = null, saveTimer = null;
   var openSubj = {g6:{},g7:{}}, openUnit = {g6:{},g7:{}};
-  var answers = {}, curQuiz = "mat", ansOpen = false, reveal = false, qFilter = null;
+  var curQuiz = "mat", ansOpen = false, reveal = false, qFilter = null;
 
   function el(id){ return document.getElementById(id); }
   function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
@@ -85,7 +85,7 @@
       if(raw){ var o = JSON.parse(raw);
         if(o && typeof o === "object"){
           ["g6","g7"].forEach(function(g){
-            if(o[g]){ state[g].done = o[g].done || {}; state[g].quiz = o[g].quiz || {}; state[g].wrong = o[g].wrong || {}; state[g].son = o[g].son || ""; }
+            if(o[g]){ state[g].done = o[g].done || {}; state[g].quiz = o[g].quiz || {}; state[g].wrong = o[g].wrong || {}; state[g].cevap = o[g].cevap || {}; state[g].video = o[g].video || {}; state[g].son = o[g].son || ""; }
           });
         }
       }
@@ -133,7 +133,7 @@
         if(snap.metadata && snap.metadata.hasPendingWrites) return;
         var d = snap.data() || {};
         ["g6","g7"].forEach(function(g){
-          if(d[g]){ state[g].done = d[g].done || {}; state[g].quiz = d[g].quiz || {}; state[g].wrong = d[g].wrong || {}; }
+          if(d[g]){ state[g].done = d[g].done || {}; state[g].quiz = d[g].quiz || {}; state[g].wrong = d[g].wrong || {}; state[g].cevap = d[g].cevap || {}; state[g].video = d[g].video || {}; }
         });
         writeLocal();
         renderSubjects(); renderProgress(); renderRing(); renderQuiz();
@@ -385,7 +385,7 @@
       var it = kume[k], q = it.q;
       sayac++;
 
-      var given = answers[grade+"-"+curQuiz+"-"+it.id];
+      var given = st().cevap[wkeyFor(curQuiz, q)];
       var goster = (given !== undefined) || reveal;   // cevaplandı ya da "cevapları göster" açık
       var sik = perm(q.o.length, seed + hashNum(it.id) * 7919);   // şık sırası da karışır
 
@@ -421,11 +421,12 @@
     renderScore();
     renderQuizPills();
     renderQuizUnits();
+    syncResetBtn();
   }
   function renderScore(){
     var list = cur().quiz[curQuiz] || [], right = 0, ans = 0;
     list.forEach(function(q,i){
-      var g = answers[grade+"-"+curQuiz+"-"+i];
+      var g = st().cevap[wkeyFor(curQuiz, q)];
       if(g !== undefined){ ans++; if(g === q.a) right++; }
     });
     el("qScore").textContent = right+" / "+list.length;
@@ -620,35 +621,59 @@
     if(!b || b.disabled) return;
     var parts = b.getAttribute("data-ans").split("-");
     var id = parts[0], sec = parseInt(parts[1],10);
-    var key = grade+"-"+curQuiz+"-"+id;
-    if(answers[key] !== undefined) return;
-    answers[key] = sec;
-    /* hata defteri: yanlışsa kaydet, doğruysa listeden çıkar */
     var q = (id.charAt(0) === "h")
           ? hav()[parseInt(id.slice(1),10)]
           : anaListe()[parseInt(id,10)];
-    if(q){
-      var w = wkey(q);
-      if(sec === q.a) delete st().wrong[w]; else st().wrong[w] = true;
-      persist();
-    }
+    if(!q) return;
+    var k = wkey(q);
+    if(st().cevap[k] !== undefined) return;
+    st().cevap[k] = sec;                       // verdiği cevap kalıcı kaydedilir
+    /* hata defteri: yanlışsa kaydet, doğruysa listeden çıkar */
+    if(sec === q.a) delete st().wrong[k]; else st().wrong[k] = true;
+    persist();
     renderQuiz();
     renderProgress();
   });
 
+  /* İzlenen video kaydı — hangi ders, hangi ünite, hangi video */
+  el("subjects").addEventListener("click", function(ev){
+    var a = ev.target.closest('a[href*="youtube.com"]');
+    if(!a) return;
+    var kart = a.closest(".subj");
+    var unite = a.closest(".unit");
+    var sk = kart ? kart.querySelector("[data-subj]").getAttribute("data-subj") : "";
+    var ad = unite ? unite.querySelector(".unit-name").textContent : "(ders geneli)";
+    var url = a.getAttribute("href");
+    var v = st().video[url] || { s:sk, u:ad, t:(a.querySelector(".vt") || {}).textContent || "", n:0 };
+    v.n++; v.son = new Date().toISOString();
+    st().video[url] = v;
+    persist();
+  });
+
+  /* Sıfırlama YALNIZCA ekranda görünen soruları kapsar ve düğme kaç
+     soru sileceğini yazar. Eskiden filtre açıkken bile dersin tamamını
+     siliyordu; bu yanlış anlaşılıyordu. */
+  function syncResetBtn(){
+    var b = el("qReset");
+    if(!b) return;
+    var n = gosterilecek().length;
+    if(qFilter === "__yanlis__") b.textContent = "Bu " + n + " soruyu sıfırla";
+    else if(qFilter !== null)    b.textContent = "Bu ünitenin " + n + " sorusunu sıfırla";
+    else                         b.textContent = "Bu dersin " + n + " sorusunu sıfırla";
+  }
+
   el("qReset").addEventListener("click", function(){
-    var pre = grade+"-"+curQuiz+"-";
-    Object.keys(answers).forEach(function(k){ if(k.indexOf(pre) === 0) delete answers[k]; });
+    var C = st().cevap;
+    gosterilecek().forEach(function(it){ delete C[wkeyFor(curQuiz, it.q)]; });
     reveal = false;
     seeds[grade+"-"+curQuiz] = Math.floor(Math.random()*1e9);  // yeni karışım
-    renderQuiz(); syncAnsBtn();
+    persist();
+    renderQuiz(); syncAnsBtn(); renderProgress();
   });
 
   el("resetAll").addEventListener("click", function(){
     if(!window.confirm(cur().label+" için işaretlenen tüm üniteler ve test sonuçları silinecek. Diğer sınıf etkilenmez. Emin misin?")) return;
-    state[grade] = {done:{}, quiz:{}, wrong:{}};
-    var pre = grade+"-";
-    Object.keys(answers).forEach(function(k){ if(k.indexOf(pre) === 0) delete answers[k]; });
+    state[grade] = {done:{}, quiz:{}, wrong:{}, cevap:{}, video:{}};
     persist(); renderSubjects(); renderRing(); renderProgress(); renderQuiz();
   });
 
