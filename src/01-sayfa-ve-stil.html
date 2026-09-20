@@ -314,6 +314,42 @@
   .zayif-list i{width:7px;height:7px;border-radius:50%;flex:none;display:block}
   .zayif-list span{flex:1;min-width:0}
   .zayif-list b{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--bad);flex:none}
+
+  /* ---------- durum paylaşımı ve veli görünümü ---------- */
+  .paylas-kutu{margin-top:22px;background:var(--card);border:1px solid var(--line);
+    border-left:4px solid var(--accent);border-radius:var(--radius);padding:15px 17px}
+  .paylas-kutu .nt{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;
+    text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:8px}
+  .kod-alan{width:100%;font-family:"IBM Plex Mono",monospace;font-size:12px;line-height:1.5;
+    padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card-2);
+    color:var(--ink);resize:vertical;margin-top:10px}
+  .kod-alan:focus{outline:2px solid var(--accent);outline-offset:1px}
+
+  .veli-giris{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:15px 17px;margin-bottom:22px}
+  .veli-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:11px}
+  .veli-kart{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sc);
+    border-radius:var(--radius);padding:16px 18px;margin-bottom:16px;box-shadow:var(--shadow)}
+  .veli-kart h3{font-size:18px;color:var(--sc)}
+  .veli-ust{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+  .veli-son{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-faint)}
+  .veli-ozet{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:14px 0 4px}
+  .veli-ozet div{background:var(--card-2);border:1px solid var(--line-soft);border-radius:8px;padding:10px 12px}
+  .veli-ozet .v{font-family:"IBM Plex Mono",monospace;font-size:20px;font-weight:600;line-height:1.1}
+  .veli-ozet .k{font-size:11.5px;color:var(--ink-soft);margin-top:3px}
+  .veli-bolum{margin-top:18px}
+  .veli-bolum h4{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;
+    text-transform:uppercase;color:var(--ink-faint);font-weight:600;margin-bottom:9px}
+  .veli-satir{display:flex;align-items:center;gap:10px;font-size:13.6px;padding:5px 0;
+    border-bottom:1px solid var(--line-soft)}
+  .veli-satir:last-child{border-bottom:none}
+  .veli-satir i{width:7px;height:7px;border-radius:50%;flex:none;display:block}
+  .veli-satir span{flex:1;min-width:0}
+  .veli-satir b{font-family:"IBM Plex Mono",monospace;font-size:12px;flex:none;color:var(--ink-soft)}
+  .veli-satir.kotu b{color:var(--bad)}
+  .veli-bos{font-size:13.4px;color:var(--ink-faint);padding:4px 0}
+  .veli-sil{font-size:11.5px;color:var(--ink-faint);background:none;border:none;padding:0;text-decoration:underline}
+  .veli-sil:hover{color:var(--bad)}
   .opts{display:flex;flex-direction:column;gap:7px}
   .opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;padding:9px 12px;
     border:1px solid var(--line);border-radius:8px;background:var(--card-2);font-size:13.8px;transition:all .12s ease}
@@ -469,9 +505,34 @@
       <div class="bars" id="bars"></div>
       <div id="zayif"></div>
       <div class="save-note"><span class="dot" id="saveDot"></span><span id="saveTxt">Kaydediliyor…</span></div>
+      <div class="paylas-kutu">
+        <div class="nt">Durumu paylaş</div>
+        <p class="zayif-not">Anne-baban durumunu kendi bilgisayarından görmek istiyorsa, aşağıdaki kodu üret ve ona gönder.</p>
+        <p><button class="btn" id="kodBtn">Durum kodumu üret</button></p>
+        <div id="kodCikti" hidden>
+          <textarea id="kodMetin" readonly rows="3" class="kod-alan"></textarea>
+          <p class="zayif-not" style="margin:8px 0 0">Kodu seçip kopyala, WhatsApp'tan gönder. İçinde yalnızca hangi üniteleri bitirdiğin ve test sonuçların var.</p>
+        </div>
+      </div>
       <p style="margin-top:18px"><button class="btn danger" id="resetAll">Bu sınıfın ilerlemesini sıfırla</button></p>
     </div>
   </section>
+</main>
+
+<main class="wrap" id="veliMain" hidden>
+  <div style="padding-block:6px 0">
+    <div class="block-head"><h2>Veli görünümü</h2><span class="note">iki çocuk yan yana</span></div>
+    <p class="lede">Çocuğun <b>İlerleme</b> sekmesinde ürettiği durum kodunu buraya yapıştır. Kodlar bu bilgisayarda saklanır; yeni kod yapıştırdığında o çocuğun raporu güncellenir.</p>
+    <div class="veli-giris">
+      <textarea id="veliKod" rows="3" class="kod-alan" placeholder="OYH1;g7;2026-09-20;D0,1,2;Qmat:9/13;W4x2"></textarea>
+      <div class="veli-btns">
+        <button class="btn" id="veliEkle">Kodu ekle</button>
+        <button class="btn danger" id="veliTemizle">Tüm raporları sil</button>
+      </div>
+      <p class="zayif-not" id="veliUyari"></p>
+    </div>
+    <div id="veliRapor"></div>
+  </div>
 </main>
 
 <footer class="wrap">

@@ -85,7 +85,7 @@
       if(raw){ var o = JSON.parse(raw);
         if(o && typeof o === "object"){
           ["g6","g7"].forEach(function(g){
-            if(o[g]){ state[g].done = o[g].done || {}; state[g].quiz = o[g].quiz || {}; state[g].wrong = o[g].wrong || {}; }
+            if(o[g]){ state[g].done = o[g].done || {}; state[g].quiz = o[g].quiz || {}; state[g].wrong = o[g].wrong || {}; state[g].son = o[g].son || ""; }
           });
         }
       }
@@ -98,6 +98,7 @@
     if(t) t.textContent = txt;
   }
   function persist(){
+    state[grade].son = new Date().toISOString();   // son çalışma zamanı (veli raporu için)
     writeLocal();
     if(!dbRef) return;
     clearTimeout(saveTimer);
@@ -689,5 +690,3 @@
   }catch(e){}
   syncAnsBtn();
   initStore();
-})();
-</script>
