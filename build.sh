@@ -20,6 +20,7 @@ cat src/01-sayfa-ve-stil.html \
     src/08c-havuz.js \
     src/09-uygulama.js \
     src/10-veli.js \
+    src/11-supabase.js \
     src/99-kapanis.js > "$TMP"
 
 # 2) JavaScript sözdizimini doğrula (node varsa)

@@ -31,6 +31,35 @@
     return out;
   }
 
+  /* Bir sınıfın durumunu rapor nesnesine çevirir.
+     Hem durum kodu üretiminde hem de buluttan gelen veride kullanılır. */
+  function durumObje(g, S){
+    S = S || {};
+    var UL = uniteListesi(g), EL = etiketListesi(g);
+    var done = [];
+    UL.forEach(function(u, i){ if((S.done || {})[u.id]) done.push(i); });
+
+    var quiz = [];
+    Object.keys(S.quiz || {}).forEach(function(k){
+      var r = S.quiz[k];
+      if(r && r.total) quiz.push({ k:k, s:r.best + "/" + r.total });
+    });
+
+    var sayim = {};
+    G[g].subj.forEach(function(s){
+      var hepsi = ((G[g].quiz || {})[s.key] || []).concat(((G[g].havuz || {})[s.key] || []));
+      hepsi.forEach(function(qq){
+        if(!(S.wrong || {})[wkeyFor(s.key, qq)]) return;
+        for(var i = 0; i < EL.length; i++){
+          if(EL[i].sk === s.key && EL[i].u === qq.u){ sayim[i] = (sayim[i] || 0) + 1; break; }
+        }
+      });
+    });
+    var wrong = Object.keys(sayim).map(function(i){ return { i:parseInt(i,10), n:sayim[i] }; });
+
+    return { g:g, son:(S.son || "").slice(0,10), done:done, quiz:quiz, wrong:wrong };
+  }
+
   function kodUret(g){
     var S = state[g] || {}, UL = uniteListesi(g), EL = etiketListesi(g);
     var d = [];
@@ -100,7 +129,10 @@
     var o = kodCoz(kod);
     if(!o) return '<div class="veli-kart" style="--sc:var(--bad)"><h3>Kod okunamadı</h3>'
                 + '<p class="veli-bos">Kodun tamamını kopyaladığından emin ol; <code>OYH1;</code> ile başlamalı.</p></div>';
+    return veliKartObje(o);
+  }
 
+  function veliKartObje(o){
     var UL = uniteListesi(o.g), EL = etiketListesi(o.g), G_ = G[o.g];
     var bitti = {};
     o.done.forEach(function(i){ if(UL[i]) bitti[UL[i].sk] = (bitti[UL[i].sk] || 0) + 1; });
