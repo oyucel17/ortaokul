@@ -1,10 +1,10 @@
   /* ===================== SINIFLAR ===================== */
 
   var G = {
-    g6:{ label:"6. Sınıf", cal:CAL6, subj:S6, quiz:Q6,
+    g6:{ label:"6. Sınıf", cal:CAL6, subj:S6, quiz:Q6, havuz:H6,
          sub:"Altı dersin ünite ünite özeti, her ünitenin sonunda açık uçlu sorular ve kapalı duran bir cevap anahtarı — yanında yıllık takvim, haftalık program ve çoktan seçmeli testler.",
          lede:"6. sınıf ikinci yılında Maarif Modeli ile okuyor. Ünite adları MEB'in resmî programından birebir alındı. Bir üniteyi bitirince soldaki kutuyu işaretle; ilerleme kaydediliyor." },
-    g7:{ label:"7. Sınıf", cal:CAL7, subj:S7, quiz:Q7,
+    g7:{ label:"7. Sınıf", cal:CAL7, subj:S7, quiz:Q7, havuz:H7,
          sub:"Altı dersin ünite ünite özeti, her ünitenin sonunda açık uçlu sorular ve kapalı duran bir cevap anahtarı — yanında yıllık takvim, haftalık program ve çoktan seçmeli testler.",
          lede:"2026–2027, 7. sınıfın Maarif Modeli'ne geçtiği <b>ilk yıl</b> — ünite adları geçen yılkinden farklı. Başlıklar MEB'in resmî programından birebir alındı. Bir üniteyi bitirince soldaki kutuyu işaretle; ilerleme kaydediliyor." }
   };
@@ -331,8 +331,14 @@
     box.style.setProperty("--sc", s.color);
     var h = '<button class="ufilter" data-uf="" aria-pressed="'+(qFilter===null)+'">'
           + 'Tümü <span class="n">'+list.length+'</span></button>';
-    if(yanlis) h += '<button class="ufilter hata" data-uf="__yanlis__" aria-pressed="'+(qFilter==="__yanlis__")+'">'
-                  + 'Yanlışlarım <span class="n">'+yanlis+'</span></button>';
+    if(yanlis){
+      var zayif = {}, ek = 0;
+      list.forEach(function(q){ if(W[wkey(q)]) zayif[q.u] = true; });
+      hav().forEach(function(q){ if(W[wkey(q)]) zayif[q.u] = true; });
+      hav().forEach(function(q){ if(zayif[q.u]) ek++; });
+      h += '<button class="ufilter hata" data-uf="__yanlis__" aria-pressed="'+(qFilter==="__yanlis__")+'">'
+         + 'Yanlışlarım <span class="n">'+yanlis+(ek ? " + "+ek+" yeni" : "")+'</span></button>';
+    }
     sira.forEach(function(u){
       h += '<button class="ufilter" data-uf="'+esc(u)+'" aria-pressed="'+(qFilter===u)+'">'
          + esc(u)+' <span class="n">'+adet[u]+'</span></button>';
@@ -340,30 +346,53 @@
     box.innerHTML = h;
   }
 
+  function hav(){ return (cur().havuz || {})[curQuiz] || []; }
+  function anaListe(){ return (cur().quiz || {})[curQuiz] || []; }
+  function hashNum(s){ var n = 0; for(var i=0;i<s.length;i++) n = (n*31 + s.charCodeAt(i)) | 0; return n; }
+
+  /* Ekranda gösterilecek soruları kurar.
+     "Yanlışlarım" modunda ana testten yanlış yapılanlar + o ünitelerin
+     HAVUZ sorularını birlikte verir; havuz soruları ana teste girmez. */
+  function gosterilecek(){
+    var ana = anaListe(), havuz = hav(), W = st().wrong, out = [];
+    if(qFilter === "__yanlis__"){
+      var zayif = {};
+      ana.forEach(function(q){ if(W[wkeyFor(curQuiz,q)]) zayif[q.u] = true; });
+      havuz.forEach(function(q){ if(W[wkeyFor(curQuiz,q)]) zayif[q.u] = true; });
+      ana.forEach(function(q,i){ if(W[wkeyFor(curQuiz,q)]) out.push({q:q, id:String(i), havuz:false}); });
+      havuz.forEach(function(q,i){ if(zayif[q.u]) out.push({q:q, id:"h"+i, havuz:true}); });
+    } else {
+      ana.forEach(function(q,i){ if(qFilter === null || q.u === qFilter) out.push({q:q, id:String(i), havuz:false}); });
+    }
+    return out;
+  }
+
   function renderQuiz(){
     var Q = cur().quiz;
     if(!Q[curQuiz]) curQuiz = "mat";
-    var s = subjByKey(curQuiz), list = Q[curQuiz] || [], W = st().wrong;
+    var s = subjByKey(curQuiz), ana = anaListe(), W = st().wrong;
     if(qFilter !== null && qFilter !== "__yanlis__"
-       && !list.some(function(q){ return q.u === qFilter; })) qFilter = null;
-    if(qFilter === "__yanlis__" && !list.some(function(q){ return W[wkey(q)]; })) qFilter = null;
+       && !ana.some(function(q){ return q.u === qFilter; })) qFilter = null;
+    if(qFilter === "__yanlis__"
+       && !ana.concat(hav()).some(function(q){ return W[wkeyFor(curQuiz,q)]; })) qFilter = null;
 
-    var seed = seedOf(), sira = perm(list.length, seed);
+    var kume = gosterilecek();
+    var seed = seedOf(), sira = perm(kume.length, seed);
     var box = el("qlist"), h = "", sayac = 0;
 
-    sira.forEach(function(i){
-      var q = list[i];
-      if(qFilter === "__yanlis__"){ if(!W[wkey(q)]) return; }
-      else if(qFilter !== null && q.u !== qFilter) return;
+    sira.forEach(function(k){
+      var it = kume[k], q = it.q;
       sayac++;
 
-      var given = answers[grade+"-"+curQuiz+"-"+i];
+      var given = answers[grade+"-"+curQuiz+"-"+it.id];
       var goster = (given !== undefined) || reveal;   // cevaplandı ya da "cevapları göster" açık
-      var sik = perm(q.o.length, seed + i * 7919);    // şık sırası da karışır
+      var sik = perm(q.o.length, seed + hashNum(it.id) * 7919);   // şık sırası da karışır
 
       h += '<div class="q" style="--sc:'+s.color+'">'
         + '<div class="q-unit">'+esc(q.u)+'</div>'
-        + (W[wkey(q)] && given === undefined ? '<div class="q-again">Bunu daha önce yanlış yapmıştın</div>' : '')
+        + (it.havuz ? '<div class="q-pool">Havuzdan · yeni soru</div>' : '')
+        + (!it.havuz && W[wkeyFor(curQuiz,q)] && given === undefined
+            ? '<div class="q-again">Bunu daha önce yanlış yapmıştın</div>' : '')
         + '<div class="q-top"><span class="q-no">'+sayac+'</span>'
         + '<div class="q-txt">'+esc(q.q)+'</div></div><div class="opts">';
 
@@ -374,7 +403,7 @@
           if(oi === q.a) cls += " correct";
           else if(oi === given) cls += " wrong";
         }
-        h += '<button class="'+cls+'" data-ans="'+i+'-'+oi+'"'+dis+'>'
+        h += '<button class="'+cls+'" data-ans="'+it.id+'-'+oi+'"'+dis+'>'
           + '<span class="let">'+String.fromCharCode(65+j)+'</span><span>'+esc(q.o[oi])+'</span></button>';
       });
       h += '</div>';
@@ -405,7 +434,10 @@
     else if(right === list.length) lab = "Tamamı doğru. Bu ders sende.";
     else lab = "Bitti. Yanlışlarını hata defterine yaz — asıl çalışma o.";
     if(reveal && ans < list.length) lab = "Cevaplar gösteriliyor — bu tur puana sayılmaz. Gizlemek için üstteki düğmeye bas.";
-    if(qFilter !== null) lab = "Yalnızca “"+qFilter+"” soruları gösteriliyor. Puan dersin tamamı üzerinden. " + lab;
+    if(qFilter === "__yanlis__")
+      lab = "Yanlış yaptıkların ve aynı ünitelerin havuzdaki yeni soruları. Puan ana test üzerinden sayılır.";
+    else if(qFilter !== null)
+      lab = "Yalnızca “"+qFilter+"” soruları gösteriliyor. Puan dersin tamamı üzerinden. " + lab;
     el("qLab").textContent = lab;
     if(ans === list.length && list.length){
       var prev = st().quiz[curQuiz];
@@ -586,12 +618,14 @@
     var b = ev.target.closest("[data-ans]");
     if(!b || b.disabled) return;
     var parts = b.getAttribute("data-ans").split("-");
-    var i = parseInt(parts[0],10), sec = parseInt(parts[1],10);
-    var key = grade+"-"+curQuiz+"-"+i;
+    var id = parts[0], sec = parseInt(parts[1],10);
+    var key = grade+"-"+curQuiz+"-"+id;
     if(answers[key] !== undefined) return;
     answers[key] = sec;
     /* hata defteri: yanlışsa kaydet, doğruysa listeden çıkar */
-    var q = (cur().quiz[curQuiz] || [])[i];
+    var q = (id.charAt(0) === "h")
+          ? hav()[parseInt(id.slice(1),10)]
+          : anaListe()[parseInt(id,10)];
     if(q){
       var w = wkey(q);
       if(sec === q.a) delete st().wrong[w]; else st().wrong[w] = true;

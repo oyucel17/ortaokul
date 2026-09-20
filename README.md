@@ -96,6 +96,18 @@ Sorular `src/08-testler.js` içinde, `Q6` ve `Q7` altında ders ders duruyor:
 Yeni soruyu dizinin sonuna eklemek güvenlidir: "yanlışlarım" kayıtları soru metninden türeyen
 kimliğe bağlı, indise değil.
 
+### Soru havuzu (`src/08c-havuz.js`)
+
+`H6` / `H7` altındaki sorular **ana teste girmez.** Yalnızca **Yanlışlarım** modunda,
+çocuğun yanlış yaptığı ünitelerden **taze soru** olarak servis edilir. Amaç, aynı soruyu
+ezberlemek yerine aynı konuyu farklı soruyla tekrar çözdürmek.
+
+Yapı ana testle birebir aynı; `u` alanı yine ünite başlığıyla eşleşmeli.
+Hedef: aktif her ünite için **5 havuz sorusu**.
+
+Havuz soruları da yanlış yapılırsa hata defterine girer ve tekrar çıkar.
+Puan hesabı yalnızca ana test üzerinden yapılır; havuz soruları skoru etkilemez.
+
 ### "Şimdi işleniyor" rozeti
 
 Ünitenin `w` alanı (ör. `"Eylül–Ekim"`) cihazın o anki ay adını içeriyorsa yeşil **şimdi işleniyor**,

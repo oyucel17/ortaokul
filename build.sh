@@ -17,6 +17,7 @@ cat src/01-sayfa-ve-stil.html \
     src/07-7sinif-ingilizce-din.js \
     src/08-testler.js \
     src/08b-testler-ek.js \
+    src/08c-havuz.js \
     src/09-uygulama.js > "$TMP"
 
 # 2) JavaScript sözdizimini doğrula (node varsa)
