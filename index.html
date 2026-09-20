@@ -4281,7 +4281,8 @@
     if(!s) return "henüz kayıt yok";
     var d = new Date(s + "T00:00:00");
     if(isNaN(d.getTime())) return s;
-    var fark = Math.round((Date.now() - d.getTime()) / 86400000);
+    var bugun = new Date(); bugun.setHours(0,0,0,0);   // saat değil, gün farkı
+    var fark = Math.round((bugun.getTime() - d.getTime()) / 86400000);
     var m = d.getDate() + " " + AYLAR[d.getMonth()];
     if(fark <= 0) return m + " (bugün)";
     if(fark === 1) return m + " (dün)";
