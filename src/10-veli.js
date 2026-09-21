@@ -295,6 +295,12 @@
 
   /* ---------- olaylar ---------- */
 
+  if(el("paylasAc")) el("paylasAc").addEventListener("click", function(){
+    var k = el("paylasKutu");
+    k.hidden = !k.hidden;
+    this.textContent = k.hidden ? "bağlantı sorunu mu var? durum kodu üret" : "yedek yolu gizle";
+  });
+
   if(el("kodBtn")) el("kodBtn").addEventListener("click", function(){
     var kod = kodUret(grade);
     el("kodCikti").hidden = false;

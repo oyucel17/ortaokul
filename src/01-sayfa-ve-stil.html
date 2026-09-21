@@ -570,13 +570,14 @@
       <div class="bars" id="bars"></div>
       <div id="zayif"></div>
       <div class="save-note"><span class="dot" id="saveDot"></span><span id="saveTxt">Kaydediliyor…</span></div>
-      <div class="paylas-kutu">
-        <div class="nt">Durumu paylaş</div>
-        <p class="zayif-not">Anne-baban durumunu kendi bilgisayarından görmek istiyorsa, aşağıdaki kodu üret ve ona gönder.</p>
+      <p style="margin-top:9px"><button class="veli-sil" id="paylasAc">bağlantı sorunu mu var? durum kodu üret</button></p>
+      <div class="paylas-kutu" id="paylasKutu" hidden>
+        <div class="nt">Durum kodu — yedek yol</div>
+        <p class="zayif-not">İlerlemen normalde kendiliğinden ailene ulaşıyor, bir şey yapmana gerek yok. Bu kutu yalnızca internet ya da sunucu sorunu olduğunda işe yarar: kodu üretip gönderirsin, aynı raporu görürler.</p>
         <p><button class="btn" id="kodBtn">Durum kodumu üret</button></p>
         <div id="kodCikti" hidden>
           <textarea id="kodMetin" readonly rows="3" class="kod-alan"></textarea>
-          <p class="zayif-not" style="margin:8px 0 0">Kodu seçip kopyala, WhatsApp'tan gönder. İçinde yalnızca hangi üniteleri bitirdiğin ve test sonuçların var.</p>
+          <p class="zayif-not" style="margin:8px 0 0">Kodu seçip kopyala ve gönder. İçinde yalnızca hangi üniteleri bitirdiğin, test sonuçların ve yanlış yaptığın konular var.</p>
         </div>
       </div>
       <p style="margin-top:18px"><button class="btn danger" id="resetAll">Bu sınıfın ilerlemesini sıfırla</button></p>
