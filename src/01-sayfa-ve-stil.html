@@ -370,6 +370,50 @@
   .cev-sik em{font-style:normal;font-family:"IBM Plex Mono",monospace;font-size:10.5px;
     text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);margin-right:6px}
   .cev-sik.dogru{color:var(--ok);margin-top:3px}
+
+  /* ---------- okul: zaman çizelgesi ve ders programı ---------- */
+  .suan{background:var(--ok-soft);border:1px solid var(--ok);border-radius:var(--radius);padding:15px 17px}
+  .suan.bos{background:var(--card-2);border-color:var(--line)}
+  .suan .nt{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;
+    text-transform:uppercase;color:var(--ok);font-weight:600;margin-bottom:7px}
+  .suan.bos .nt{color:var(--ink-faint)}
+  .suan p{font-size:14.5px}
+  .suan-ders{display:flex;align-items:center;gap:10px;margin-top:11px;background:var(--card);
+    border:1px solid var(--line);border-radius:8px;padding:10px 13px}
+  .suan-ders i{width:8px;height:8px;border-radius:50%;flex:none;display:block}
+  .suan-ders span{flex:1;min-width:0;font-weight:600;font-size:14.5px}
+  .suan-ders b{font-size:12.5px;color:var(--ink-soft);font-weight:400;flex:none}
+
+  .rozet{font-family:"IBM Plex Mono",monospace;font-size:10px;background:var(--accent-soft);
+    color:var(--accent-ink);padding:2px 7px;border-radius:20px;white-space:nowrap}
+  .rozet.yesil{background:var(--ok-soft);color:var(--ok)}
+  tr.satir-simdi td{background:var(--ok-soft)}
+  tr.satir-simdi td:first-child{box-shadow:inset 3px 0 0 var(--ok)}
+
+  .prg{display:flex;flex-direction:column;gap:13px}
+  .prg-gun{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .prg-gun.bugun{border-color:var(--ok);box-shadow:var(--shadow)}
+  .prg-baslik{display:flex;align-items:center;gap:9px;padding:11px 15px;background:var(--card-2);
+    border-bottom:1px solid var(--line-soft);font-family:"Bricolage Grotesque",sans-serif;
+    font-weight:700;font-size:15px}
+  .prg-gun.bugun .prg-baslik{background:var(--ok-soft)}
+  .prg-adet{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:11px;
+    color:var(--ink-faint);font-weight:400}
+  .prg-liste{display:flex;flex-direction:column}
+  .prg-satir{display:grid;grid-template-columns:22px 92px 9px 1fr auto;align-items:center;gap:10px;
+    padding:8px 15px;border-bottom:1px solid var(--line-soft);font-size:13.8px}
+  .prg-satir:last-child{border-bottom:none}
+  .prg-satir.simdi{background:var(--ok-soft)}
+  .prg-no{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint)}
+  .prg-saat{font-size:11.5px;color:var(--ink-faint)}
+  .prg-satir i{width:8px;height:8px;border-radius:50%;display:block}
+  .prg-ders{font-weight:500;min-width:0}
+  .prg-ogr{font-size:12px;color:var(--ink-faint);white-space:nowrap}
+  @media(max-width:600px){
+    .prg-satir{grid-template-columns:20px 9px 1fr;row-gap:2px}
+    .prg-saat{grid-column:2 / -1;font-size:11px}
+    .prg-ogr{grid-column:2 / -1}
+  }
   .opts{display:flex;flex-direction:column;gap:7px}
   .opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;padding:9px 12px;
     border:1px solid var(--line);border-radius:8px;background:var(--card-2);font-size:13.8px;transition:all .12s ease}
@@ -460,6 +504,7 @@
     <button class="tab" role="tab" id="tab-dersler" aria-controls="p-dersler" aria-selected="false">Dersler <span class="badge" id="badgeU">…</span></button>
     <button class="tab" role="tab" id="tab-testler" aria-controls="p-testler" aria-selected="false">Testler <span class="badge" id="badgeQ">…</span></button>
     <button class="tab" role="tab" id="tab-ilerleme" aria-controls="p-ilerleme" aria-selected="false">İlerleme</button>
+    <button class="tab" role="tab" id="tab-okul" aria-controls="p-okul" aria-selected="false">Okul</button>
     <span class="tabs-act">
       <button class="btn" id="ansBtn" aria-pressed="false">Cevapları aç</button>
       <button class="btn" id="printBtn">Yazdır</button>
@@ -535,6 +580,22 @@
         </div>
       </div>
       <p style="margin-top:18px"><button class="btn danger" id="resetAll">Bu sınıfın ilerlemesini sıfırla</button></p>
+    </div>
+  </section>
+  <section id="p-okul" role="tabpanel" aria-labelledby="tab-okul" hidden>
+    <div>
+      <div class="block-head"><h2>Okul saatleri ve ders programı</h2></div>
+      <p class="lede" id="okulBaslik">…</p>
+      <div id="suAnKart"></div>
+    </div>
+    <div>
+      <div class="block-head"><h2>Haftalık ders programı</h2><span class="note">sınıfa göre değişir</span></div>
+      <div id="programKutu" class="prg"></div>
+    </div>
+    <div>
+      <div class="block-head"><h2>Günlük zaman çizelgesi</h2><span class="note">zil saatleri</span></div>
+      <p class="lede">Saatler her gün aynı; yalnızca <b>Pazartesi</b> 8. ders var, o gün okul 16:15'te bitiyor. Diğer günler son ders 15:25'te sona eriyor.</p>
+      <div id="zamanTablo"></div>
     </div>
   </section>
 </main>

@@ -21,6 +21,7 @@ cat src/01-sayfa-ve-stil.html \
     src/09-uygulama.js \
     src/10-veli.js \
     src/11-supabase.js \
+    src/12-okul.js \
     src/99-kapanis.js > "$TMP"
 
 # 2) JavaScript sözdizimini doğrula (node varsa)
