@@ -59,18 +59,25 @@
     var wrong = Object.keys(sayim).map(function(i){ return { i:parseInt(i,10), n:sayim[i] }; });
 
     /* çözülen sorular: soru metni, çocuğun işaretlediği şık, doğru şık */
-    var cevaplar = [];
+    var cevaplar = [], duzeltilen = 0;
     G[g].subj.forEach(function(s){
       var ana = (G[g].quiz || {})[s.key] || [];
       var havuz = (G[g].havuz || {})[s.key] || [];
       ana.forEach(function(qq){ topla(qq, false); });
       havuz.forEach(function(qq){ topla(qq, true); });
       function topla(qq, havuzMu){
-        var verilen = (S.cevap || {})[wkeyFor(s.key, qq)];
+        var wk = wkeyFor(s.key, qq);
+        var verilen = (S.cevap || {})[wk];
         if(verilen === undefined) return;
+        /* Çocuk "Yanlışlarım"da yanlışını düzeltebiliyor; düzeltince soru
+           doğru görünür. Hangilerini önce yanlış yaptığı kalıcı "hata"
+           kaydından okunur, yoksa emek görünmez olurdu. */
+        var oncedenYanlis = !!(S.hata || {})[wk];
+        if(verilen === qq.a && oncedenYanlis) duzeltilen++;
         cevaplar.push({
           sad: s.name, renk: s.color, u: qq.u, soru: qq.q, havuz: havuzMu,
-          verilen: qq.o[verilen], dogru: qq.o[qq.a], ok: verilen === qq.a
+          verilen: qq.o[verilen], dogru: qq.o[qq.a], ok: verilen === qq.a,
+          duz: verilen === qq.a && oncedenYanlis
         });
       }
     });
@@ -89,7 +96,7 @@
     videolar.sort(function(a,b){ return (b.son || "").localeCompare(a.son || ""); });
 
     return { g:g, son:(S.son || "").slice(0,10), done:done, quiz:quiz, wrong:wrong,
-             cevaplar:cevaplar, videolar:videolar };
+             cevaplar:cevaplar, videolar:videolar, duzeltilen:duzeltilen };
   }
 
   function kodUret(g){
@@ -217,7 +224,11 @@
 
     /* zayıf konular */
     h += '<div class="veli-bolum"><h4>Zayıf konular</h4>';
-    if(!o.wrong.length){ h += '<p class="veli-bos">Yanlış yapılan soru kaydı yok.</p>'; }
+    if(!o.wrong.length){
+      h += '<p class="veli-bos">' + (o.duzeltilen
+        ? 'Açık yanlış kalmamış.'
+        : 'Yanlış yapılan soru kaydı yok.') + '</p>';
+    }
     else {
       o.wrong.sort(function(a,b){ return b.n - a.n; }).forEach(function(x){
         var e = EL[x.i];
@@ -225,9 +236,15 @@
         h += '<div class="veli-satir kotu"><i style="background:' + e.renk + '"></i>'
            + '<span>' + esc(e.sad) + ' — ' + esc(e.u) + '</span><b>' + x.n + ' yanlış</b></div>';
       });
-      h += '<p class="zayif-not" style="margin-top:10px">Toplam ' + yanlisTop
+      h += '<p class="zayif-not" style="margin-top:10px">Hâlâ açık ' + yanlisTop
          + ' yanlış. Çocuk bunları <b>Testler → Yanlışlarım</b> ile tekrar çözebilir; '
          + 'aynı ünitelerin havuzdaki yeni soruları da orada çıkar.</p>';
+    }
+    /* Düzeltilen yanlış artık "doğru" göründüğü için listeden düşüyor;
+       yapılan çalışma görünsün diye ayrıca yazılır. */
+    if(o.duzeltilen){
+      h += '<p class="zayif-not" style="margin-top:8px">Ayrıca <b>' + o.duzeltilen
+         + ' soruyu</b> önce yanlış yapıp sonra kendi düzeltmiş.</p>';
     }
     h += '</div>';
 
@@ -261,6 +278,7 @@
            + '<div class="cev-ust"><i style="background:' + c.renk + '"></i>'
            + '<span>' + esc(c.sad) + ' · ' + esc(c.u) + '</span>'
            + (c.havuz ? '<em class="cev-havuz">havuz</em>' : '')
+           + (c.duz ? '<em class="cev-duz">düzeltti</em>' : '')
            + '<b>' + (c.ok ? 'doğru' : 'yanlış') + '</b></div>'
            + '<div class="cev-soru">' + esc(c.soru) + '</div>'
            + '<div class="cev-sik"><em>işaretlediği:</em> ' + esc(c.verilen) + '</div>'

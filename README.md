@@ -108,6 +108,28 @@ Hedef: aktif her ünite için **5 havuz sorusu**.
 Havuz soruları da yanlış yapılırsa hata defterine girer ve tekrar çıkar.
 Puan hesabı yalnızca ana test üzerinden yapılır; havuz soruları skoru etkilemez.
 
+### Yanlışın düzeltilmesi
+
+Cevaplanan soru normalde **kilitlidir.** Tek istisna: **Yanlışlarım** modunda yanlış yapılmış
+soru. Orada şıklar yeniden açılır ve doğru cevap gizlenir — hata defterinin amacı soruyu
+tekrar *çözmek*. Ana testte kilit sürer, çünkü orada doğru cevap zaten ekranda yazıyor;
+açık olsaydı düzeltme değil kopyalama olurdu.
+
+`Yanlışlarım` listesi **moda girerken bir kez kurulur ve orada donar** (`yanlisKumeKur()`).
+Canlı hesaplansaydı çocuk bir soruyu düzeltir düzeltmez soru ekrandan kaybolurdu.
+Liste, moddan çıkıp tekrar girince yenilenir.
+
+Düzeltilen yanlış `wrong` listesinden düşer (o liste `cevap`'tan türetilir), ama
+**`hata` kaydı kalıcıdır** — hangi soruyu kaç kez yanlış yaptığını tutar ve düzeltme onu
+silmez. Veli raporundaki "önce yanlış yapıp sonra düzeltmiş" sayısı buradan gelir; olmasaydı
+çocuğun düzeltme emeği raporda hiç görünmezdi. Bu alan `yanlisHesapla()` içinde de
+damgalanır, böylece özellik gelmeden önce yapılmış yanlışlar da kayda geçer.
+
+**Senkron çakışması:** cevaplar artık değişebildiği için `birlestir()` içinde çakışmayı
+**doğru cevap kazanır**. Körü körüne yereli korumak, bir cihazdaki düzeltmeyi diğer cihazın
+eski yanlışıyla geri alırdı. Düzeltme tek yönlü olduğu için bu kural yapılmamış bir ilerleme
+uydurmaz.
+
 ### "Şimdi işleniyor" rozeti
 
 Ünitenin `w` alanı (ör. `"Eylül–Ekim"`) cihazın o anki ay adını içeriyorsa yeşil **şimdi işleniyor**,

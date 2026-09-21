@@ -13,11 +13,12 @@
   function countQ(g){ var c=0; Object.keys(G[g].quiz).forEach(function(k){ c += G[g].quiz[k].length; }); return c; }
 
   var grade = "g7";
-  var state = { g6:{done:{},quiz:{},wrong:{},cevap:{},video:{}}, g7:{done:{},quiz:{},wrong:{},cevap:{},video:{}} };
+  var state = { g6:{done:{},quiz:{},wrong:{},cevap:{},hata:{},video:{}}, g7:{done:{},quiz:{},wrong:{},cevap:{},hata:{},video:{}} };
   var LS = "ortaokul-yol-haritasi-v1";
   var dbRef = null, saveTimer = null;
   var openSubj = {g6:{},g7:{}}, openUnit = {g6:{},g7:{}};
   var curQuiz = "mat", ansOpen = false, reveal = false, qFilter = null;
+  var yanlisKume = null;   /* "Yanlislarim" calisma kagidi — moda girerken dondurulur */
 
   function el(id){ return document.getElementById(id); }
   function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
@@ -79,11 +80,18 @@
      birbirinden ayrılamıyor ve cihazlar birleşirken yanlışlar diriliyordu. */
   function yanlisHesapla(g){
     var S = state[g], W = {};
+    if(!S.hata) S.hata = {};
     G[g].subj.forEach(function(s){
       var hepsi = ((G[g].quiz || {})[s.key] || []).concat(((G[g].havuz || {})[s.key] || []));
       hepsi.forEach(function(q){
         var k = wkeyFor(s.key, q), c = (S.cevap || {})[k];
-        if(c !== undefined && c !== q.a) W[k] = true;
+        if(c !== undefined && c !== q.a){
+          W[k] = true;
+          /* Kalıcı hata damgası burada da basılır: bu özellik gelmeden
+             önce yapılmış yanlışların kaydı yok, yoksa çocuk onları
+             düzeltince emeği veli raporunda hiç görünmezdi. */
+          if(!S.hata[k]) S.hata[k] = 1;
+        }
       });
     });
     S.wrong = W;
@@ -133,7 +141,7 @@
       if(raw){ var o = JSON.parse(raw);
         if(o && typeof o === "object"){
           ["g6","g7"].forEach(function(g){
-            if(o[g]){ state[g].done = o[g].done || {}; state[g].quiz = o[g].quiz || {}; state[g].wrong = o[g].wrong || {}; state[g].cevap = o[g].cevap || {}; state[g].video = o[g].video || {}; state[g].son = o[g].son || ""; }
+            if(o[g]){ state[g].done = o[g].done || {}; state[g].quiz = o[g].quiz || {}; state[g].wrong = o[g].wrong || {}; state[g].cevap = o[g].cevap || {}; state[g].hata = o[g].hata || {}; state[g].video = o[g].video || {}; state[g].son = o[g].son || ""; }
           });
         }
       }
@@ -384,13 +392,15 @@
     box.style.setProperty("--sc", s.color);
     var h = '<button class="ufilter" data-uf="" aria-pressed="'+(qFilter===null)+'">'
           + 'Tümü <span class="n">'+list.length+'</span></button>';
-    if(yanlis){
+    /* Cip, mod açıkken yanlışlar bitse de durur; yoksa çocuk çalışma
+       kağıdının ortasındayken seçili filtrenin düğmesi kaybolurdu. */
+    if(yanlis || qFilter === "__yanlis__"){
       var zayif = {}, ek = 0;
       list.concat(hav()).forEach(function(q){ if(W[wkey(q)]) zayif[q.u] = true; });
       /* "yeni" = o ünitelerden henüz yanlış yapılmamış havuz soruları */
       hav().forEach(function(q){ if(zayif[q.u] && !W[wkey(q)]) ek++; });
       h += '<button class="ufilter hata" data-uf="__yanlis__" aria-pressed="'+(qFilter==="__yanlis__")+'">'
-         + 'Yanlışlarım <span class="n">'+yanlis+(ek ? " + "+ek+" yeni" : "")+'</span></button>';
+         + 'Yanlışlarım <span class="n">'+(yanlis ? yanlis+(ek ? " + "+ek+" yeni" : "") : "temiz")+'</span></button>';
     }
     sira.forEach(function(u){
       h += '<button class="ufilter" data-uf="'+esc(u)+'" aria-pressed="'+(qFilter===u)+'">'
@@ -407,17 +417,23 @@
      "Yanlışlarım" modunda ana testten yanlış yapılanlar + o ünitelerin
      HAVUZ sorularını birlikte verir; havuz soruları ana teste girmez. */
   function gosterilecek(){
-    var ana = anaListe(), havuz = hav(), W = st().wrong, out = [];
-    if(qFilter === "__yanlis__"){
-      var zayif = {};
-      ana.forEach(function(q){ if(W[wkeyFor(curQuiz,q)]) zayif[q.u] = true; });
-      havuz.forEach(function(q){ if(W[wkeyFor(curQuiz,q)]) zayif[q.u] = true; });
-      ana.forEach(function(q,i){ if(W[wkeyFor(curQuiz,q)]) out.push({q:q, id:String(i), havuz:false}); });
-      havuz.forEach(function(q,i){ if(zayif[q.u]) out.push({q:q, id:"h"+i, havuz:true}); });
-    } else {
-      ana.forEach(function(q,i){ if(qFilter === null || q.u === qFilter) out.push({q:q, id:String(i), havuz:false}); });
-    }
+    if(qFilter === "__yanlis__") return yanlisKume || [];
+    var ana = anaListe(), out = [];
+    ana.forEach(function(q,i){ if(qFilter === null || q.u === qFilter) out.push({q:q, id:String(i), havuz:false}); });
     return out;
+  }
+
+  /* Calisma kagidi moda GIRERKEN bir kez kurulur ve orada donar. Canli
+     hesaplansaydi cocuk bir soruyu duzeltir duzeltmez soru ekrandan
+     kaybolurdu; listenin yerinde kalmasi gerekiyor. Moddan cikip tekrar
+     girince yeniden kurulur. */
+  function yanlisKumeKur(){
+    var ana = anaListe(), havuz = hav(), W = st().wrong, out = [], zayif = {};
+    ana.forEach(function(q){ if(W[wkeyFor(curQuiz,q)]) zayif[q.u] = true; });
+    havuz.forEach(function(q){ if(W[wkeyFor(curQuiz,q)]) zayif[q.u] = true; });
+    ana.forEach(function(q,i){ if(W[wkeyFor(curQuiz,q)]) out.push({q:q, id:String(i), havuz:false}); });
+    havuz.forEach(function(q,i){ if(zayif[q.u]) out.push({q:q, id:"h"+i, havuz:true}); });
+    yanlisKume = out;
   }
 
   function renderQuiz(){
@@ -426,8 +442,7 @@
     var s = subjByKey(curQuiz), ana = anaListe(), W = st().wrong;
     if(qFilter !== null && qFilter !== "__yanlis__"
        && !ana.some(function(q){ return q.u === qFilter; })) qFilter = null;
-    if(qFilter === "__yanlis__"
-       && !ana.concat(hav()).some(function(q){ return W[wkeyFor(curQuiz,q)]; })) qFilter = null;
+    if(qFilter === "__yanlis__" && !(yanlisKume && yanlisKume.length)) qFilter = null;
 
     var kume = gosterilecek();
     var seed = seedOf(), sira = perm(kume.length, seed);
@@ -437,15 +452,20 @@
       var it = kume[k], q = it.q;
       sayac++;
 
-      var given = st().cevap[wkeyFor(curQuiz, q)];
+      var wk = wkeyFor(curQuiz, q);
+      var given = st().cevap[wk];
+      /* Hata defterinin amacı soruyu yeniden ÇÖZMEK. Yanlış yapılmış soru
+         bu modda cevapsız gibi çizilir: şıklar açık, doğru cevap gizli.
+         Ana testte kilit sürer — orada doğru cevap zaten ekranda. */
+      if(qFilter === "__yanlis__" && given !== undefined && given !== q.a) given = undefined;
       var goster = (given !== undefined) || reveal;   // cevaplandı ya da "cevapları göster" açık
       var sik = perm(q.o.length, seed + hashNum(it.id) * 7919);   // şık sırası da karışır
 
       h += '<div class="q" style="--sc:'+s.color+'">'
         + '<div class="q-unit">'+esc(q.u)+'</div>'
         + (it.havuz ? '<div class="q-pool">Havuzdan · yeni soru</div>' : '')
-        + (!it.havuz && W[wkeyFor(curQuiz,q)] && given === undefined
-            ? '<div class="q-again">Bunu daha önce yanlış yapmıştın</div>' : '')
+        + ((st().hata[wk] || W[wk]) && given === undefined
+            ? '<div class="q-again">Bunu daha önce yanlış yapmıştın — tekrar dene</div>' : '')
         + '<div class="q-top"><span class="q-no">'+sayac+'</span>'
         + '<div class="q-txt">'+esc(q.q)+'</div></div><div class="opts">';
 
@@ -581,7 +601,7 @@
     if(grade === g) return;
     grade = g;
     curQuiz = "mat";
-    reveal = false; qFilter = null;
+    reveal = false; qFilter = null; yanlisKume = null;
     try{ localStorage.setItem(LS+"-grade", g); }catch(e){}
     renderAll();
     syncAnsBtn();
@@ -655,7 +675,7 @@
     var p = ev.target.closest("[data-quiz]");
     if(!p) return;
     curQuiz = p.getAttribute("data-quiz");
-    reveal = false; qFilter = null;
+    reveal = false; qFilter = null; yanlisKume = null;
     renderQuiz(); syncAnsBtn();
   });
 
@@ -664,6 +684,7 @@
     if(!b) return;
     var v = b.getAttribute("data-uf");
     qFilter = (v === "" || v === qFilter) ? null : v;
+    if(qFilter === "__yanlis__") yanlisKumeKur(); else yanlisKume = null;
     renderQuiz();
     el("qlist").scrollIntoView({block:"start", behavior:"auto"});
   });
@@ -677,10 +698,13 @@
           ? hav()[parseInt(id.slice(1),10)]
           : anaListe()[parseInt(id,10)];
     if(!q) return;
-    var k = wkey(q);
-    if(st().cevap[k] !== undefined) return;
+    var k = wkey(q), mevcut = st().cevap[k];
+    /* Cevaplanan soru kilitlidir; tek istisna "Yanlışlarım" modunda
+       YANLIŞ yapılmış soru — düzeltilebilsin diye. */
+    if(mevcut !== undefined && !(qFilter === "__yanlis__" && mevcut !== q.a)) return;
     st().cevap[k] = sec;                       // verdiği cevap kalıcı kaydedilir
-    yanlisHesapla(grade);                      // hata defteri cevaplardan türetilir
+    if(sec !== q.a) st().hata[k] = (st().hata[k] || 0) + 1;   // kalıcı hata kaydı (veli raporu)
+    yanlisHesapla(grade);                      // açık yanlışlar cevaplardan türetilir
     persist();
     renderQuiz();
     renderProgress();
@@ -717,6 +741,7 @@
     var C = st().cevap;
     gosterilecek().forEach(function(it){ delete C[wkeyFor(curQuiz, it.q)]; });
     yanlisHesapla(grade);
+    if(qFilter === "__yanlis__"){ qFilter = null; yanlisKume = null; }
     reveal = false;
     seeds[grade+"-"+curQuiz] = Math.floor(Math.random()*1e9);  // yeni karışım
     persist();
@@ -725,7 +750,7 @@
 
   el("resetAll").addEventListener("click", function(){
     if(!window.confirm(cur().label+" için işaretlenen tüm üniteler ve test sonuçları silinecek. Diğer sınıf etkilenmez. Emin misin?")) return;
-    state[grade] = {done:{}, quiz:{}, wrong:{}, cevap:{}, video:{}};
+    state[grade] = {done:{}, quiz:{}, wrong:{}, cevap:{}, hata:{}, video:{}};
     persist(); renderSubjects(); renderRing(); renderProgress(); renderQuiz();
   });
 

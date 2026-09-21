@@ -28,7 +28,7 @@
     var govde = [{
       sinif: g,
       veri: { done:S.done || {}, quiz:S.quiz || {}, wrong:S.wrong || {},
-              cevap:S.cevap || {}, video:S.video || {}, son:S.son || "" },
+              cevap:S.cevap || {}, hata:S.hata || {}, video:S.video || {}, son:S.son || "" },
       guncelleme: new Date().toISOString()
     }];
     return fetch(SB_URL + "/rest/v1/" + SB_TABLO + "?on_conflict=sinif", {
@@ -78,8 +78,29 @@
 
     Object.keys(uzak.done || {}).forEach(function(k){ if(uzak.done[k]) S.done[k] = true; });
 
+    /* Doğru cevap haritası — çakışmayı çözebilmek için gerekli. */
+    var dogru = {};
+    G[g].subj.forEach(function(sj){
+      var ana = (G[g].quiz || {})[sj.key] || [], hv = (G[g].havuz || {})[sj.key] || [];
+      ana.concat(hv).forEach(function(q){ dogru[wkeyFor(sj.key, q)] = q.a; });
+    });
+
+    /* Cevaplar artık "Yanlışlarım" modunda düzeltilebiliyor, yani
+       değişebilir kayıtlar. Çakışmada körü körüne yereli korumak, bir
+       cihazdaki düzeltmeyi diğerinin eski yanlışıyla geri alırdı; bu
+       yüzden çakışmada DOĞRU olan kazanır. Düzeltme tek yönlü olduğu
+       için bu yapılmamış bir ilerlemeyi uydurmaz. */
     Object.keys(uzak.cevap || {}).forEach(function(k){
-      if(S.cevap[k] === undefined) S.cevap[k] = uzak.cevap[k];   // çakışmada yereli koru
+      var yerel = S.cevap[k], u = uzak.cevap[k];
+      if(yerel === undefined){ S.cevap[k] = u; return; }
+      if(yerel === u) return;
+      if(dogru[k] !== undefined && u === dogru[k]) S.cevap[k] = u;
+    });
+
+    /* Kalıcı hata kaydı: düzeltme onu silmez, sayaçların büyüğü alınır. */
+    if(!S.hata) S.hata = {};
+    Object.keys(uzak.hata || {}).forEach(function(k){
+      S.hata[k] = Math.max(S.hata[k] || 0, uzak.hata[k] || 0);
     });
 
     Object.keys(uzak.video || {}).forEach(function(k){
@@ -108,9 +129,9 @@
       satirlar.forEach(function(r){
         var g = r.sinif;
         if(g !== "g6" && g !== "g7") return;
-        var oncesi = JSON.stringify([state[g].done, state[g].cevap, state[g].video, state[g].quiz]);
+        var oncesi = JSON.stringify([state[g].done, state[g].cevap, state[g].hata, state[g].video, state[g].quiz]);
         birlestir(g, r.veri || {});
-        if(JSON.stringify([state[g].done, state[g].cevap, state[g].video, state[g].quiz]) !== oncesi){
+        if(JSON.stringify([state[g].done, state[g].cevap, state[g].hata, state[g].video, state[g].quiz]) !== oncesi){
           degisti = true;
         }
       });
