@@ -139,6 +139,24 @@ Okulun kendi ünitelendirilmiş yıllık planı her durumda esastır.
 
 ---
 
+## Okul saatleri ve ders programı
+
+**Okul** sekmesinde: o anki dersi gösteren canlı kart, sınıfa göre haftalık ders programı ve
+günlük zil çizelgesi. Hepsi `src/12-okul.js` içinde — değişiklik olduğunda **yalnızca o dosyayı**
+düzenle, `bash build.sh` çalıştır, push at.
+
+| Düzenlenecek | Ne için |
+|---|---|
+| `ZAMAN` | Zil saatleri. `gun:[1]` alanı "yalnızca Pazartesi" demektir. |
+| `PROGRAM.g6` / `PROGRAM.g7` | Sınıf adı, sınıf öğretmeni ve gün gün ders listesi. Her gün `[["DERS ADI","Öğretmen"], …]`, 1. dersten başlayarak sırayla. |
+| `DERS_RENK` | Ders adını panelin renkleriyle eşler; yeni bir ders adı eklersen buraya da yazmak isteyebilirsin. |
+
+**Saatler tek yerden gelir.** Ders programı çıktısında (aSc) yazan saatler eskiyebiliyor; sayfa
+saatleri her zaman `ZAMAN` tablosundan alır, programdan değil. Program yalnızca "kaçıncı derste
+hangi ders" bilgisini verir.
+
+Sınıf değişirse (ör. 7B → 7A) `PROGRAM.g7.sinif` ve `gunler` alanlarını güncellemek yeterli.
+
 ## Veli görünümü
 
 Çocuğun cihazındaki ilerleme kendi tarayıcısında durur, dışarı çıkmaz. Veliye ulaştırmak için
