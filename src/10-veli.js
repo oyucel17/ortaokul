@@ -61,15 +61,18 @@
     /* çözülen sorular: soru metni, çocuğun işaretlediği şık, doğru şık */
     var cevaplar = [];
     G[g].subj.forEach(function(s){
-      var hepsi = ((G[g].quiz || {})[s.key] || []).concat(((G[g].havuz || {})[s.key] || []));
-      hepsi.forEach(function(qq){
+      var ana = (G[g].quiz || {})[s.key] || [];
+      var havuz = (G[g].havuz || {})[s.key] || [];
+      ana.forEach(function(qq){ topla(qq, false); });
+      havuz.forEach(function(qq){ topla(qq, true); });
+      function topla(qq, havuzMu){
         var verilen = (S.cevap || {})[wkeyFor(s.key, qq)];
         if(verilen === undefined) return;
         cevaplar.push({
-          sad: s.name, renk: s.color, u: qq.u, soru: qq.q,
+          sad: s.name, renk: s.color, u: qq.u, soru: qq.q, havuz: havuzMu,
           verilen: qq.o[verilen], dogru: qq.o[qq.a], ok: verilen === qq.a
         });
-      });
+      }
     });
 
     /* izlenen videolar */
@@ -257,6 +260,7 @@
         h += '<div class="cev-kart' + (c.ok ? ' ok' : ' hata') + '">'
            + '<div class="cev-ust"><i style="background:' + c.renk + '"></i>'
            + '<span>' + esc(c.sad) + ' · ' + esc(c.u) + '</span>'
+           + (c.havuz ? '<em class="cev-havuz">havuz</em>' : '')
            + '<b>' + (c.ok ? 'doğru' : 'yanlış') + '</b></div>'
            + '<div class="cev-soru">' + esc(c.soru) + '</div>'
            + '<div class="cev-sik"><em>işaretlediği:</em> ' + esc(c.verilen) + '</div>'
