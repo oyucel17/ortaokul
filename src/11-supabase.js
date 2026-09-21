@@ -95,6 +95,7 @@
     });
 
     if((uzak.son || "") > (S.son || "")) S.son = uzak.son;
+    kimlikGoc(g);       // buluttaki eski kimlikler de taşınır
     yanlisHesapla(g);
   }
 

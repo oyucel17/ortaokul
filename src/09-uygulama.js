@@ -35,9 +35,42 @@
   }
   function uid(sk, u){ return sk + "-" + slug(u.n); }
 
-  /* Soru kimliği metinden türetilir — araya soru eklense de
-     "yanlışlarım" kayıtları doğru soruya bağlı kalır. */
-  function qid(q){ return slug(q.q).slice(0, 42); }
+  /* Soru kimliği metinden türetilir — araya soru eklense de kayıtlar
+     doğru soruya bağlı kalır.
+
+     DİKKAT: slug() metni 30 karakterde kesiyor. Yalnız slug kullanınca
+     aynı şekilde başlayan iki soru AYNI kimliği alıyordu; biri ana
+     testte biri havuzda olduğunda, doğru cevaplanan soru diğerini
+     yanlış gösteriyordu. Kimliğe metnin tamamından üretilen bir özet
+     eklendi. */
+  function hash36(s){
+    var h = 5381;
+    for(var i = 0; i < s.length; i++) h = ((h * 33) ^ s.charCodeAt(i)) >>> 0;
+    return h.toString(36);
+  }
+  function qid(q){ return slug(q.q) + "-" + hash36(q.q); }
+  function qidEski(q){ return slug(q.q).slice(0, 42); }   // göç için
+
+  /* Eski (çakışabilen) kimlikleri yeni kimliklere taşır. Çakışan çiftte
+     ana testteki soru kazanır — çocuğun gerçekten gördüğü o. */
+  function kimlikGoc(g){
+    var S = state[g];
+    if(!S || !S.cevap) return;
+    var yeni = {}, kullanildi = {};
+    G[g].subj.forEach(function(s){
+      var ana = (G[g].quiz || {})[s.key] || [];
+      var havuz = (G[g].havuz || {})[s.key] || [];
+      ana.concat(havuz).forEach(function(q){
+        var yk = s.key + "|" + qid(q), ek = s.key + "|" + qidEski(q);
+        if(S.cevap[yk] !== undefined){ yeni[yk] = S.cevap[yk]; return; }
+        if(S.cevap[ek] !== undefined && !kullanildi[ek]){
+          yeni[yk] = S.cevap[ek];
+          kullanildi[ek] = true;
+        }
+      });
+    });
+    S.cevap = yeni;
+  }
   function wkeyFor(sk, q){ return sk + "|" + qid(q); }
   function wkey(q){ return wkeyFor(curQuiz, q); }
 
@@ -717,6 +750,7 @@
 
   /* ---------- açılış ---------- */
   readLocal();
+  kimlikGoc("g6"); kimlikGoc("g7");
   yanlisHesapla("g6"); yanlisHesapla("g7");
   try{
     var g = localStorage.getItem(LS+"-grade");
