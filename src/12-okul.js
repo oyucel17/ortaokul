@@ -6,6 +6,9 @@
      düzenle, sonra `bash build.sh && git push`. Başka yere dokunma. */
 
   var OKUL_ADI = "Şehit Yarbay Raif Necdet Hoşgör İmam Hatip Ortaokulu";
+  /* aSc çıktısının başlığında "2025/2026 2.DÖNEM" yazıyordu; kopyala-yapıştırdan
+     kalma eski etiketmiş, doğrusu aşağıdaki. */
+  var DONEM = "2026/2027 · 1. dönem";
 
   /* Zil saatleri. Cuma sütunu da birebir aynı saatleri veriyor; yalnızca
      Pazartesi 8. derse kadar sürüyor. Okulun kendi tablosunda Cuma öğle
@@ -56,7 +59,7 @@
          ["ARAPÇA","Ömer Gelmez"],["ARAPÇA","Ömer Gelmez"],["REHBERLİK VE YÖNLENDİRME","Aylin Doğan"],
          ["FEN BİLİMLERİ","Fatma Oturan"]]
     }},
-    g7: { sinif:"7B", ogretmen:"Mehmet Kamış", gunler:{
+    g7: { sinif:"7B", ogretmen:"Bengül Ulus", gunler:{
       1:[["MATEMATİK","Hülya Yar"],["MÜZİK","Bahattin"],["FEN BİLİMLERİ","Şule Yüksel Bal"],
          ["BEDEN EĞİTİMİ","Gonca Meriç"],["KURAN-I KERİM","İrfan Kuru"],["KURAN-I KERİM","İrfan Kuru"],
          ["TÜRKÇE","Gülay Çayır"],["TÜRKÇE","Gülay Çayır"]],
@@ -189,7 +192,8 @@
     var P = PROGRAM[grade];
     var b = el("okulBaslik");
     if(b) b.innerHTML = esc(OKUL_ADI) + ' · <b>' + esc(P ? P.sinif : "") + '</b>'
-                      + (P && P.ogretmen ? ' · Sınıf öğretmeni: ' + esc(P.ogretmen) : '');
+                      + (P && P.ogretmen ? ' · Sınıf öğretmeni: ' + esc(P.ogretmen) : '')
+                      + ' · ' + esc(DONEM);
     renderSuAn(); renderZaman(); renderProgram();
   }
 
