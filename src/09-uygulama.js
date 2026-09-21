@@ -375,16 +375,20 @@
       if(adet[q.u] === undefined){ sira.push(q.u); adet[q.u] = 0; }
       adet[q.u]++;
     });
+    /* Yanlış sayımı ANA TEST + HAVUZ üzerinden yapılır. Eskiden yalnız
+       ana test sayılıyordu; çocuk ana testteki yanlışlarını düzeltip
+       havuzdan gelen bir soruyu yanlış yaptığında çip kayboluyor ve o
+       yanlışa bir daha ulaşılamıyordu. */
     var box = el("quizUnits"), W = st().wrong, yanlis = 0;
-    list.forEach(function(q){ if(W[wkey(q)]) yanlis++; });
+    list.concat(hav()).forEach(function(q){ if(W[wkey(q)]) yanlis++; });
     box.style.setProperty("--sc", s.color);
     var h = '<button class="ufilter" data-uf="" aria-pressed="'+(qFilter===null)+'">'
           + 'Tümü <span class="n">'+list.length+'</span></button>';
     if(yanlis){
       var zayif = {}, ek = 0;
-      list.forEach(function(q){ if(W[wkey(q)]) zayif[q.u] = true; });
-      hav().forEach(function(q){ if(W[wkey(q)]) zayif[q.u] = true; });
-      hav().forEach(function(q){ if(zayif[q.u]) ek++; });
+      list.concat(hav()).forEach(function(q){ if(W[wkey(q)]) zayif[q.u] = true; });
+      /* "yeni" = o ünitelerden henüz yanlış yapılmamış havuz soruları */
+      hav().forEach(function(q){ if(zayif[q.u] && !W[wkey(q)]) ek++; });
       h += '<button class="ufilter hata" data-uf="__yanlis__" aria-pressed="'+(qFilter==="__yanlis__")+'">'
          + 'Yanlışlarım <span class="n">'+yanlis+(ek ? " + "+ek+" yeni" : "")+'</span></button>';
     }
