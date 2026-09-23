@@ -133,6 +133,13 @@
       if(d1) h += '<div class="suan-ders"><i style="background:' + renkOf(d1[0]) + '"></i>'
                 + '<span>' + esc(d1[0]) + '</span><b>' + esc(d1[1]) + '</b></div>';
     }
+    /* Bugünün öğle arası, o an hangi ders olursa olsun kartta yazar —
+       tek bakışta görülsün diye. */
+    var ogle = null;
+    gunListesi(gun).forEach(function(z2){ if(z2.tip === "ara" && z2.uzun) ogle = z2; });
+    if(ogle) h += '<div class="suan-ogle"><span>Öğle arası</span>'
+                + '<b>' + esc(ogle.b) + ' – ' + esc(ogle.s) + '</b>'
+                + '<em>' + (dk(ogle.s) - dk(ogle.b)) + ' dk</em></div>';
     h += '</div>';
     box.innerHTML = h;
   }
@@ -171,10 +178,22 @@
          + (gun === bugun ? ' <span class="rozet yesil">bugün</span>' : '')
          + '<span class="prg-adet">' + dersler.length + ' ders</span></div>'
          + '<div class="prg-liste">';
+      var gl = gunListesi(gun);
       dersler.forEach(function(d, i){
         var no = i + 1;
         var z = null;
-        gunListesi(gun).forEach(function(x){ if(x.tip === "ders" && x.no === no) z = x; });
+        gl.forEach(function(x){ if(x.tip === "ders" && x.no === no) z = x; });
+        /* Öğle arası satırı. Konumu ZAMAN'dan türetilir: uzun ara hangi
+           dersin hemen öncesinde bitiyorsa oraya çizilir. Saat ya da yer
+           değişirse yalnız ZAMAN güncellenir, buraya dokunulmaz. */
+        if(z) gl.forEach(function(x){
+          if(x.tip !== "ara" || !x.uzun || x.s !== z.b) return;
+          var araSimdi = gun === bugun && suAnDk() >= dk(x.b) && suAnDk() < dk(x.s);
+          h += '<div class="prg-ara' + (araSimdi ? ' simdi' : '') + '">'
+             + '<span class="prg-ara-saat">' + esc(x.b) + '–' + esc(x.s) + '</span>'
+             + '<span class="prg-ara-ad">' + esc(x.ad) + '</span>'
+             + '<span class="prg-ara-sure">' + (dk(x.s) - dk(x.b)) + ' dk</span></div>';
+        });
         var simdiMi = gun === bugun && z && suAnDk() >= dk(z.b) && suAnDk() < dk(z.s);
         h += '<div class="prg-satir' + (simdiMi ? ' simdi' : '') + '">'
            + '<span class="prg-no">' + no + '</span>'

@@ -414,10 +414,27 @@
   .prg-satir i{width:8px;height:8px;border-radius:50%;display:block}
   .prg-ders{font-weight:500;min-width:0}
   .prg-ogr{font-size:12px;color:var(--ink-faint);white-space:nowrap}
+  /* Öğle arası satırı: ders satırlarından ayrışsın diye zemini farklı ve
+     renk noktası yok; saat sütunu derslerle hizalı kalsın diye girintili. */
+  .prg-ara{display:flex;align-items:center;gap:10px;padding:7px 15px;
+    border-bottom:1px solid var(--line-soft);background:var(--card-2);font-size:12.8px}
+  .prg-ara:last-child{border-bottom:none}
+  .prg-ara.simdi{background:var(--ok-soft)}
+  .prg-ara-saat{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-faint);
+    flex:none;min-width:92px;margin-left:32px}
+  .prg-ara-ad{font-weight:600;color:var(--ink-soft);flex:1;min-width:0;letter-spacing:.01em}
+  .prg-ara-sure{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-faint);flex:none}
+  .suan-ogle{display:flex;align-items:center;gap:10px;margin-top:11px;padding-top:10px;
+    border-top:1px dashed var(--line);font-size:12.8px;color:var(--ink-soft)}
+  .suan-ogle b{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:12.5px;
+    color:var(--ink);font-weight:600}
+  .suan-ogle em{font-style:normal;font-family:"IBM Plex Mono",monospace;font-size:11.5px;
+    color:var(--ink-faint);flex:none}
   @media(max-width:600px){
     .prg-satir{grid-template-columns:20px 9px 1fr;row-gap:2px}
     .prg-saat{grid-column:2 / -1;font-size:11px}
     .prg-ogr{grid-column:2 / -1}
+    .prg-ara-saat{margin-left:0;min-width:0}
   }
   .opts{display:flex;flex-direction:column;gap:7px}
   .opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;padding:9px 12px;
