@@ -443,6 +443,28 @@
     .prg-ogr{grid-column:2 / -1}
     .prg-ara-saat{margin-left:0;min-width:0}
   }
+  /* ---------- İngilizce kelime listesi ---------- */
+  .voc{border:1px solid var(--line);border-radius:var(--radius);background:var(--card-2);
+    padding:12px 14px 8px;margin-top:14px}
+  .voc-bas{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+  .voc-bas h5{margin:0;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-faint);font-family:"IBM Plex Mono",monospace;font-weight:600}
+  .voc-n{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint)}
+  .voc-tog{margin-left:auto;padding:4px 11px;border:1px solid var(--line);border-radius:7px;
+    font-size:11.5px;font-weight:600;color:var(--ink-soft);background:var(--card);white-space:nowrap}
+  .voc-tog:hover{border-color:var(--s-ing);color:var(--s-ing)}
+  .voc-liste{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:0 18px}
+  .voc-sat{display:flex;align-items:baseline;gap:10px;padding:6px 6px;width:100%;text-align:left;
+    border-bottom:1px solid var(--line-soft);border-radius:5px;cursor:default}
+  .voc-w{font-weight:600;font-size:13.6px;flex:none}
+  .voc-t{font-size:12.8px;color:var(--ink-soft);margin-left:auto;text-align:right}
+  .voc.gizli .voc-t{visibility:hidden}
+  .voc.gizli .voc-sat{cursor:pointer}
+  .voc.gizli .voc-sat:hover{background:var(--card)}
+  .voc.gizli .voc-sat.acik .voc-t{visibility:visible;color:var(--s-ing);font-weight:600}
+  @media(max-width:600px){ .voc-liste{grid-template-columns:1fr} }
+  @media print{ .voc-tog{display:none} .voc.gizli .voc-t{visibility:visible} }
+
   .opts{display:flex;flex-direction:column;gap:7px}
   .opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;padding:9px 12px;
     border:1px solid var(--line);border-radius:8px;background:var(--card-2);font-size:13.8px;transition:all .12s ease}
@@ -696,17 +718,17 @@
   var CAL6 = [
     {m:"Eylül", d:"14–30 Eylül", key:"eylul", items:[
       ["mat","Çarpanlar, katlar, asal sayılar"],["fen","Güneş Sistemi ve Tutulmalar"],["tur","Sözcükte Anlam"],
-      ["sos","Birlikte Yaşamak"],["din","Peygamber ve İlahi Kitap İnancı"],["ing","Classroom Life"]]},
+      ["sos","Birlikte Yaşamak"],["din","Peygamber ve İlahi Kitap İnancı"],["ing","School Life & Education"]]},
     {m:"Ekim", d:"1–31 Ekim", key:"ekim", items:[
       ["mat","EBOB–EKOK / İstatistiksel araştırma"],["fen","Güneş Sistemi / Kuvvetin Etkisinde Hareket"],["tur","Deyimler, atasözleri, söz sanatları"],
-      ["sos","Birlikte Yaşamak / Evimiz Dünya"],["ing","School Life"]]},
+      ["sos","Birlikte Yaşamak / Evimiz Dünya"],["ing","Classroom Life & Learning"]]},
     {b:"b1"},
     {m:"Kasım", d:"1–30 Kasım", key:"kasim", items:[
       ["mat","Kesirler ve ondalık gösterim"],["fen","Kuvvetin Etkisinde Hareket"],["tur","Cümlede Anlam"],
-      ["sos","Evimiz Dünya"],["din","Ramazan ve Oruç"],["ing","Personal Life"]]},
+      ["sos","Evimiz Dünya"],["din","Ramazan ve Oruç"],["ing","Personal Life & Well-Being"]]},
     {m:"Aralık", d:"1–31 Aralık", key:"aralik", items:[
       ["mat","Uzunluk ölçüleri / Veriden olasılığa"],["fen","Canlılarda Sistemler"],["tur","Paragraf ve metin türleri"],
-      ["sos","Ortak Mirasımız"],["ing","Family Life"]]},
+      ["sos","Ortak Mirasımız"],["ing","Family Life & Home"]]},
     {m:"Ocak", d:"1–22 Ocak", key:"ocak", items:[
       ["mat","Açılar, üçgenler, dörtgenler"],["fen","Canlılarda Sistemler"],["tur","Sözcük yapısı: kök, gövde, ekler"],
       ["sos","Ortak Mirasımız"],["din","Ahlaki Davranışlar"],["ing","Life in the Neighbourhood & City"]]},
@@ -1406,19 +1428,15 @@
      plist:{t:"tonguç 6. SINIF kanalında İngilizce videoları", u:"https://www.youtube.com/@tonguc6/search?query=%C4%B0ngilizce"},
      note:"Tema adları MEB'in güncel programından; 6. sınıf <b>A2.2</b> düzeyindedir. Temaların altındaki dil yapıları bu düzeyde o temalarda işlenen tipik yapılardır — okulunun kitabında sıra biraz farklı olabilir.",
      units:[
-      {n:"Classroom Life", w:"Eylül",
-       lead:"<b>Kelimeler:</b> board, desk, ruler, rubber/eraser, pencil case, glue, scissors, dictionary, notebook, marker, schoolbag.<br><b>Sınıf dili:</b> Open your books. Listen carefully. May I come in? Can I borrow your ruler? How do you say \"kalemtıraş\" in English?",
-       box:[{t:"Imperatives & there is / there are", h:"<ul><li><b>Emir cümlesi</b> özne almaz: <code>Open the window.</code> Olumsuzu <code>Don't open the window.</code></li><li><b>There is</b> + tekil, <b>There are</b> + çoğul</li><li>Olumsuz: <code>There isn't a clock.</code> / <code>There aren't any posters.</code></li><li><b>Can</b> izin ve rica için: <code>Can I open the window?</code></li></ul>"}],
-       trap:"Olumsuz ve soru cümlelerinde <code>some</code> kullanmak. Olumsuzda ve soruda <code>any</code> gelir: <code>There aren't <b>any</b> books.</code>",
-       q:["Boşluğu doldur: <code>There ____ three windows in our classroom.</code>",
-          "Olumsuz yap: <code>There is a map on the wall.</code>",
-          "\"Kapıyı kapatma.\" cümlesini İngilizce emir cümlesi olarak yaz.",
-          "Öğretmeninden cetvelini ödünç istemek için kibar bir cümle kur.",
-          "Türkçeye çevir: <code>Are there any dictionaries in the cupboard?</code>"],
-       a:["<b>are</b> (windows çoğul)","<b>There isn't a map on the wall.</b>","<b>Don't close the door.</b>",
-          "<b>Can I borrow your ruler, please?</b>","<b>Dolapta hiç sözlük var mı?</b>"]},
-
-      {n:"School Life", w:"Ekim",
+      {n:"School Life & Education", w:"Eylül",
+       voc:[["Maths","matematik"],["Science","fen bilimleri"],["Turkish","Türkçe"],["English","İngilizce"],
+            ["Social Studies","sosyal bilgiler"],["Music","müzik"],["Art","görsel sanatlar"],
+            ["PE (Physical Education)","beden eğitimi"],["IT","bilişim teknolojileri"],
+            ["timetable","ders programı"],["lesson","ders (saat)"],["subject","ders (branş)"],
+            ["break","teneffüs"],["term","dönem"],["canteen","kantin"],["library","kütüphane"],
+            ["uniform","okul forması"],["report card","karne"],["homework","ödev"],
+            ["classmate","sınıf arkadaşı"],["favourite","en sevdiği"],["difficult","zor"],
+            ["easy","kolay"],["boring","sıkıcı"],["enjoyable","eğlenceli"],["start / finish","başlamak / bitmek"]],
        lead:"<b>Dersler:</b> Maths, Science, Turkish, English, Social Studies, Music, Art, PE, IT.<br><b>Kalıplar:</b> What's your favourite lesson? What time does school start? How many lessons do you have on Monday?",
        box:[{t:"Prepositions of time", h:"<b>at</b> + saat (<code>at 8 o'clock</code>) · <b>on</b> + gün/tarih (<code>on Monday</code>) · <b>in</b> + ay, yıl, mevsim, günün bölümü (<code>in May</code>, <code>in the morning</code>). Not: <code>at night</code> istisnadır."}],
        trap:"<code>in the morning</code> derken <code>at night</code> istisnasını unutmak. Günün bölümlerinde <b>in</b> kullanılır, yalnızca \"night\" <b>at</b> alır.",
@@ -1431,7 +1449,36 @@
           "Örnek: <b>My favourite lesson is Science because it is interesting.</b>","<b>in</b> October",
           "<b>Çarşamba günü müzik dersimiz yok.</b>"]},
 
-      {n:"Personal Life", w:"Kasım",
+      {n:"Classroom Life & Learning", w:"Ekim",
+       voc:[["board","tahta"],["desk","sıra"],["chair","sandalye"],["ruler","cetvel"],
+            ["rubber / eraser","silgi"],["sharpener","kalemtıraş"],["pencil case","kalemlik"],
+            ["glue","yapıştırıcı"],["scissors","makas"],["dictionary","sözlük"],["notebook","defter"],
+            ["marker","keçeli kalem"],["schoolbag","okul çantası"],["cupboard","dolap"],["shelf","raf"],
+            ["poster","afiş"],["map","harita"],["clock","duvar saati"],["window","pencere"],
+            ["borrow","ödünç almak"],["lend","ödünç vermek"],["repeat","tekrar etmek"],
+            ["raise your hand","el kaldırmak"],["be quiet","sessiz olmak"],["come in","içeri girmek"],
+            ["tidy","düzenli, toplu"]],
+       lead:"<b>Kelimeler:</b> board, desk, ruler, rubber/eraser, pencil case, glue, scissors, dictionary, notebook, marker, schoolbag.<br><b>Sınıf dili:</b> Open your books. Listen carefully. May I come in? Can I borrow your ruler? How do you say \"kalemtıraş\" in English?",
+       box:[{t:"Imperatives & there is / there are", h:"<ul><li><b>Emir cümlesi</b> özne almaz: <code>Open the window.</code> Olumsuzu <code>Don't open the window.</code></li><li><b>There is</b> + tekil, <b>There are</b> + çoğul</li><li>Olumsuz: <code>There isn't a clock.</code> / <code>There aren't any posters.</code></li><li><b>Can</b> izin ve rica için: <code>Can I open the window?</code></li></ul>"}],
+       trap:"Olumsuz ve soru cümlelerinde <code>some</code> kullanmak. Olumsuzda ve soruda <code>any</code> gelir: <code>There aren't <b>any</b> books.</code>",
+       q:["Boşluğu doldur: <code>There ____ three windows in our classroom.</code>",
+          "Olumsuz yap: <code>There is a map on the wall.</code>",
+          "\"Kapıyı kapatma.\" cümlesini İngilizce emir cümlesi olarak yaz.",
+          "Öğretmeninden cetvelini ödünç istemek için kibar bir cümle kur.",
+          "Türkçeye çevir: <code>Are there any dictionaries in the cupboard?</code>"],
+       a:["<b>are</b> (windows çoğul)","<b>There isn't a map on the wall.</b>","<b>Don't close the door.</b>",
+          "<b>Can I borrow your ruler, please?</b>","<b>Dolapta hiç sözlük var mı?</b>"]},
+
+      {n:"Personal Life & Well-Being", w:"Kasım",
+       voc:[["get up","(yataktan) kalkmak"],["have breakfast","kahvaltı yapmak"],
+            ["brush my teeth","dişlerimi fırçalamak"],["get dressed","giyinmek"],
+            ["have a shower","duş almak"],["go to school","okula gitmek"],["do homework","ödev yapmak"],
+            ["go to bed","yatmak"],["always","her zaman"],["usually","genellikle"],["often","sık sık"],
+            ["sometimes","bazen"],["rarely","nadiren"],["never","asla"],["hobby","hobi"],
+            ["free time","boş zaman"],["ride a bike","bisiklete binmek"],["go swimming","yüzmeye gitmek"],
+            ["play chess","satranç oynamak"],["collect","biriktirmek, toplamak"],["healthy","sağlıklı"],
+            ["exercise","egzersiz (yapmak)"],["early","erken"],["late","geç"],["weekend","hafta sonu"],
+            ["routine","günlük düzen"]],
        lead:"<b>Günlük rutin:</b> get up, have breakfast, brush my teeth, go to school, do my homework, go to bed.<br><b>Hobiler:</b> playing football, reading books, riding a bike, listening to music, swimming.",
        box:[{t:"Present Simple", h:"<ul><li><code>I / you / we / they + get up</code> · <code>he / she / it + gets up</code> (3. tekilde <b>-s</b>)</li><li>Olumsuz: <code>She doesn't get up early.</code> (doesn't'ten sonra fiil yalın)</li><li>Soru: <code>Do you play football?</code> / <code>Does he play football?</code></li><li><b>like / love / enjoy / hate</b> + fiil-<b>ing</b></li></ul>"},
             {t:"Adverbs of frequency", h:"<code>always</code> > <code>usually</code> > <code>often</code> > <code>sometimes</code> > <code>rarely</code> > <code>never</code>. <b>Yer:</b> ana fiilden <b>önce</b> (<code>I always get up at seven.</code>), ama <b>be</b> fiilinden <b>sonra</b> (<code>I am never late.</code>)."}],
@@ -1444,7 +1491,7 @@
        a:["<b>gets</b>","<b>She doesn't watch TV in the evening.</b>","<b>I am never late.</b>","<b>reading</b>",
           "<b>My brother brushes his teeth every morning.</b>"]},
 
-      {n:"Family Life", w:"Aralık",
+      {n:"Family Life & Home", w:"Aralık",
        lead:"<b>Aile:</b> mother, father, parents, sister, brother, grandmother, grandfather, aunt, uncle, cousin.<br><b>Görünüş:</b> tall, short, slim, curly/straight hair, wear glasses. <b>Kişilik:</b> funny, kind, hard-working, shy, helpful, clever.",
        box:[{t:"have got & possessives", h:"<ul><li><code>I / you / we / they <b>have got</b></code> · <code>he / she / it <b>has got</b></code></li><li>Olumsuz: <code>I haven't got a sister.</code> Soru: <code>Have you got any cousins?</code></li><li><b>'s</b> sahiplik bildirir: <code>my father's car</code></li><li>İyelik sıfatları: my, your, his, her, its, our, their</li></ul>"}],
        trap:"<code>his</code> ile <code>her</code>'i sahip olunan şeye göre seçmek. İyelik sıfatı <b>sahibin</b> cinsiyetine göre belirlenir: <code>My brother and <b>his</b> book.</code>",
@@ -1456,7 +1503,7 @@
        a:["<b>has</b>","aunt · cousin","<b>my father's car</b>","<b>His</b>",
           "<b>My grandfather is very kind and helpful.</b>"]},
 
-      {n:"Life in the Neighbourhood & City", w:"Ocak",
+      {n:"Life in the Neighbourhood, City & Social Life", w:"Ocak",
        lead:"<b>Mekânlar:</b> library, hospital, bank, post office, bus stop, pharmacy, bookstore, supermarket, mosque, park, cinema, museum.<br><b>Yol sorma:</b> Excuse me, how can I get to the library? – Go straight ahead. Turn left / right. It's on your left.",
        box:[{t:"Prepositions of place", h:"<code>next to</code> (yanında) · <code>across from / opposite</code> (karşısında) · <code>between</code> (arasında) · <code>behind</code> (arkasında) · <code>in front of</code> (önünde) · <code>on the corner of</code> (köşesinde)"}],
        trap:"<code>in front of</code> ile <code>opposite</code>'i karıştırmak. <code>in front of</code> aynı tarafta önünde, <code>opposite</code> yolun karşısında demektir.",
@@ -2404,7 +2451,16 @@
      plist:{t:"7. Sınıf İngilizce — tonguçCUP 2024-2025 · tüm konular", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBksl4DQJRlkizS0bBePQ_BX"},
      note:"Tema adları MEB'in resmî programından birebir alındı. 7. sınıf haftada <b>7 saat</b> İngilizce okuyor. Temaların altındaki dil yapıları bu düzeyde o temalarda işlenen tipik yapılardır — okulunun kitabında sıra farklı olabilir.",
      units:[
-      {n:"Theme 1 — School Life & Education", w:"Eylül",
+      {n:"School Life & Education", w:"Eylül",
+       voc:[["timetable","ders programı"],["schedule","çizelge, program"],["term","dönem"],
+            ["break","teneffüs"],["canteen","kantin"],["assembly","tören, toplanma"],
+            ["uniform","okul forması"],["attend","katılmak, devam etmek"],["attendance","devam durumu"],
+            ["absent","yok, devamsız"],["present","var, derste"],["grade","not; sınıf düzeyi"],
+            ["achievement","başarı"],["rule","kural"],["be allowed to","-mesine izin verilmek"],
+            ["punctual","dakik"],["compulsory","zorunlu"],["optional","seçmeli"],["subject","ders (branş)"],
+            ["exam","sınav"],["revision","tekrar"],["certificate","belge, sertifika"],
+            ["principal","okul müdürü"],["staff room","öğretmenler odası"],["club","kulüp"],
+            ["achieve","başarmak, elde etmek"]],
        lead:"<b>Kelimeler:</b> timetable, term, break, canteen, assembly, uniform, attend, absent, grade, achievement, rule.<br><b>Kalıplar:</b> What time does the first lesson start? How often do you have English? We are not allowed to use phones at school.",
        box:[{t:"have to / must / don't have to", h:"<ul><li><b>must</b> → konuşanın koyduğu güçlü zorunluluk: <code>I must study tonight.</code></li><li><b>have to</b> → dışarıdan gelen kural: <code>We have to wear a uniform.</code></li><li><b>mustn't</b> → <b>yasak</b>: <code>You mustn't run in the corridor.</code></li><li><b>don't have to</b> → <b>gerek yok</b>: <code>We don't have to come on Saturday.</code></li></ul>"}],
        trap:"<code>mustn't</code> ile <code>don't have to</code>'yu aynı sanmak. <code>mustn't</code> = yasak, <code>don't have to</code> = gerekmiyor. Anlamları tamamen farklıdır.",
@@ -2420,7 +2476,16 @@
           "Örnek: <b>I have English lessons seven times a week.</b>",
           "absence (absent) · grade (report card)"]},
 
-      {n:"Theme 2 — Classroom Life & Learning", w:"Ekim",
+      {n:"Classroom Life & Learning", w:"Ekim",
+       voc:[["take notes","not almak"],["revise","tekrar etmek"],["memorise","ezberlemek"],
+            ["highlight","işaretlemek, vurgulamak"],["underline","altını çizmek"],
+            ["practise","alıştırma yapmak"],["project","proje"],["presentation","sunum"],
+            ["deadline","son teslim tarihi"],["group work","grup çalışması"],["pair work","ikili çalışma"],
+            ["handout","ders notu, dağıtılan sayfa"],["instructions","yönerge"],["explain","açıklamak"],
+            ["guess","tahmin etmek"],["mistake","hata"],["correct","düzeltmek; doğru"],
+            ["improve","geliştirmek"],["concentrate","odaklanmak"],["participate","katılmak"],
+            ["discuss","tartışmak"],["summarise","özetlemek"],["research","araştırma (yapmak)"],
+            ["review","gözden geçirmek"],["due","teslim vakti gelen"],["skip","atlamak"]],
        lead:"<b>Kelimeler:</b> take notes, revise, memorise, highlight, underline, practise, project, presentation, deadline, group work.<br><b>Sınıf dili:</b> Could you repeat that, please? I'm not sure I follow. Can you explain it again? May I work with Ali?",
        box:[{t:"can / could / be able to", h:"<ul><li><b>can</b> → şimdiki yetenek ve izin: <code>I can speak English.</code></li><li><b>could</b> → geçmişteki yetenek: <code>I could swim when I was five.</code></li><li><b>could</b> → <b>kibar rica</b>: <code>Could you help me, please?</code></li><li><b>be able to</b> → can'in kullanılamadığı zamanlarda: <code>I will be able to finish it.</code></li></ul>"}],
        trap:"<code>can</code>'i gelecek zamanla birlikte kullanmak: <code>I will can</code> yanlıştır. Doğrusu <code>I will be able to</code>.",
@@ -2435,7 +2500,15 @@
           "take notes (not tutmak) · revise (tekrar etmek) · highlight (işaretlemek)",
           "Örnek: <b>I revise by taking notes and doing practice tests.</b>"]},
 
-      {n:"Theme 3 — Personal Life & Well-Being", w:"Kasım",
+      {n:"Personal Life & Well-Being", w:"Kasım",
+       voc:[["healthy diet","sağlıklı beslenme"],["exercise","egzersiz"],["sleep well","iyi uyumak"],
+            ["stress","stres"],["screen time","ekran süresi"],["hobby","hobi"],["feelings","duygular"],
+            ["energetic","enerjik"],["tired","yorgun"],["worried","endişeli"],["relax","rahatlamak"],
+            ["calm","sakin"],["mood","ruh hâli"],["balanced","dengeli"],["junk food","abur cubur"],
+            ["vitamin","vitamin"],["skip breakfast","kahvaltıyı atlamak"],
+            ["stay up late","geç saate kadar oturmak"],["should / shouldn't","-meli / -memeli"],
+            ["advice","tavsiye"],["habit","alışkanlık"],["fit","formda"],["avoid","kaçınmak"],
+            ["enough","yeterli"],["confident","kendine güvenen"],["lonely","yalnız hisseden"]],
        lead:"<b>Kelimeler:</b> healthy diet, exercise, sleep well, stress, screen time, hobby, feelings, energetic, tired, worried.<br><b>Kalıplar:</b> What do you do to relax? I feel tired because I didn't sleep well. You should drink more water.",
        box:[{t:"should / shouldn't + giving advice", h:"Tavsiye için <code>should</code> kullanılır ve ardından fiil <b>yalın</b> gelir: <code>You should sleep eight hours.</code> Alternatifler: <code>Why don't you…?</code> · <code>How about + fiil-ing?</code> · <code>I think you'd better…</code>"},
             {t:"Present Simple vs Present Continuous", h:"<b>Present Simple</b> → alışkanlık, genel doğru: <code>I usually go to bed at ten.</code><br><b>Present Continuous</b> → şu an olan, geçici durum: <code>I am studying for an exam this week.</code>"}],
@@ -2451,7 +2524,7 @@
           "Örnek: <b>I listen to music and go for a walk to relax.</b>",
           "Örnek: <b>You should drink more water. You should do exercise every day. You shouldn't eat too much fast food.</b>"]},
 
-      {n:"Theme 4 — Family Life & Home", w:"Aralık",
+      {n:"Family Life & Home", w:"Aralık",
        lead:"<b>Kelimeler:</b> relative, household chores, do the washing-up, tidy up, take out the rubbish, get on well with, argue, share.<br><b>Kalıplar:</b> Who does the chores at home? I get on well with my cousin. We used to live in a village.",
        box:[{t:"Past Simple tekrarı", h:"<ul><li>Düzenli fiiller: <code>-ed</code> (watched, played). Düzensizler ezberlenir (go → went, have → had).</li><li>Olumsuz ve soru: <code>did</code> + <b>yalın fiil</b>. <code>She didn't go.</code> / <code>Did you see it?</code></li><li><code>was / were</code>: I-he-she-it → <b>was</b>; you-we-they → <b>were</b>.</li></ul>"},
             {t:"used to", h:"Geçmişte <b>düzenli yapılan ama artık yapılmayan</b> şeyler için: <code>We used to live in Ankara.</code> Olumsuz ve soruda <code>use to</code>: <code>I didn't use to like olives.</code>"}],
@@ -2466,7 +2539,7 @@
           "<b>were</b>","do the washing-up (bulaşık yıkamak) · tidy up (toplamak) · take out the rubbish (çöpü çıkarmak)",
           "Örnek: <b>My mother and I do most of the chores, but my brother takes out the rubbish.</b>"]},
 
-      {n:"Theme 5 — Life in the Neighbourhood & City and Social Life", w:"Ocak–Şubat",
+      {n:"Life in the Neighbourhood, City & Social Life", w:"Ocak–Şubat",
        lead:"<b>Kelimeler:</b> neighbourhood, crowded, quiet, facilities, public transport, invite, accept, refuse, meet up, plan.<br><b>Kalıplar:</b> Would you like to come to my birthday party? I'd love to, but I'm busy. Let's meet at five.",
        box:[{t:"Invitations — kabul ve ret", h:"<b>Davet:</b> <code>Would you like to…?</code> · <code>How about…?</code> · <code>Shall we…?</code><br><b>Kabul:</b> <code>I'd love to.</code> · <code>That sounds great.</code><br><b>Ret (kibar):</b> <code>I'd love to, but I'm afraid I can't.</code> · <code>Sorry, I'm busy that day.</code><br>Ret ederken <b>mutlaka gerekçe</b> eklenir; sadece \"No\" demek kaba kaçar."},
             {t:"Present Continuous for future", h:"Kesinleşmiş plan ve randevular için şimdiki zaman kullanılır: <code>I am meeting my friends at six.</code> = Buluşacağım (plan yapıldı)."}],
@@ -2483,7 +2556,7 @@
           "<b>Go out of the library and turn left. Go straight ahead. The post office will be on your right.</b>",
           "public transport · crowded"]},
 
-      {n:"Theme 6 — Life in the World & Culture", w:"Mart",
+      {n:"Life in the World & Culture", w:"Mart",
        lead:"<b>Kelimeler:</b> tradition, custom, festival, heritage, landmark, cuisine, souvenir, ceremony, national.<br><b>Kalıplar:</b> In Türkiye, people celebrate… It is the most famous museum in the city. Turkish coffee is more popular than tea in some regions.",
        box:[{t:"Comparative & Superlative", h:"<ul><li>Kısa sıfat: <code>big → bigger than → the biggest</code></li><li>-y ile biten: <code>happy → happier → the happiest</code></li><li>Uzun sıfat: <code>famous → more famous than → the most famous</code></li><li>Düzensiz: <code>good → better → the best</code> · <code>bad → worse → the worst</code></li><li><code>as … as</code> → eşitlik: <code>as big as</code></li></ul>"}],
        trap:"Üstünlükte <code>the</code>'ı unutmak. <code>It is most famous museum</code> yanlıştır; doğrusu <code>the most famous museum</code>.",
@@ -2498,7 +2571,7 @@
           "Spain – Spanish · Japan – Japanese · Germany – German · Italy – Italian",
           "Örnek: <b>In my city, people make a special dessert for Ramadan. Families visit each other and share it.</b>"]},
 
-      {n:"Theme 7 — Life in Nature", w:"Nisan",
+      {n:"Life in Nature & Global Problems", w:"Nisan",
        lead:"<b>Kelimeler:</b> endangered species, habitat, deforestation, drought, waste, renewable, protect, survive, climate change.<br><b>Kalıplar:</b> If we cut down trees, animals lose their homes. We must protect endangered animals.",
        box:[{t:"Conditionals — Type 0 ve Type 1", h:"<b>Type 0</b> (her zaman doğru): <code>If + present simple, present simple.</code> → <code>If you heat water to 100°C, it boils.</code><br><b>Type 1</b> (gerçekçi gelecek): <code>If + present simple, will + yalın fiil.</code> → <code>If we recycle, we will save energy.</code><br>Dikkat: <b>if</b>'li kısımda <code>will</code> kullanılmaz."}],
        trap:"<code>if</code> cümleciğinde <code>will</code> kullanmak. <code>If it will rain</code> yanlıştır; doğrusu <code>If it rains, we will stay at home.</code>",
@@ -2514,7 +2587,7 @@
           "endangered species · deforestation",
           "Örnek: <b>We should recycle our waste. We must save water. We shouldn't leave rubbish in nature.</b>"]},
 
-      {n:"Theme 8 — Life in the Universe & Future", w:"Mayıs–Haziran",
+      {n:"Life in the Universe & Future", w:"Mayıs–Haziran",
        lead:"<b>Kelimeler:</b> astronaut, orbit, gravity, telescope, satellite, launch, explore, discovery, invention, robot, artificial intelligence.<br><b>Kalıplar:</b> People will travel to Mars one day. I am going to study engineering. What do you think life will be like in 2050?",
        box:[{t:"will / be going to / might", h:"<ul><li><b>will</b> → tahmin, anlık karar: <code>I think robots will do most jobs.</code></li><li><b>be going to</b> → planlanmış niyet ya da görünür kanıt: <code>I am going to study engineering.</code></li><li><b>might</b> → <b>ihtimal</b> (belki): <code>We might live on the Moon.</code></li><li>Üçünden sonra da fiil <b>yalın</b> gelir.</li></ul>"}],
        trap:"Kesinleşmiş bir plan için <code>will</code> kullanmak. Karar zaten verildiyse <code>be going to</code> gelir: <code>I'm going to take the exam in June.</code>",
@@ -2781,19 +2854,19 @@
        w:"Telif hakkı, eseri üretenin eseri üzerindeki hakkını korur."}
     ],
     ing:[
-      {u:"TEMA 1 · Classroom Life", q:"There ____ twenty desks in our classroom.", o:["is","are","has","have"], a:1,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"There ____ twenty desks in our classroom.", o:["is","are","has","have"], a:1,
        w:"\"Desks\" çoğul olduğu için \"are\" kullanılır."},
-      {u:"TEMA 1 · Classroom Life", q:"\"Kapıyı açma.\" cümlesinin İngilizce karşılığı hangisidir?", o:["Not open the door.","Don't open the door.","You don't open the door.","No open the door."], a:1,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"\"Kapıyı açma.\" cümlesinin İngilizce karşılığı hangisidir?", o:["Not open the door.","Don't open the door.","You don't open the door.","No open the door."], a:1,
        w:"Olumsuz emir cümlesi \"Don't + yalın fiil\" ile kurulur."},
-      {u:"TEMA 2 · School Life", q:"We have Maths ____ Tuesday.", o:["at","in","on","to"], a:2,
+      {u:"TEMA 1 · School Life & Education", q:"We have Maths ____ Tuesday.", o:["at","in","on","to"], a:2,
        w:"Gün adlarından önce \"on\" kullanılır."},
-      {u:"TEMA 3 · Personal Life", q:"She ____ TV in the evening. (olumsuz)", o:["doesn't watches","don't watch","doesn't watch","isn't watch"], a:2,
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"She ____ TV in the evening. (olumsuz)", o:["doesn't watches","don't watch","doesn't watch","isn't watch"], a:2,
        w:"3. tekil kişide \"doesn't\" kullanılır ve fiil yalın kalır."},
-      {u:"TEMA 3 · Personal Life", q:"Sözcükleri doğru sıraya koy: am / never / I / late", o:["I never am late.","Never I am late.","I am never late.","Am I never late."], a:2,
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"Sözcükleri doğru sıraya koy: am / never / I / late", o:["I never am late.","Never I am late.","I am never late.","Am I never late."], a:2,
        w:"Sıklık zarfları \"be\" fiilinden sonra gelir."},
-      {u:"TEMA 4 · Family Life", q:"My sister ____ got long curly hair.", o:["have","has","is","are"], a:1,
+      {u:"TEMA 4 · Family Life & Home", q:"My sister ____ got long curly hair.", o:["have","has","is","are"], a:1,
        w:"3. tekil kişi (she) ile \"has got\" kullanılır."},
-      {u:"TEMA 5 · Life in the Neighbourhood & City", q:"The bank is ____ the hospital and the school.", o:["next to","between","opposite","behind"], a:1,
+      {u:"TEMA 5 · Life in the Neighbourhood, City & Social Life", q:"The bank is ____ the hospital and the school.", o:["next to","between","opposite","behind"], a:1,
        w:"İki şeyin arasında olmak \"between\" ile anlatılır."},
       {u:"TEMA 6 · Life in the World & Culture", q:"İstanbul is ____ than Ankara.", o:["big","more big","bigger","the biggest"], a:2,
        w:"Kısa sıfatta karşılaştırma için -er eklenir ve \"than\" gelir."},
@@ -2964,13 +3037,13 @@
        w:"\"did\" zamanı taşır, fiil yalın kalır: didn't go."},
       {u:"TEMA 4 · Family Life & Home", q:"\"Eskiden Ankara'da otururduk.\" cümlesinin karşılığı hangisidir?", o:["We use to live in Ankara.","We used to live in Ankara.","We are used to live in Ankara.","We used to living in Ankara."], a:1,
        w:"Geçmişte düzenli yapılan ama artık yapılmayan şeyler için \"used to + yalın fiil\"."},
-      {u:"TEMA 5 · Life in the Neighbourhood & City", q:"Bir daveti kibarca reddeden ifade hangisidir?", o:["No.","I don't want to.","I'd love to, but I'm afraid I can't.","Maybe."], a:2,
+      {u:"TEMA 5 · Life in the Neighbourhood, City & Social Life", q:"Bir daveti kibarca reddeden ifade hangisidir?", o:["No.","I don't want to.","I'd love to, but I'm afraid I can't.","Maybe."], a:2,
        w:"İngilizcede kibar ret, teşekkür ve gerekçe içerir."},
       {u:"TEMA 6 · Life in the World & Culture", q:"The Blue Mosque is one of ____ landmarks in İstanbul.", o:["famous","more famous","the most famous","most famous"], a:2,
        w:"Üstünlük derecesinde uzun sıfatla \"the most\" kullanılır."},
-      {u:"TEMA 7 · Life in Nature", q:"If it ____ tomorrow, we will not go out.", o:["will rain","rains","rained","is raining"], a:1,
+      {u:"TEMA 7 · Life in Nature & Global Problems", q:"If it ____ tomorrow, we will not go out.", o:["will rain","rains","rained","is raining"], a:1,
        w:"Type 1 koşul cümlesinde \"if\"li kısımda \"will\" kullanılmaz, present simple gelir."},
-      {u:"TEMA 7 · Life in Nature", q:"\"Nesli tükenmekte olan tür\" ifadesinin İngilizcesi hangisidir?", o:["extinct animal","endangered species","wild habitat","rare nature"], a:1,
+      {u:"TEMA 7 · Life in Nature & Global Problems", q:"\"Nesli tükenmekte olan tür\" ifadesinin İngilizcesi hangisidir?", o:["extinct animal","endangered species","wild habitat","rare nature"], a:1,
        w:"\"Endangered species\" nesli tehlike altındaki tür demektir."},
       {u:"TEMA 8 · Life in the Universe & Future", q:"I have already decided — I ____ study medicine.", o:["will","am going to","might","would"], a:1,
        w:"Karar önceden verildiyse \"be going to\" kullanılır."}
@@ -3118,31 +3191,31 @@
        w:"İsmet, peygamberlerin günah işlemekten korunmuş olmasıdır."}
     ],
     ing:[
-      {u:"TEMA 1 · Classroom Life", q:"____ there any posters on the wall?", o:["Is","Are","Have","Do"], a:1,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"____ there any posters on the wall?", o:["Is","Are","Have","Do"], a:1,
        w:"\"Posters\" çoğul olduğu için \"Are there…?\" kullanılır."},
-      {u:"TEMA 1 · Classroom Life", q:"\"Kalemtıraş\" sözcüğünün İngilizcesi hangisidir?", o:["ruler","rubber","pencil sharpener","glue"], a:2,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"\"Kalemtıraş\" sözcüğünün İngilizcesi hangisidir?", o:["ruler","rubber","pencil sharpener","glue"], a:2,
        w:"Pencil sharpener kalemtıraştır; ruler cetvel, rubber silgi, glue yapıştırıcıdır."},
-      {u:"TEMA 1 · Classroom Life", q:"Hangi cümle doğru bir emir cümlesidir?", o:["You open the door.","To open the door.","Open the door.","Opening the door."], a:2,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"Hangi cümle doğru bir emir cümlesidir?", o:["You open the door.","To open the door.","Open the door.","Opening the door."], a:2,
        w:"Emir cümlesi özne almaz, fiil yalın hâlde başa gelir."},
-      {u:"TEMA 1 · Classroom Life", q:"Öğretmeninden içeri girmek için izin isterken hangisini kullanırsın?", o:["I come in.","May I come in?","I am coming in.","Come in."], a:1,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"Öğretmeninden içeri girmek için izin isterken hangisini kullanırsın?", o:["I come in.","May I come in?","I am coming in.","Come in."], a:1,
        w:"İzin istemek için \"May I…?\" ya da \"Can I…?\" kullanılır."},
-      {u:"TEMA 1 · Classroom Life", q:"There ____ a map and two posters in our classroom.", o:["is","are","have","has"], a:0,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"There ____ a map and two posters in our classroom.", o:["is","are","have","has"], a:0,
        w:"\"There is/are\" kendinden hemen sonraki isme uyar; burada tekil \"a map\" geliyor."},
-      {u:"TEMA 1 · Classroom Life", q:"\"Anlamadım\" demek için en uygun cümle hangisidir?", o:["I don't understand.","I don't listen.","I am not understand.","I understand not."], a:0,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"\"Anlamadım\" demek için en uygun cümle hangisidir?", o:["I don't understand.","I don't listen.","I am not understand.","I understand not."], a:0,
        w:"Present simple olumsuzu: I don't understand."},
-      {u:"TEMA 2 · School Life", q:"School starts ____ half past eight.", o:["in","on","at","to"], a:2,
+      {u:"TEMA 1 · School Life & Education", q:"School starts ____ half past eight.", o:["in","on","at","to"], a:2,
        w:"Saatlerden önce \"at\" kullanılır."},
-      {u:"TEMA 2 · School Life", q:"\"Fen Bilimleri\" dersinin İngilizcesi hangisidir?", o:["Social Studies","Science","Art","IT"], a:1,
+      {u:"TEMA 1 · School Life & Education", q:"\"Fen Bilimleri\" dersinin İngilizcesi hangisidir?", o:["Social Studies","Science","Art","IT"], a:1,
        w:"Science fen bilimleri, Social Studies sosyal bilgilerdir."},
-      {u:"TEMA 2 · School Life", q:"My birthday is ____ 23rd April.", o:["in","on","at","by"], a:1,
+      {u:"TEMA 1 · School Life & Education", q:"My birthday is ____ 23rd April.", o:["in","on","at","by"], a:1,
        w:"Belirli bir gün ya da tarih söylenirken \"on\" kullanılır."},
-      {u:"TEMA 2 · School Life", q:"We have Art ____ the afternoon.", o:["at","on","in","to"], a:2,
+      {u:"TEMA 1 · School Life & Education", q:"We have Art ____ the afternoon.", o:["at","on","in","to"], a:2,
        w:"Günün bölümlerinde \"in\" kullanılır: in the morning / afternoon / evening."},
-      {u:"TEMA 2 · School Life", q:"\"Ders programı\" sözcüğünün İngilizcesi hangisidir?", o:["notebook","timetable","classroom","homework"], a:1,
+      {u:"TEMA 1 · School Life & Education", q:"\"Ders programı\" sözcüğünün İngilizcesi hangisidir?", o:["notebook","timetable","classroom","homework"], a:1,
        w:"Timetable ders programıdır."},
-      {u:"TEMA 2 · School Life", q:"How many lessons ____ you have on Monday?", o:["do","does","are","is"], a:0,
+      {u:"TEMA 1 · School Life & Education", q:"How many lessons ____ you have on Monday?", o:["do","does","are","is"], a:0,
        w:"\"You\" ile present simple soruda \"do\" kullanılır."},
-      {u:"TEMA 2 · School Life", q:"Which one is the odd (farklı) word?", o:["Maths","Science","Tuesday","Music"], a:2,
+      {u:"TEMA 1 · School Life & Education", q:"Which one is the odd (farklı) word?", o:["Maths","Science","Tuesday","Music"], a:2,
        w:"Diğerleri ders adı, Tuesday bir gün adıdır."}
     ]
   };
@@ -3322,13 +3395,13 @@
        w:"Tebliğ, peygamberin vahyi olduğu gibi insanlara ulaştırmasıdır."}
     ],
     ing:[
-      {u:"TEMA 1 · Classroom Life", q:"\"Silgi\" sözcüğünün İngilizcesi hangisidir?", o:["ruler","rubber","glue","marker"], a:1,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"\"Silgi\" sözcüğünün İngilizcesi hangisidir?", o:["ruler","rubber","glue","marker"], a:1,
        w:"Rubber (ya da eraser) silgidir."},
-      {u:"TEMA 1 · Classroom Life", q:"There ____ any chairs in the corner.", o:["isn't","aren't","don't","doesn't"], a:1,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"There ____ any chairs in the corner.", o:["isn't","aren't","don't","doesn't"], a:1,
        w:"Çoğul isimle olumsuz: There aren't any chairs."},
-      {u:"TEMA 2 · School Life", q:"What time ____ school finish?", o:["do","does","is","are"], a:1,
+      {u:"TEMA 1 · School Life & Education", q:"What time ____ school finish?", o:["do","does","is","are"], a:1,
        w:"\"School\" tekil özne olduğu için soruda \"does\" kullanılır."},
-      {u:"TEMA 2 · School Life", q:"\"Kantin\" sözcüğünün İngilizcesi hangisidir?", o:["canteen","corridor","library","assembly"], a:0,
+      {u:"TEMA 1 · School Life & Education", q:"\"Kantin\" sözcüğünün İngilizcesi hangisidir?", o:["canteen","corridor","library","assembly"], a:0,
        w:"Canteen kantin, corridor koridor, library kütüphanedir."}
     ]
   };
@@ -3516,25 +3589,25 @@
        w:"Hz. Nuh, Hz. İbrahim, Hz. Musa, Hz. İsa ve Hz. Muhammed — beş tanedir."}
     ],
     ing:[
-      {u:"TEMA 1 · Classroom Life", q:"____ open your books, please.", o:["You","To","—","Do"], a:2,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"____ open your books, please.", o:["You","To","—","Do"], a:2,
        w:"Emir cümlesi özne almaz: \"Open your books, please.\""},
-      {u:"TEMA 1 · Classroom Life", q:"\"Makas\" sözcüğünün İngilizcesi hangisidir?", o:["glue","scissors","marker","dictionary"], a:1,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"\"Makas\" sözcüğünün İngilizcesi hangisidir?", o:["glue","scissors","marker","dictionary"], a:1,
        w:"Scissors makas, glue yapıştırıcı, dictionary sözlüktür."},
-      {u:"TEMA 1 · Classroom Life", q:"There ____ a board and three windows in the classroom.", o:["is","are","have","has"], a:0,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"There ____ a board and three windows in the classroom.", o:["is","are","have","has"], a:0,
        w:"There is/are kendinden sonraki ilk isme uyar; \"a board\" tekildir."},
-      {u:"TEMA 1 · Classroom Life", q:"Arkadaşından kalem ödünç isterken hangisi uygundur?", o:["Give me a pencil.","Can I borrow your pencil, please?","I want pencil.","You give pencil."], a:1,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"Arkadaşından kalem ödünç isterken hangisi uygundur?", o:["Give me a pencil.","Can I borrow your pencil, please?","I want pencil.","You give pencil."], a:1,
        w:"Kibar rica için \"Can I borrow…, please?\" kullanılır."},
-      {u:"TEMA 1 · Classroom Life", q:"Olumsuz yap: \"Close the window.\"", o:["Not close the window.","Don't close the window.","No close the window.","Doesn't close the window."], a:1,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"Olumsuz yap: \"Close the window.\"", o:["Not close the window.","Don't close the window.","No close the window.","Doesn't close the window."], a:1,
        w:"Olumsuz emir \"Don't + yalın fiil\" ile kurulur."},
-      {u:"TEMA 2 · School Life", q:"We have Music ____ Friday afternoon.", o:["in","at","on","to"], a:2,
+      {u:"TEMA 1 · School Life & Education", q:"We have Music ____ Friday afternoon.", o:["in","at","on","to"], a:2,
        w:"Belirli bir günün bölümü söyleniyorsa \"on\" kullanılır: on Friday afternoon."},
-      {u:"TEMA 2 · School Life", q:"\"Bilişim Teknolojileri\" dersinin kısaltması hangisidir?", o:["PE","IT","Art","SS"], a:1,
+      {u:"TEMA 1 · School Life & Education", q:"\"Bilişim Teknolojileri\" dersinin kısaltması hangisidir?", o:["PE","IT","Art","SS"], a:1,
        w:"IT = Information Technologies. PE beden eğitimidir."},
-      {u:"TEMA 2 · School Life", q:"The school year starts ____ September.", o:["at","on","in","by"], a:2,
+      {u:"TEMA 1 · School Life & Education", q:"The school year starts ____ September.", o:["at","on","in","by"], a:2,
        w:"Ay adlarından önce \"in\" kullanılır."},
-      {u:"TEMA 2 · School Life", q:"I study ____ night.", o:["in","at","on","to"], a:1,
+      {u:"TEMA 1 · School Life & Education", q:"I study ____ night.", o:["in","at","on","to"], a:1,
        w:"\"At night\" bir istisnadır; günün diğer bölümlerinde \"in\" kullanılır."},
-      {u:"TEMA 2 · School Life", q:"\"Dönem\" anlamına gelen sözcük hangisidir?", o:["break","term","grade","rule"], a:1,
+      {u:"TEMA 1 · School Life & Education", q:"\"Dönem\" anlamına gelen sözcük hangisidir?", o:["break","term","grade","rule"], a:1,
        w:"Term dönem, break teneffüs, grade not demektir."}
     ]
   };
@@ -3957,6 +4030,21 @@
           if(uo){
             h += '<div class="unit-body">';
             if(u.lead) h += '<p class="lead">'+u.lead+'</p>';
+            /* Kelime listesi. Anlamlar gizlenebiliyor ki çocuk kendini
+               test edebilsin; gizliyken tek satıra dokunmak yalnız o
+               kelimenin anlamını açar. */
+            if(u.voc && u.voc.length){
+              h += '<div class="voc"><div class="voc-bas"><h5>Kelimeler</h5>'
+                 + '<span class="voc-n">'+u.voc.length+'</span>'
+                 + '<button class="voc-tog" type="button">Anlamları gizle</button></div>'
+                 + '<div class="voc-liste">';
+              u.voc.forEach(function(w){
+                h += '<button class="voc-sat" type="button">'
+                   + '<span class="voc-w">'+esc(w[0])+'</span>'
+                   + '<span class="voc-t">'+esc(w[1])+'</span></button>';
+              });
+              h += '</div></div>';
+            }
             if(u.p && u.p.length){
               h += '<div class="kv"><h5>Bilmen gerekenler</h5><ul>';
               u.p.forEach(function(x){ h += '<li>'+x+'</li>'; });
@@ -4373,6 +4461,20 @@
     persist();
     renderQuiz();
     renderProgress();
+  });
+
+  /* Kelime listesi: anlamları topluca gizle/göster, gizliyken tek tek aç */
+  el("subjects").addEventListener("click", function(ev){
+    var t = ev.target.closest(".voc-tog");
+    if(t){
+      var kutu = t.closest(".voc");
+      var gizli = kutu.classList.toggle("gizli");
+      t.textContent = gizli ? "Anlamları göster" : "Anlamları gizle";
+      [].forEach.call(kutu.querySelectorAll(".voc-sat.acik"), function(x){ x.classList.remove("acik"); });
+      return;
+    }
+    var sat = ev.target.closest(".voc-sat");
+    if(sat && sat.closest(".voc").classList.contains("gizli")) sat.classList.toggle("acik");
   });
 
   /* İzlenen video kaydı — hangi ders, hangi ünite, hangi video */

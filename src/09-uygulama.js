@@ -292,6 +292,21 @@
           if(uo){
             h += '<div class="unit-body">';
             if(u.lead) h += '<p class="lead">'+u.lead+'</p>';
+            /* Kelime listesi. Anlamlar gizlenebiliyor ki çocuk kendini
+               test edebilsin; gizliyken tek satıra dokunmak yalnız o
+               kelimenin anlamını açar. */
+            if(u.voc && u.voc.length){
+              h += '<div class="voc"><div class="voc-bas"><h5>Kelimeler</h5>'
+                 + '<span class="voc-n">'+u.voc.length+'</span>'
+                 + '<button class="voc-tog" type="button">Anlamları gizle</button></div>'
+                 + '<div class="voc-liste">';
+              u.voc.forEach(function(w){
+                h += '<button class="voc-sat" type="button">'
+                   + '<span class="voc-w">'+esc(w[0])+'</span>'
+                   + '<span class="voc-t">'+esc(w[1])+'</span></button>';
+              });
+              h += '</div></div>';
+            }
             if(u.p && u.p.length){
               h += '<div class="kv"><h5>Bilmen gerekenler</h5><ul>';
               u.p.forEach(function(x){ h += '<li>'+x+'</li>'; });
@@ -708,6 +723,20 @@
     persist();
     renderQuiz();
     renderProgress();
+  });
+
+  /* Kelime listesi: anlamları topluca gizle/göster, gizliyken tek tek aç */
+  el("subjects").addEventListener("click", function(ev){
+    var t = ev.target.closest(".voc-tog");
+    if(t){
+      var kutu = t.closest(".voc");
+      var gizli = kutu.classList.toggle("gizli");
+      t.textContent = gizli ? "Anlamları göster" : "Anlamları gizle";
+      [].forEach.call(kutu.querySelectorAll(".voc-sat.acik"), function(x){ x.classList.remove("acik"); });
+      return;
+    }
+    var sat = ev.target.closest(".voc-sat");
+    if(sat && sat.closest(".voc").classList.contains("gizli")) sat.classList.toggle("acik");
   });
 
   /* İzlenen video kaydı — hangi ders, hangi ünite, hangi video */

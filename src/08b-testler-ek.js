@@ -122,31 +122,31 @@
        w:"İsmet, peygamberlerin günah işlemekten korunmuş olmasıdır."}
     ],
     ing:[
-      {u:"TEMA 1 · Classroom Life", q:"____ there any posters on the wall?", o:["Is","Are","Have","Do"], a:1,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"____ there any posters on the wall?", o:["Is","Are","Have","Do"], a:1,
        w:"\"Posters\" çoğul olduğu için \"Are there…?\" kullanılır."},
-      {u:"TEMA 1 · Classroom Life", q:"\"Kalemtıraş\" sözcüğünün İngilizcesi hangisidir?", o:["ruler","rubber","pencil sharpener","glue"], a:2,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"\"Kalemtıraş\" sözcüğünün İngilizcesi hangisidir?", o:["ruler","rubber","pencil sharpener","glue"], a:2,
        w:"Pencil sharpener kalemtıraştır; ruler cetvel, rubber silgi, glue yapıştırıcıdır."},
-      {u:"TEMA 1 · Classroom Life", q:"Hangi cümle doğru bir emir cümlesidir?", o:["You open the door.","To open the door.","Open the door.","Opening the door."], a:2,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"Hangi cümle doğru bir emir cümlesidir?", o:["You open the door.","To open the door.","Open the door.","Opening the door."], a:2,
        w:"Emir cümlesi özne almaz, fiil yalın hâlde başa gelir."},
-      {u:"TEMA 1 · Classroom Life", q:"Öğretmeninden içeri girmek için izin isterken hangisini kullanırsın?", o:["I come in.","May I come in?","I am coming in.","Come in."], a:1,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"Öğretmeninden içeri girmek için izin isterken hangisini kullanırsın?", o:["I come in.","May I come in?","I am coming in.","Come in."], a:1,
        w:"İzin istemek için \"May I…?\" ya da \"Can I…?\" kullanılır."},
-      {u:"TEMA 1 · Classroom Life", q:"There ____ a map and two posters in our classroom.", o:["is","are","have","has"], a:0,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"There ____ a map and two posters in our classroom.", o:["is","are","have","has"], a:0,
        w:"\"There is/are\" kendinden hemen sonraki isme uyar; burada tekil \"a map\" geliyor."},
-      {u:"TEMA 1 · Classroom Life", q:"\"Anlamadım\" demek için en uygun cümle hangisidir?", o:["I don't understand.","I don't listen.","I am not understand.","I understand not."], a:0,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"\"Anlamadım\" demek için en uygun cümle hangisidir?", o:["I don't understand.","I don't listen.","I am not understand.","I understand not."], a:0,
        w:"Present simple olumsuzu: I don't understand."},
-      {u:"TEMA 2 · School Life", q:"School starts ____ half past eight.", o:["in","on","at","to"], a:2,
+      {u:"TEMA 1 · School Life & Education", q:"School starts ____ half past eight.", o:["in","on","at","to"], a:2,
        w:"Saatlerden önce \"at\" kullanılır."},
-      {u:"TEMA 2 · School Life", q:"\"Fen Bilimleri\" dersinin İngilizcesi hangisidir?", o:["Social Studies","Science","Art","IT"], a:1,
+      {u:"TEMA 1 · School Life & Education", q:"\"Fen Bilimleri\" dersinin İngilizcesi hangisidir?", o:["Social Studies","Science","Art","IT"], a:1,
        w:"Science fen bilimleri, Social Studies sosyal bilgilerdir."},
-      {u:"TEMA 2 · School Life", q:"My birthday is ____ 23rd April.", o:["in","on","at","by"], a:1,
+      {u:"TEMA 1 · School Life & Education", q:"My birthday is ____ 23rd April.", o:["in","on","at","by"], a:1,
        w:"Belirli bir gün ya da tarih söylenirken \"on\" kullanılır."},
-      {u:"TEMA 2 · School Life", q:"We have Art ____ the afternoon.", o:["at","on","in","to"], a:2,
+      {u:"TEMA 1 · School Life & Education", q:"We have Art ____ the afternoon.", o:["at","on","in","to"], a:2,
        w:"Günün bölümlerinde \"in\" kullanılır: in the morning / afternoon / evening."},
-      {u:"TEMA 2 · School Life", q:"\"Ders programı\" sözcüğünün İngilizcesi hangisidir?", o:["notebook","timetable","classroom","homework"], a:1,
+      {u:"TEMA 1 · School Life & Education", q:"\"Ders programı\" sözcüğünün İngilizcesi hangisidir?", o:["notebook","timetable","classroom","homework"], a:1,
        w:"Timetable ders programıdır."},
-      {u:"TEMA 2 · School Life", q:"How many lessons ____ you have on Monday?", o:["do","does","are","is"], a:0,
+      {u:"TEMA 1 · School Life & Education", q:"How many lessons ____ you have on Monday?", o:["do","does","are","is"], a:0,
        w:"\"You\" ile present simple soruda \"do\" kullanılır."},
-      {u:"TEMA 2 · School Life", q:"Which one is the odd (farklı) word?", o:["Maths","Science","Tuesday","Music"], a:2,
+      {u:"TEMA 1 · School Life & Education", q:"Which one is the odd (farklı) word?", o:["Maths","Science","Tuesday","Music"], a:2,
        w:"Diğerleri ders adı, Tuesday bir gün adıdır."}
     ]
   };
@@ -326,13 +326,13 @@
        w:"Tebliğ, peygamberin vahyi olduğu gibi insanlara ulaştırmasıdır."}
     ],
     ing:[
-      {u:"TEMA 1 · Classroom Life", q:"\"Silgi\" sözcüğünün İngilizcesi hangisidir?", o:["ruler","rubber","glue","marker"], a:1,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"\"Silgi\" sözcüğünün İngilizcesi hangisidir?", o:["ruler","rubber","glue","marker"], a:1,
        w:"Rubber (ya da eraser) silgidir."},
-      {u:"TEMA 1 · Classroom Life", q:"There ____ any chairs in the corner.", o:["isn't","aren't","don't","doesn't"], a:1,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"There ____ any chairs in the corner.", o:["isn't","aren't","don't","doesn't"], a:1,
        w:"Çoğul isimle olumsuz: There aren't any chairs."},
-      {u:"TEMA 2 · School Life", q:"What time ____ school finish?", o:["do","does","is","are"], a:1,
+      {u:"TEMA 1 · School Life & Education", q:"What time ____ school finish?", o:["do","does","is","are"], a:1,
        w:"\"School\" tekil özne olduğu için soruda \"does\" kullanılır."},
-      {u:"TEMA 2 · School Life", q:"\"Kantin\" sözcüğünün İngilizcesi hangisidir?", o:["canteen","corridor","library","assembly"], a:0,
+      {u:"TEMA 1 · School Life & Education", q:"\"Kantin\" sözcüğünün İngilizcesi hangisidir?", o:["canteen","corridor","library","assembly"], a:0,
        w:"Canteen kantin, corridor koridor, library kütüphanedir."}
     ]
   };

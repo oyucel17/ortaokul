@@ -37,17 +37,17 @@
   var CAL6 = [
     {m:"Eylül", d:"14–30 Eylül", key:"eylul", items:[
       ["mat","Çarpanlar, katlar, asal sayılar"],["fen","Güneş Sistemi ve Tutulmalar"],["tur","Sözcükte Anlam"],
-      ["sos","Birlikte Yaşamak"],["din","Peygamber ve İlahi Kitap İnancı"],["ing","Classroom Life"]]},
+      ["sos","Birlikte Yaşamak"],["din","Peygamber ve İlahi Kitap İnancı"],["ing","School Life & Education"]]},
     {m:"Ekim", d:"1–31 Ekim", key:"ekim", items:[
       ["mat","EBOB–EKOK / İstatistiksel araştırma"],["fen","Güneş Sistemi / Kuvvetin Etkisinde Hareket"],["tur","Deyimler, atasözleri, söz sanatları"],
-      ["sos","Birlikte Yaşamak / Evimiz Dünya"],["ing","School Life"]]},
+      ["sos","Birlikte Yaşamak / Evimiz Dünya"],["ing","Classroom Life & Learning"]]},
     {b:"b1"},
     {m:"Kasım", d:"1–30 Kasım", key:"kasim", items:[
       ["mat","Kesirler ve ondalık gösterim"],["fen","Kuvvetin Etkisinde Hareket"],["tur","Cümlede Anlam"],
-      ["sos","Evimiz Dünya"],["din","Ramazan ve Oruç"],["ing","Personal Life"]]},
+      ["sos","Evimiz Dünya"],["din","Ramazan ve Oruç"],["ing","Personal Life & Well-Being"]]},
     {m:"Aralık", d:"1–31 Aralık", key:"aralik", items:[
       ["mat","Uzunluk ölçüleri / Veriden olasılığa"],["fen","Canlılarda Sistemler"],["tur","Paragraf ve metin türleri"],
-      ["sos","Ortak Mirasımız"],["ing","Family Life"]]},
+      ["sos","Ortak Mirasımız"],["ing","Family Life & Home"]]},
     {m:"Ocak", d:"1–22 Ocak", key:"ocak", items:[
       ["mat","Açılar, üçgenler, dörtgenler"],["fen","Canlılarda Sistemler"],["tur","Sözcük yapısı: kök, gövde, ekler"],
       ["sos","Ortak Mirasımız"],["din","Ahlaki Davranışlar"],["ing","Life in the Neighbourhood & City"]]},
