@@ -1,8 +1,9 @@
-    {key:"tur", name:"Türkçe", color:"var(--s-tur)", meta:"8 konu · MEB TYMM resmî program", lbl:"KONU",
+    {key:"tur", name:"Türkçe", color:"var(--s-tur)", meta:"6 tema · 8 konu · MEB TYMM resmî program", lbl:"KONU",
      plist:{t:"6. Sınıf Türkçe — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjBY_0TMFms79jJ_FX7534QZ"},
-     note:"Türkçe programı <b>metin temaları</b> üzerine kurulu: Dilimizin Zenginliği, Bağımsızlık Yolu, Farklı Dünyalar, İletişim ve Sosyal İlişkiler, Bilim ve Teknoloji, Lider Ruhlar. Dil bilgisi ve anlam bilgisi bu temaların içine dağıtılmış durumda; çalışırken kolay olsun diye aşağıda konu konu toplandı.",
+     note:"İskelet MEB'in <b>6 teması</b>: Dilimizin Zenginliği, Bağımsızlık Yolu, Farklı Dünyalar, İletişim ve Sosyal İlişkiler, Bilim ve Teknoloji, Lider Ruhlar. Resmî program dil bilgisini tema tema sabitlemiyor — aşağıdaki dağılım, her temanın resmî içerik çerçevesine (ör. 4. temada <i>yazım kurallarını uygulama</i> ve <i>noktalama işaretlerini uygulama</i>) bakılarak yapıldı. <b>Okulunun kitabında sıra biraz kayabilir.</b>",
      units:[
-      {n:"Sözcükte Anlam", w:"Eylül",
+
+      {n:"Dilimizin Zenginliği · Sözcükte Anlam", w:"Eylül",
        lead:"Bir sözcüğün anlamı, içinde bulunduğu cümleye göre değişir. Sınavda sorulan da tam olarak budur: sözcüğün o cümledeki anlamı.",
        p:["<b>Gerçek (temel) anlam:</b> akla ilk gelen anlam. \"Buzlu <u>soğuk</u> su içti.\"",
           "<b>Yan anlam:</b> temel anlamla <b>benzerlik</b> ilişkisi kuran anlam. \"Masanın <u>ayağı</u> kırıldı.\"",
@@ -23,7 +24,8 @@
           "Eş anlamlısı <b>ihtiyar</b>, zıt anlamlısı <b>genç</b>.",
           "Örnek: \"Sınavdan yüz aldı.\" (sayı) / \"Yüzünü yıkadı.\" (surat)"]},
 
-      {n:"Deyimler, Atasözleri ve Söz Sanatları", w:"Ekim",
+
+      {n:"Dilimizin Zenginliği · Deyim, Atasözü ve Söz Sanatları", w:"Ekim",
        lead:"Deyim ve atasözü ayrımı her sınavda çıkar; ayırmanın tek pratik yolu öğüt olup olmadığına bakmaktır.",
        box:[{t:"Deyim mi atasözü mü?", h:"<b>Deyim</b> bir durumu çarpıcı anlatır, öğüt vermez, cümle içinde kullanılır: \"etekleri zil çalmak\". <b>Atasözü</b> anonimdir, genel bir doğruyu ya da öğüdü tek başına bir yargı olarak söyler: \"Damlaya damlaya göl olur.\" Kısacası: <b>öğüt varsa atasözü</b>."}],
        p:["<b>Benzetme (teşbih):</b> bir varlığı başkasına benzetmek. \"<u>Aslan gibi</u> delikanlı\"",
@@ -42,7 +44,8 @@
           "<b>Kişileştirme (teşhis)</b> — rüzgâra insana ait \"dövmek\" eylemi verilmiş.",
           "<b>Benzetme (teşbih)</b>","Çok <b>güzel bir kişi</b> için kullanılır."]},
 
-      {n:"Cümlede Anlam", w:"Kasım",
+
+      {n:"Bağımsızlık Yolu · Cümlede Anlam", w:"Kasım",
        lead:"Cümleler arasındaki anlam ilişkisini bulmak, ipucu sözcükleri tanımakla başlar.",
        tbl:[{h:["Anlam ilişkisi","İpucu","Örnek"], r:[
           ["Neden – sonuç","için, -dığı için, -den dolayı","Yağmur yağdığı <u>için</u> maç ertelendi."],
@@ -62,7 +65,8 @@
           "<b>Öznel</b> — \"sürükleyici\" değerlendirmesi kişiden kişiye değişir.",
           "<b>Nesnel</b> — sayfa sayısı sayılarak kanıtlanabilir."]},
 
-      {n:"Paragraf ve Metin Türleri", w:"Aralık",
+
+      {n:"Farklı Dünyalar · Paragraf ve Metin Türleri", w:"Aralık–Ocak",
        lead:"Paragraf sorularında en çok karıştırılan ikili konu ile ana fikirdir: konu \"neden söz ediliyor\", ana fikir \"bununla ne anlatılmak isteniyor\".",
        p:["<b>Konu:</b> paragrafta neden söz ediliyor. <b>Ana fikir:</b> yazarın vermek istediği temel mesaj. <b>Yardımcı fikirler:</b> ana fikri destekleyen açıklamalar.",
           "<b>Anlatım biçimleri:</b> öyküleyici (olay anlatır), betimleyici (gözümüzde canlandırır), açıklayıcı (bilgi verir), tartışmacı (bir görüşü savunur)."],
@@ -85,7 +89,27 @@
           "<b>Fabl</b>","<b>Anı (hatıra)</b>","<b>Betimleyici anlatım (betimleme)</b>",
           "Konuyu ya da ana fikri yansıtmalı, <b>kısa ve dikkat çekici</b> olmalı, paragrafın tamamını kapsamalıdır."]},
 
-      {n:"Sözcük Yapısı: Kök, Gövde ve Ekler", w:"Ocak",
+
+      {n:"İletişim ve Sosyal İlişkiler · Yazım Kuralları ve Noktalama", w:"Şubat–Mart",
+       lead:"Bu konu ezber değil, birkaç sağlam kuralın uygulanmasıdır. En çok sorulan üçlüyü bilmek soruların çoğunu çözer.",
+       box:[{t:"Sınavda en çok sorulan üçlü", h:"<ul><li><b>de / da:</b> \"dahi, bile\" anlamı veriyorsa <b>bağlaçtır, ayrı</b> yazılır (\"Ben de geldim.\"). Bulunma hâli eki ise <b>bitişik</b> (\"Evde kimse yok.\"). Ayrı yazılan \"de\" cümleden çıkarılabilir.</li><li><b>ki:</b> bağlaç olan \"ki\" <b>ayrı</b> (\"Biliyorum ki gelecek.\"). İlgi zamiri ve sıfat yapan \"-ki\" <b>bitişik</b> (\"benimki, akşamki\"). İstisnalar bitişik: <b>çünkü, oysaki, sanki, mademki, halbuki, belki, meğerki</b>.</li><li><b>mi:</b> soru eki <b>her zaman ayrı</b>: \"Geldin mi?\"</li></ul>"}],
+       p:["<b>Kesme işareti:</b> özel adlara gelen <b>çekim ekleri</b> kesmeyle ayrılır (Ankara'ya, Ali'nin). <b>Yapım ekleri ayrılmaz</b> (Türkçe, Ankaralı).",
+          "<b>Büyük harf:</b> cümle başı, özel adlar; belirli bir tarihteki ay ve gün adları büyük (29 Ekim 1923 Pazartesi), genel kullanımda küçük (\"bu ekim ayında\").",
+          "<b>İki nokta (:)</b> açıklama ya da örnek öncesinde, <b>noktalı virgül (;)</b> virgülle ayrılmış grupları ayırırken kullanılır."],
+       trap:"\"Ki\" istisnalarını kural sanıp her bağlacı bitişik yazmak. Yalnızca sayılı birkaç sözcükte (çünkü, sanki, belki…) bitişiktir; geri kalan bağlaç \"ki\" ayrı yazılır.",
+       q:["\"Ben de geleceğim.\" cümlesindeki \"de\" neden ayrı yazılır?",
+          "\"Evde kimse yok.\" cümlesindeki \"-de\" neden bitişik yazılır?",
+          "\"Ankara'ya gittim.\" ile \"Türkçeyi seviyorum.\" cümlelerinde kesme işareti kullanımı neden farklıdır?",
+          "\"Kitabı okudun mu?\" cümlesinde \"mu\" neden ayrı yazılır?",
+          "Şu cümleyi noktalama işaretleriyle ve büyük harflerle doğru yaz: <em>ali eve gelince annesine sordu yemek hazır mı</em>"],
+       a:["\"dahi, bile\" anlamı verdiği için <b>bağlaçtır</b>; bağlaç olan \"de\" her zaman ayrı yazılır.",
+          "<b>Bulunma hâli eki</b> olduğu için. Çıkarıldığında cümle anlamsızlaşır.",
+          "\"Ankara'ya\"daki \"-ya\" <b>çekim ekidir</b>, kesmeyle ayrılır. \"Türkçe\"deki \"-çe\" <b>yapım ekidir</b>; yapım ekleri kesmeyle ayrılmaz.",
+          "<b>Soru eki</b> olduğu için; soru eki her zaman ayrı yazılır.",
+          "<b>\"Ali, eve gelince annesine sordu: 'Yemek hazır mı?'\"</b>"]},
+
+
+      {n:"Bilim ve Teknoloji · Sözcük Yapısı: Kök, Gövde, Ekler", w:"Nisan",
        lead:"<b>Kök</b>, sözcüğün anlamlı en küçük parçasıdır; isim kökü (göz, yol) ya da fiil kökü (gel-, yaz-) olur. Köke yapım eki eklenince <b>gövde</b> oluşur.",
        box:[{t:"Yapım eki mi çekim eki mi?", h:"<b>Yapım eki</b> yeni bir sözcük türetir: göz → göz<u>lük</u> → gözlük<u>çü</u>. <b>Çekim eki</b> yeni sözcük türetmez, yalnızca cümledeki görevini belirler: çoğul (-ler), hâl (-e, -i, -de, -den), iyelik (-im, -in), kip ve kişi ekleri."}],
        p:["<b>Basit sözcük:</b> yapım eki almamış. <em>kitaplar</em> (-lar çekim ekidir), <em>evden</em>",
@@ -103,7 +127,8 @@
           "\"Yolcu\" yapım eki almıştır, <b>türemiş</b>tir. \"Yollar\" yalnızca çekim eki almıştır, <b>basit</b>tir.",
           "Yapım eki yeni bir sözcük türetir; çekim eki türetmez, yalnızca cümle içinde görev kazandırır."]},
 
-      {n:"İsim, Sıfat ve Zamir", w:"Şubat–Mart",
+
+      {n:"Bilim ve Teknoloji · İsim, Sıfat ve Zamir", w:"Nisan–Mayıs",
        lead:"Sıfat ile zamiri ayırmanın kuralı tektir: arkasından isim geliyorsa sıfat, ismin yerini tutuyorsa zamirdir.",
        p:["<b>İsim:</b> varlıklara verilen ad. Özel/cins, tekil/çoğul/topluluk, somut/soyut.",
           "<b>Sıfat:</b> ismin <b>önüne</b> gelip onu niteleyen ya da belirten sözcük. Tek başına kullanılamaz.",
@@ -127,7 +152,8 @@
           "<b>Topluluk ismi</b> — tekil göründüğü hâlde birden çok varlığı anlatır.",
           "<b>Soyut isim</b> — duyu organlarıyla algılanamazlar."]},
 
-      {n:"Fiiller: Kip ve Kişi", w:"Mart–Nisan",
+
+      {n:"Lider Ruhlar · Fiiller: Kip ve Kişi", w:"Mayıs–Haziran",
        lead:"Fiil, iş-oluş-durum bildiren sözcüktür. <b>Kip eki</b> eylemin ne zaman ya da hangi dilekle yapıldığını, <b>kişi eki</b> kimin yaptığını gösterir.",
        tbl:[{h:["Kip","Eki","Örnek"], r:[
           ["Görülen (bilinen) geçmiş","-dı / -di / -du / -dü","geldi"],
@@ -147,25 +173,8 @@
        a:["<b>Şimdiki zaman</b>, <b>1. tekil kişi</b> (-yor + -um)","<b>Gereklilik kipi</b>, <b>2. tekil kişi</b> (-malı + -sın)",
           "<b>5 tanedir:</b> görülen geçmiş, duyulan geçmiş, şimdiki, gelecek, geniş zaman.",
           "<b>Emir kipi</b>, <b>3. tekil kişi</b>",
-          "\"Yazdı\" konuşanın olaya <b>tanık olduğunu</b>; \"yazmış\" olayı <b>başkasından duyduğunu</b> gösterir."]},
+          "\"Yazdı\" konuşanın olaya <b>tanık olduğunu</b>; \"yazmış\" olayı <b>başkasından duyduğunu</b> gösterir."]}
 
-      {n:"Yazım Kuralları ve Noktalama", w:"Mayıs–Haziran",
-       lead:"Bu konu ezber değil, birkaç sağlam kuralın uygulanmasıdır. En çok sorulan üçlüyü bilmek soruların çoğunu çözer.",
-       box:[{t:"Sınavda en çok sorulan üçlü", h:"<ul><li><b>de / da:</b> \"dahi, bile\" anlamı veriyorsa <b>bağlaçtır, ayrı</b> yazılır (\"Ben de geldim.\"). Bulunma hâli eki ise <b>bitişik</b> (\"Evde kimse yok.\"). Ayrı yazılan \"de\" cümleden çıkarılabilir.</li><li><b>ki:</b> bağlaç olan \"ki\" <b>ayrı</b> (\"Biliyorum ki gelecek.\"). İlgi zamiri ve sıfat yapan \"-ki\" <b>bitişik</b> (\"benimki, akşamki\"). İstisnalar bitişik: <b>çünkü, oysaki, sanki, mademki, halbuki, belki, meğerki</b>.</li><li><b>mi:</b> soru eki <b>her zaman ayrı</b>: \"Geldin mi?\"</li></ul>"}],
-       p:["<b>Kesme işareti:</b> özel adlara gelen <b>çekim ekleri</b> kesmeyle ayrılır (Ankara'ya, Ali'nin). <b>Yapım ekleri ayrılmaz</b> (Türkçe, Ankaralı).",
-          "<b>Büyük harf:</b> cümle başı, özel adlar; belirli bir tarihteki ay ve gün adları büyük (29 Ekim 1923 Pazartesi), genel kullanımda küçük (\"bu ekim ayında\").",
-          "<b>İki nokta (:)</b> açıklama ya da örnek öncesinde, <b>noktalı virgül (;)</b> virgülle ayrılmış grupları ayırırken kullanılır."],
-       trap:"\"Ki\" istisnalarını kural sanıp her bağlacı bitişik yazmak. Yalnızca sayılı birkaç sözcükte (çünkü, sanki, belki…) bitişiktir; geri kalan bağlaç \"ki\" ayrı yazılır.",
-       q:["\"Ben de geleceğim.\" cümlesindeki \"de\" neden ayrı yazılır?",
-          "\"Evde kimse yok.\" cümlesindeki \"-de\" neden bitişik yazılır?",
-          "\"Ankara'ya gittim.\" ile \"Türkçeyi seviyorum.\" cümlelerinde kesme işareti kullanımı neden farklıdır?",
-          "\"Kitabı okudun mu?\" cümlesinde \"mu\" neden ayrı yazılır?",
-          "Şu cümleyi noktalama işaretleriyle ve büyük harflerle doğru yaz: <em>ali eve gelince annesine sordu yemek hazır mı</em>"],
-       a:["\"dahi, bile\" anlamı verdiği için <b>bağlaçtır</b>; bağlaç olan \"de\" her zaman ayrı yazılır.",
-          "<b>Bulunma hâli eki</b> olduğu için. Çıkarıldığında cümle anlamsızlaşır.",
-          "\"Ankara'ya\"daki \"-ya\" <b>çekim ekidir</b>, kesmeyle ayrılır. \"Türkçe\"deki \"-çe\" <b>yapım ekidir</b>; yapım ekleri kesmeyle ayrılmaz.",
-          "<b>Soru eki</b> olduğu için; soru eki her zaman ayrı yazılır.",
-          "<b>\"Ali, eve gelince annesine sordu: 'Yemek hazır mı?'\"</b>"]}
      ]},
 
     {key:"sos", name:"Sosyal Bilgiler", color:"var(--s-sos)", meta:"6 öğrenme alanı · MEB TYMM resmî program", lbl:"ALAN",

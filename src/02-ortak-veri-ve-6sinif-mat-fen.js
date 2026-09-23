@@ -36,37 +36,37 @@
 
   var CAL6 = [
     {m:"Eylül", d:"14–30 Eylül", key:"eylul", items:[
-      ["mat","Çarpanlar, katlar, asal sayılar"],["fen","Güneş Sistemi ve Tutulmalar"],["tur","Sözcükte Anlam"],
+      ["mat","Çarpanlar, katlar, asal sayılar"],["fen","Güneş Sistemi ve Tutulmalar"],["tur","Dilimizin Zenginliği · Sözcükte anlam"],
       ["sos","Birlikte Yaşamak"],["din","Peygamber ve İlahi Kitap İnancı"],["ing","School Life & Education"]]},
     {m:"Ekim", d:"1–31 Ekim", key:"ekim", items:[
-      ["mat","EBOB–EKOK / İstatistiksel araştırma"],["fen","Güneş Sistemi / Kuvvetin Etkisinde Hareket"],["tur","Deyimler, atasözleri, söz sanatları"],
+      ["mat","EBOB–EKOK / İstatistiksel araştırma"],["fen","Güneş Sistemi / Kuvvetin Etkisinde Hareket"],["tur","Dilimizin Zenginliği · Deyim ve atasözleri"],
       ["sos","Birlikte Yaşamak / Evimiz Dünya"],["ing","Classroom Life & Learning"]]},
     {b:"b1"},
     {m:"Kasım", d:"1–30 Kasım", key:"kasim", items:[
-      ["mat","Kesirler ve ondalık gösterim"],["fen","Kuvvetin Etkisinde Hareket"],["tur","Cümlede Anlam"],
+      ["mat","Kesirler ve ondalık gösterim"],["fen","Kuvvetin Etkisinde Hareket"],["tur","Bağımsızlık Yolu · Cümlede anlam"],
       ["sos","Evimiz Dünya"],["din","Ramazan ve Oruç"],["ing","Personal Life & Well-Being"]]},
     {m:"Aralık", d:"1–31 Aralık", key:"aralik", items:[
-      ["mat","Uzunluk ölçüleri / Veriden olasılığa"],["fen","Canlılarda Sistemler"],["tur","Paragraf ve metin türleri"],
+      ["mat","Uzunluk ölçüleri / Veriden olasılığa"],["fen","Canlılarda Sistemler"],["tur","Farklı Dünyalar · Paragraf ve metin türleri"],
       ["sos","Ortak Mirasımız"],["ing","Family Life & Home"]]},
     {m:"Ocak", d:"1–22 Ocak", key:"ocak", items:[
-      ["mat","Açılar, üçgenler, dörtgenler"],["fen","Canlılarda Sistemler"],["tur","Sözcük yapısı: kök, gövde, ekler"],
+      ["mat","Açılar, üçgenler, dörtgenler"],["fen","Canlılarda Sistemler"],["tur","Farklı Dünyalar · Metin türleri"],
       ["sos","Ortak Mirasımız"],["din","Ahlaki Davranışlar"],["ing","Life in the Neighbourhood & City"]]},
     {b:"b2"},
     {m:"Şubat", d:"8–28 Şubat", key:"subat", items:[
-      ["mat","Dörtgenler ve açı toplamları"],["fen","Işığın Yansıması ve Renkler"],["tur","İsim, sıfat ve zamir"],
+      ["mat","Dörtgenler ve açı toplamları"],["fen","Işığın Yansıması ve Renkler"],["tur","İletişim ve Sosyal İlişkiler · Yazım kuralları"],
       ["sos","Yaşayan Demokrasimiz"],["ing","Life in the World & Culture"]]},
     {b:"b3"},
     {m:"Mart", d:"1–31 Mart", key:"mart", items:[
-      ["mat","Cebirsel ifadeler ve örüntüler"],["fen","Maddenin Ayırt Edici Özellikleri"],["tur","İsim, sıfat, zamir / Fiiller"],
+      ["mat","Cebirsel ifadeler ve örüntüler"],["fen","Maddenin Ayırt Edici Özellikleri"],["tur","İletişim ve Sosyal İlişkiler · Noktalama"],
       ["sos","Yaşayan Demokrasimiz"],["din","Peygamberliğinden Önce Hz. Muhammed"],["ing","Life in the World & Culture"]]},
     {m:"Nisan", d:"1–30 Nisan", key:"nisan", items:[
-      ["mat","Algoritma ve cebirsel modelleme"],["fen","Maddenin Ayırt Ediciliği / Elektriğin İletimi"],["tur","Fiiller: kip ve kişi"],
+      ["mat","Algoritma ve cebirsel modelleme"],["fen","Maddenin Ayırt Ediciliği / Elektriğin İletimi"],["tur","Bilim ve Teknoloji · Sözcük yapısı"],
       ["sos","Hayatımızdaki Ekonomi"],["ing","Life in Nature & Global Problems"]]},
     {m:"Mayıs", d:"1–31 Mayıs", key:"mayis", items:[
-      ["mat","Alan, çember, merkez açı"],["fen","Elektriğin İletimi / Sürdürülebilir Yaşam"],["tur","Yazım kuralları ve noktalama"],
+      ["mat","Alan, çember, merkez açı"],["fen","Elektriğin İletimi / Sürdürülebilir Yaşam"],["tur","Bilim ve Teknoloji · İsim, sıfat, zamir"],
       ["sos","Hayatımızdaki Ekonomi / Teknoloji"],["din","Kültürümüzdeki Dinî Motifler"],["ing","Life in Nature / Life in the Universe"]]},
     {m:"Haziran", d:"1–25 Haziran", key:"haziran", items:[
-      ["mat","Arazi ölçüleri ve yıl sonu tekrarı"],["fen","Sürdürülebilir Yaşam ve Etkileşim"],["tur","Noktalama ve yıl sonu tekrarı"],
+      ["mat","Arazi ölçüleri ve yıl sonu tekrarı"],["fen","Sürdürülebilir Yaşam ve Etkileşim"],["tur","Lider Ruhlar · Fiiller ve yıl sonu tekrarı"],
       ["sos","Teknoloji ve Sosyal Bilimler"],["ing","Life in the Universe & Future"]]}
   ];
 
