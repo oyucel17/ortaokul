@@ -134,6 +134,16 @@
 
   var H7 = {
     mat:[
+      {u:"TEMA 1 · Tam Sayılar", q:"(−4) + (−9) işleminin sonucu kaçtır?", o:["13","−5","−13","5"], a:2,
+       w:"İşaretler aynı: mutlak değerler toplanır (4 + 9 = 13), ortak işaret yazılır → −13."},
+      {u:"TEMA 1 · Tam Sayılar", q:"Hesabında 15 TL varken 23 TL harcarsan bakiyen ne olur?", o:["8 TL","−8 TL","38 TL","−38 TL"], a:1,
+       w:"15 − 23 = −8. Eksi bakiye borcu gösterir."},
+      {u:"TEMA 1 · Tam Sayılar", q:"(−48) ÷ 6 işleminin sonucu kaçtır?", o:["−8","8","−42","42"], a:0,
+       w:"Farklı işaretli iki sayının bölümü negatiftir: −8."},
+      {u:"TEMA 1 · Tam Sayılar", q:"|−20| − |−8| işleminin sonucu kaçtır?", o:["−28","−12","12","28"], a:2,
+       w:"Önce her sayının mutlak değeri alınır: 20 − 8 = 12."},
+      {u:"TEMA 1 · Tam Sayılar", q:"(−1) · (−1) · (−1) · (−1) · (−1) işleminin sonucu kaçtır?", o:["1","−1","5","−5"], a:1,
+       w:"Beş tane negatif var; negatif adedi tek olduğu için sonuç negatiftir: −1."},
       {u:"TEMA 1 · Sayılar ve Nicelikler (1)", q:"(−5/6) + (1/3) işleminin sonucu kaçtır?", o:["−1/2","−2/3","1/2","−4/3"], a:0,
        w:"Payda 6: −5/6 + 2/6 = −3/6 = −1/2."},
       {u:"TEMA 1 · Sayılar ve Nicelikler (1)", q:"|−4| · |−3| işleminin sonucu kaçtır?", o:["−12","−7","7","12"], a:3,

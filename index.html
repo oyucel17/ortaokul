@@ -731,10 +731,10 @@
 
   var CAL7 = [
     {m:"Eylül", d:"14–30 Eylül", key:"eylul", items:[
-      ["mat","Rasyonel sayılar"],["fen","Uzay Çağı"],["tur","Hayat Boyu Gelişim"],
+      ["mat","Tam sayılar"],["fen","Uzay Çağı"],["tur","Hayat Boyu Gelişim"],
       ["sos","Birlikte Yaşamak"],["din","Melek ve Ahiret İnancı"],["ing","School Life & Education"]]},
     {m:"Ekim", d:"1–31 Ekim", key:"ekim", items:[
-      ["mat","Rasyonel sayılarla işlemler"],["fen","Uzay Çağı / Kuvvet ve Enerji"],["tur","Hayat Boyu Gelişim"],
+      ["mat","Rasyonel sayılar ve işlemler"],["fen","Uzay Çağı / Kuvvet ve Enerji"],["tur","Hayat Boyu Gelişim"],
       ["sos","Birlikte Yaşamak / Evimiz Dünya"],["ing","Classroom Life & Learning"]]},
     {b:"b1"},
     {m:"Kasım", d:"1–30 Kasım", key:"kasim", items:[
@@ -1626,11 +1626,41 @@
   /* ===================== 7. SINIF ===================== */
 
   var S7 = [
-    {key:"mat", name:"Matematik", color:"var(--s-mat)", meta:"9 tema · MEB TYMM resmî program", lbl:"TEMA",
+    {key:"mat", name:"Matematik", color:"var(--s-mat)", meta:"9 tema · 10 konu · MEB TYMM resmî program", lbl:"KONU",
      plist:{t:"7. Sınıf Matematik — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBkJB0sv8aW58-o4CAsje7Vp"},
      note:"7. sınıf 2026–2027'de <b>ilk kez</b> Maarif Modeli ile okuyor. Matematik \"ünite\" değil <b>tema</b> başlıkları altında işleniyor; ünite adları geçen yılki kaynaklarla birebir uyuşmaz.",
      units:[
-      {n:"Sayılar ve Nicelikler (1)", w:"Eylül–Ekim",
+      {n:"Sayılar ve Nicelikler (1) · Tam Sayılar", w:"Eylül",
+       lead:"Tema 1'in ilk konusu. Tam sayılar: … −3, −2, −1, 0, 1, 2, 3 … Sıcaklık, borç, deniz seviyesinden derinlik, asansör katı — <b>yönü olan</b> her nicelik. Konunun kalbi iki şey: <b>işaret kuralları</b> ve <b>mutlak değer</b>.",
+       p:["Tam sayılar doğal sayıları kapsar. Sıfır ne pozitiftir ne negatif; işareti yoktur.",
+          "Sayı doğrusunda sağdaki her zaman büyüktür: −5 &lt; −2 &lt; 0 &lt; 3.",
+          "İki negatif sayıdan mutlak değeri <b>büyük</b> olan <b>küçüktür</b>: −9 &lt; −4.",
+          "Mutlak değer sıfıra uzaklıktır, bu yüzden asla negatif olamaz: |−7| = 7.",
+          "Çıkarma aslında toplamadır: a − b = a + (−b). Çıkanın işaretini değiştirip toplarsın.",
+          "Çarpma ve bölmede aynı işaret pozitif, farklı işaret negatif verir."],
+       box:[{t:"İşaret kuralları", h:"<ul><li><b>Toplama · aynı işaret:</b> mutlak değerleri topla, ortak işareti yaz. (−3) + (−5) = −8</li><li><b>Toplama · farklı işaret:</b> büyük mutlak değerden küçüğünü çıkar, büyüğün işaretini yaz. (−8) + 3 = −5</li><li><b>Çıkarma:</b> a − b = a + (−b) · (−4) − (−9) = −4 + 9 = 5</li><li><b>Çarpma ve bölme:</b> (+)(+) = + · (−)(−) = + · (+)(−) = − · (−)(+) = −</li><li>Çarpımda <b>negatif sayı adedi tekse</b> sonuç negatif, çiftse pozitiftir.</li></ul>"},
+            {t:"Mutlak değer", h:"|a|, sayının sayı doğrusunda <b>sıfıra uzaklığıdır</b>. Uzaklık olduğu için sonuç hiçbir zaman negatif çıkmaz: |−7| = 7 · |7| = 7 · |0| = 0.<br><b>Dikkat:</b> mutlak değerin içi <b>önce</b> hesaplanır. |−3 + 1| = |−2| = <b>2</b>, ama |−3| + |1| = <b>4</b>. İkisi ayrı işlemdir."}],
+       vid:[{t:"Tam Sayılarla Toplama ve Çıkarma — 7MAT1 #2026", u:"https://www.youtube.com/watch?v=WuLoiiGYamY"},
+            {t:"Tam Sayılarla Toplama ve Çıkarma, Konu Özeti — 7MAT1 #2026", u:"https://www.youtube.com/watch?v=4lmBZdLNizQ"},
+            {t:"Tam Sayılarla Çarpma ve Bölme — 7MAT2 #2026", u:"https://www.youtube.com/watch?v=1miDDr0v6kw"},
+            {t:"Tam Sayılarla Çarpma ve Bölme, Konu Özeti — 7MAT2 #2026", u:"https://www.youtube.com/watch?v=XqzbTJfYByc"},
+            {t:"Tam Sayı Problemleri — 7MAT3 #2026", u:"https://www.youtube.com/watch?v=R53roHNOHz8"},
+            {t:"Tam Sayı Problemleri, Konu Özeti — 7MAT3 #2026", u:"https://www.youtube.com/watch?v=nNcc9_118s8"}],
+       trap:"İki negatif sayıyı karşılaştırırken rakamın büyüklüğüne bakmak. Sayı doğrusunda <b>solda kalan küçüktür</b>: −9 sayısı −4'ten küçüktür. Negatif tarafta mutlak değer büyüdükçe sayı küçülür.",
+       q:["(−12) + 7 − (−5) işleminin sonucunu bul.",
+          "(−6) · (−4) ÷ (−8) işleminin sonucunu bul.",
+          "|−15| − |−6| + |2| işleminin sonucunu bul.",
+          "−7, 3, −12, 0 ve −1 sayılarını küçükten büyüğe sırala.",
+          "Bir dalgıç deniz seviyesinin 18 m altındadır. Önce 7 m yukarı çıkıyor, sonra 12 m aşağı iniyor. Son konumu nedir?",
+          "|−4 + 1| ile |−4| + |1| işlemlerinin sonuçları neden farklıdır?"],
+       a:["−12 + 7 = −5, sonra −5 + 5 = <b>0</b>",
+          "(−6)·(−4) = 24 (aynı işaret → +), 24 ÷ (−8) = <b>−3</b>",
+          "15 − 6 + 2 = <b>11</b>",
+          "<b>−12, −7, −1, 0, 3</b> — negatif tarafta mutlak değer büyüdükçe sayı küçülür.",
+          "−18 + 7 − 12 = <b>−23</b>, yani deniz seviyesinin <b>23 m altında</b>.",
+          "İlkinde parantez gibi davranılıp <b>önce toplama</b> yapılır: |−3| = <b>3</b>. İkincisinde her sayının mutlak değeri <b>ayrı ayrı</b> alınıp toplanır: 4 + 1 = <b>5</b>."]},
+
+      {n:"Sayılar ve Nicelikler (1) · Rasyonel Sayılar", w:"Ekim",
        lead:"Tam sayılardan rasyonel sayılara geçiş. <code>a/b</code> biçiminde yazılabilen (b≠0) her sayı rasyoneldir; ondalık gösterim, devirli ondalıklar, mutlak değer ve sıralama bu temanın belkemiği.",
        p:["Her tam sayı rasyoneldir (5 = 5/1), ama her rasyonel sayı tam sayı değildir.",
           "Negatif kesirlerde sıralama ters işler: −1/2 sayısı −3/4 sayısından büyüktür.",
@@ -2794,6 +2824,26 @@
 
   var Q7 = {
     mat:[
+      {u:"TEMA 1 · Tam Sayılar", q:"(−8) + 5 işleminin sonucu kaçtır?", o:["−13","−3","3","13"], a:1,
+       w:"İşaretler farklı: büyük mutlak değerden küçüğü çıkarılır (8 − 5 = 3), büyüğün işareti yazılır → −3."},
+      {u:"TEMA 1 · Tam Sayılar", q:"(−7) − (−12) işleminin sonucu kaçtır?", o:["−19","−5","5","19"], a:2,
+       w:"Çıkanın işareti değişir: −7 + 12 = 5."},
+      {u:"TEMA 1 · Tam Sayılar", q:"(−3) · 6 işleminin sonucu kaçtır?", o:["−18","−9","9","18"], a:0,
+       w:"Farklı işaretli iki sayının çarpımı negatiftir: −18."},
+      {u:"TEMA 1 · Tam Sayılar", q:"(−36) ÷ (−9) işleminin sonucu kaçtır?", o:["−4","4","−27","27"], a:1,
+       w:"Aynı işaretli iki sayının bölümü pozitiftir: 4."},
+      {u:"TEMA 1 · Tam Sayılar", q:"|−11| + |4| işleminin sonucu kaçtır?", o:["−15","−7","7","15"], a:3,
+       w:"Mutlak değer uzaklıktır, negatif olmaz: 11 + 4 = 15."},
+      {u:"TEMA 1 · Tam Sayılar", q:"Aşağıdaki sıralamalardan hangisi doğrudur?", o:["−2 < −9 < 0","−9 < −2 < 0","0 < −2 < −9","−2 < 0 < −9"], a:1,
+       w:"Sayı doğrusunda solda kalan küçüktür: −9 < −2 < 0."},
+      {u:"TEMA 1 · Tam Sayılar", q:"(−5) · (−2) · (−1) işleminin sonucu kaçtır?", o:["−10","10","−7","7"], a:0,
+       w:"Çarpımda üç tane negatif var; negatif adedi tek olduğu için sonuç negatiftir: −10."},
+      {u:"TEMA 1 · Tam Sayılar", q:"Hava sıcaklığı −6 °C iken 9 derece düşerse kaç °C olur?", o:["3","−3","−15","15"], a:2,
+       w:"Düşme çıkarmadır: −6 − 9 = −15 °C."},
+      {u:"TEMA 1 · Tam Sayılar", q:"|−3 + 7| işleminin sonucu kaçtır?", o:["4","10","−4","−10"], a:0,
+       w:"Mutlak değerin içi önce hesaplanır: |4| = 4. Soru |−3| + |7| olsaydı sonuç 10 olurdu."},
+      {u:"TEMA 1 · Tam Sayılar", q:"Bir asansör 3. kattayken 7 kat aşağı iniyor. Hangi kattadır?", o:["−4","4","−10","10"], a:0,
+       w:"3 − 7 = −4, yani 4. bodrum katı."},
       {u:"TEMA 1 · Sayılar ve Nicelikler (1)", q:"−3/4 ile −2/3 sayılarından hangisi büyüktür?", o:["−3/4","−2/3","Eşittirler","Karşılaştırılamaz"], a:1,
        w:"Paydalar eşitlenince −9/12 ve −8/12 olur. Sayı doğrusunda sağdaki büyüktür: −2/3."},
       {u:"TEMA 1 · Sayılar ve Nicelikler (1)", q:"0,666… devirli ondalık sayısının kesir gösterimi hangisidir?", o:["6/10","2/3","3/5","6/99"], a:1,
@@ -3491,6 +3541,16 @@
 
   var H7 = {
     mat:[
+      {u:"TEMA 1 · Tam Sayılar", q:"(−4) + (−9) işleminin sonucu kaçtır?", o:["13","−5","−13","5"], a:2,
+       w:"İşaretler aynı: mutlak değerler toplanır (4 + 9 = 13), ortak işaret yazılır → −13."},
+      {u:"TEMA 1 · Tam Sayılar", q:"Hesabında 15 TL varken 23 TL harcarsan bakiyen ne olur?", o:["8 TL","−8 TL","38 TL","−38 TL"], a:1,
+       w:"15 − 23 = −8. Eksi bakiye borcu gösterir."},
+      {u:"TEMA 1 · Tam Sayılar", q:"(−48) ÷ 6 işleminin sonucu kaçtır?", o:["−8","8","−42","42"], a:0,
+       w:"Farklı işaretli iki sayının bölümü negatiftir: −8."},
+      {u:"TEMA 1 · Tam Sayılar", q:"|−20| − |−8| işleminin sonucu kaçtır?", o:["−28","−12","12","28"], a:2,
+       w:"Önce her sayının mutlak değeri alınır: 20 − 8 = 12."},
+      {u:"TEMA 1 · Tam Sayılar", q:"(−1) · (−1) · (−1) · (−1) · (−1) işleminin sonucu kaçtır?", o:["1","−1","5","−5"], a:1,
+       w:"Beş tane negatif var; negatif adedi tek olduğu için sonuç negatiftir: −1."},
       {u:"TEMA 1 · Sayılar ve Nicelikler (1)", q:"(−5/6) + (1/3) işleminin sonucu kaçtır?", o:["−1/2","−2/3","1/2","−4/3"], a:0,
        w:"Payda 6: −5/6 + 2/6 = −3/6 = −1/2."},
       {u:"TEMA 1 · Sayılar ve Nicelikler (1)", q:"|−4| · |−3| işleminin sonucu kaçtır?", o:["−12","−7","7","12"], a:3,

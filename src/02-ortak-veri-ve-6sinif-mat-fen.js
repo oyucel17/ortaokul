@@ -72,10 +72,10 @@
 
   var CAL7 = [
     {m:"Eylül", d:"14–30 Eylül", key:"eylul", items:[
-      ["mat","Rasyonel sayılar"],["fen","Uzay Çağı"],["tur","Hayat Boyu Gelişim"],
+      ["mat","Tam sayılar"],["fen","Uzay Çağı"],["tur","Hayat Boyu Gelişim"],
       ["sos","Birlikte Yaşamak"],["din","Melek ve Ahiret İnancı"],["ing","School Life & Education"]]},
     {m:"Ekim", d:"1–31 Ekim", key:"ekim", items:[
-      ["mat","Rasyonel sayılarla işlemler"],["fen","Uzay Çağı / Kuvvet ve Enerji"],["tur","Hayat Boyu Gelişim"],
+      ["mat","Rasyonel sayılar ve işlemler"],["fen","Uzay Çağı / Kuvvet ve Enerji"],["tur","Hayat Boyu Gelişim"],
       ["sos","Birlikte Yaşamak / Evimiz Dünya"],["ing","Classroom Life & Learning"]]},
     {b:"b1"},
     {m:"Kasım", d:"1–30 Kasım", key:"kasim", items:[
