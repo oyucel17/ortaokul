@@ -286,12 +286,23 @@
             + '<button class="unit-open" data-unit="'+id+'" aria-expanded="'+uo+'">'
             + '<span class="unit-no">'+esc(s.lbl)+' '+(i+1)+'</span>'
             + '<span class="unit-name">'+esc(u.n)+'</span>'
+            + (u.ogr && u.ogr.length ? '<span class="ogr-rozet">öğretmen notu</span>' : '')
             + (suAnMi(u) ? '<span class="now-badge">şimdi işleniyor</span>'
                : sonrakiMi(u) ? '<span class="next-badge">sonraki ay</span>' : '')
             + '<span class="unit-when">'+esc(u.w)+'</span>'+CHEV+'</button></div>';
           if(uo){
             h += '<div class="unit-body">';
             if(u.lead) h += '<p class="lead">'+u.lead+'</p>';
+            /* Öğretmenin tahta notları. Sınavda sorulacak asıl kaynak bu
+               olduğu için gövdenin üstünde, ayrı bir kutuda duruyor ve
+               tarih damgasıyla birikiyor. */
+            if(u.ogr && u.ogr.length){
+              u.ogr.forEach(function(o){
+                h += '<div class="ogr"><div class="ogr-bas"><h5>Öğretmenden</h5>'
+                   + '<span class="ogr-t">'+esc(o.d)+'</span></div>'
+                   + '<div class="ogr-ic">'+o.h+'</div></div>';
+              });
+            }
             /* Kelime listesi. Anlamlar gizlenebiliyor ki çocuk kendini
                test edebilsin; gizliyken tek satıra dokunmak yalnız o
                kelimenin anlamını açar. */

@@ -46,6 +46,8 @@ git add -A && git commit -m "Aciklama" && git push
 ```js
 { n:"Ünite adı", w:"Kasım–Aralık",
   lead:"Giriş paragrafı (HTML serbest)",
+  ogr:[{d:"24 Eylül 2026", h:"<p>Öğretmenin tahta notu (HTML)</p>"}],
+  voc:[["word","Türkçe anlamı"]],            // yalnız İngilizce ünitelerinde
   p:["madde", "madde"],                      // Bilmen gerekenler
   box:[{t:"Kutu başlığı", h:"HTML içerik"}], // Kural / formül kutusu
   tbl:[{h:["Sütun1","Sütun2"], r:[["a","b"]]}],
@@ -56,6 +58,25 @@ git add -A && git commit -m "Aciklama" && git push
 ```
 
 Tüm alanlar isteğe bağlıdır (`n` ve `w` hariç). `a` dizisi `q` ile **birebir aynı sırada** olmalıdır.
+
+### Öğretmenden notlar (`ogr`)
+
+Sınıfta tahtaya yazılan notlar. Sınavda sorulacak asıl kaynak bu olduğu için ünite gövdesinin
+**en üstünde**, amber çerçeveli ayrı bir kutuda durur; ünite satırında da `öğretmen notu` rozeti
+çıkar. Dizi olduğu için yeni notlar eskisini silmeden **birikir** — her parti kendi tarihiyle:
+
+```js
+ogr:[{d:"24 Eylül 2026", h:"<p><b>Konu:</b> …</p><ul><li>…</li></ul>"},
+     {d:"8 Ekim 2026",   h:"<p>…</p>"}]
+```
+
+`h` alanı ham HTML basılır (kaçışlanmaz): `<p>`, `<ul>/<li>`, `<b>` kullanılabilir.
+
+**Kural: not tahtada ne yazıyorsa o yazılır.** Bilgi bilimsel olarak tartışmalı görünse bile
+düzeltilmez, çünkü sınavda öğretmenin anlattığı sorulur. Fark edilen tutarsızlık koda değil,
+kullanıcıya bildirilir; ne yapılacağına o karar verir.
+
+Öğretmen adı yazılmaz — sayfa linki bilen herkese açık.
 
 ### Video linki eklerken
 

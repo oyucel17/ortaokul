@@ -247,6 +247,33 @@
      note:"Ünite adları resmî programdan birebir alındı. Eski kaynaklardaki <b>Hücre ve Bölünmeler</b> ile <b>Saf Madde ve Karışımlar</b> başlıkları bu programda farklı adlar altında yeniden düzenlendi.",
      units:[
       {n:"Uzay Çağı", w:"Eylül–Ekim",
+       ogr:[{d:"24 Eylül 2026", h:
+         '<p><b>Uzay Roketi:</b> Uzaya gönderilen uzay araçlarını taşıyan, itici gücü sağlayan, ' +
+         'radyoaktif elementler yakıtı olan uzay aracıdır. İnsansızdır. Eskiden tek kullanımlıktı; ' +
+         'şu an tekrar Dünya\'ya dönebilenleri icat edildi.</p>' +
+         '<p><b>Uzay İstasyonu:</b> Astronotların aylarca kalabileceği; gözlem, deney ve araştırma ' +
+         'yapabilecekleri uzay araçlarıdır. İlk uzay istasyonu Sovyetlere ait <b>Mir Uzay İstasyonu</b> ' +
+         'idi. Şu an tüm Dünya devletlerinin kullanabildiği <b>Uluslararası Uzay İstasyonu</b> faaliyettedir.</p>' +
+         '<p><b>Teleskoplar:</b> İlk teleskobu optikçi <b>Hans Lippershey</b> icat etmiştir. ' +
+         '<b>Galileo</b> bu teleskobu geliştirerek Güneş lekelerini incelemiş ve Güneş\'in döndüğünü ' +
+         'keşfetmiştir.</p>' +
+         '<p>Teleskoplar <b>Yer</b> ve <b>Uzay</b> teleskobu olarak ikiye ayrılır:</p>' +
+         '<ul><li><b>Yer teleskopları:</b> Optik (aynalı–mercekli) ve radyo teleskoplarıdır.</li>' +
+         '<li><b>Uzay teleskopları:</b> Optik (aynalı–mercekli), kızılötesi, gama ve X ışınları ile ' +
+         'çalışan uzay teleskopları vardır.</li></ul>' +
+         '<p>İlk uzay teleskobu (optik) <b>Hubble</b> Uzay Teleskobu\'dur. Şu an <b>James Webb</b> ' +
+         '(kızılötesi–gama) Uzay Teleskobu faaliyettedir.</p>' +
+         '<p><b>Gözlemevi (Rasathane):</b> Yeryüzünden uzaydaki gök cisimlerini incelemek için yapılmış, ' +
+         'içlerinde teleskop bulunan binalardır. Gözlemevleri şu yerlere yapılır:</p>' +
+         '<ul><li>Yerden yüksek,</li><li>Bulutlu gün sayısı az olan,</li>' +
+         '<li>Deprem kuşaklarından uzak olan,</li><li>TV ve radyo dalgalarından uzak olan,</li>' +
+         '<li>Yerleşim yerlerinden uzak olan,</li><li>Işık kirliliğinden uzak olan yerler.</li></ul>' +
+         '<p><b>Uzay Kirliliği:</b> Uzayda görevi bitmiş uydu parçaları, güneş panelleri, roket ' +
+         'parçaları vb.nin oluşturduğu çöplerdir. Dünya\'nın yörüngesinde büyük bir hızla ' +
+         'dönmektedirler. Hâlihazırda çalışmakta olan diğer uzay araçlarına zarar verebilir veya ' +
+         'Dünya\'ya düşebilirler. Bu yüzden var olan çöpleri toplayacak bir uzay aracı tasarlama ' +
+         'projesi bazı ülkeler tarafından planlanmaktadır. Uzaya gönderilen uzay araçlarının tekrar ' +
+         'Dünya\'ya dönmesi sağlanmaktadır.</p>'}],
        lead:"Gök cisimleri, Güneş sistemi, uzay araştırmaları ve uzay teknolojilerinin günlük hayattaki karşılıkları.",
        p:["Yıldız ışık üretir, gezegen üretmez — gezegen yıldızın ışığını yansıtır.",
           "Işık yılı bir uzaklık birimidir, zaman birimi değildir.",
