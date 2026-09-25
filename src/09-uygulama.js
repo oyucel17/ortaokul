@@ -22,7 +22,14 @@
   var LS = "ortaokul-yol-haritasi-v1";
   var dbRef = null, saveTimer = null;
   var openSubj = {g6:{},g7:{}}, openUnit = {g6:{},g7:{}};
-  var curQuiz = "mat", ansOpen = false, reveal = false, qFilter = null;
+  var curQuiz = "mat", ansOpen = false, qFilter = null;
+  /* "Cevabına baktı" işareti. Testte cevaplanmamış bir sorunun cevabını
+     açmak, o soruyu bilmemek demektir: cevap bu değerle kaydedilir,
+     hiçbir şık indisine (0–3) eşit olmadığı için yanlış sayılır ve
+     Yanlışlarım'a düşer. Eskiden "Cevapları göster" iz bırakmayan bir
+     aç/kapa'ydı; açıp bakıp kapatınca görülen cevap gerçek doğru gibi
+     kaydediliyordu. */
+  var BAKTI = -1;
   var yanlisKume = null;   /* "Yanlislarim" calisma kagidi — moda girerken dondurulur */
 
   function el(id){ return document.getElementById(id); }
@@ -512,7 +519,7 @@
          bu modda cevapsız gibi çizilir: şıklar açık, doğru cevap gizli.
          Ana testte kilit sürer — orada doğru cevap zaten ekranda. */
       if(qFilter === "__yanlis__" && given !== undefined && given !== q.a) given = undefined;
-      var goster = (given !== undefined) || reveal;   // cevaplandı ya da "cevapları göster" açık
+      var goster = (given !== undefined);   // cevaplandı (ya da cevabına bakıldı)
       var sik = perm(q.o.length, seed + hashNum(it.id) * 7919);   // şık sırası da karışır
 
       h += '<div class="q" style="--sc:'+s.color+'">'
@@ -520,6 +527,7 @@
         + (it.havuz ? '<div class="q-pool">Havuzdan · yeni soru</div>' : '')
         + ((st().hata[wk] || W[wk]) && given === undefined
             ? '<div class="q-again">Bunu daha önce yanlış yapmıştın — tekrar dene</div>' : '')
+        + (given === BAKTI ? '<div class="q-again">Cevabına baktın — yanlış sayıldı</div>' : '')
         + '<div class="q-top"><span class="q-no">'+sayac+'</span>'
         + '<div class="q-txt">'+esc(q.q)+'</div></div><div class="opts">';
 
@@ -548,6 +556,7 @@
     renderQuizPills();
     renderQuizUnits();
     syncResetBtn();
+    syncAnsBtn();
   }
   function renderScore(){
     /* Ek çalışma setinin puanı kendi içinde gösterilir ve dersin test
@@ -578,7 +587,6 @@
     else if(ans < list.length) lab = ans+" soru cevaplandı, "+(list.length-ans)+" soru kaldı.";
     else if(right === list.length) lab = "Tamamı doğru. Bu ders sende.";
     else lab = "Bitti. Yanlışlarını hata defterine yaz — asıl çalışma o.";
-    if(reveal && ans < list.length) lab = "Cevaplar gösteriliyor — bu tur puana sayılmaz. Gizlemek için üstteki düğmeye bas.";
     if(qFilter === "__yanlis__")
       lab = "Yanlış yaptıkların ve aynı ünitelerin havuzdaki yeni soruları. Puan ana test üzerinden sayılır.";
     else if(qFilter !== null)
@@ -672,7 +680,7 @@
     if(grade === g) return;
     grade = g;
     curQuiz = "mat";
-    reveal = false; qFilter = null; yanlisKume = null;
+    qFilter = null; yanlisKume = null;
     try{ localStorage.setItem(LS+"-grade", g); }catch(e){}
     renderAll();
     syncAnsBtn();
@@ -692,16 +700,28 @@
      Dersler → açık uçlu cevap anahtarlarını açar/kapatır
      Testler → çoktan seçmeli soruların doğru şıkkını gösterir (puana sayılmaz)
      Plan / İlerleme → gösterilecek cevap yok, düğme gizlenir */
+  /* Ekrandaki henüz cevaplanmamış sorular */
+  function bosSorular(){
+    return gosterilecek().filter(function(it){ return st().cevap[wkeyFor(curQuiz, it.q)] === undefined; });
+  }
+
   function syncAnsBtn(){
     var t = aktifSekme(), b = el("ansBtn");
+    b.disabled = false;
     if(t === "dersler"){
       b.hidden = false;
       b.setAttribute("aria-pressed", ansOpen ? "true" : "false");
       b.textContent = ansOpen ? "Cevap anahtarını kapat" : "Cevap anahtarını aç";
     } else if(t === "testler"){
-      b.hidden = false;
-      b.setAttribute("aria-pressed", reveal ? "true" : "false");
-      b.textContent = reveal ? "Cevapları gizle" : "Cevapları göster";
+      /* Testte cevap göstermek geri alınamaz: cevaplanmamış sorular
+         "baktı" olarak kaydedilir. Yanlışlarım'da düğme hiç yok —
+         orası yeniden çözmek için. */
+      var yanlisModu = qFilter === "__yanlis__";
+      var bos = yanlisModu ? 0 : bosSorular().length;
+      b.hidden = yanlisModu;
+      b.setAttribute("aria-pressed", "false");
+      b.disabled = bos === 0;
+      b.textContent = bos ? "Cevapları göster" : "Tüm cevaplar açık";
     } else {
       b.hidden = true;
     }
@@ -746,7 +766,7 @@
     var p = ev.target.closest("[data-quiz]");
     if(!p) return;
     curQuiz = p.getAttribute("data-quiz");
-    reveal = false; qFilter = null; yanlisKume = null;
+    qFilter = null; yanlisKume = null;
     renderQuiz(); syncAnsBtn();
   });
 
@@ -828,7 +848,6 @@
     gosterilecek().forEach(function(it){ delete C[wkeyFor(curQuiz, it.q)]; });
     yanlisHesapla(grade);
     if(qFilter === "__yanlis__"){ qFilter = null; yanlisKume = null; }
-    reveal = false;
     seeds[grade+"-"+curQuiz] = Math.floor(Math.random()*1e9);  // yeni karışım
     persist();
     renderQuiz(); syncAnsBtn(); renderProgress();
@@ -847,8 +866,16 @@
       Array.prototype.forEach.call(document.querySelectorAll("details.ans"), function(d){ d.open = ansOpen; });
       try{ localStorage.setItem(LS+"-ans", ansOpen ? "1" : "0"); }catch(e){}
     } else if(t === "testler"){
-      reveal = !reveal;
-      renderQuiz();
+      var bos = qFilter === "__yanlis__" ? [] : bosSorular();
+      if(bos.length && window.confirm(
+          "Cevaplanmamış " + bos.length + " soru var.\n\n" +
+          "Cevapları açarsan bu sorular YANLIŞ sayılır, Yanlışlarım'a düşer " +
+          "ve veli raporunda \"cevabına baktı\" diye görünür.\n\nYine de açılsın mı?")){
+        bos.forEach(function(it){ st().cevap[wkeyFor(curQuiz, it.q)] = BAKTI; });
+        yanlisHesapla(grade);
+        persist();
+        renderQuiz(); renderProgress();
+      }
     }
     syncAnsBtn();
   });

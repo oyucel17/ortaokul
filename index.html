@@ -379,6 +379,8 @@
   .cev-sik.dogru{color:var(--ok);margin-top:3px}
   .cev-havuz{font-style:normal;font-size:9.5px;background:var(--card-2);color:var(--ink-faint);
     border:1px solid var(--line);padding:1px 6px;border-radius:20px;flex:none;letter-spacing:.04em}
+  .cev-bakti{font-style:normal;font-size:9.5px;background:var(--bad-soft);color:var(--bad);
+    border:1px solid var(--bad);padding:1px 6px;border-radius:20px;flex:none;letter-spacing:.04em}
   .cev-duz{font-style:normal;font-size:9.5px;background:color-mix(in srgb,var(--ok) 16%,transparent);
     color:var(--ok);border:1px solid color-mix(in srgb,var(--ok) 38%,transparent);padding:1px 6px;
     border-radius:20px;flex:none;letter-spacing:.04em}
@@ -3880,7 +3882,14 @@
   var LS = "ortaokul-yol-haritasi-v1";
   var dbRef = null, saveTimer = null;
   var openSubj = {g6:{},g7:{}}, openUnit = {g6:{},g7:{}};
-  var curQuiz = "mat", ansOpen = false, reveal = false, qFilter = null;
+  var curQuiz = "mat", ansOpen = false, qFilter = null;
+  /* "Cevabına baktı" işareti. Testte cevaplanmamış bir sorunun cevabını
+     açmak, o soruyu bilmemek demektir: cevap bu değerle kaydedilir,
+     hiçbir şık indisine (0–3) eşit olmadığı için yanlış sayılır ve
+     Yanlışlarım'a düşer. Eskiden "Cevapları göster" iz bırakmayan bir
+     aç/kapa'ydı; açıp bakıp kapatınca görülen cevap gerçek doğru gibi
+     kaydediliyordu. */
+  var BAKTI = -1;
   var yanlisKume = null;   /* "Yanlislarim" calisma kagidi — moda girerken dondurulur */
 
   function el(id){ return document.getElementById(id); }
@@ -4370,7 +4379,7 @@
          bu modda cevapsız gibi çizilir: şıklar açık, doğru cevap gizli.
          Ana testte kilit sürer — orada doğru cevap zaten ekranda. */
       if(qFilter === "__yanlis__" && given !== undefined && given !== q.a) given = undefined;
-      var goster = (given !== undefined) || reveal;   // cevaplandı ya da "cevapları göster" açık
+      var goster = (given !== undefined);   // cevaplandı (ya da cevabına bakıldı)
       var sik = perm(q.o.length, seed + hashNum(it.id) * 7919);   // şık sırası da karışır
 
       h += '<div class="q" style="--sc:'+s.color+'">'
@@ -4378,6 +4387,7 @@
         + (it.havuz ? '<div class="q-pool">Havuzdan · yeni soru</div>' : '')
         + ((st().hata[wk] || W[wk]) && given === undefined
             ? '<div class="q-again">Bunu daha önce yanlış yapmıştın — tekrar dene</div>' : '')
+        + (given === BAKTI ? '<div class="q-again">Cevabına baktın — yanlış sayıldı</div>' : '')
         + '<div class="q-top"><span class="q-no">'+sayac+'</span>'
         + '<div class="q-txt">'+esc(q.q)+'</div></div><div class="opts">';
 
@@ -4406,6 +4416,7 @@
     renderQuizPills();
     renderQuizUnits();
     syncResetBtn();
+    syncAnsBtn();
   }
   function renderScore(){
     /* Ek çalışma setinin puanı kendi içinde gösterilir ve dersin test
@@ -4436,7 +4447,6 @@
     else if(ans < list.length) lab = ans+" soru cevaplandı, "+(list.length-ans)+" soru kaldı.";
     else if(right === list.length) lab = "Tamamı doğru. Bu ders sende.";
     else lab = "Bitti. Yanlışlarını hata defterine yaz — asıl çalışma o.";
-    if(reveal && ans < list.length) lab = "Cevaplar gösteriliyor — bu tur puana sayılmaz. Gizlemek için üstteki düğmeye bas.";
     if(qFilter === "__yanlis__")
       lab = "Yanlış yaptıkların ve aynı ünitelerin havuzdaki yeni soruları. Puan ana test üzerinden sayılır.";
     else if(qFilter !== null)
@@ -4530,7 +4540,7 @@
     if(grade === g) return;
     grade = g;
     curQuiz = "mat";
-    reveal = false; qFilter = null; yanlisKume = null;
+    qFilter = null; yanlisKume = null;
     try{ localStorage.setItem(LS+"-grade", g); }catch(e){}
     renderAll();
     syncAnsBtn();
@@ -4550,16 +4560,28 @@
      Dersler → açık uçlu cevap anahtarlarını açar/kapatır
      Testler → çoktan seçmeli soruların doğru şıkkını gösterir (puana sayılmaz)
      Plan / İlerleme → gösterilecek cevap yok, düğme gizlenir */
+  /* Ekrandaki henüz cevaplanmamış sorular */
+  function bosSorular(){
+    return gosterilecek().filter(function(it){ return st().cevap[wkeyFor(curQuiz, it.q)] === undefined; });
+  }
+
   function syncAnsBtn(){
     var t = aktifSekme(), b = el("ansBtn");
+    b.disabled = false;
     if(t === "dersler"){
       b.hidden = false;
       b.setAttribute("aria-pressed", ansOpen ? "true" : "false");
       b.textContent = ansOpen ? "Cevap anahtarını kapat" : "Cevap anahtarını aç";
     } else if(t === "testler"){
-      b.hidden = false;
-      b.setAttribute("aria-pressed", reveal ? "true" : "false");
-      b.textContent = reveal ? "Cevapları gizle" : "Cevapları göster";
+      /* Testte cevap göstermek geri alınamaz: cevaplanmamış sorular
+         "baktı" olarak kaydedilir. Yanlışlarım'da düğme hiç yok —
+         orası yeniden çözmek için. */
+      var yanlisModu = qFilter === "__yanlis__";
+      var bos = yanlisModu ? 0 : bosSorular().length;
+      b.hidden = yanlisModu;
+      b.setAttribute("aria-pressed", "false");
+      b.disabled = bos === 0;
+      b.textContent = bos ? "Cevapları göster" : "Tüm cevaplar açık";
     } else {
       b.hidden = true;
     }
@@ -4604,7 +4626,7 @@
     var p = ev.target.closest("[data-quiz]");
     if(!p) return;
     curQuiz = p.getAttribute("data-quiz");
-    reveal = false; qFilter = null; yanlisKume = null;
+    qFilter = null; yanlisKume = null;
     renderQuiz(); syncAnsBtn();
   });
 
@@ -4686,7 +4708,6 @@
     gosterilecek().forEach(function(it){ delete C[wkeyFor(curQuiz, it.q)]; });
     yanlisHesapla(grade);
     if(qFilter === "__yanlis__"){ qFilter = null; yanlisKume = null; }
-    reveal = false;
     seeds[grade+"-"+curQuiz] = Math.floor(Math.random()*1e9);  // yeni karışım
     persist();
     renderQuiz(); syncAnsBtn(); renderProgress();
@@ -4705,8 +4726,16 @@
       Array.prototype.forEach.call(document.querySelectorAll("details.ans"), function(d){ d.open = ansOpen; });
       try{ localStorage.setItem(LS+"-ans", ansOpen ? "1" : "0"); }catch(e){}
     } else if(t === "testler"){
-      reveal = !reveal;
-      renderQuiz();
+      var bos = qFilter === "__yanlis__" ? [] : bosSorular();
+      if(bos.length && window.confirm(
+          "Cevaplanmamış " + bos.length + " soru var.\n\n" +
+          "Cevapları açarsan bu sorular YANLIŞ sayılır, Yanlışlarım'a düşer " +
+          "ve veli raporunda \"cevabına baktı\" diye görünür.\n\nYine de açılsın mı?")){
+        bos.forEach(function(it){ st().cevap[wkeyFor(curQuiz, it.q)] = BAKTI; });
+        yanlisHesapla(grade);
+        persist();
+        renderQuiz(); renderProgress();
+      }
     }
     syncAnsBtn();
   });
@@ -4803,7 +4832,7 @@
     var wrong = Object.keys(sayim).map(function(i){ return { i:parseInt(i,10), n:sayim[i] }; });
 
     /* çözülen sorular: soru metni, çocuğun işaretlediği şık, doğru şık */
-    var cevaplar = [], duzeltilen = 0;
+    var cevaplar = [], duzeltilen = 0, bakilan = 0;
     G[g].subj.forEach(function(s){
       var ana = (G[g].quiz || {})[s.key] || [];
       var havuz = (G[g].havuz || {})[s.key] || [];
@@ -4819,11 +4848,13 @@
            doğru görünür. Hangilerini önce yanlış yaptığı kalıcı "hata"
            kaydından okunur, yoksa emek görünmez olurdu. */
         var oncedenYanlis = !!(S.hata || {})[wk];
+        var bakti = verilen === BAKTI;
         if(verilen === qq.a && oncedenYanlis) duzeltilen++;
+        if(bakti) bakilan++;
         cevaplar.push({
           sad: s.name, renk: s.color, u: qq.u, soru: qq.q, havuz: havuzMu,
-          verilen: qq.o[verilen], dogru: qq.o[qq.a], ok: verilen === qq.a,
-          duz: verilen === qq.a && oncedenYanlis
+          verilen: bakti ? null : qq.o[verilen], dogru: qq.o[qq.a], ok: verilen === qq.a,
+          duz: verilen === qq.a && oncedenYanlis, bakti: bakti
         });
       }
     });
@@ -4842,7 +4873,7 @@
     videolar.sort(function(a,b){ return (b.son || "").localeCompare(a.son || ""); });
 
     return { g:g, son:(S.son || "").slice(0,10), done:done, quiz:quiz, wrong:wrong,
-             cevaplar:cevaplar, videolar:videolar, duzeltilen:duzeltilen };
+             cevaplar:cevaplar, videolar:videolar, duzeltilen:duzeltilen, bakilan:bakilan };
   }
 
   function kodUret(g){
@@ -4994,6 +5025,12 @@
       h += '<p class="zayif-not" style="margin-top:8px">Ayrıca <b>' + o.duzeltilen
          + ' soruyu</b> önce yanlış yapıp sonra kendi düzeltmiş.</p>';
     }
+    /* Testte cevabı açıp bakılan sorular yanlış sayılır; ayrıca yazılır
+       ki veli bunları gerçek yanlışlardan ayırabilsin. */
+    if(o.bakilan){
+      h += '<p class="zayif-not" style="margin-top:8px"><b>' + o.bakilan
+         + ' soruda</b> çözmeden cevabına bakmış — bunlar yanlış sayıldı.</p>';
+    }
     h += '</div>';
 
     /* izlediği videolar */
@@ -5027,9 +5064,11 @@
            + '<span>' + esc(c.sad) + ' · ' + esc(c.u) + '</span>'
            + (c.havuz ? '<em class="cev-havuz">havuz</em>' : '')
            + (c.duz ? '<em class="cev-duz">düzeltti</em>' : '')
+           + (c.bakti ? '<em class="cev-bakti">cevabına baktı</em>' : '')
            + '<b>' + (c.ok ? 'doğru' : 'yanlış') + '</b></div>'
            + '<div class="cev-soru">' + esc(c.soru) + '</div>'
-           + '<div class="cev-sik"><em>işaretlediği:</em> ' + esc(c.verilen) + '</div>'
+           + '<div class="cev-sik"><em>işaretlediği:</em> '
+           + (c.bakti ? '— (çözmeden cevabı açtı)' : esc(c.verilen)) + '</div>'
            + (c.ok ? '' : '<div class="cev-sik dogru"><em>doğrusu:</em> ' + esc(c.dogru) + '</div>')
            + '</div>';
       });

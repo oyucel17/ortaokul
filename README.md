@@ -150,6 +150,22 @@ kendi içinde gösterilir (`renderScore` erken çıkar), dersin "en iyi skor" ka
 
 Yeni set eklerken dokunulacak tek yer bu dosyadır; yeni bir `u` başlığı açmak yeterli.
 Ek sorular `countQ`'ya dahildir, yani sekme rozetindeki toplam soru sayısına sayılır.
+### "Cevapları göster" — bakmak yanlış sayılır
+
+Testler sekmesinde bu düğme **geri alınamaz bir işlemdir**, aç/kapa değildir. Basınca onay sorar;
+onaylanırsa ekrandaki **cevaplanmamış** sorular `BAKTI` (`-1`) değeriyle kaydedilir. `-1` hiçbir
+şık indisine eşit olmadığı için soru yanlış sayılır, `hata` damgası basılır ve Yanlışlarım'a düşer.
+Veli raporunda kartta `cevabına baktı` rozeti ve "N soruda çözmeden cevabına bakmış" satırı çıkar.
+
+**Neden:** eskiden serbest bir aç/kapa'ydı ve iz bırakmıyordu. Çocuk açıp bakıyor, kapatıyor, gördüğü
+cevabı işaretliyordu; veli raporunda gerçek doğru gibi görünüyordu. Üstelik cevaplanmış sorunun
+doğrusu zaten ekranda çıktığı için düğmenin tek etkisi henüz çözülmemiş soruları göstermekti.
+
+- Yanlışlarım modunda düğme **hiç görünmez** — orası yeniden çözmek için.
+- Bakılan soru normal modda kilitlidir; Yanlışlarım'da cevabı gizli şekilde yeniden çözülebilir.
+- Dersler sekmesindeki "Cevap anahtarını aç" bundan etkilenmez; açık uçlu sorular takip edilmiyor.
+- **Veli dikkat:** ilerleme sınıf bazında paylaşılıyor. Veli kendi bilgisayarında çocuğun sayfasını
+  açıp bu düğmeye basarsa çocuğun soruları da "baktı" olarak işaretlenir. Onay mesajı bunu söylüyor.
 ### Yanlışın düzeltilmesi
 
 Cevaplanan soru normalde **kilitlidir.** Tek istisna: **Yanlışlarım** modunda yanlış yapılmış

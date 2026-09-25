@@ -63,7 +63,7 @@
     var wrong = Object.keys(sayim).map(function(i){ return { i:parseInt(i,10), n:sayim[i] }; });
 
     /* çözülen sorular: soru metni, çocuğun işaretlediği şık, doğru şık */
-    var cevaplar = [], duzeltilen = 0;
+    var cevaplar = [], duzeltilen = 0, bakilan = 0;
     G[g].subj.forEach(function(s){
       var ana = (G[g].quiz || {})[s.key] || [];
       var havuz = (G[g].havuz || {})[s.key] || [];
@@ -79,11 +79,13 @@
            doğru görünür. Hangilerini önce yanlış yaptığı kalıcı "hata"
            kaydından okunur, yoksa emek görünmez olurdu. */
         var oncedenYanlis = !!(S.hata || {})[wk];
+        var bakti = verilen === BAKTI;
         if(verilen === qq.a && oncedenYanlis) duzeltilen++;
+        if(bakti) bakilan++;
         cevaplar.push({
           sad: s.name, renk: s.color, u: qq.u, soru: qq.q, havuz: havuzMu,
-          verilen: qq.o[verilen], dogru: qq.o[qq.a], ok: verilen === qq.a,
-          duz: verilen === qq.a && oncedenYanlis
+          verilen: bakti ? null : qq.o[verilen], dogru: qq.o[qq.a], ok: verilen === qq.a,
+          duz: verilen === qq.a && oncedenYanlis, bakti: bakti
         });
       }
     });
@@ -102,7 +104,7 @@
     videolar.sort(function(a,b){ return (b.son || "").localeCompare(a.son || ""); });
 
     return { g:g, son:(S.son || "").slice(0,10), done:done, quiz:quiz, wrong:wrong,
-             cevaplar:cevaplar, videolar:videolar, duzeltilen:duzeltilen };
+             cevaplar:cevaplar, videolar:videolar, duzeltilen:duzeltilen, bakilan:bakilan };
   }
 
   function kodUret(g){
@@ -254,6 +256,12 @@
       h += '<p class="zayif-not" style="margin-top:8px">Ayrıca <b>' + o.duzeltilen
          + ' soruyu</b> önce yanlış yapıp sonra kendi düzeltmiş.</p>';
     }
+    /* Testte cevabı açıp bakılan sorular yanlış sayılır; ayrıca yazılır
+       ki veli bunları gerçek yanlışlardan ayırabilsin. */
+    if(o.bakilan){
+      h += '<p class="zayif-not" style="margin-top:8px"><b>' + o.bakilan
+         + ' soruda</b> çözmeden cevabına bakmış — bunlar yanlış sayıldı.</p>';
+    }
     h += '</div>';
 
     /* izlediği videolar */
@@ -287,9 +295,11 @@
            + '<span>' + esc(c.sad) + ' · ' + esc(c.u) + '</span>'
            + (c.havuz ? '<em class="cev-havuz">havuz</em>' : '')
            + (c.duz ? '<em class="cev-duz">düzeltti</em>' : '')
+           + (c.bakti ? '<em class="cev-bakti">cevabına baktı</em>' : '')
            + '<b>' + (c.ok ? 'doğru' : 'yanlış') + '</b></div>'
            + '<div class="cev-soru">' + esc(c.soru) + '</div>'
-           + '<div class="cev-sik"><em>işaretlediği:</em> ' + esc(c.verilen) + '</div>'
+           + '<div class="cev-sik"><em>işaretlediği:</em> '
+           + (c.bakti ? '— (çözmeden cevabı açtı)' : esc(c.verilen)) + '</div>'
            + (c.ok ? '' : '<div class="cev-sik dogru"><em>doğrusu:</em> ' + esc(c.dogru) + '</div>')
            + '</div>';
       });
