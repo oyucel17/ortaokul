@@ -129,6 +129,27 @@ Hedef: aktif her ünite için **5 havuz sorusu**.
 Havuz soruları da yanlış yapılırsa hata defterine girer ve tekrar çıkar.
 Puan hesabı yalnızca ana test üzerinden yapılır; havuz soruları skoru etkilemez.
 
+### Ek çalışma setleri (`src/08d-ek-calisma.js`)
+
+Kullanıcının istediği konuya özel setler (`EKC6` / `EKC7`). **Ana teste girmez.** Sebebi iki tane:
+dersin test puanının paydası her yeni sette şişmesin (`Matematik 28` → 48 → 68 …) ve bir kez
+bitirilmiş test yeniden yarım kalmasın.
+
+```js
+var EKC6 = { mat:[
+  {u:"EK · Bölünebilme Kuralları", q:"…", o:["…"], a:1, w:"…"}
+] };
+```
+
+`u` alanı **`"EK · "` ile başlamalı** — kod bu önekten tanıyor (`ekMi()`). Çip, ana testin ünite
+çiplerinden sonra, mor kesik çerçeveyle çizilir ve `Ek · <ad>` yazar.
+
+Takip normal işler: doğru/yanlış `cevap`'a yazılır, yanlışlar **Yanlışlarım**'da tekrar çıkar,
+veli raporunda `EK · …` kendi satırı olur. Yalnızca **puan ayrıdır** — set açıkken skor o setin
+kendi içinde gösterilir (`renderScore` erken çıkar), dersin "en iyi skor" kaydına dokunulmaz.
+
+Yeni set eklerken dokunulacak tek yer bu dosyadır; yeni bir `u` başlığı açmak yeterli.
+Ek sorular `countQ`'ya dahildir, yani sekme rozetindeki toplam soru sayısına sayılır.
 ### Yanlışın düzeltilmesi
 
 Cevaplanan soru normalde **kilitlidir.** Tek istisna: **Yanlışlarım** modunda yanlış yapılmış

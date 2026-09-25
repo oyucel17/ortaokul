@@ -20,7 +20,9 @@
   function etiketListesi(g){
     var gor = {}, out = [];
     G[g].subj.forEach(function(s){
-      var hepsi = ((G[g].quiz || {})[s.key] || []).concat(((G[g].havuz || {})[s.key] || []));
+      var hepsi = ((G[g].quiz || {})[s.key] || [])
+        .concat(((G[g].havuz || {})[s.key] || []))
+        .concat(((G[g].ekstra || {})[s.key] || []));
       hepsi.forEach(function(q){
         var k = s.key + "|" + q.u;
         if(gor[k]) return;
@@ -47,7 +49,9 @@
 
     var sayim = {};
     G[g].subj.forEach(function(s){
-      var hepsi = ((G[g].quiz || {})[s.key] || []).concat(((G[g].havuz || {})[s.key] || []));
+      var hepsi = ((G[g].quiz || {})[s.key] || [])
+        .concat(((G[g].havuz || {})[s.key] || []))
+        .concat(((G[g].ekstra || {})[s.key] || []));
       hepsi.forEach(function(qq){
         var c_ = (S.cevap || {})[wkeyFor(s.key, qq)];
         if(c_ === undefined || c_ === qq.a) return;   // yanlis, cevaplardan turetilir
@@ -63,7 +67,9 @@
     G[g].subj.forEach(function(s){
       var ana = (G[g].quiz || {})[s.key] || [];
       var havuz = (G[g].havuz || {})[s.key] || [];
+      var eks = (G[g].ekstra || {})[s.key] || [];
       ana.forEach(function(qq){ topla(qq, false); });
+      eks.forEach(function(qq){ topla(qq, false); });
       havuz.forEach(function(qq){ topla(qq, true); });
       function topla(qq, havuzMu){
         var wk = wkeyFor(s.key, qq);
@@ -112,7 +118,9 @@
 
     var sayim = {};
     G[g].subj.forEach(function(s){
-      var hepsi = ((G[g].quiz || {})[s.key] || []).concat(((G[g].havuz || {})[s.key] || []));
+      var hepsi = ((G[g].quiz || {})[s.key] || [])
+        .concat(((G[g].havuz || {})[s.key] || []))
+        .concat(((G[g].ekstra || {})[s.key] || []));
       hepsi.forEach(function(qq){
         var c_ = (S.cevap || {})[wkeyFor(s.key, qq)];
         if(c_ === undefined || c_ === qq.a) return;   // yanlis, cevaplardan turetilir

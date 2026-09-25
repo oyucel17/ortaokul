@@ -1,16 +1,21 @@
   /* ===================== SINIFLAR ===================== */
 
   var G = {
-    g6:{ label:"6. Sınıf", cal:CAL6, subj:S6, quiz:Q6, havuz:H6,
+    g6:{ label:"6. Sınıf", cal:CAL6, subj:S6, quiz:Q6, havuz:H6, ekstra:EKC6,
          sub:"Altı dersin ünite ünite özeti, her ünitenin sonunda açık uçlu sorular ve kapalı duran bir cevap anahtarı — yanında yıllık takvim, haftalık program ve çoktan seçmeli testler.",
          lede:"6. sınıf ikinci yılında Maarif Modeli ile okuyor. Ünite adları MEB'in resmî programından birebir alındı. Bir üniteyi bitirince soldaki kutuyu işaretle; ilerleme kaydediliyor." },
-    g7:{ label:"7. Sınıf", cal:CAL7, subj:S7, quiz:Q7, havuz:H7,
+    g7:{ label:"7. Sınıf", cal:CAL7, subj:S7, quiz:Q7, havuz:H7, ekstra:EKC7,
          sub:"Altı dersin ünite ünite özeti, her ünitenin sonunda açık uçlu sorular ve kapalı duran bir cevap anahtarı — yanında yıllık takvim, haftalık program ve çoktan seçmeli testler.",
          lede:"2026–2027, 7. sınıfın Maarif Modeli'ne geçtiği <b>ilk yıl</b> — ünite adları geçen yılkinden farklı. Başlıklar MEB'in resmî programından birebir alındı. Bir üniteyi bitirince soldaki kutuyu işaretle; ilerleme kaydediliyor." }
   };
 
   function countUnits(g){ var c=0; G[g].subj.forEach(function(s){ c += s.units.length; }); return c; }
-  function countQ(g){ var c=0; Object.keys(G[g].quiz).forEach(function(k){ c += G[g].quiz[k].length; }); return c; }
+  function countQ(g){
+    var c = 0;
+    Object.keys(G[g].quiz).forEach(function(k){ c += G[g].quiz[k].length; });
+    Object.keys(G[g].ekstra || {}).forEach(function(k){ c += G[g].ekstra[k].length; });
+    return c;
+  }
 
   var grade = "g7";
   var state = { g6:{done:{},quiz:{},wrong:{},cevap:{},hata:{},video:{}}, g7:{done:{},quiz:{},wrong:{},cevap:{},hata:{},video:{}} };
@@ -61,7 +66,8 @@
     G[g].subj.forEach(function(s){
       var ana = (G[g].quiz || {})[s.key] || [];
       var havuz = (G[g].havuz || {})[s.key] || [];
-      ana.concat(havuz).forEach(function(q){
+      var eks = (G[g].ekstra || {})[s.key] || [];
+      ana.concat(havuz).concat(eks).forEach(function(q){
         var yk = s.key + "|" + qid(q), ek = s.key + "|" + qidEski(q);
         if(S.cevap[yk] !== undefined){ yeni[yk] = S.cevap[yk]; return; }
         if(S.cevap[ek] !== undefined && !kullanildi[ek]){
@@ -82,7 +88,9 @@
     var S = state[g], W = {};
     if(!S.hata) S.hata = {};
     G[g].subj.forEach(function(s){
-      var hepsi = ((G[g].quiz || {})[s.key] || []).concat(((G[g].havuz || {})[s.key] || []));
+      var hepsi = ((G[g].quiz || {})[s.key] || [])
+        .concat(((G[g].havuz || {})[s.key] || []))
+        .concat(((G[g].ekstra || {})[s.key] || []));
       hepsi.forEach(function(q){
         var k = wkeyFor(s.key, q), c = (S.cevap || {})[k];
         if(c !== undefined && c !== q.a){
@@ -414,7 +422,7 @@
        havuzdan gelen bir soruyu yanlış yaptığında çip kayboluyor ve o
        yanlışa bir daha ulaşılamıyordu. */
     var box = el("quizUnits"), W = st().wrong, yanlis = 0;
-    list.concat(hav()).forEach(function(q){ if(W[wkey(q)]) yanlis++; });
+    list.concat(hav()).concat(ekstra()).forEach(function(q){ if(W[wkey(q)]) yanlis++; });
     box.style.setProperty("--sc", s.color);
     var h = '<button class="ufilter" data-uf="" aria-pressed="'+(qFilter===null)+'">'
           + 'Tümü <span class="n">'+list.length+'</span></button>';
@@ -432,11 +440,25 @@
       h += '<button class="ufilter" data-uf="'+esc(u)+'" aria-pressed="'+(qFilter===u)+'">'
          + esc(u)+' <span class="n">'+adet[u]+'</span></button>';
     });
+    /* Ek çalışma setleri en sonda, ayrı renkte. Ana testin ünite
+       çipleriyle karışmasınlar diye. */
+    var ekAdet = {}, ekSira = [];
+    ekstra().forEach(function(q){
+      if(ekAdet[q.u] === undefined){ ekSira.push(q.u); ekAdet[q.u] = 0; }
+      ekAdet[q.u]++;
+    });
+    ekSira.forEach(function(u){
+      h += '<button class="ufilter ek" data-uf="'+esc(u)+'" aria-pressed="'+(qFilter===u)+'">'
+         + esc(u.replace(/^EK · /, "Ek · "))+' <span class="n">'+ekAdet[u]+'</span></button>';
+    });
     box.innerHTML = h;
   }
 
   function hav(){ return (cur().havuz || {})[curQuiz] || []; }
+  function ekstra(){ return (cur().ekstra || {})[curQuiz] || []; }
   function anaListe(){ return (cur().quiz || {})[curQuiz] || []; }
+  /* Ek çalışma seti filtresi mi? Setlerin u alanı "EK · " ile başlar. */
+  function ekMi(f){ return typeof f === "string" && f.indexOf("EK · ") === 0; }
   function hashNum(s){ var n = 0; for(var i=0;i<s.length;i++) n = (n*31 + s.charCodeAt(i)) | 0; return n; }
 
   /* Ekranda gösterilecek soruları kurar.
@@ -444,8 +466,12 @@
      HAVUZ sorularını birlikte verir; havuz soruları ana teste girmez. */
   function gosterilecek(){
     if(qFilter === "__yanlis__") return yanlisKume || [];
-    var ana = anaListe(), out = [];
-    ana.forEach(function(q,i){ if(qFilter === null || q.u === qFilter) out.push({q:q, id:String(i), havuz:false}); });
+    var out = [];
+    if(ekMi(qFilter)){
+      ekstra().forEach(function(q,i){ if(q.u === qFilter) out.push({q:q, id:"e"+i, havuz:false}); });
+      return out;
+    }
+    anaListe().forEach(function(q,i){ if(qFilter === null || q.u === qFilter) out.push({q:q, id:String(i), havuz:false}); });
     return out;
   }
 
@@ -458,6 +484,7 @@
     ana.forEach(function(q){ if(W[wkeyFor(curQuiz,q)]) zayif[q.u] = true; });
     havuz.forEach(function(q){ if(W[wkeyFor(curQuiz,q)]) zayif[q.u] = true; });
     ana.forEach(function(q,i){ if(W[wkeyFor(curQuiz,q)]) out.push({q:q, id:String(i), havuz:false}); });
+    ekstra().forEach(function(q,i){ if(W[wkeyFor(curQuiz,q)]) out.push({q:q, id:"e"+i, havuz:false}); });
     havuz.forEach(function(q,i){ if(zayif[q.u]) out.push({q:q, id:"h"+i, havuz:true}); });
     yanlisKume = out;
   }
@@ -466,8 +493,9 @@
     var Q = cur().quiz;
     if(!Q[curQuiz]) curQuiz = "mat";
     var s = subjByKey(curQuiz), ana = anaListe(), W = st().wrong;
-    if(qFilter !== null && qFilter !== "__yanlis__"
+    if(qFilter !== null && qFilter !== "__yanlis__" && !ekMi(qFilter)
        && !ana.some(function(q){ return q.u === qFilter; })) qFilter = null;
+    if(ekMi(qFilter) && !ekstra().some(function(q){ return q.u === qFilter; })) qFilter = null;
     if(qFilter === "__yanlis__" && !(yanlisKume && yanlisKume.length)) qFilter = null;
 
     var kume = gosterilecek();
@@ -522,6 +550,23 @@
     syncResetBtn();
   }
   function renderScore(){
+    /* Ek çalışma setinin puanı kendi içinde gösterilir ve dersin test
+       puanına karışmaz; erkenden çıkılır ki "en iyi skor" kaydı da
+       ana test dışındaki sorulardan etkilenmesin. */
+    if(ekMi(qFilter)){
+      var eks = ekstra().filter(function(q){ return q.u === qFilter; });
+      var er = 0, ea = 0;
+      eks.forEach(function(q){
+        var v = st().cevap[wkeyFor(curQuiz, q)];
+        if(v !== undefined){ ea++; if(v === q.a) er++; }
+      });
+      el("qScore").textContent = er + " / " + eks.length;
+      el("qLab").textContent = "Ek çalışma seti — puanı ayrı tutulur, dersin test puanına karışmaz. "
+        + (ea === 0 ? "Başlamak için bir şıkka tıkla."
+          : ea < eks.length ? ea + " soru cevaplandı, " + (eks.length - ea) + " soru kaldı."
+          : er === eks.length ? "Tamamı doğru." : "Bitti. Yanlışlarını “Yanlışlarım”dan tekrar çöz.");
+      return;
+    }
     var list = cur().quiz[curQuiz] || [], right = 0, ans = 0;
     list.forEach(function(q,i){
       var g = st().cevap[wkeyFor(curQuiz, q)];
@@ -720,8 +765,8 @@
     if(!b || b.disabled) return;
     var parts = b.getAttribute("data-ans").split("-");
     var id = parts[0], sec = parseInt(parts[1],10);
-    var q = (id.charAt(0) === "h")
-          ? hav()[parseInt(id.slice(1),10)]
+    var q = (id.charAt(0) === "h") ? hav()[parseInt(id.slice(1),10)]
+          : (id.charAt(0) === "e") ? ekstra()[parseInt(id.slice(1),10)]
           : anaListe()[parseInt(id,10)];
     if(!q) return;
     var k = wkey(q), mevcut = st().cevap[k];
@@ -773,6 +818,7 @@
     if(!b) return;
     var n = gosterilecek().length;
     if(qFilter === "__yanlis__") b.textContent = "Bu " + n + " soruyu sıfırla";
+    else if(ekMi(qFilter))       b.textContent = "Bu setin " + n + " sorusunu sıfırla";
     else if(qFilter !== null)    b.textContent = "Bu ünitenin " + n + " sorusunu sıfırla";
     else                         b.textContent = "Bu dersin " + n + " sorusunu sıfırla";
   }

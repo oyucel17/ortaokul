@@ -82,7 +82,8 @@
     var dogru = {};
     G[g].subj.forEach(function(sj){
       var ana = (G[g].quiz || {})[sj.key] || [], hv = (G[g].havuz || {})[sj.key] || [];
-      ana.concat(hv).forEach(function(q){ dogru[wkeyFor(sj.key, q)] = q.a; });
+      var ek = (G[g].ekstra || {})[sj.key] || [];
+      ana.concat(hv).concat(ek).forEach(function(q){ dogru[wkeyFor(sj.key, q)] = q.a; });
     });
 
     /* Cevaplar artık "Yanlışlarım" modunda düzeltilebiliyor, yani

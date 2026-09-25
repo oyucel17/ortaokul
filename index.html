@@ -443,6 +443,13 @@
     .prg-ogr{grid-column:2 / -1}
     .prg-ara-saat{margin-left:0;min-width:0}
   }
+  /* Ek çalışma seti çipi — ana testin ünite çiplerinden ayrılsın. */
+  .ufilter.ek{border-color:var(--s-ing);color:var(--s-ing);border-style:dashed}
+  .ufilter.ek[aria-pressed="true"]{background:var(--s-ing);border-style:solid;color:#fff}
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) .ufilter.ek[aria-pressed="true"]{color:var(--paper)} }
+  :root[data-theme="dark"] .ufilter.ek[aria-pressed="true"]{color:var(--paper)}
+
   /* ---------- Öğretmenin tahta notları ---------- */
   .ogr{border:1px solid var(--warn);border-left-width:3px;border-radius:var(--radius);
     background:var(--warn-soft);padding:12px 15px;margin-top:14px}
@@ -3788,19 +3795,85 @@
        w:"\"Can\" gelecek zamanla kullanılamaz; \"will be able to\" gelir."}
     ]
   };
+  /* ===================== EK ÇALIŞMA SETLERİ =====================
+     Kullanıcının istediği konuya özel çalışma setleri.
+
+     ANA TESTE GİRMEZ. Sebebi: ders puanının paydası her yeni sette
+     şişmesin ("Matematik 28" → 48 → 68 …) ve bir kez bitirilen test
+     yeniden yarım kalmasın. Kendi çipinden açılır, doğru/yanlışı
+     normal şekilde kaydedilir, veli raporunda ayrı satır olur,
+     yanlışlar "Yanlışlarım" modunda tekrar çıkar.
+
+     u alanı "EK · <set adı>" biçiminde olmalı — çip bu adı gösterir
+     ve ana testin ünite çiplerinden ayrı, mor çerçeveli çizilir.
+
+     Yeni set eklerken: ilgili sınıfın altına ders anahtarıyla yeni
+     dizi aç ya da mevcut diziye yeni u başlığıyla ekle. */
+
+  var EKC6 = {
+    mat:[
+      {u:"EK · Bölünebilme Kuralları", q:"Aşağıdaki sayılardan hangisi 2 ile tam bölünür?", o:["3457","5862","7129","4003"], a:1,
+       w:"Bir sayının 2 ile bölünmesi için son rakamı çift olmalı. 5862'nin son rakamı 2, çifttir."},
+      {u:"EK · Bölünebilme Kuralları", q:"4173 sayısı aşağıdakilerden hangisine tam bölünür?", o:["2","3","5","9"], a:1,
+       w:"Rakamları toplamı 4+1+7+3 = 15. 15, 3'ün katı olduğu için sayı 3'e bölünür. 15, 9'un katı olmadığından 9'a bölünmez; son rakam 3 olduğu için 2'ye de 5'e de bölünmez."},
+      {u:"EK · Bölünebilme Kuralları", q:"Bir sayının 4 ile tam bölünebilmesi için hangi şart gerekir?", o:["Son rakamı 4 olmalı","Son iki basamağının oluşturduğu sayı 4'ün katı olmalı","Rakamları toplamı 4'ün katı olmalı","Sayının çift olması yeterli"], a:1,
+       w:"4 kuralı son İKİ basamağa bakar. Örneğin 1316 → son iki basamak 16, 4'ün katı olduğu için sayı 4'e bölünür. Çift olmak tek başına yetmez: 26 çifttir ama 4'e bölünmez."},
+      {u:"EK · Bölünebilme Kuralları", q:"72_4 sayısının 9 ile tam bölünebilmesi için boş bırakılan yere hangi rakam gelmelidir?", o:["3","5","7","9"], a:1,
+       w:"7+2+4 = 13. Toplamın 9'un katı olması gerekir; 13'ten sonraki kat 18'dir. 18 − 13 = 5."},
+      {u:"EK · Bölünebilme Kuralları", q:"Aşağıdaki sayılardan hangisi 6 ile tam bölünür?", o:["2345","4128","7251","5114"], a:1,
+       w:"6 = 2 · 3 olduğu için sayı hem çift olmalı hem de rakamları toplamı 3'ün katı olmalı. 4128 çifttir ve 4+1+2+8 = 15, 3'ün katıdır."},
+      {u:"EK · Bölünebilme Kuralları", q:"36_0 sayısının hem 4 hem 5 ile tam bölünebilmesi için boşluğa gelebilecek rakamların toplamı kaçtır?", o:["12","16","20","24"], a:2,
+       w:"Son rakam 0 olduğu için 5 kuralı her durumda sağlanır. 4 için son iki basamak (boşluk ve 0) 4'ün katı olmalı: 00, 20, 40, 60, 80 → rakamlar 0, 2, 4, 6, 8. Toplamları 20."},
+      {u:"EK · Bölünebilme Kuralları", q:"5481 sayısının 9 ile bölümünden kalan kaçtır?", o:["0","1","3","6"], a:0,
+       w:"Rakamları toplamı 5+4+8+1 = 18. 18, 9'un katı olduğu için sayı 9'a tam bölünür, kalan 0'dır."},
+      {u:"EK · Bölünebilme Kuralları", q:"Aşağıdakilerden hangisi hem 2 hem 5 ile tam bölünür?", o:["1235","4682","7890","3505"], a:2,
+       w:"2 için son rakam çift, 5 için son rakam 0 ya da 5 olmalı. İkisini birden sağlayan tek durum son rakamın 0 olmasıdır: 7890."},
+      {u:"EK · Bölünebilme Kuralları", q:"23_ sayısı 3 ile tam bölünüyorsa boşluğa gelebilecek en büyük rakam kaçtır?", o:["4","7","8","9"], a:1,
+       w:"2+3 = 5. Toplam 3'ün katı olmalı: 5+1 = 6, 5+4 = 9, 5+7 = 12. Uygun rakamlar 1, 4, 7 → en büyüğü 7."},
+      {u:"EK · Bölünebilme Kuralları", q:"9 ile tam bölünen bir sayı, aşağıdakilerden hangisine de kesinlikle tam bölünür?", o:["2","3","4","6"], a:1,
+       w:"9 = 3 · 3 olduğu için 9'un her katı aynı zamanda 3'ün katıdır. Diğerleri için ayrıca çift olma şartı gerekir; örneğin 27, 9'a bölünür ama 2'ye, 4'e ve 6'ya bölünmez."},
+      {u:"EK · Bölünebilme Kuralları", q:"12_6 sayısının 4 ile tam bölünebilmesi için boşluğa kaç farklı rakam gelebilir?", o:["3","4","5","6"], a:2,
+       w:"Son iki basamak 4'ün katı olmalı. 06, 16, 26, 36, 46, 56, 66, 76, 86, 96 içinden 4'ün katı olanlar: 16, 36, 56, 76, 96 → 5 farklı rakam."},
+      {u:"EK · Bölünebilme Kuralları", q:"Bir sınıftaki öğrenci sayısı 2'ye, 3'e ve 4'e tam bölünmektedir. Mevcut 30'dan az olduğuna göre sınıfta en fazla kaç öğrenci vardır?", o:["12","18","24","28"], a:2,
+       w:"Sayı 2, 3 ve 4'ün ortak katı olmalı. EKOK(2, 3, 4) = 12; katları 12, 24, 36… 30'dan küçük en büyüğü 24'tür."},
+      {u:"EK · Bölünebilme Kuralları", q:"453_ sayısının 6 ile tam bölünebilmesi için boşluğa gelebilecek rakamların toplamı kaçtır?", o:["3","6","9","12"], a:1,
+       w:"6 için sayı hem çift olmalı hem 3'e bölünmeli. 4+5+3 = 12; toplamın 3'ün katı olması için rakam 0, 3, 6 ya da 9 olmalı. Bunlardan çift olanlar 0 ve 6 → toplamları 6."},
+      {u:"EK · Bölünebilme Kuralları", q:"Aşağıdaki sayılardan hangisi 9 ile tam bölünmez?", o:["1233","4518","6345","2707"], a:3,
+       w:"Rakam toplamları: 1233 → 9, 4518 → 18, 6345 → 18 (hepsi 9'un katı). 2707 → 2+7+0+7 = 16, 9'un katı değildir."},
+      {u:"EK · Bölünebilme Kuralları", q:"38_ sayısı 5 ile tam bölünüyor ve çift bir sayı ise boşluktaki rakam kaçtır?", o:["0","2","5","8"], a:0,
+       w:"5 kuralına göre son rakam 0 ya da 5 olabilir. Sayının çift olması istendiği için 5 elenir, geriye 0 kalır."},
+      {u:"EK · Bölünebilme Kuralları", q:"Bir sayı 3 ile tam bölünüyorsa, 6 ile de tam bölüneceği kesin midir?", o:["Evet, kesindir","Hayır; ayrıca çift olması gerekir","Hayır; ayrıca 9'a bölünmesi gerekir","Hayır; ayrıca 5'e bölünmesi gerekir"], a:1,
+       w:"6 = 2 · 3'tür, yani hem 2 hem 3 şartı aranır. 15 sayısı 3'e bölünür ama tek olduğu için 6'ya bölünmez."},
+      {u:"EK · Bölünebilme Kuralları", q:"732_ sayısının 4 ile tam bölünebilmesi için boşluğa gelebilecek en küçük rakam kaçtır?", o:["0","2","4","8"], a:0,
+       w:"Son iki basamak (2 ve boşluk) 4'ün katı olmalı: 20, 24, 28. En küçük rakam 0'dır."},
+      {u:"EK · Bölünebilme Kuralları", q:"1'den 50'ye kadar olan sayılardan kaç tanesi 9 ile tam bölünür?", o:["4","5","6","9"], a:1,
+       w:"9, 18, 27, 36, 45 → 5 tane. Sonraki kat 54 olup 50'yi geçer."},
+      {u:"EK · Bölünebilme Kuralları", q:"24680 sayısı için aşağıdakilerden hangisi YANLIŞTIR?", o:["2 ile tam bölünür","3 ile tam bölünür","4 ile tam bölünür","5 ile tam bölünür"], a:1,
+       w:"Rakamları toplamı 2+4+6+8+0 = 20, 3'ün katı değildir. Son rakam 0 olduğu için 2 ve 5 kuralları sağlanır; son iki basamak 80, 4'ün katı olduğu için 4 kuralı da sağlanır."},
+      {u:"EK · Bölünebilme Kuralları", q:"Bir manav elindeki elmaları 2'şerli, 3'erli ve 5'erli gruplara ayırdığında hiç elma artmıyor. Elma sayısı 100'den az olduğuna göre en çok kaç elma vardır?", o:["60","75","90","96"], a:2,
+       w:"Sayı 2, 3 ve 5'in ortak katı olmalı. EKOK(2, 3, 5) = 30; katları 30, 60, 90, 120… 100'den küçük en büyüğü 90'dır."}
+    ]
+  };
+
+  var EKC7 = {};
   /* ===================== SINIFLAR ===================== */
 
   var G = {
-    g6:{ label:"6. Sınıf", cal:CAL6, subj:S6, quiz:Q6, havuz:H6,
+    g6:{ label:"6. Sınıf", cal:CAL6, subj:S6, quiz:Q6, havuz:H6, ekstra:EKC6,
          sub:"Altı dersin ünite ünite özeti, her ünitenin sonunda açık uçlu sorular ve kapalı duran bir cevap anahtarı — yanında yıllık takvim, haftalık program ve çoktan seçmeli testler.",
          lede:"6. sınıf ikinci yılında Maarif Modeli ile okuyor. Ünite adları MEB'in resmî programından birebir alındı. Bir üniteyi bitirince soldaki kutuyu işaretle; ilerleme kaydediliyor." },
-    g7:{ label:"7. Sınıf", cal:CAL7, subj:S7, quiz:Q7, havuz:H7,
+    g7:{ label:"7. Sınıf", cal:CAL7, subj:S7, quiz:Q7, havuz:H7, ekstra:EKC7,
          sub:"Altı dersin ünite ünite özeti, her ünitenin sonunda açık uçlu sorular ve kapalı duran bir cevap anahtarı — yanında yıllık takvim, haftalık program ve çoktan seçmeli testler.",
          lede:"2026–2027, 7. sınıfın Maarif Modeli'ne geçtiği <b>ilk yıl</b> — ünite adları geçen yılkinden farklı. Başlıklar MEB'in resmî programından birebir alındı. Bir üniteyi bitirince soldaki kutuyu işaretle; ilerleme kaydediliyor." }
   };
 
   function countUnits(g){ var c=0; G[g].subj.forEach(function(s){ c += s.units.length; }); return c; }
-  function countQ(g){ var c=0; Object.keys(G[g].quiz).forEach(function(k){ c += G[g].quiz[k].length; }); return c; }
+  function countQ(g){
+    var c = 0;
+    Object.keys(G[g].quiz).forEach(function(k){ c += G[g].quiz[k].length; });
+    Object.keys(G[g].ekstra || {}).forEach(function(k){ c += G[g].ekstra[k].length; });
+    return c;
+  }
 
   var grade = "g7";
   var state = { g6:{done:{},quiz:{},wrong:{},cevap:{},hata:{},video:{}}, g7:{done:{},quiz:{},wrong:{},cevap:{},hata:{},video:{}} };
@@ -3851,7 +3924,8 @@
     G[g].subj.forEach(function(s){
       var ana = (G[g].quiz || {})[s.key] || [];
       var havuz = (G[g].havuz || {})[s.key] || [];
-      ana.concat(havuz).forEach(function(q){
+      var eks = (G[g].ekstra || {})[s.key] || [];
+      ana.concat(havuz).concat(eks).forEach(function(q){
         var yk = s.key + "|" + qid(q), ek = s.key + "|" + qidEski(q);
         if(S.cevap[yk] !== undefined){ yeni[yk] = S.cevap[yk]; return; }
         if(S.cevap[ek] !== undefined && !kullanildi[ek]){
@@ -3872,7 +3946,9 @@
     var S = state[g], W = {};
     if(!S.hata) S.hata = {};
     G[g].subj.forEach(function(s){
-      var hepsi = ((G[g].quiz || {})[s.key] || []).concat(((G[g].havuz || {})[s.key] || []));
+      var hepsi = ((G[g].quiz || {})[s.key] || [])
+        .concat(((G[g].havuz || {})[s.key] || []))
+        .concat(((G[g].ekstra || {})[s.key] || []));
       hepsi.forEach(function(q){
         var k = wkeyFor(s.key, q), c = (S.cevap || {})[k];
         if(c !== undefined && c !== q.a){
@@ -4204,7 +4280,7 @@
        havuzdan gelen bir soruyu yanlış yaptığında çip kayboluyor ve o
        yanlışa bir daha ulaşılamıyordu. */
     var box = el("quizUnits"), W = st().wrong, yanlis = 0;
-    list.concat(hav()).forEach(function(q){ if(W[wkey(q)]) yanlis++; });
+    list.concat(hav()).concat(ekstra()).forEach(function(q){ if(W[wkey(q)]) yanlis++; });
     box.style.setProperty("--sc", s.color);
     var h = '<button class="ufilter" data-uf="" aria-pressed="'+(qFilter===null)+'">'
           + 'Tümü <span class="n">'+list.length+'</span></button>';
@@ -4222,11 +4298,25 @@
       h += '<button class="ufilter" data-uf="'+esc(u)+'" aria-pressed="'+(qFilter===u)+'">'
          + esc(u)+' <span class="n">'+adet[u]+'</span></button>';
     });
+    /* Ek çalışma setleri en sonda, ayrı renkte. Ana testin ünite
+       çipleriyle karışmasınlar diye. */
+    var ekAdet = {}, ekSira = [];
+    ekstra().forEach(function(q){
+      if(ekAdet[q.u] === undefined){ ekSira.push(q.u); ekAdet[q.u] = 0; }
+      ekAdet[q.u]++;
+    });
+    ekSira.forEach(function(u){
+      h += '<button class="ufilter ek" data-uf="'+esc(u)+'" aria-pressed="'+(qFilter===u)+'">'
+         + esc(u.replace(/^EK · /, "Ek · "))+' <span class="n">'+ekAdet[u]+'</span></button>';
+    });
     box.innerHTML = h;
   }
 
   function hav(){ return (cur().havuz || {})[curQuiz] || []; }
+  function ekstra(){ return (cur().ekstra || {})[curQuiz] || []; }
   function anaListe(){ return (cur().quiz || {})[curQuiz] || []; }
+  /* Ek çalışma seti filtresi mi? Setlerin u alanı "EK · " ile başlar. */
+  function ekMi(f){ return typeof f === "string" && f.indexOf("EK · ") === 0; }
   function hashNum(s){ var n = 0; for(var i=0;i<s.length;i++) n = (n*31 + s.charCodeAt(i)) | 0; return n; }
 
   /* Ekranda gösterilecek soruları kurar.
@@ -4234,8 +4324,12 @@
      HAVUZ sorularını birlikte verir; havuz soruları ana teste girmez. */
   function gosterilecek(){
     if(qFilter === "__yanlis__") return yanlisKume || [];
-    var ana = anaListe(), out = [];
-    ana.forEach(function(q,i){ if(qFilter === null || q.u === qFilter) out.push({q:q, id:String(i), havuz:false}); });
+    var out = [];
+    if(ekMi(qFilter)){
+      ekstra().forEach(function(q,i){ if(q.u === qFilter) out.push({q:q, id:"e"+i, havuz:false}); });
+      return out;
+    }
+    anaListe().forEach(function(q,i){ if(qFilter === null || q.u === qFilter) out.push({q:q, id:String(i), havuz:false}); });
     return out;
   }
 
@@ -4248,6 +4342,7 @@
     ana.forEach(function(q){ if(W[wkeyFor(curQuiz,q)]) zayif[q.u] = true; });
     havuz.forEach(function(q){ if(W[wkeyFor(curQuiz,q)]) zayif[q.u] = true; });
     ana.forEach(function(q,i){ if(W[wkeyFor(curQuiz,q)]) out.push({q:q, id:String(i), havuz:false}); });
+    ekstra().forEach(function(q,i){ if(W[wkeyFor(curQuiz,q)]) out.push({q:q, id:"e"+i, havuz:false}); });
     havuz.forEach(function(q,i){ if(zayif[q.u]) out.push({q:q, id:"h"+i, havuz:true}); });
     yanlisKume = out;
   }
@@ -4256,8 +4351,9 @@
     var Q = cur().quiz;
     if(!Q[curQuiz]) curQuiz = "mat";
     var s = subjByKey(curQuiz), ana = anaListe(), W = st().wrong;
-    if(qFilter !== null && qFilter !== "__yanlis__"
+    if(qFilter !== null && qFilter !== "__yanlis__" && !ekMi(qFilter)
        && !ana.some(function(q){ return q.u === qFilter; })) qFilter = null;
+    if(ekMi(qFilter) && !ekstra().some(function(q){ return q.u === qFilter; })) qFilter = null;
     if(qFilter === "__yanlis__" && !(yanlisKume && yanlisKume.length)) qFilter = null;
 
     var kume = gosterilecek();
@@ -4312,6 +4408,23 @@
     syncResetBtn();
   }
   function renderScore(){
+    /* Ek çalışma setinin puanı kendi içinde gösterilir ve dersin test
+       puanına karışmaz; erkenden çıkılır ki "en iyi skor" kaydı da
+       ana test dışındaki sorulardan etkilenmesin. */
+    if(ekMi(qFilter)){
+      var eks = ekstra().filter(function(q){ return q.u === qFilter; });
+      var er = 0, ea = 0;
+      eks.forEach(function(q){
+        var v = st().cevap[wkeyFor(curQuiz, q)];
+        if(v !== undefined){ ea++; if(v === q.a) er++; }
+      });
+      el("qScore").textContent = er + " / " + eks.length;
+      el("qLab").textContent = "Ek çalışma seti — puanı ayrı tutulur, dersin test puanına karışmaz. "
+        + (ea === 0 ? "Başlamak için bir şıkka tıkla."
+          : ea < eks.length ? ea + " soru cevaplandı, " + (eks.length - ea) + " soru kaldı."
+          : er === eks.length ? "Tamamı doğru." : "Bitti. Yanlışlarını “Yanlışlarım”dan tekrar çöz.");
+      return;
+    }
     var list = cur().quiz[curQuiz] || [], right = 0, ans = 0;
     list.forEach(function(q,i){
       var g = st().cevap[wkeyFor(curQuiz, q)];
@@ -4510,8 +4623,8 @@
     if(!b || b.disabled) return;
     var parts = b.getAttribute("data-ans").split("-");
     var id = parts[0], sec = parseInt(parts[1],10);
-    var q = (id.charAt(0) === "h")
-          ? hav()[parseInt(id.slice(1),10)]
+    var q = (id.charAt(0) === "h") ? hav()[parseInt(id.slice(1),10)]
+          : (id.charAt(0) === "e") ? ekstra()[parseInt(id.slice(1),10)]
           : anaListe()[parseInt(id,10)];
     if(!q) return;
     var k = wkey(q), mevcut = st().cevap[k];
@@ -4563,6 +4676,7 @@
     if(!b) return;
     var n = gosterilecek().length;
     if(qFilter === "__yanlis__") b.textContent = "Bu " + n + " soruyu sıfırla";
+    else if(ekMi(qFilter))       b.textContent = "Bu setin " + n + " sorusunu sıfırla";
     else if(qFilter !== null)    b.textContent = "Bu ünitenin " + n + " sorusunu sıfırla";
     else                         b.textContent = "Bu dersin " + n + " sorusunu sıfırla";
   }
@@ -4646,7 +4760,9 @@
   function etiketListesi(g){
     var gor = {}, out = [];
     G[g].subj.forEach(function(s){
-      var hepsi = ((G[g].quiz || {})[s.key] || []).concat(((G[g].havuz || {})[s.key] || []));
+      var hepsi = ((G[g].quiz || {})[s.key] || [])
+        .concat(((G[g].havuz || {})[s.key] || []))
+        .concat(((G[g].ekstra || {})[s.key] || []));
       hepsi.forEach(function(q){
         var k = s.key + "|" + q.u;
         if(gor[k]) return;
@@ -4673,7 +4789,9 @@
 
     var sayim = {};
     G[g].subj.forEach(function(s){
-      var hepsi = ((G[g].quiz || {})[s.key] || []).concat(((G[g].havuz || {})[s.key] || []));
+      var hepsi = ((G[g].quiz || {})[s.key] || [])
+        .concat(((G[g].havuz || {})[s.key] || []))
+        .concat(((G[g].ekstra || {})[s.key] || []));
       hepsi.forEach(function(qq){
         var c_ = (S.cevap || {})[wkeyFor(s.key, qq)];
         if(c_ === undefined || c_ === qq.a) return;   // yanlis, cevaplardan turetilir
@@ -4689,7 +4807,9 @@
     G[g].subj.forEach(function(s){
       var ana = (G[g].quiz || {})[s.key] || [];
       var havuz = (G[g].havuz || {})[s.key] || [];
+      var eks = (G[g].ekstra || {})[s.key] || [];
       ana.forEach(function(qq){ topla(qq, false); });
+      eks.forEach(function(qq){ topla(qq, false); });
       havuz.forEach(function(qq){ topla(qq, true); });
       function topla(qq, havuzMu){
         var wk = wkeyFor(s.key, qq);
@@ -4738,7 +4858,9 @@
 
     var sayim = {};
     G[g].subj.forEach(function(s){
-      var hepsi = ((G[g].quiz || {})[s.key] || []).concat(((G[g].havuz || {})[s.key] || []));
+      var hepsi = ((G[g].quiz || {})[s.key] || [])
+        .concat(((G[g].havuz || {})[s.key] || []))
+        .concat(((G[g].ekstra || {})[s.key] || []));
       hepsi.forEach(function(qq){
         var c_ = (S.cevap || {})[wkeyFor(s.key, qq)];
         if(c_ === undefined || c_ === qq.a) return;   // yanlis, cevaplardan turetilir
@@ -5074,7 +5196,8 @@
     var dogru = {};
     G[g].subj.forEach(function(sj){
       var ana = (G[g].quiz || {})[sj.key] || [], hv = (G[g].havuz || {})[sj.key] || [];
-      ana.concat(hv).forEach(function(q){ dogru[wkeyFor(sj.key, q)] = q.a; });
+      var ek = (G[g].ekstra || {})[sj.key] || [];
+      ana.concat(hv).concat(ek).forEach(function(q){ dogru[wkeyFor(sj.key, q)] = q.a; });
     });
 
     /* Cevaplar artık "Yanlışlarım" modunda düzeltilebiliyor, yani

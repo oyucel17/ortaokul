@@ -436,6 +436,13 @@
     .prg-ogr{grid-column:2 / -1}
     .prg-ara-saat{margin-left:0;min-width:0}
   }
+  /* Ek çalışma seti çipi — ana testin ünite çiplerinden ayrılsın. */
+  .ufilter.ek{border-color:var(--s-ing);color:var(--s-ing);border-style:dashed}
+  .ufilter.ek[aria-pressed="true"]{background:var(--s-ing);border-style:solid;color:#fff}
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) .ufilter.ek[aria-pressed="true"]{color:var(--paper)} }
+  :root[data-theme="dark"] .ufilter.ek[aria-pressed="true"]{color:var(--paper)}
+
   /* ---------- Öğretmenin tahta notları ---------- */
   .ogr{border:1px solid var(--warn);border-left-width:3px;border-radius:var(--radius);
     background:var(--warn-soft);padding:12px 15px;margin-top:14px}
