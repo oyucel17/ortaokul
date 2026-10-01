@@ -237,6 +237,21 @@ hangi ders" bilgisini verir.
 
 Sınıf değişirse (ör. 7B → 7A) `PROGRAM.g7.sinif` ve `gunler` alanlarını güncellemek yeterli.
 
+### WhatsApp için resim
+
+```bash
+node araclar/ders-programi-png.js
+```
+
+İki sınıfın haftalık programını PNG olarak masaüstündeki `Ders Programları` klasörüne yazar
+(başka klasör için yolu argüman ver). Veri yine `src/12-okul.js`'ten okunur, yani program
+değişince önce o dosya güncellenir, sonra bu komut çalıştırılır. Resmin altında "Güncel: tarih"
+yazar ki paylaşılan eski bir kopya ayırt edilebilsin.
+
+Görüntü Edge'in başsız modunda DevTools protokolüyle çekilir (Node 22+ yerleşik WebSocket, paket
+gerekmez). `--dump-dom` ile yükseklik ölçmeye çalışma: `msedge.exe` GUI uygulaması olduğu için
+Windows'ta stdout'u boruya bağlanmıyor, çıktı boş geliyor.
+
 ## Veli görünümü
 
 Çocuğun cihazındaki ilerleme kendi tarayıcısında durur, dışarı çıkmaz. Veliye ulaştırmak için
