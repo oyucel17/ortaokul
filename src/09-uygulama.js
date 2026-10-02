@@ -308,6 +308,7 @@
           if(uo){
             h += '<div class="unit-body">';
             if(u.lead) h += '<p class="lead">'+u.lead+'</p>';
+            h += testBari(s.key, u, id);
             /* Öğretmenin tahta notları. Sınavda sorulacak asıl kaynak bu
                olduğu için gövdenin üstünde, ayrı bir kutuda duruyor ve
                tarih damgasıyla birikiyor. */
@@ -363,6 +364,7 @@
                 h += '</ol></details>';
               }
             }
+            h += testBari(s.key, u, id);
             h += '</div>';
           }
           h += '</div>';
@@ -461,6 +463,99 @@
     box.innerHTML = h;
   }
 
+  /* ---------- Dersler ↔ Testler geçişi ----------
+     Ünitenin t alanı o üniteye ait test etiketlerini listeler (ilki ana
+     test, sonrakiler ek çalışma setleri). İki yön de bu alandan kurulur;
+     ad benzerliğine güvenilmez, çünkü ünite adlarıyla test etiketleri
+     birebir tutmuyor. Gidilen yerden "← Teste dön / ← Derse dön" düğmesi
+     öğrenciyi kaldığı soruya ya da üniteye geri getirir. */
+  function etiketUnite(sk, etiket){
+    var s = subjByKey(sk), r = null;
+    if(s) s.units.forEach(function(u){
+      if(!r && (u.t || []).indexOf(etiket) !== -1) r = { s:s, u:u, id:uid(sk, u) };
+    });
+    return r;
+  }
+  function etiketSay(sk, etiket){
+    var hepsi = ((cur().quiz || {})[sk] || []).concat(((cur().ekstra || {})[sk] || []));
+    var n = 0, c = 0, C = st().cevap;
+    hepsi.forEach(function(q){ if(q.u === etiket){ n++; if(C[wkeyFor(sk, q)] !== undefined) c++; } });
+    return { n:n, c:c };
+  }
+  function kisaAd(ad){
+    return String(ad).replace(/^(TEMA|ÜNİTE|KONU|ALAN|EK)\s*\d*\s*·\s*/, "").split(" · ").pop();
+  }
+  function testBari(sk, u, id){
+    var h = "";
+    (u.t || []).forEach(function(et){
+      var c = etiketSay(sk, et);
+      if(!c.n) return;
+      h += '<button class="test-git" type="button" data-test-git="'+esc(et)+'" data-test-sk="'+sk+'" data-test-unit="'+id+'">'
+         + '<span>'+(ekMi(et) ? 'Ek çalışma: '+esc(et.replace(/^EK · /, "")) : 'Bu ünitenin testi')+'</span>'
+         + '<span class="n">'+c.c+'/'+c.n+'</span><span aria-hidden="true">→</span></button>';
+    });
+    return h ? '<div class="test-bar">'+h+'</div>' : "";
+  }
+
+  var donus = null;
+  var donusKutu = document.createElement("div");
+  donusKutu.className = "donus";
+  donusKutu.hidden = true;
+  donusKutu.innerHTML = '<button type="button" class="donus-git"></button>'
+                      + '<button type="button" class="donus-kapat" aria-label="Kapat">×</button>';
+  document.body.appendChild(donusKutu);
+
+  function donusGoster(){
+    var var_ = !!(donus && donus.g === grade);
+    donusKutu.hidden = !var_;
+    if(var_) donusKutu.querySelector(".donus-git").textContent =
+      (donus.tab === "testler" ? "← Teste dön" : "← Derse dön") + " · " + donus.ad;
+  }
+  function kaydir(elm){ if(elm) elm.scrollIntoView({block:"start"}); }
+  function uniteAc(sk, id){
+    openSubj[grade][sk] = true;
+    openUnit[grade][id] = true;
+    switchTab("dersler");
+    renderSubjects();
+    var b = document.querySelector('#subjects .unit-open[data-unit="' + id + '"]');
+    kaydir(b && b.closest(".unit"));
+  }
+  function testeGit(sk, etiket, unitId){
+    var s = subjByKey(sk), ad = "";
+    s.units.forEach(function(u){ if(uid(sk, u) === unitId) ad = u.n; });
+    donus = { tab:"dersler", g:grade, sk:sk, id:unitId, ad:s.name + " · " + kisaAd(ad) };
+    curQuiz = sk; qFilter = etiket; yanlisKume = null;
+    switchTab("testler");
+    renderQuiz();
+    donusGoster();
+    kaydir(el("quizUnits"));
+  }
+  function dersGit(sk, etiket, k){
+    var hedef = etiketUnite(sk, etiket);
+    if(!hedef) return;
+    donus = { tab:"testler", g:grade, sk:sk, filtre:qFilter, k:k,
+              ad: hedef.s.name + (qFilter === "__yanlis__" ? " · Yanlışlarım" : qFilter ? " · " + kisaAd(qFilter) : "") };
+    uniteAc(sk, hedef.id);
+    donusGoster();
+  }
+  function geriDon(){
+    var d = donus;
+    donus = null;
+    donusGoster();
+    if(!d || d.g !== grade) return;
+    if(d.tab === "testler"){
+      curQuiz = d.sk; qFilter = d.filtre;
+      if(qFilter === "__yanlis__" && !yanlisKume) yanlisKumeKur();
+      switchTab("testler");
+      renderQuiz();
+      kaydir((d.k && document.querySelector('#qlist .q[data-k="' + d.k + '"]')) || el("quizUnits"));
+    } else {
+      uniteAc(d.sk, d.id);
+    }
+  }
+  donusKutu.querySelector(".donus-git").addEventListener("click", geriDon);
+  donusKutu.querySelector(".donus-kapat").addEventListener("click", function(){ donus = null; donusGoster(); });
+
   function hav(){ return (cur().havuz || {})[curQuiz] || []; }
   function ekstra(){ return (cur().ekstra || {})[curQuiz] || []; }
   function anaListe(){ return (cur().quiz || {})[curQuiz] || []; }
@@ -522,8 +617,11 @@
       var goster = (given !== undefined);   // cevaplandı (ya da cevabına bakıldı)
       var sik = perm(q.o.length, seed + hashNum(it.id) * 7919);   // şık sırası da karışır
 
-      h += '<div class="q" style="--sc:'+s.color+'">'
-        + '<div class="q-unit">'+esc(q.u)+'</div>'
+      var konu = etiketUnite(curQuiz, q.u);
+      h += '<div class="q" data-k="'+esc(wk)+'" style="--sc:'+s.color+'">'
+        + '<div class="q-bas"><div class="q-unit">'+esc(q.u)+'</div>'
+        + (konu ? '<button class="ders-git" type="button" data-ders-git="'+esc(q.u)+'">Konuyu çalış →</button>' : '')
+        + '</div>'
         + (it.havuz ? '<div class="q-pool">Havuzdan · yeni soru</div>' : '')
         + ((st().hata[wk] || W[wk]) && given === undefined
             ? '<div class="q-again">Bunu daha önce yanlış yapmıştın — tekrar dene</div>' : '')
@@ -684,6 +782,7 @@
     try{ localStorage.setItem(LS+"-grade", g); }catch(e){}
     renderAll();
     syncAnsBtn();
+    donusGoster();
     window.scrollTo({top:0, behavior:"auto"});
   }
   el("g6").addEventListener("click", function(){ setGrade("g6"); });
@@ -760,6 +859,17 @@
       openSubj[grade][sk] = !openSubj[grade][sk];
       renderSubjects();
     }
+  });
+
+  el("subjects").addEventListener("click", function(ev){
+    var b = ev.target.closest("[data-test-git]");
+    if(b) testeGit(b.getAttribute("data-test-sk"), b.getAttribute("data-test-git"), b.getAttribute("data-test-unit"));
+  });
+  el("qlist").addEventListener("click", function(ev){
+    var b = ev.target.closest("[data-ders-git]");
+    if(!b) return;
+    var kart = b.closest(".q");
+    dersGit(curQuiz, b.getAttribute("data-ders-git"), kart ? kart.getAttribute("data-k") : null);
   });
 
   el("quizPills").addEventListener("click", function(ev){

@@ -445,6 +445,27 @@
     .prg-ogr{grid-column:2 / -1}
     .prg-ara-saat{margin-left:0;min-width:0}
   }
+  /* ---------- Dersler ↔ Testler geçişi ---------- */
+  .test-bar{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px}
+  .test-git{display:inline-flex;align-items:center;gap:9px;padding:8px 15px;border-radius:999px;
+    border:1.5px solid var(--sc);color:var(--sc);background:var(--card);font-size:13.5px;font-weight:600}
+  .test-git:hover{background:var(--sc);color:var(--card)}
+  .test-git .n{font-family:"IBM Plex Mono",monospace;font-size:11.5px;opacity:.85}
+  .q-bas{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+  .q-bas .q-unit{margin-bottom:0}
+  .ders-git{margin-left:auto;font-size:12.5px;font-weight:600;color:var(--sc);padding:2px 2px;
+    text-decoration:underline;text-underline-offset:3px}
+  .unit,.q,#quizUnits{scroll-margin-top:62px}
+  .donus{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));
+    transform:translateX(-50%);z-index:40;display:flex;align-items:stretch;max-width:calc(100vw - 32px);
+    background:var(--accent);color:#fff;border-radius:999px;box-shadow:0 10px 26px -10px rgba(0,0,0,.55)}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .donus{color:var(--paper)} }
+  :root[data-theme="dark"] .donus{color:var(--paper)}
+  .donus-git{color:inherit;font-weight:600;font-size:14px;padding:12px 4px 12px 19px;min-width:0;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .donus-kapat{color:inherit;font-size:19px;line-height:1;padding:0 17px 0 12px;opacity:.75}
+  @media print{ .test-bar,.ders-git,.donus{display:none!important} }
+
   /* Ek çalışma seti çipi — ana testin ünite çiplerinden ayrılsın. */
   .ufilter.ek{border-color:var(--s-ing);color:var(--s-ing);border-style:dashed}
   .ufilter.ek[aria-pressed="true"]{background:var(--s-ing);border-style:solid;color:#fff}
@@ -819,7 +840,7 @@
      plist:{t:"6. Sınıf Matematik — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjBQiwKtt4aLD1xKfNia8cjI"},
      note:"Yeni programda matematik \"ünite\" değil <b>tema</b> başlıkları altında işleniyor. Aşağıdaki sıra, yıllık planın öğretim sırası. Eski kaynaklardaki <b>tam sayılar, kümeler, oran, üslü ifadeler ve hacim</b> bu programda 6. sınıfta yok — başka sınıflara taşındı.",
      units:[
-      {n:"Sayılar ve Nicelikler (1): Çarpanlar, Katlar, Asal Sayılar", w:"Eylül–Ekim",
+      {n:"Sayılar ve Nicelikler (1): Çarpanlar, Katlar, Asal Sayılar", w:"Eylül–Ekim", t:["TEMA 1 · Çarpanlar, Katlar, Asal Sayılar","EK · Bölünebilme Kuralları"],
        lead:"Bir sayıyı kalansız bölen sayılara o sayının <b>çarpanı (böleni)</b>, çarpma yoluyla elde edilen büyük kardeşlerine <b>katı</b> denir. 12'nin çarpanları 1, 2, 3, 4, 6, 12; katları 12, 24, 36… diye gider.",
        p:["<b>Asal sayı:</b> 1'den büyük ve yalnızca 1 ile kendisine bölünen sayı. 2, 3, 5, 7, 11, 13, 17, 19… En küçüğü 2'dir ve <b>tek çift asal sayı</b> odur.",
           "<b>Asal çarpanlara ayırma:</b> sayıyı asal sayılara böle böle indirgemek. <code>60 = 2² · 3 · 5</code>",
@@ -852,7 +873,7 @@
           "2, 3, 5, 7, 11, 13, 17, 19",
           "Hem 3 hem 4 ile bölünen = 12'nin katı. İki basamaklı en büyük 12 katı 96'dır ve 5 ile bölünmez → <b>96</b>"]},
 
-      {n:"İstatistiksel Araştırma Süreci", w:"Ekim",
+      {n:"İstatistiksel Araştırma Süreci", w:"Ekim", t:["TEMA 2 · İstatistiksel Araştırma Süreci"],
        lead:"Bir istatistik araştırması dört adımda yürür: <b>araştırma sorusunu kur</b> → <b>veriyi topla</b> → <b>düzenle ve görselleştir</b> → <b>yorumla</b>. İyi bir araştırma sorusu, verisi toplanabilir ve tek cevabı olmayan sorudur.",
        p:["<b>Sıklık (frekans):</b> bir değerin kaç kez tekrarlandığı.",
           "<b>Daire grafiği:</b> tüm veri 360°'dir. Bir dilimin merkez açısı = (o gruptaki veri ÷ toplam veri) × 360°.",
@@ -877,7 +898,7 @@
           "Gözlem ya da anketle veri toplanır, seçenekler sıklık tablosuna yazılır, sonuç sütun grafiğiyle gösterilir ve en yüksek sütun yorumlanır.",
           "Toplam 5·15 = 75. Yeni toplam 85 → 85 ÷ 5 = <b>17</b>"]},
 
-      {n:"Sayılar ve Nicelikler (2): Kesirler, Ondalık Gösterim, Uzunluk", w:"Kasım–Aralık",
+      {n:"Sayılar ve Nicelikler (2): Kesirler, Ondalık Gösterim, Uzunluk", w:"Kasım–Aralık", t:["TEMA 3 · Kesirler, Ondalık Gösterim, Uzunluk"],
        lead:"Kesir çizgisi aslında bir <b>bölme işaretidir</b>: <code>3/4 = 3 ÷ 4 = 0,75</code>. Bu bağlantıyı kurduğunda kesir ile ondalık gösterim arasında istediğin gibi gidip gelirsin.",
        p:["<b>Toplama-çıkarma:</b> paydalar eşitlenir, paylar toplanır/çıkarılır.",
           "<b>Çarpma:</b> pay ile pay, payda ile payda çarpılır.",
@@ -898,7 +919,7 @@
           "4,25 + 0,80 = <b>5,05</b>; 3,7 · 100 = <b>370</b>","60 · 2/5 = 24 sayfa okundu → <b>36 sayfa</b> kaldı",
           "2,4 · 1000 = <b>2400 m</b>; 350 ÷ 100 = <b>3,5 m</b>"]},
 
-      {n:"Veriden Olasılığa", w:"Aralık",
+      {n:"Veriden Olasılığa", w:"Aralık", t:["TEMA 4 · Veriden Olasılığa"],
        lead:"Bu temada olasılığı formülden önce <b>deneyerek</b> tahmin ediyorsun. Bir parayı 10 kez atıp yazı sayısını saymak da bir olasılık çalışmasıdır.",
        p:["<b>Kesin olay:</b> gerçekleşmesi şüphesiz. Zarda 1–6 arası bir sayı gelmesi.",
           "<b>İmkânsız olay:</b> asla gerçekleşmez. Zarda 7 gelmesi.",
@@ -917,7 +938,7 @@
           "<b>Sarı.</b> Sarının olasılığı 6/10, yeşilinki 4/10.",
           "Evet, <b>eşit şanslıdır</b>. Atış sayısı arttıkça deneysel olasılık 1/2 değerine yaklaşır."]},
 
-      {n:"Geometrik Şekiller: Açılar, Üçgenler, Dörtgenler", w:"Ocak–Şubat",
+      {n:"Geometrik Şekiller: Açılar, Üçgenler, Dörtgenler", w:"Ocak–Şubat", t:["TEMA 5 · Açılar, Üçgenler, Dörtgenler"],
        lead:"Açı çeşitleri: <b>dar</b> (0°–90°), <b>dik</b> (90°), <b>geniş</b> (90°–180°), <b>doğru</b> (180°), <b>tam</b> (360°).",
        p:["<b>Tümler açılar</b> toplamı 90°, <b>bütünler açılar</b> toplamı 180°.",
           "<b>Ters açılar</b> birbirine <b>eşittir</b>.",
@@ -942,7 +963,7 @@
           "Karşılıklı açılar eşit, ardışık açılar bütünler → <b>110°, 70°, 110°</b>",
           "<b>60°</b> — üç açı da eşit ve toplamları 180° olduğundan 180 ÷ 3 = 60."]},
 
-      {n:"İşlemlerle Cebirsel Düşünme ve Değişimler", w:"Mart–Nisan",
+      {n:"İşlemlerle Cebirsel Düşünme ve Değişimler", w:"Mart–Nisan", t:["TEMA 6 · İşlemlerle Cebirsel Düşünme"],
        lead:"Bilinmeyen bir niceliği harfle göstermeye <b>değişken</b>, içinde değişken bulunan ifadeye <b>cebirsel ifade</b> denir. <code>3x + 5</code> ifadesinde 3 <b>katsayı</b>, x <b>değişken</b>, 5 <b>sabit terim</b>dir.",
        p:["Yalnızca <b>benzer terimler</b> toplanıp çıkarılabilir: <code>5a + 3a = 8a</code>, ama <code>5a + 3b</code> sadeleşmez.",
           "<b>Örüntü:</b> belirli bir kurala göre ilerleyen dizi. Ardışık terimler arasındaki <b>farka</b> bak: fark sabitse kural <code>(fark)·n + (1. terim − fark)</code> biçimindedir.",
@@ -959,7 +980,7 @@
           "<b>4a</b>","Defter 2x TL. 3x + 2·(2x) = <b>7x</b>","Fark 3, ilk terim 4 → <b>3n + 1</b>",
           "<b>2x − 3</b>; x = 8 için 16 − 3 = <b>13</b>"]},
 
-      {n:"Geometrik Nicelikler: Alan, Çember, Merkez Açı", w:"Mayıs–Haziran",
+      {n:"Geometrik Nicelikler: Alan, Çember, Merkez Açı", w:"Mayıs–Haziran", t:["TEMA 7 · Alan, Çember, Merkez Açı"],
        lead:"Alanda dikkat edilecek tek şey <b>yüksekliğin tabana dik olması</b>. Eğik kenar yükseklik değildir; paralelkenarda da üçgende de tabana indirilen dikme ölçülür.",
        box:[{t:"Formüller", h:"<ul><li>Dikdörtgen alanı = <code>kısa kenar · uzun kenar</code></li><li>Paralelkenar alanı = <code>taban · yükseklik</code></li><li>Üçgen alanı = <code>(taban · yükseklik) ÷ 2</code></li><li>Çap = <code>2 · yarıçap</code> · Çember uzunluğu = <code>2 · π · r</code> (π ≈ 3)</li><li>Merkez açısı α olan yayın uzunluğu = <code>(α ÷ 360) · çember uzunluğu</code></li></ul>"},
             {t:"Arazi ölçüleri", h:"<code>1 dönüm = 1000 m²</code> · <code>1 hektar = 10 000 m²</code> · <code>1 km² = 1 000 000 m²</code>"}],
@@ -983,7 +1004,7 @@
      plist:{t:"6. Sınıf Fen — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjDznWPQy4PkvygYjDvO-tSw"},
      note:"Eski programdaki <b>Ses ve Özellikleri</b> ile <b>Bitki ve Hayvanlarda Üreme</b> üniteleri bu programda yok; yerlerine <b>Işığın Yansıması ve Renkler</b> ile <b>Sürdürülebilir Yaşam ve Etkileşim</b> geldi.",
      units:[
-      {n:"Güneş Sistemi ve Tutulmalar", w:"Eylül–Ekim",
+      {n:"Güneş Sistemi ve Tutulmalar", w:"Eylül–Ekim", t:["ÜNİTE 1 · Güneş Sistemi ve Tutulmalar"],
        lead:"Güneş'ten uzaklaşarak sekiz gezegen: <b>Merkür, Venüs, Dünya, Mars, Jüpiter, Satürn, Uranüs, Neptün.</b> İlk dördü küçük ve kayaçtan, son dördü dev ve gazdan oluşur.",
        p:["En büyük gezegen <b>Jüpiter</b>, en küçüğü <b>Merkür</b>.",
           "Güneş'e en yakın gezegen Merkür, ama <b>en sıcak gezegen Venüs</b>'tür — yoğun atmosferi ısıyı hapseder.",
@@ -1022,7 +1043,7 @@
           "İç gezegenler küçük ve kayaçtan oluşur, uyduları az ya da yoktur. Dış gezegenler çok büyüktür, gazdan oluşur, halka ve çok sayıda uyduya sahiptir.",
           "Ay'ın yörüngesi Dünya'nın yörünge düzlemine yaklaşık 5° eğik olduğundan üçü çoğu Yeni Ay'da tam aynı doğrultuya gelmez."]},
 
-      {n:"Kuvvetin Etkisinde Hareket", w:"Kasım",
+      {n:"Kuvvetin Etkisinde Hareket", w:"Kasım", t:["ÜNİTE 2 · Kuvvetin Etkisinde Hareket"],
        lead:"Bir cisme etki eden kuvvetlerin tek başına yaptığı etkiye eşdeğer kuvvete <b>bileşke kuvvet</b> denir. Kuvvetin birimi <b>newton (N)</b>'dur ve dinamometre ile ölçülür.",
        box:[{t:"Bileşke kuvvet", h:"<ul><li><b>Aynı yönlü</b> kuvvetler <b>toplanır</b>.</li><li><b>Zıt yönlü</b> kuvvetler <b>çıkarılır</b>, yön büyük kuvvetin yönündedir.</li><li>Bileşke <b>sıfırsa</b> kuvvetler <b>dengelenmiştir</b>: duran durur, hareketli sabit süratle doğrusal gider.</li><li>Bileşke <b>sıfırdan farklıysa</b> süratin ya da yönün değişir.</li></ul>"},
             {t:"Sürat", h:"<code>Sürat = alınan yol ÷ geçen süre</code> · <code>Yol = sürat · süre</code> · <code>Süre = yol ÷ sürat</code>. Birimi m/s veya km/h'dir."}],
@@ -1040,7 +1061,7 @@
           "Duruyorsa durmaya devam eder; hareket hâlindeyse <b>sabit süratle doğrusal</b> hareketini sürdürür.",
           "<b>Hareket etmez.</b> Kuvvetler eşit ve zıt yönlü olduğundan bileşke sıfırdır."]},
 
-      {n:"Canlılarda Sistemler", w:"Aralık–Ocak",
+      {n:"Canlılarda Sistemler", w:"Aralık–Ocak", t:["ÜNİTE 3 · Canlılarda Sistemler"],
        lead:"Vücutta hiçbir sistem tek başına çalışmaz: sindirim besini kana verir, dolaşım taşır, solunum oksijeni sağlar, boşaltım atığı süzer.",
        tbl:[{h:["Sistem","Yapıları","Görevi"], r:[
           ["Destek ve hareket","Kemik, kas, eklem","Vücuda şekil verir, organları korur, hareketi sağlar"],
@@ -1063,7 +1084,7 @@
           "<b>Alveol</b> (hava kesecikleri)","<b>Çizgili kas</b>; <b>istemli</b> çalışır.",
           "Sindirim sistemi besinleri kana geçebilecek küçüklüğe getirip emer, dolaşım sistemi bu besinleri bütün hücrelere taşır."]},
 
-      {n:"Işığın Yansıması ve Renkler", w:"Şubat",
+      {n:"Işığın Yansıması ve Renkler", w:"Şubat", t:["ÜNİTE 4 · Işığın Yansıması ve Renkler"],
        lead:"Işık bir yüzeye çarptığında geri döner; buna <b>yansıma</b> denir.",
        box:[{t:"Yansıma kanunu", h:"<b>Gelme açısı = yansıma açısı.</b> Açılar, yüzeye dik olan <b>normal</b> doğrusuyla ölçülür — yüzeyin kendisiyle değil."}],
        p:["<b>Düzgün yansıma:</b> pürüzsüz yüzeyde ışınlar düzenli döner, net görüntü oluşur.",
@@ -1087,7 +1108,7 @@
           "Kırmızı, turuncu, sarı, yeşil, mavi, lacivert ve mor renklere ayrılır. Doğadaki örneği <b>gökkuşağı</b>dır.",
           "Yaprak beyaz ışığın içindeki <b>yeşil rengi yansıtır</b>, diğerlerini soğurur."]},
 
-      {n:"Maddenin Ayırt Edici Özellikleri", w:"Mart–Nisan",
+      {n:"Maddenin Ayırt Edici Özellikleri", w:"Mart–Nisan", t:["ÜNİTE 5 · Maddenin Ayırt Edici Özellikleri"],
        lead:"<b>Ayırt edici özellik</b>, madde miktarı değişse de değişmeyen, maddeyi tanımaya yarayan özelliktir. Yoğunluk, erime/donma noktası ve kaynama noktası böyledir; kütle ve hacim değildir.",
        p:["<b>Genleşme:</b> madde ısı alınca tanecikleri hızlanır, aralarındaki boşluk artar, madde genişler.",
           "Gazlar en çok, katılar en az genleşir. Demiryolu raylarındaki boşluk, köprü derzleri bu yüzdendir.",
@@ -1105,7 +1126,7 @@
           "Alınan ısı, sıcaklığı yükseltmek yerine <b>tanecikler arasındaki bağları koparmaya</b> harcanır.",
           "<b>Erime noktaları eşittir.</b> Erime noktası ayırt edici özelliktir; miktar arttıkça yalnızca erime <b>süresi</b> uzar."]},
 
-      {n:"Elektriğin İletimi ve Direnç", w:"Nisan–Mayıs",
+      {n:"Elektriğin İletimi ve Direnç", w:"Nisan–Mayıs", t:["ÜNİTE 6 · Elektriğin İletimi ve Direnç"],
        lead:"Elektrik akımını geçiren maddelere <b>iletken</b> (bakır, alüminyum, demir, grafit, tuzlu su), geçirmeyenlere <b>yalıtkan</b> (plastik, cam, kuru tahta, lastik) denir. Kabloların içi bakır, dışı plastiktir.",
        box:[{t:"Direnç", h:"Bir iletkenin elektrik akımına karşı gösterdiği zorluğa <b>direnç</b> denir. Birimi <b>ohm</b>, sembolü <b>Ω</b>'dır. Ampulün içindeki ince tel bir dirençtir; akıma zorluk gösterdiği için ısınır ve ışık verir."}],
        p:["Telin <b>boyu uzarsa</b> direnç <b>artar</b>.","Telin <b>kesiti (kalınlığı) artarsa</b> direnç <b>azalır</b>.",
@@ -1123,7 +1144,7 @@
           "<b>Azalır (sönükleşir).</b> Toplam direnç arttığı için devreden geçen akım azalır.",
           "Plastik <b>yalıtkandır</b>; akımın dışarı çıkmasını ve dokunan kişiye geçmesini engeller."]},
 
-      {n:"Sürdürülebilir Yaşam ve Etkileşim", w:"Mayıs–Haziran",
+      {n:"Sürdürülebilir Yaşam ve Etkileşim", w:"Mayıs–Haziran", t:["ÜNİTE 7 · Sürdürülebilir Yaşam ve Etkileşim"],
        lead:"Bu ünite yeni programla eklendi. İki ana başlığı var: <b>biyoçeşitlilik</b> ve <b>insan-çevre etkileşimi</b>.",
        p:["<b>Biyoçeşitlilik:</b> bir bölgedeki canlı türlerinin çeşitliliği. Bir türün yok olması bütün besin zincirini etkiler.",
           "Türkiye, üç farklı iklim ve bitki örtüsüne sahip olduğu için biyoçeşitliliği çok yüksek bir ülkedir.",
@@ -1147,7 +1168,7 @@
      note:"İskelet MEB'in <b>6 teması</b>: Dilimizin Zenginliği, Bağımsızlık Yolu, Farklı Dünyalar, İletişim ve Sosyal İlişkiler, Bilim ve Teknoloji, Lider Ruhlar. Resmî program dil bilgisini tema tema sabitlemiyor — aşağıdaki dağılım, her temanın resmî içerik çerçevesine (ör. 4. temada <i>yazım kurallarını uygulama</i> ve <i>noktalama işaretlerini uygulama</i>) bakılarak yapıldı. <b>Okulunun kitabında sıra biraz kayabilir.</b>",
      units:[
 
-      {n:"Dilimizin Zenginliği · Sözcükte Anlam", w:"Eylül",
+      {n:"Dilimizin Zenginliği · Sözcükte Anlam", w:"Eylül", t:["KONU 1 · Sözcükte Anlam"],
        lead:"Bir sözcüğün anlamı, içinde bulunduğu cümleye göre değişir. Sınavda sorulan da tam olarak budur: sözcüğün o cümledeki anlamı.",
        p:["<b>Gerçek (temel) anlam:</b> akla ilk gelen anlam. \"Buzlu <u>soğuk</u> su içti.\"",
           "<b>Yan anlam:</b> temel anlamla <b>benzerlik</b> ilişkisi kuran anlam. \"Masanın <u>ayağı</u> kırıldı.\"",
@@ -1169,7 +1190,7 @@
           "Örnek: \"Sınavdan yüz aldı.\" (sayı) / \"Yüzünü yıkadı.\" (surat)"]},
 
 
-      {n:"Dilimizin Zenginliği · Deyim, Atasözü ve Söz Sanatları", w:"Ekim",
+      {n:"Dilimizin Zenginliği · Deyim, Atasözü ve Söz Sanatları", w:"Ekim", t:["KONU 2 · Deyimler, Atasözleri ve Söz Sanatları"],
        lead:"Deyim ve atasözü ayrımı her sınavda çıkar; ayırmanın tek pratik yolu öğüt olup olmadığına bakmaktır.",
        box:[{t:"Deyim mi atasözü mü?", h:"<b>Deyim</b> bir durumu çarpıcı anlatır, öğüt vermez, cümle içinde kullanılır: \"etekleri zil çalmak\". <b>Atasözü</b> anonimdir, genel bir doğruyu ya da öğüdü tek başına bir yargı olarak söyler: \"Damlaya damlaya göl olur.\" Kısacası: <b>öğüt varsa atasözü</b>."}],
        p:["<b>Benzetme (teşbih):</b> bir varlığı başkasına benzetmek. \"<u>Aslan gibi</u> delikanlı\"",
@@ -1189,7 +1210,7 @@
           "<b>Benzetme (teşbih)</b>","Çok <b>güzel bir kişi</b> için kullanılır."]},
 
 
-      {n:"Bağımsızlık Yolu · Cümlede Anlam", w:"Kasım",
+      {n:"Bağımsızlık Yolu · Cümlede Anlam", w:"Kasım", t:["KONU 3 · Cümlede Anlam"],
        lead:"Cümleler arasındaki anlam ilişkisini bulmak, ipucu sözcükleri tanımakla başlar.",
        tbl:[{h:["Anlam ilişkisi","İpucu","Örnek"], r:[
           ["Neden – sonuç","için, -dığı için, -den dolayı","Yağmur yağdığı <u>için</u> maç ertelendi."],
@@ -1210,7 +1231,7 @@
           "<b>Nesnel</b> — sayfa sayısı sayılarak kanıtlanabilir."]},
 
 
-      {n:"Farklı Dünyalar · Paragraf ve Metin Türleri", w:"Aralık–Ocak",
+      {n:"Farklı Dünyalar · Paragraf ve Metin Türleri", w:"Aralık–Ocak", t:["KONU 4 · Paragraf ve Metin Türleri"],
        lead:"Paragraf sorularında en çok karıştırılan ikili konu ile ana fikirdir: konu \"neden söz ediliyor\", ana fikir \"bununla ne anlatılmak isteniyor\".",
        p:["<b>Konu:</b> paragrafta neden söz ediliyor. <b>Ana fikir:</b> yazarın vermek istediği temel mesaj. <b>Yardımcı fikirler:</b> ana fikri destekleyen açıklamalar.",
           "<b>Anlatım biçimleri:</b> öyküleyici (olay anlatır), betimleyici (gözümüzde canlandırır), açıklayıcı (bilgi verir), tartışmacı (bir görüşü savunur)."],
@@ -1234,7 +1255,7 @@
           "Konuyu ya da ana fikri yansıtmalı, <b>kısa ve dikkat çekici</b> olmalı, paragrafın tamamını kapsamalıdır."]},
 
 
-      {n:"İletişim ve Sosyal İlişkiler · Yazım Kuralları ve Noktalama", w:"Şubat–Mart",
+      {n:"İletişim ve Sosyal İlişkiler · Yazım Kuralları ve Noktalama", w:"Şubat–Mart", t:["KONU 5 · Yazım Kuralları ve Noktalama"],
        lead:"Bu konu ezber değil, birkaç sağlam kuralın uygulanmasıdır. En çok sorulan üçlüyü bilmek soruların çoğunu çözer.",
        box:[{t:"Sınavda en çok sorulan üçlü", h:"<ul><li><b>de / da:</b> \"dahi, bile\" anlamı veriyorsa <b>bağlaçtır, ayrı</b> yazılır (\"Ben de geldim.\"). Bulunma hâli eki ise <b>bitişik</b> (\"Evde kimse yok.\"). Ayrı yazılan \"de\" cümleden çıkarılabilir.</li><li><b>ki:</b> bağlaç olan \"ki\" <b>ayrı</b> (\"Biliyorum ki gelecek.\"). İlgi zamiri ve sıfat yapan \"-ki\" <b>bitişik</b> (\"benimki, akşamki\"). İstisnalar bitişik: <b>çünkü, oysaki, sanki, mademki, halbuki, belki, meğerki</b>.</li><li><b>mi:</b> soru eki <b>her zaman ayrı</b>: \"Geldin mi?\"</li></ul>"}],
        p:["<b>Kesme işareti:</b> özel adlara gelen <b>çekim ekleri</b> kesmeyle ayrılır (Ankara'ya, Ali'nin). <b>Yapım ekleri ayrılmaz</b> (Türkçe, Ankaralı).",
@@ -1253,7 +1274,7 @@
           "<b>\"Ali, eve gelince annesine sordu: 'Yemek hazır mı?'\"</b>"]},
 
 
-      {n:"Bilim ve Teknoloji · Sözcük Yapısı: Kök, Gövde, Ekler", w:"Nisan",
+      {n:"Bilim ve Teknoloji · Sözcük Yapısı: Kök, Gövde, Ekler", w:"Nisan", t:["KONU 6 · Sözcük Yapısı"],
        lead:"<b>Kök</b>, sözcüğün anlamlı en küçük parçasıdır; isim kökü (göz, yol) ya da fiil kökü (gel-, yaz-) olur. Köke yapım eki eklenince <b>gövde</b> oluşur.",
        box:[{t:"Yapım eki mi çekim eki mi?", h:"<b>Yapım eki</b> yeni bir sözcük türetir: göz → göz<u>lük</u> → gözlük<u>çü</u>. <b>Çekim eki</b> yeni sözcük türetmez, yalnızca cümledeki görevini belirler: çoğul (-ler), hâl (-e, -i, -de, -den), iyelik (-im, -in), kip ve kişi ekleri."}],
        p:["<b>Basit sözcük:</b> yapım eki almamış. <em>kitaplar</em> (-lar çekim ekidir), <em>evden</em>",
@@ -1272,7 +1293,7 @@
           "Yapım eki yeni bir sözcük türetir; çekim eki türetmez, yalnızca cümle içinde görev kazandırır."]},
 
 
-      {n:"Bilim ve Teknoloji · İsim, Sıfat ve Zamir", w:"Nisan–Mayıs",
+      {n:"Bilim ve Teknoloji · İsim, Sıfat ve Zamir", w:"Nisan–Mayıs", t:["KONU 7 · İsim, Sıfat ve Zamir"],
        lead:"Sıfat ile zamiri ayırmanın kuralı tektir: arkasından isim geliyorsa sıfat, ismin yerini tutuyorsa zamirdir.",
        p:["<b>İsim:</b> varlıklara verilen ad. Özel/cins, tekil/çoğul/topluluk, somut/soyut.",
           "<b>Sıfat:</b> ismin <b>önüne</b> gelip onu niteleyen ya da belirten sözcük. Tek başına kullanılamaz.",
@@ -1297,7 +1318,7 @@
           "<b>Soyut isim</b> — duyu organlarıyla algılanamazlar."]},
 
 
-      {n:"Lider Ruhlar · Fiiller: Kip ve Kişi", w:"Mayıs–Haziran",
+      {n:"Lider Ruhlar · Fiiller: Kip ve Kişi", w:"Mayıs–Haziran", t:["KONU 8 · Fiiller: Kip ve Kişi"],
        lead:"Fiil, iş-oluş-durum bildiren sözcüktür. <b>Kip eki</b> eylemin ne zaman ya da hangi dilekle yapıldığını, <b>kişi eki</b> kimin yaptığını gösterir.",
        tbl:[{h:["Kip","Eki","Örnek"], r:[
           ["Görülen (bilinen) geçmiş","-dı / -di / -du / -dü","geldi"],
@@ -1325,7 +1346,7 @@
      plist:{t:"6. Sınıf Sosyal — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjCLO23ekG1_euuJfrHI5qU_"},
      note:"Bu dersin ünite adları yeni programda tamamen değişti. Eski \"Birey ve Toplum, Kültür ve Miras, İnsanlar Yerler ve Çevreler…\" başlıkları artık kullanılmıyor.",
      units:[
-      {n:"Birlikte Yaşamak", w:"Eylül–Ekim",
+      {n:"Birlikte Yaşamak", w:"Eylül–Ekim", t:["ALAN 1 · Birlikte Yaşamak"],
        lead:"Üç başlıkta ilerler: <b>zaman içinde değişen gruplar ve roller</b>, <b>kültürel bağlarımız ve millî değerlerimiz</b>, <b>toplumsal sorunlar ve çözüm önerileri</b>.",
        p:["<b>Sosyal rol:</b> bir kişinin içinde bulunduğu gruba göre üstlendiği görev. Aynı kişi aynı gün öğrenci, evlat, kardeş, komşu olabilir. Roller <b>zamanla değişir</b>.",
           "Her rolün bir <b>sorumluluğu</b> vardır. Bir kişinin hakkının bittiği yer, başkasının hakkının başladığı yerdir.",
@@ -1345,7 +1366,7 @@
           "Dil, bayrak, İstiklal Marşı, bayramlar.","<b>Birleşmiş Milletler</b> tarafından <b>1989</b>'da kabul edilmiştir.",
           "Örnek sorun: koridorlarda koşmak ve gürültü. Çözüm: teneffüs kurallarını panoya asmak; nöbetçi öğrenci uygulamasını yaygınlaştırmak."]},
 
-      {n:"Evimiz Dünya", w:"Kasım–Aralık",
+      {n:"Evimiz Dünya", w:"Kasım–Aralık", t:["ALAN 2 · Evimiz Dünya"],
        lead:"Üç başlık: <b>ülkemizin, kıtaların ve okyanusların konum özellikleri</b>, <b>doğal ve beşerî çevre özellikleri</b>, <b>Türk dünyasıyla kültürel iş birlikleri</b>.",
        p:["<b>Yedi kıta:</b> Asya, Afrika, Kuzey Amerika, Güney Amerika, Antarktika, Avrupa, Okyanusya. <b>Beş okyanus:</b> Büyük (Pasifik), Atlas, Hint, Kuzey Buz, Güney.",
           "<b>Matematik konum:</b> 36°–42° kuzey enlemleri, 26°–45° doğu boylamları arasında. <b>Kuzey ve Doğu Yarım Küre'de</b>, <b>orta kuşakta</b> — dört mevsim bu yüzden belirgin yaşanır.",
@@ -1365,7 +1386,7 @@
           "Doğal çevre insandan bağımsız oluşur: dağ, akarsu. Beşerî çevre insan eliyle oluşur: baraj, otoyol.",
           "<b>TİKA</b> — kardeş ülkelerde kalkınma projeleri yürütür. <b>TÜRKSOY</b> — ortak kültür ve sanat çalışmalarını yürütür."]},
 
-      {n:"Ortak Mirasımız", w:"Aralık–Ocak",
+      {n:"Ortak Mirasımız", w:"Aralık–Ocak", t:["ALAN 3 · Ortak Mirasımız"],
        lead:"Dört başlık: <b>Türkistan'da kurulan ilk Türk devletleri</b>, <b>İslam medeniyetinin katkıları</b>, <b>İslamiyet'in kabulüyle gelen değişimler</b>, <b>Anadolu'nun Türkleşmesi</b>.",
        tbl:[{h:["Devlet / Olay","Tarih","Önemi"], r:[
           ["Asya Hun Devleti","MÖ 3. yy","Bilinen ilk Türk devleti; Mete Han orduyu onluk sisteme göre düzenledi"],
@@ -1389,7 +1410,7 @@
           "Türkler ile Araplar yakınlaştı ve Türkler İslamiyet'i kabul etmeye başladı; <b>kâğıt üretimi</b> Çin dışına yayıldı.",
           "<b>El-Harezmi.</b> <b>Matematik</b> alanında çalışmış, cebirin kurucusu sayılır."]},
 
-      {n:"Yaşayan Demokrasimiz", w:"Şubat–Mart",
+      {n:"Yaşayan Demokrasimiz", w:"Şubat–Mart", t:["ALAN 4 · Yaşayan Demokrasimiz"],
        lead:"Demokrasinin ilkeleri, yönetim şekilleri ve devletin üç erki. Bu alanın sorularında kuvvetler ayrılığı her zaman çıkar.",
        p:["<b>Temel ilkeler:</b> millî egemenlik, özgürlük, eşitlik, hukukun üstünlüğü, çoğulculuk, katılım, serbest ve düzenli seçimler.",
           "<b>Yönetim şekilleri:</b> <b>demokrasi</b> (halk yönetir), <b>monarşi</b> (tek kişi, genellikle veraset), <b>oligarşi</b> (belirli bir zümre), <b>cumhuriyet</b> (devlet başkanı seçimle belirlenir).",
@@ -1408,7 +1429,7 @@
           "<b>Dilekçe hakkını</b> kullanmak, <b>CİMER</b>'e başvurmak, <b>Kamu Denetçiliği Kurumu</b>'na başvurmak.",
           "Herkes aday olabilir ve oyunu özgürce kullanır; bu katılım ve eşitlik ilkelerinin uygulanmasıdır. Çoğunluğun kararına saygı da demokratik tutumun gereğidir."]},
 
-      {n:"Hayatımızdaki Ekonomi", w:"Nisan–Mayıs",
+      {n:"Hayatımızdaki Ekonomi", w:"Nisan–Mayıs", t:["ALAN 5 · Hayatımızdaki Ekonomi"],
        lead:"Kaynaklar, ekonomik faaliyetler ve bilinçli tüketicilik. Günlük hayatta en çok işe yarayan öğrenme alanı budur.",
        p:["<b>Kaynak çeşitleri:</b> <b>doğal kaynaklar</b> (su, orman, madenler), <b>insan kaynağı</b> (nitelikli iş gücü), <b>sermaye</b> (makine, para, bina).",
           "<b>Ekonomik faaliyetler:</b> tarım, hayvancılık, madencilik, sanayi, ticaret, turizm. Hangi faaliyetin öne çıktığını <b>iklim, yer şekilleri ve kaynaklar</b> belirler.",
@@ -1429,7 +1450,7 @@
           "Eğitim ve beceriyle donanmış, işini verimli yapabilen çalışandır. Aynı kaynakla daha çok üretim sağlar.",
           "Bölgede <b>her mevsim yağış</b> görülmesi ve ılıman iklim uygun koşulları oluşturur."]},
 
-      {n:"Teknoloji ve Sosyal Bilimler", w:"Mayıs–Haziran",
+      {n:"Teknoloji ve Sosyal Bilimler", w:"Mayıs–Haziran", t:["ALAN 6 · Teknoloji ve Sosyal Bilimler"],
        lead:"Ana tema: <b>dijitalleşmenin ve teknolojik gelişmelerin vatandaşlık hak ve sorumluluklarına etkisi</b>.",
        tbl:[{h:["Sosyal bilim","Neyi inceler"], r:[
           ["Tarih","Geçmişteki olayları yer ve zaman göstererek, belgelere dayanarak"],
@@ -1462,7 +1483,7 @@
      plist:{t:"tonguç 6. SINIF kanalında İngilizce videoları", u:"https://www.youtube.com/@tonguc6/search?query=%C4%B0ngilizce"},
      note:"Tema adları MEB'in güncel programından; 6. sınıf <b>A2.2</b> düzeyindedir. Temaların altındaki dil yapıları bu düzeyde o temalarda işlenen tipik yapılardır — okulunun kitabında sıra biraz farklı olabilir.",
      units:[
-      {n:"School Life & Education", w:"Eylül",
+      {n:"School Life & Education", w:"Eylül", t:["TEMA 1 · School Life & Education"],
        voc:[["Maths","matematik"],["Science","fen bilimleri"],["Turkish","Türkçe"],["English","İngilizce"],
             ["Social Studies","sosyal bilgiler"],["Music","müzik"],["Art","görsel sanatlar"],
             ["PE (Physical Education)","beden eğitimi"],["IT","bilişim teknolojileri"],
@@ -1483,7 +1504,7 @@
           "Örnek: <b>My favourite lesson is Science because it is interesting.</b>","<b>in</b> October",
           "<b>Çarşamba günü müzik dersimiz yok.</b>"]},
 
-      {n:"Classroom Life & Learning", w:"Ekim",
+      {n:"Classroom Life & Learning", w:"Ekim", t:["TEMA 2 · Classroom Life & Learning"],
        voc:[["board","tahta"],["desk","sıra"],["chair","sandalye"],["ruler","cetvel"],
             ["rubber / eraser","silgi"],["sharpener","kalemtıraş"],["pencil case","kalemlik"],
             ["glue","yapıştırıcı"],["scissors","makas"],["dictionary","sözlük"],["notebook","defter"],
@@ -1503,7 +1524,7 @@
        a:["<b>are</b> (windows çoğul)","<b>There isn't a map on the wall.</b>","<b>Don't close the door.</b>",
           "<b>Can I borrow your ruler, please?</b>","<b>Dolapta hiç sözlük var mı?</b>"]},
 
-      {n:"Personal Life & Well-Being", w:"Kasım",
+      {n:"Personal Life & Well-Being", w:"Kasım", t:["TEMA 3 · Personal Life & Well-Being"],
        voc:[["get up","(yataktan) kalkmak"],["have breakfast","kahvaltı yapmak"],
             ["brush my teeth","dişlerimi fırçalamak"],["get dressed","giyinmek"],
             ["have a shower","duş almak"],["go to school","okula gitmek"],["do homework","ödev yapmak"],
@@ -1525,7 +1546,7 @@
        a:["<b>gets</b>","<b>She doesn't watch TV in the evening.</b>","<b>I am never late.</b>","<b>reading</b>",
           "<b>My brother brushes his teeth every morning.</b>"]},
 
-      {n:"Family Life & Home", w:"Aralık",
+      {n:"Family Life & Home", w:"Aralık", t:["TEMA 4 · Family Life & Home"],
        lead:"<b>Aile:</b> mother, father, parents, sister, brother, grandmother, grandfather, aunt, uncle, cousin.<br><b>Görünüş:</b> tall, short, slim, curly/straight hair, wear glasses. <b>Kişilik:</b> funny, kind, hard-working, shy, helpful, clever.",
        box:[{t:"have got & possessives", h:"<ul><li><code>I / you / we / they <b>have got</b></code> · <code>he / she / it <b>has got</b></code></li><li>Olumsuz: <code>I haven't got a sister.</code> Soru: <code>Have you got any cousins?</code></li><li><b>'s</b> sahiplik bildirir: <code>my father's car</code></li><li>İyelik sıfatları: my, your, his, her, its, our, their</li></ul>"}],
        trap:"<code>his</code> ile <code>her</code>'i sahip olunan şeye göre seçmek. İyelik sıfatı <b>sahibin</b> cinsiyetine göre belirlenir: <code>My brother and <b>his</b> book.</code>",
@@ -1537,7 +1558,7 @@
        a:["<b>has</b>","aunt · cousin","<b>my father's car</b>","<b>His</b>",
           "<b>My grandfather is very kind and helpful.</b>"]},
 
-      {n:"Life in the Neighbourhood, City & Social Life", w:"Ocak",
+      {n:"Life in the Neighbourhood, City & Social Life", w:"Ocak", t:["TEMA 5 · Life in the Neighbourhood, City & Social Life"],
        lead:"<b>Mekânlar:</b> library, hospital, bank, post office, bus stop, pharmacy, bookstore, supermarket, mosque, park, cinema, museum.<br><b>Yol sorma:</b> Excuse me, how can I get to the library? – Go straight ahead. Turn left / right. It's on your left.",
        box:[{t:"Prepositions of place", h:"<code>next to</code> (yanında) · <code>across from / opposite</code> (karşısında) · <code>between</code> (arasında) · <code>behind</code> (arkasında) · <code>in front of</code> (önünde) · <code>on the corner of</code> (köşesinde)"}],
        trap:"<code>in front of</code> ile <code>opposite</code>'i karıştırmak. <code>in front of</code> aynı tarafta önünde, <code>opposite</code> yolun karşısında demektir.",
@@ -1549,7 +1570,7 @@
        a:["pharmacy (chemist's) · post office","<b>between</b>","<b>Excuse me, how can I get to the library?</b>",
           "<b>across from</b> (veya <b>opposite</b>)","<b>Go straight ahead and turn right at the second street.</b>"]},
 
-      {n:"Life in the World & Culture", w:"Şubat–Mart",
+      {n:"Life in the World & Culture", w:"Şubat–Mart", t:["TEMA 6 · Life in the World & Culture"],
        lead:"<b>Ülke – milliyet:</b> Türkiye – Turkish, England – English, Germany – German, France – French, Italy – Italian, Japan – Japanese, Spain – Spanish.<br><b>Kültür:</b> festival, traditional, costume, celebrate, national day, folk dance, souvenir.",
        box:[{t:"Comparatives", h:"<ul><li>Kısa sıfat + <b>-er than</b>: <code>big → bigger than</code></li><li>Sonu <b>-y</b> ile bitenlerde y → i: <code>happy → happier</code></li><li>Uzun sıfatlarda <b>more … than</b>: <code>more beautiful than</code></li><li>Düzensiz: <code>good → better</code>, <code>bad → worse</code></li></ul>"}],
        trap:"Uzun sıfata hem <code>more</code> hem <code>-er</code> eklemek. <code>more bigger</code> yanlış, doğrusu <code>bigger</code>.",
@@ -1561,7 +1582,7 @@
        a:["<b>bigger</b>","<b>more interesting</b>","<b>Japanese</b>","<b>celebrate</b> (People çoğul)",
           "<b>Turkish cuisine is one of the most famous cuisines in the world.</b>"]},
 
-      {n:"Life in Nature & Global Problems", w:"Nisan–Mayıs",
+      {n:"Life in Nature & Global Problems", w:"Nisan–Mayıs", t:["TEMA 7 · Life in Nature & Global Problems"],
        lead:"<b>Hava:</b> sunny, rainy, snowy, cloudy, windy, foggy, stormy.<br><b>Çevre:</b> recycle, reuse, reduce, pollution, waste, save water, plant trees, global warming, endangered animals.",
        box:[{t:"should / shouldn't", h:"Öğüt ve tavsiye için kullanılır; ardından fiil <b>yalın</b> gelir. <code>We should save water.</code> / <code>We shouldn't waste paper.</code> Soru: <code>What should we do?</code>"}],
        trap:"<code>should</code>'dan sonra <code>to</code> koymak. <code>We should to save water</code> yanlıştır; doğrusu <code>We should save water.</code>",
@@ -1573,7 +1594,7 @@
        a:["<b>should</b>","<b>shouldn't</b>","recycling · global warming","<b>Turn off the lights.</b>",
           "<b>We should plant trees to protect the planet.</b>"]},
 
-      {n:"Life in the Universe & Future", w:"Mayıs–Haziran",
+      {n:"Life in the Universe & Future", w:"Mayıs–Haziran", t:["TEMA 8 · Life in the Universe & Future"],
        lead:"<b>Uzay:</b> planet, star, moon, sun, space, astronaut, rocket, spaceship, telescope, satellite, solar system, galaxy.<br><b>Gelecek:</b> in the future, one day, next year, dream job, invent, discover, explore.",
        box:[{t:"be going to & will", h:"<ul><li><b>be going to</b> → planlanmış niyet: <code>I am going to be an engineer.</code></li><li><b>will</b> → tahmin, anlık karar: <code>People will live on Mars one day.</code></li><li>Olumsuz: <code>won't</code> (= will not)</li><li>İkisinden sonra da fiil <b>yalın</b> gelir</li></ul>"}],
        trap:"<code>going to</code>'dan sonra fiili çekmek. <code>I am going to be</code> doğru, <code>I am going to am</code> yanlıştır.",
@@ -1590,7 +1611,7 @@
      plist:{t:"tonguç 6. SINIF kanalında Din Kültürü videoları", u:"https://www.youtube.com/@tonguc6/search?query=Din"},
      note:"Ünite adları yeni programda değişti: eski programdaki <b>Namaz</b>, <b>Zararlı Alışkanlıklar</b> ve <b>Temel Değerlerimiz</b> başlıkları yerine <b>Ramazan ve Oruç</b>, <b>Ahlaki Davranışlar</b> ve <b>Kültürümüzdeki Dinî Motifler</b> geldi.",
      units:[
-      {n:"Peygamber ve İlahi Kitap İnancı", w:"Eylül–Ekim",
+      {n:"Peygamber ve İlahi Kitap İnancı", w:"Eylül–Ekim", t:["ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı"],
        lead:"Allah'ın insanlara doğru yolu göstermek için peygamber göndermesi ve onlara kitap indirmesi, İslam inancının temel esaslarından ikisidir.",
        p:["<b>Peygamber:</b> Allah'ın mesajını insanlara ulaştırmakla görevlendirdiği seçilmiş insan. Peygamberler de insandır; yer, içer, yorulur.",
           "<b>Peygamberlerin ortak sıfatları:</b> sıdk (doğruluk), emanet (güvenilirlik), fetanet (akıllılık), ismet (günahsızlık), tebliğ (bildirme).",
@@ -1612,7 +1633,7 @@
           "İndirildiği günden beri <b>hiç değiştirilmeden korunmuş</b> olmasıdır.",
           "<b>Hz. Nuh, Hz. İbrahim, Hz. Musa, Hz. İsa ve Hz. Muhammed</b>"]},
 
-      {n:"Ramazan ve Oruç", w:"Kasım–Aralık",
+      {n:"Ramazan ve Oruç", w:"Kasım–Aralık", t:["ÜNİTE 2 · Ramazan ve Oruç"],
        lead:"Oruç, İslam'ın beş şartından biridir. Ramazan ayı boyunca imsaktan iftara kadar yeme, içme ve orucu bozan davranışlardan uzak durmaktır.",
        p:["<b>İmsak</b> orucun başlama, <b>iftar</b> bitiş vaktidir. <b>Sahur</b>, imsaktan önce yenen yemektir.",
           "Oruç; ergenlik çağına girmiş, akıllı ve sağlıklı her Müslümana farzdır.",
@@ -1634,7 +1655,7 @@
           "Kur'an bu ayda indirilmeye başlanmıştır; <b>Kadir Gecesi</b> bu aydadır (teravih namazı da bu aya özgüdür).",
           "<b>Sabır</b> ve <b>irade</b> (yoksulun hâlini anlama, paylaşma da kabul)."]},
 
-      {n:"Ahlaki Davranışlar", w:"Ocak–Şubat",
+      {n:"Ahlaki Davranışlar", w:"Ocak–Şubat", t:["ÜNİTE 3 · Ahlaki Davranışlar"],
        lead:"Ahlak, insanın başkalarıyla ve kendisiyle kurduğu ilişkideki tutumudur. Dinin amacı yalnızca ibadet değil, <b>güzel ahlak</b>tır.",
        p:["<b>Doğruluk ve dürüstlük:</b> sözünde durmak, yalan söylememek. Hz. Muhammed'e peygamberlikten önce <b>el-Emin</b> denmesinin sebebi budur.",
           "<b>Adalet:</b> herkese hakkını vermek, taraf tutmamak.",
@@ -1657,7 +1678,7 @@
           "Hayır. <b>Su, ekmek, elektrik ve zaman</b> israfı da israftır.",
           "Kimse görmediğinde de aynı davranışı sürdürüyorsa ahlakidir; yalnızca izlenirken doğru davranmak ahlak değildir."]},
 
-      {n:"Peygamberliğinden Önce Hz. Muhammed", w:"Mart–Nisan",
+      {n:"Peygamberliğinden Önce Hz. Muhammed", w:"Mart–Nisan", t:["ÜNİTE 4 · Peygamberliğinden Önce Hz. Muhammed"],
        lead:"Hz. Muhammed'in doğumundan peygamberliğine kadar geçen dönem, onun toplum içindeki güvenilir kişiliğini gösterir.",
        p:["<b>571</b> yılında <b>Mekke</b>'de doğdu. Babası <b>Abdullah</b> o doğmadan, annesi <b>Âmine</b> altı yaşındayken vefat etti.",
           "Önce dedesi <b>Abdülmuttalib</b>, sonra amcası <b>Ebu Talib</b> tarafından büyütüldü. Sütannesi <b>Halime</b>'dir.",
@@ -1680,7 +1701,7 @@
           "Mekke'de <b>haksızlığa uğrayanların hakkını korumak</b> için kurulan Erdemliler Birliği'dir.",
           "Hacerü'l-Esved'i bir <b>örtünün üzerine koyup</b> kabile temsilcilerinin hepsine birden taşıtarak, kimseyi üstün kılmadan çözmüştür."]},
 
-      {n:"Kültürümüzdeki Dinî Motifler", w:"Mayıs–Haziran",
+      {n:"Kültürümüzdeki Dinî Motifler", w:"Mayıs–Haziran", t:["ÜNİTE 5 · Kültürümüzdeki Dinî Motifler"],
        lead:"Din, günlük dilden mimariye, sanattan geleneklere kadar kültürümüzün her yerinde iz bırakmıştır. Bu ünite o izleri tanımayı amaçlar.",
        p:["<b>Dildeki izler:</b> \"Allah'a emanet\", \"inşallah\", \"maşallah\", \"Allah razı olsun\", \"hayırlı olsun\", \"başın sağ olsun\" gibi kalıplar.",
           "<b>Mimarideki izler:</b> cami, medrese, külliye, çeşme, han, kervansaray, imarethane, şifahane. <b>Mimar Sinan</b>'ın Selimiye ve Süleymaniye camileri en bilinen örneklerdir.",
@@ -1711,7 +1732,7 @@
      plist:{t:"7. Sınıf Matematik — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBkJB0sv8aW58-o4CAsje7Vp"},
      note:"7. sınıf 2026–2027'de <b>ilk kez</b> Maarif Modeli ile okuyor. Matematik \"ünite\" değil <b>tema</b> başlıkları altında işleniyor; ünite adları geçen yılki kaynaklarla birebir uyuşmaz.",
      units:[
-      {n:"Sayılar ve Nicelikler (1) · Tam Sayılar", w:"Eylül",
+      {n:"Sayılar ve Nicelikler (1) · Tam Sayılar", w:"Eylül", t:["TEMA 1 · Tam Sayılar"],
        lead:"Tema 1'in ilk konusu. Tam sayılar: … −3, −2, −1, 0, 1, 2, 3 … Sıcaklık, borç, deniz seviyesinden derinlik, asansör katı — <b>yönü olan</b> her nicelik. Konunun kalbi iki şey: <b>işaret kuralları</b> ve <b>mutlak değer</b>.",
        p:["Tam sayılar doğal sayıları kapsar. Sıfır ne pozitiftir ne negatif; işareti yoktur.",
           "Sayı doğrusunda sağdaki her zaman büyüktür: −5 &lt; −2 &lt; 0 &lt; 3.",
@@ -1741,7 +1762,7 @@
           "−18 + 7 − 12 = <b>−23</b>, yani deniz seviyesinin <b>23 m altında</b>.",
           "İlkinde parantez gibi davranılıp <b>önce toplama</b> yapılır: |−3| = <b>3</b>. İkincisinde her sayının mutlak değeri <b>ayrı ayrı</b> alınıp toplanır: 4 + 1 = <b>5</b>."]},
 
-      {n:"Sayılar ve Nicelikler (1) · Rasyonel Sayılar", w:"Ekim",
+      {n:"Sayılar ve Nicelikler (1) · Rasyonel Sayılar", w:"Ekim", t:["TEMA 1 · Sayılar ve Nicelikler (1)"],
        lead:"Tam sayılardan rasyonel sayılara geçiş. <code>a/b</code> biçiminde yazılabilen (b≠0) her sayı rasyoneldir; ondalık gösterim, devirli ondalıklar, mutlak değer ve sıralama bu temanın belkemiği.",
        p:["Her tam sayı rasyoneldir (5 = 5/1), ama her rasyonel sayı tam sayı değildir.",
           "Negatif kesirlerde sıralama ters işler: −1/2 sayısı −3/4 sayısından büyüktür.",
@@ -1766,7 +1787,7 @@
           "(−4/7) · (21/2) = −84/14 = <b>−6</b>",
           "<b>−1/2, −0,25, 0,3, 2/5</b> (−0,5 < −0,25 < 0,3 < 0,4)"]},
 
-      {n:"Sayılar ve Nicelikler (2)", w:"Kasım",
+      {n:"Sayılar ve Nicelikler (2)", w:"Kasım", t:["TEMA 2 · Sayılar ve Nicelikler (2)"],
        lead:"Oran, orantı ve yüzde. Günlük hayatın en çok karşına çıkan matematiği: indirim, kâr-zarar, harita ölçeği, tarif oranları.",
        p:["Oran birimsizdir; ancak aynı türden iki çokluk oranlanır.",
           "Doğru orantıda bölüm sabittir (a/b = k), ters orantıda çarpım sabittir (a·b = k).",
@@ -1788,7 +1809,7 @@
           "Kız + erkek = 3 + 5 = 8 pay. 40 ÷ 8 = 5 → kız = 3 × 5 = <b>15</b>",
           "400 × 1,15 = <b>460 TL</b>"]},
 
-      {n:"İşlemlerle Cebirsel Düşünme ve Değişimler", w:"Aralık",
+      {n:"İşlemlerle Cebirsel Düşünme ve Değişimler", w:"Aralık", t:["TEMA 3 · İşlemlerle Cebirsel Düşünme"],
        lead:"Cebirsel ifadelerle toplama-çıkarma, bir rasyonel sayıyla çarpma; birinci dereceden bir bilinmeyenli denklem ve eşitsizlik kurma ve çözme.",
        p:["Benzer terim = aynı değişken ve aynı üs. 3x ile 3x² benzer terim değildir.",
           "Denklemde eşitliğin iki tarafına aynı işlem uygulanır — denge bozulmaz.",
@@ -1815,7 +1836,7 @@
           "4x + 2(3x) = 60 → 10x = 60 → <b>x = 6 TL</b>",
           "2x + 5 − x + 3 = <b>x + 8</b>"]},
 
-      {n:"Dönüşüm", w:"Ocak",
+      {n:"Dönüşüm", w:"Ocak", t:["TEMA 4 · Dönüşüm"],
        lead:"Yansıma ve ötelemeyle şekillerin düzlemde yer değiştirmesi; orta dikme ve açıortayın temel özellikleri.",
        p:["Yansımada şekil ile görüntüsü eştir; uzunluklar ve açılar korunur, yön değişir.",
           "Bir doğru parçasının orta dikmesi üzerindeki her nokta, uç noktalara eşit uzaklıktadır.",
@@ -1836,7 +1857,7 @@
           "Bir açıyı <b>iki eş açıya</b> bölen ışındır. Üzerindeki her nokta, açının <b>iki koluna eşit uzaklıktadır</b>.",
           "Yansımada şekil eş kalır ama <b>yönü ters döner</b>; ötelemede şekil aynen kaydırılır, yönü değişmez."]},
 
-      {n:"Geometrik Nicelikler (1)", w:"Şubat",
+      {n:"Geometrik Nicelikler (1)", w:"Şubat", t:["TEMA 5 · Geometrik Nicelikler (1)"],
        lead:"Eş küplerle yapılar kurma ve prizmaların yüzey alanı. Açınımı çizebilmek bu temanın anahtarı.",
        p:["Yüzey alanı = 2 × (taban alanı) + yanal alan.",
           "Yanal alan = taban çevresi × yükseklik.",
@@ -1857,7 +1878,7 @@
           "6a² = 150 → a² = 25 → <b>a = 5 cm</b>",
           "27 = 3³ olduğundan bir ayrıtta <b>3 küp</b> vardır."]},
 
-      {n:"Geometrik Nicelikler (2)", w:"Mart",
+      {n:"Geometrik Nicelikler (2)", w:"Mart", t:["TEMA 6 · Geometrik Nicelikler (2)"],
        lead:"Prizmaların hacmi ve hacim birimleri arasındaki dönüşümler.",
        p:["Hacim = taban alanı × yükseklik.",
           "1 dm³ = 1 litre = 1000 cm³.",
@@ -1883,7 +1904,7 @@
           "288 ÷ 36 = <b>8 cm</b>",
           "50 · 40 · 30 = 60 000 cm³ = <b>60 litre</b>"]},
 
-      {n:"Geometrik Şekiller", w:"Nisan",
+      {n:"Geometrik Şekiller", w:"Nisan", t:["TEMA 7 · Geometrik Şekiller"],
        lead:"Üçgenin yardımcı elemanları (yükseklik, kenarortay, açıortay) ve üçgende kenar-açı ilişkileri.",
        p:["Üçgen eşitsizliği: iki kenarın toplamı üçüncü kenardan büyük olmalı.",
           "Büyük kenarın karşısında büyük açı bulunur.",
@@ -1905,7 +1926,7 @@
           "Her köşe için bu üçü <b>aynı doğru parçasıdır</b> (çakışıktır).",
           "<b>Hipotenüs</b>tür ve üçgenin <b>en uzun kenarıdır</b>."]},
 
-      {n:"İstatistiksel Araştırma Süreci", w:"Mayıs",
+      {n:"İstatistiksel Araştırma Süreci", w:"Mayıs", t:["TEMA 8 · İstatistiksel Araştırma Süreci"],
        lead:"Veri toplama, merkezî eğilim ölçüleri (aritmetik ortalama, ortanca, tepe değer) ve yayılım ölçüleri (açıklık, ortalama mutlak sapma).",
        p:["Ortancayı bulmadan önce veriyi mutlaka küçükten büyüğe sırala.",
           "Veri sayısı çiftse ortanca, ortadaki iki sayının ortalamasıdır.",
@@ -1926,7 +1947,7 @@
           "<b>Ortalama belirgin biçimde artar</b>, <b>ortanca ise çok az değişir veya aynı kalır</b>.",
           "İkisi de <b>0</b>'dır. Bütün veriler birbirine eşit, yani hiç dağılım yok demektir."]},
 
-      {n:"Veriden Olasılığa", w:"Haziran",
+      {n:"Veriden Olasılığa", w:"Haziran", t:["TEMA 9 · Veriden Olasılığa"],
        lead:"Olayların ayrık olup olmamasına göre sınıflandırılması ve teorik olasılık hesabı.",
        p:["Olasılık = istenen durum sayısı / tüm durum sayısı; her zaman 0 ile 1 arasındadır.",
           "Kesin olayın olasılığı 1, imkânsız olayın 0'dır.",
@@ -1952,7 +1973,7 @@
      plist:{t:"7. Sınıf Fen — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBm8SgZEFz_jTGmIbO5zHiJP"},
      note:"Ünite adları resmî programdan birebir alındı. Eski kaynaklardaki <b>Hücre ve Bölünmeler</b> ile <b>Saf Madde ve Karışımlar</b> başlıkları bu programda farklı adlar altında yeniden düzenlendi.",
      units:[
-      {n:"Uzay Çağı", w:"Eylül–Ekim",
+      {n:"Uzay Çağı", w:"Eylül–Ekim", t:["ÜNİTE 1 · Uzay Çağı"],
        ogr:[{d:"24 Eylül 2026", h:
          '<p><b>Uzay Roketi:</b> Uzaya gönderilen uzay araçlarını taşıyan, itici gücü sağlayan, ' +
          'radyoaktif elementler yakıtı olan uzay aracıdır. İnsansızdır. Eskiden tek kullanımlıktı; ' +
@@ -2009,7 +2030,15 @@
          'oluşturmuşlardır. Bu gök atlasları üzerinde birbirine göre konum değiştirmeyen yıldız ' +
          'kümelerine takımyıldızı demişlerdir. Bunlara insan, hayvan ve nesne isimleri vermişlerdir.</p>' +
          '<p>En bilinen takımyıldızları: Kuzey Tacı, Küçük ve Büyük Ayı, Avcı, Çoban ve 12 Burç ' +
-         '(Aslan, Yay, Başak vb.). <b>88 tane takımyıldızı vardır.</b></p>'}],
+         '(Aslan, Yay, Başak vb.). <b>88 tane takımyıldızı vardır.</b></p>' +
+         '<p><b>Galaksiler (Gökadalar):</b> İçlerinde yıldız, gezegen, nebula, takımyıldız, asteroit vs. ' +
+         'bulunan, bunları büyük bir çekim gücü ile bir arada tutan, evrendeki en büyük gök cismi ' +
+         'topluluklarıdır.</p>' +
+         '<p><b>Gökada çeşitleri ve örnekleri:</b></p>' +
+         '<ul><li>Sarmal gökada → Andromeda</li>' +
+         '<li>Çubuklu sarmal gökada → Samanyolu ve Sombrero</li>' +
+         '<li>Eliptik gökada → M87 Gökadası</li>' +
+         '<li>Düzensiz gökada → Büyük Macellan Gökadası</li></ul>'}],
        lead:"Gök cisimleri, Güneş sistemi, uzay araştırmaları ve uzay teknolojilerinin günlük hayattaki karşılıkları.",
        p:["Yıldız ışık üretir, gezegen üretmez — gezegen yıldızın ışığını yansıtır.",
           "Işık yılı bir uzaklık birimidir, zaman birimi değildir.",
@@ -2040,7 +2069,7 @@
           "GPS ile konum bulma, uydu ile haberleşme, hava durumu tahmini.",
           "Görevini tamamlamış uydu ve roket parçalarının yörüngede birikmesidir. Çok yüksek hızla döndükleri için çalışan uydulara çarpma riski oluştururlar."]},
 
-      {n:"Kuvvet ve Enerjiyi Keşfedelim", w:"Kasım",
+      {n:"Kuvvet ve Enerjiyi Keşfedelim", w:"Kasım", t:["ÜNİTE 2 · Kuvvet ve Enerjiyi Keşfedelim"],
        lead:"Kütle-ağırlık ayrımı, iş kavramı, kinetik ve potansiyel enerji, enerji dönüşümleri.",
        p:["Kütle maddenin miktarıdır (kg) ve değişmez; ağırlık bir kuvvettir (N) ve yer çekimine bağlıdır.",
           "İş = Kuvvet × Yol. Kuvvet doğrultusunda yol alınmazsa iş sıfırdır.",
@@ -2068,7 +2097,7 @@
           "Suyun <b>potansiyel enerjisi</b> → düşerken <b>kinetik enerji</b> → türbini döndürür → <b>elektrik enerjisi</b>.",
           "5 × 10 = <b>50 N</b>. Ay'da yer çekimi Dünya'nın yaklaşık 1/6'sı olduğundan ağırlık <b>yaklaşık 8,3 N</b>'a düşer; kütle yine 5 kg kalır."]},
 
-      {n:"Vücudumuzdaki Sistemler", w:"Aralık–Ocak",
+      {n:"Vücudumuzdaki Sistemler", w:"Aralık–Ocak", t:["ÜNİTE 3 · Vücudumuzdaki Sistemler"],
        lead:"Sindirim, dolaşım, solunum ve boşaltım sistemlerinin yapısı, görevleri ve birbirleriyle ilişkisi.",
        p:["Sindirim yolu: ağız → yutak → yemek borusu → mide → ince bağırsak → kalın bağırsak.",
           "Karbonhidratların kimyasal sindirimi ağızda, proteinlerinki midede, yağlarınki ince bağırsakta başlar.",
@@ -2095,7 +2124,7 @@
           "<b>Deri</b> terleme yoluyla su ve tuz atar; <b>akciğer</b> soluk verirken karbondioksit ve su buharı atar.",
           "Solunum sistemi kana oksijen verir, dolaşım sistemi bu oksijeni bütün hücrelere taşır."]},
 
-      {n:"Işığın Kırılması ve Mercekler", w:"Şubat",
+      {n:"Işığın Kırılması ve Mercekler", w:"Şubat", t:["ÜNİTE 4 · Işığın Kırılması ve Mercekler"],
        lead:"Işığın ortam değiştirirken kırılması, mercek türleri ve göz kusurlarının mercekle düzeltilmesi.",
        p:["Işık az yoğun ortamdan çok yoğun ortama geçerken normale yaklaşır.",
           "İnce kenarlı mercek yakınsaktır (toplar); kalın kenarlı mercek ıraksaktır (dağıtır).",
@@ -2121,7 +2150,7 @@
           "<b>İnce kenarlı (yakınsak)</b> mercektir; ışınları topladığı için cismi büyük gösterir.",
           "Havuzun dibinden gelen ışık sudan havaya geçerken kırılır ve <b>normalden uzaklaşır</b>; bu yüzden dip olduğundan daha yukarıdaymış gibi görünür."]},
 
-      {n:"Maddenin Doğasına Yolculuk", w:"Mart–Nisan",
+      {n:"Maddenin Doğasına Yolculuk", w:"Mart–Nisan", t:["ÜNİTE 5 · Maddenin Doğasına Yolculuk"],
        lead:"Atomun yapısı, element-bileşik-karışım ayrımı ve karışımları ayırma yöntemleri.",
        p:["Atomda proton ve nötron çekirdekte, elektronlar katmanlarda bulunur.",
           "Proton sayısı elementin kimliğidir; değişirse element değişir.",
@@ -2149,7 +2178,7 @@
           "<b>Mıknatısla ayırma.</b> Demir mıknatıstan etkilenir, kum etkilenmez.",
           "Alkol suda <b>çözündüğü</b> için süzgeçten birlikte geçer. <b>Damıtma</b> kullanılır — kaynama noktaları farklıdır."]},
 
-      {n:"Elektriklenme", w:"Nisan–Mayıs",
+      {n:"Elektriklenme", w:"Nisan–Mayıs", t:["ÜNİTE 6 · Elektriklenme"],
        lead:"Elektriklenme çeşitleri, yüklü cisimlerin etkileşimi, elektroskop ve topraklama.",
        p:["Üç yolla elektriklenir: sürtünme, dokunma, etki.",
           "Aynı cins yükler birbirini iter, zıt cins yükler çeker.",
@@ -2175,7 +2204,7 @@
           "Cismin <b>yüklü</b> olduğunu gösterir.",
           "Bir cismin fazla yükünün <b>toprağa aktarılmasıdır</b>; cismi nötr hâle getirir ve elektrik çarpmasını önler."]},
 
-      {n:"Sürdürülebilir Yaşam ve Enerji", w:"Mayıs–Haziran",
+      {n:"Sürdürülebilir Yaşam ve Enerji", w:"Mayıs–Haziran", t:["ÜNİTE 7 · Sürdürülebilir Yaşam ve Enerji"],
        lead:"Yenilenebilir ve yenilenemez enerji kaynakları, geri dönüşüm, kaynakların bilinçli kullanımı.",
        p:["Yenilenebilir: güneş, rüzgâr, hidroelektrik, jeotermal, biyokütle, dalga.",
           "Yenilenemez: kömür, petrol, doğal gaz, nükleer yakıt.",
@@ -2206,7 +2235,7 @@
      plist:{t:"tonguç 7. SINIF kanalında Türkçe videoları", u:"https://www.youtube.com/@tonguc7/search?query=T%C3%BCrk%C3%A7e"},
      note:"Tema adları metin temalarıdır; dil bilgisi konuları bu temaların içine dağıtılmıştır. Aşağıda her temanın yanına o temada ağırlıklı işlenen dil bilgisi konusu eklendi.",
      units:[
-      {n:"Hayat Boyu Gelişim", w:"Eylül–Ekim",
+      {n:"Hayat Boyu Gelişim", w:"Eylül–Ekim", t:["TEMA 1 · Hayat Boyu Gelişim"],
        lead:"Tema metinleri kişisel gelişim ve öğrenme üzerine. <b>Dil bilgisi yükü: fiiller ve fiilde kip.</b>",
        p:["Fiil iş, oluş veya hareket bildirir ve çekimlenebilir.",
           "Haber kipleri: −di (görülen geçmiş), −miş (duyulan geçmiş), −yor (şimdiki), −ecek (gelecek), −r (geniş).",
@@ -2239,7 +2268,7 @@
           "Haber: <b>okudu, okuyacak, okur</b>. Dilek: <b>okusa, okumalı</b>.",
           "Emir kipinin <b>eki yoktur</b>; 2. tekil kişide fiil yalın hâlde kullanılır (gel). 1. tekil ve 1. çoğul çekimi yoktur."]},
 
-      {n:"Bir Hilal Uğruna", w:"Kasım",
+      {n:"Bir Hilal Uğruna", w:"Kasım", t:["TEMA 2 · Bir Hilal Uğruna"],
        lead:"Millî mücadele ve vatan temalı metinler. <b>Dil bilgisi yükü: ek fiil.</b>",
        p:["Ek fiil, isim soylu sözcükleri yüklem yapar: \"öğrenciyim\", \"güzeldi\".",
           "Ek fiilin dört çekimi vardır: −di, −miş, −se, −dir.",
@@ -2265,7 +2294,7 @@
           "<b>-di</b> (öğrenciydi), <b>-miş</b> (öğrenciymiş), <b>-se</b> (öğrenciyse), <b>-dir</b> (öğrencidir).",
           "<b>Geniş zaman</b> çekimindedir (-dir)."]},
 
-      {n:"İletişim ve Sosyal İlişkiler", w:"Aralık–Ocak",
+      {n:"İletişim ve Sosyal İlişkiler", w:"Aralık–Ocak", t:["TEMA 3 · İletişim ve Sosyal İlişkiler"],
        lead:"İletişim, empati ve sosyal ilişkiler üzerine metinler. <b>Dil bilgisi yükü: zarflar ve cümlede anlam.</b>",
        p:["Zarf; fiili, sıfatı veya başka bir zarfı niteler ya da belirtir.",
           "Türleri: durum, zaman, yer-yön, miktar, soru zarfı.",
@@ -2293,7 +2322,7 @@
           "<b>Nesnel</b> — sayfa sayısı sayılarak kanıtlanabilir.",
           "Sıfat olan <b>\"güzel\"</b>i nitelemektedir; bu yüzden miktar zarfıdır."]},
 
-      {n:"Türk Sanatı", w:"Şubat–Mart",
+      {n:"Türk Sanatı", w:"Şubat–Mart", t:["TEMA 4 · Türk Sanatı"],
        lead:"Geleneksel ve çağdaş Türk sanatları üzerine metinler. <b>Dil bilgisi yükü: söz sanatları ve edebî türler.</b>",
        p:["Benzetme: iki varlık ortak özellik üzerinden karşılaştırılır (\"aslan gibi cesur\").",
           "Kişileştirme: insan dışı varlığa insan özelliği verilir.",
@@ -2322,7 +2351,7 @@
           "Tiyatro <b>sahnede oynanmak için</b> yazılır ve <b>diyaloglardan</b> oluşur; hikâye okunmak için yazılır ve anlatıcısı vardır.",
           "<b>Güzel benzetme.</b> Benzetme yönü ve edatı düşmüş, yalnızca kendisine benzetilen (aslan) kalmıştır."]},
 
-      {n:"Okuma Kültürü", w:"Nisan–Mayıs",
+      {n:"Okuma Kültürü", w:"Nisan–Mayıs", t:["TEMA 5 · Okuma Kültürü"],
        lead:"Okuma alışkanlığı ve kütüphane kültürü üzerine metinler. <b>Dil bilgisi yükü: anlatım bozuklukları, yazım ve noktalama.</b>",
        p:["Gereksiz sözcük: \"en ideal\", \"geri iade\", \"yukarı çıkmak\".",
           "Özne-yüklem uyumsuzluğu: \"Öğrenciler geldi ve sınava girdiler\" hatalıdır.",
@@ -2382,7 +2411,7 @@
      plist:{t:"7. Sınıf Sosyal — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBlGst2Xz9L__iwsxZc1fak_"},
      note:"Öğrenme alanı adları 6. sınıfla aynıdır; içerik 7. sınıf düzeyinde derinleşir. Eski programdaki \"Birey ve Toplum, Kültür ve Miras…\" başlıkları artık kullanılmıyor.",
      units:[
-      {n:"Birlikte Yaşamak", w:"Eylül–Ekim",
+      {n:"Birlikte Yaşamak", w:"Eylül–Ekim", t:["ALAN 1 · Birlikte Yaşamak"],
        lead:"İletişim, empati, kitle iletişim araçları ve özel hayatın gizliliği.",
        p:["Etkili iletişimde \"ben dili\" kullanılır: suçlamaz, duyguyu anlatır.",
           "\"Sen dili\" suçlayıcıdır ve iletişimi kapatır.",
@@ -2408,7 +2437,7 @@
           "Kaynağın kim olduğu; haberin tarihi; aynı bilginin <b>başka güvenilir kaynaklarda</b> da yer alıp almadığı.",
           "Herkesin başkalarıyla paylaşmak istemediği bilgileri vardır. Örnek: bir kişinin sağlık bilgisinin izinsiz paylaşılması, o kişiye ayrımcılık yapılmasına yol açabilir."]},
 
-      {n:"Evimiz Dünya", w:"Kasım–Aralık",
+      {n:"Evimiz Dünya", w:"Kasım–Aralık", t:["ALAN 2 · Evimiz Dünya"],
        lead:"Türkiye'de ve dünyada nüfusun dağılışı, göç ve yerleşme.",
        p:["Nüfus dağılışını etkileyen doğal faktörler: iklim, yer şekilleri, su kaynakları, toprak.",
           "Beşerî faktörler: sanayi, ulaşım, tarım, turizm, madencilik.",
@@ -2436,7 +2465,7 @@
           "<b>Nitelikli iş gücünün</b> yurt dışına gitmesidir. Ülke, eğitimine kaynak ayırdığı insanların üretiminden yararlanamaz.",
           "<b>Doğum oranının yüksek</b>, nüfusun <b>genç</b> olduğunu gösterir."]},
 
-      {n:"Ortak Mirasımız", w:"Aralık–Ocak",
+      {n:"Ortak Mirasımız", w:"Aralık–Ocak", t:["ALAN 3 · Ortak Mirasımız"],
        lead:"Türk tarihinde yolculuk, kültürel miras, Türk-İslam bilginleri ve vakıf kültürü.",
        p:["Osmanlı'nın kuruluş ve yükselişi, İstanbul'un fethi ve sonuçları.",
           "Ahilik, esnaf ve sanatkârın mesleki ve ahlaki düzenini sağlayan teşkilattır.",
@@ -2463,7 +2492,7 @@
           "<b>Piri Reis</b> – haritacılık/denizcilik, <b>İbn Sina</b> – tıp, <b>Ali Kuşçu</b> – astronomi/matematik, <b>El-Cezeri</b> – mekanik/otomatik makineler.",
           "Osmanlı Timur'a yenildi; şehzadeler arasındaki taht mücadelesiyle <b>Fetret Devri</b> başladı ve devlet yaklaşık 11 yıl dağınık kaldı."]},
 
-      {n:"Yaşayan Demokrasimiz", w:"Şubat–Mart",
+      {n:"Yaşayan Demokrasimiz", w:"Şubat–Mart", t:["ALAN 4 · Yaşayan Demokrasimiz"],
        lead:"Demokrasinin temel ilkeleri, devletin üç erki ve Atatürk'ün demokrasi anlayışı.",
        p:["Temel ilkeler: millî egemenlik, eşitlik, özgürlük, hukukun üstünlüğü, çoğulculuk.",
           "Yasama TBMM'nin, yürütme Cumhurbaşkanı'nın, yargı bağımsız mahkemelerindir.",
@@ -2489,7 +2518,7 @@
           "Belirli bir amaç için gönüllülerin kurduğu, devletten bağımsız örgüttür. Örnek: <b>Kızılay</b>, <b>TEMA</b>. Vatandaşın yönetime katılmasını ve toplumsal sorunlara çözüm üretmesini sağlar.",
           "Halkın kendisini yönetecek kişileri <b>seçmesini</b> ve istediğinde <b>aday olmasını</b> sağlar; millî egemenliğin en somut uygulamasıdır."]},
 
-      {n:"Hayatımızdaki Ekonomi", w:"Nisan–Mayıs",
+      {n:"Hayatımızdaki Ekonomi", w:"Nisan–Mayıs", t:["ALAN 5 · Hayatımızdaki Ekonomi"],
        lead:"Üretim, dağıtım ve tüketim; kaynakların sınırlılığı, bilinçli tüketicilik ve meslek seçimi.",
        p:["İhtiyaç olmadan yaşanamayan, istek ise olmasa da yaşanabilen şeydir.",
           "Kaynaklar sınırlı, ihtiyaçlar sınırsızdır — bu yüzden tercih yapmak gerekir.",
@@ -2511,7 +2540,7 @@
           "Eğitim ve beceriyle donanmış, işini verimli yapabilen çalışandır. Aynı kaynakla <b>daha çok ve daha kaliteli üretim</b> sağlayarak büyümeyi hızlandırır.",
           "Tasarruf edilen para bankaya ya da üretime aktarıldığında <b>yatırıma</b> dönüşür; yatırım yeni iş ve üretim yaratır."]},
 
-      {n:"Teknoloji ve Sosyal Bilimler", w:"Mayıs–Haziran",
+      {n:"Teknoloji ve Sosyal Bilimler", w:"Mayıs–Haziran", t:["ALAN 6 · Teknoloji ve Sosyal Bilimler"],
        lead:"Bilimsel ve teknolojik gelişmelerin topluma etkisi, dijital vatandaşlık ve telif hakkı.",
        p:["Teknolojinin olumlu ve olumsuz sonuçlarını birlikte değerlendirmek gerekir.",
           "Telif hakkı, eseri üretenin emeğini korur; izinsiz kullanmak hak ihlalidir.",
@@ -2542,7 +2571,7 @@
      plist:{t:"7. Sınıf İngilizce — tonguçCUP 2024-2025 · tüm konular", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBksl4DQJRlkizS0bBePQ_BX"},
      note:"Tema adları MEB'in resmî programından birebir alındı. 7. sınıf haftada <b>7 saat</b> İngilizce okuyor. Temaların altındaki dil yapıları bu düzeyde o temalarda işlenen tipik yapılardır — okulunun kitabında sıra farklı olabilir.",
      units:[
-      {n:"School Life & Education", w:"Eylül",
+      {n:"School Life & Education", w:"Eylül", t:["TEMA 1 · School Life & Education"],
        voc:[["timetable","ders programı"],["schedule","çizelge, program"],["term","dönem"],
             ["break","teneffüs"],["canteen","kantin"],["assembly","tören, toplanma"],
             ["uniform","okul forması"],["attend","katılmak, devam etmek"],["attendance","devam durumu"],
@@ -2567,7 +2596,7 @@
           "Örnek: <b>I have English lessons seven times a week.</b>",
           "absence (absent) · grade (report card)"]},
 
-      {n:"Classroom Life & Learning", w:"Ekim",
+      {n:"Classroom Life & Learning", w:"Ekim", t:["TEMA 2 · Classroom Life & Learning"],
        voc:[["take notes","not almak"],["revise","tekrar etmek"],["memorise","ezberlemek"],
             ["highlight","işaretlemek, vurgulamak"],["underline","altını çizmek"],
             ["practise","alıştırma yapmak"],["project","proje"],["presentation","sunum"],
@@ -2591,7 +2620,7 @@
           "take notes (not tutmak) · revise (tekrar etmek) · highlight (işaretlemek)",
           "Örnek: <b>I revise by taking notes and doing practice tests.</b>"]},
 
-      {n:"Personal Life & Well-Being", w:"Kasım",
+      {n:"Personal Life & Well-Being", w:"Kasım", t:["TEMA 3 · Personal Life & Well-Being"],
        voc:[["healthy diet","sağlıklı beslenme"],["exercise","egzersiz"],["sleep well","iyi uyumak"],
             ["stress","stres"],["screen time","ekran süresi"],["hobby","hobi"],["feelings","duygular"],
             ["energetic","enerjik"],["tired","yorgun"],["worried","endişeli"],["relax","rahatlamak"],
@@ -2615,7 +2644,7 @@
           "Örnek: <b>I listen to music and go for a walk to relax.</b>",
           "Örnek: <b>You should drink more water. You should do exercise every day. You shouldn't eat too much fast food.</b>"]},
 
-      {n:"Family Life & Home", w:"Aralık",
+      {n:"Family Life & Home", w:"Aralık", t:["TEMA 4 · Family Life & Home"],
        lead:"<b>Kelimeler:</b> relative, household chores, do the washing-up, tidy up, take out the rubbish, get on well with, argue, share.<br><b>Kalıplar:</b> Who does the chores at home? I get on well with my cousin. We used to live in a village.",
        box:[{t:"Past Simple tekrarı", h:"<ul><li>Düzenli fiiller: <code>-ed</code> (watched, played). Düzensizler ezberlenir (go → went, have → had).</li><li>Olumsuz ve soru: <code>did</code> + <b>yalın fiil</b>. <code>She didn't go.</code> / <code>Did you see it?</code></li><li><code>was / were</code>: I-he-she-it → <b>was</b>; you-we-they → <b>were</b>.</li></ul>"},
             {t:"used to", h:"Geçmişte <b>düzenli yapılan ama artık yapılmayan</b> şeyler için: <code>We used to live in Ankara.</code> Olumsuz ve soruda <code>use to</code>: <code>I didn't use to like olives.</code>"}],
@@ -2630,7 +2659,7 @@
           "<b>were</b>","do the washing-up (bulaşık yıkamak) · tidy up (toplamak) · take out the rubbish (çöpü çıkarmak)",
           "Örnek: <b>My mother and I do most of the chores, but my brother takes out the rubbish.</b>"]},
 
-      {n:"Life in the Neighbourhood, City & Social Life", w:"Ocak–Şubat",
+      {n:"Life in the Neighbourhood, City & Social Life", w:"Ocak–Şubat", t:["TEMA 5 · Life in the Neighbourhood, City & Social Life"],
        lead:"<b>Kelimeler:</b> neighbourhood, crowded, quiet, facilities, public transport, invite, accept, refuse, meet up, plan.<br><b>Kalıplar:</b> Would you like to come to my birthday party? I'd love to, but I'm busy. Let's meet at five.",
        box:[{t:"Invitations — kabul ve ret", h:"<b>Davet:</b> <code>Would you like to…?</code> · <code>How about…?</code> · <code>Shall we…?</code><br><b>Kabul:</b> <code>I'd love to.</code> · <code>That sounds great.</code><br><b>Ret (kibar):</b> <code>I'd love to, but I'm afraid I can't.</code> · <code>Sorry, I'm busy that day.</code><br>Ret ederken <b>mutlaka gerekçe</b> eklenir; sadece \"No\" demek kaba kaçar."},
             {t:"Present Continuous for future", h:"Kesinleşmiş plan ve randevular için şimdiki zaman kullanılır: <code>I am meeting my friends at six.</code> = Buluşacağım (plan yapıldı)."}],
@@ -2647,7 +2676,7 @@
           "<b>Go out of the library and turn left. Go straight ahead. The post office will be on your right.</b>",
           "public transport · crowded"]},
 
-      {n:"Life in the World & Culture", w:"Mart",
+      {n:"Life in the World & Culture", w:"Mart", t:["TEMA 6 · Life in the World & Culture"],
        lead:"<b>Kelimeler:</b> tradition, custom, festival, heritage, landmark, cuisine, souvenir, ceremony, national.<br><b>Kalıplar:</b> In Türkiye, people celebrate… It is the most famous museum in the city. Turkish coffee is more popular than tea in some regions.",
        box:[{t:"Comparative & Superlative", h:"<ul><li>Kısa sıfat: <code>big → bigger than → the biggest</code></li><li>-y ile biten: <code>happy → happier → the happiest</code></li><li>Uzun sıfat: <code>famous → more famous than → the most famous</code></li><li>Düzensiz: <code>good → better → the best</code> · <code>bad → worse → the worst</code></li><li><code>as … as</code> → eşitlik: <code>as big as</code></li></ul>"}],
        trap:"Üstünlükte <code>the</code>'ı unutmak. <code>It is most famous museum</code> yanlıştır; doğrusu <code>the most famous museum</code>.",
@@ -2662,7 +2691,7 @@
           "Spain – Spanish · Japan – Japanese · Germany – German · Italy – Italian",
           "Örnek: <b>In my city, people make a special dessert for Ramadan. Families visit each other and share it.</b>"]},
 
-      {n:"Life in Nature & Global Problems", w:"Nisan",
+      {n:"Life in Nature & Global Problems", w:"Nisan", t:["TEMA 7 · Life in Nature & Global Problems"],
        lead:"<b>Kelimeler:</b> endangered species, habitat, deforestation, drought, waste, renewable, protect, survive, climate change.<br><b>Kalıplar:</b> If we cut down trees, animals lose their homes. We must protect endangered animals.",
        box:[{t:"Conditionals — Type 0 ve Type 1", h:"<b>Type 0</b> (her zaman doğru): <code>If + present simple, present simple.</code> → <code>If you heat water to 100°C, it boils.</code><br><b>Type 1</b> (gerçekçi gelecek): <code>If + present simple, will + yalın fiil.</code> → <code>If we recycle, we will save energy.</code><br>Dikkat: <b>if</b>'li kısımda <code>will</code> kullanılmaz."}],
        trap:"<code>if</code> cümleciğinde <code>will</code> kullanmak. <code>If it will rain</code> yanlıştır; doğrusu <code>If it rains, we will stay at home.</code>",
@@ -2678,7 +2707,7 @@
           "endangered species · deforestation",
           "Örnek: <b>We should recycle our waste. We must save water. We shouldn't leave rubbish in nature.</b>"]},
 
-      {n:"Life in the Universe & Future", w:"Mayıs–Haziran",
+      {n:"Life in the Universe & Future", w:"Mayıs–Haziran", t:["TEMA 8 · Life in the Universe & Future"],
        lead:"<b>Kelimeler:</b> astronaut, orbit, gravity, telescope, satellite, launch, explore, discovery, invention, robot, artificial intelligence.<br><b>Kalıplar:</b> People will travel to Mars one day. I am going to study engineering. What do you think life will be like in 2050?",
        box:[{t:"will / be going to / might", h:"<ul><li><b>will</b> → tahmin, anlık karar: <code>I think robots will do most jobs.</code></li><li><b>be going to</b> → planlanmış niyet ya da görünür kanıt: <code>I am going to study engineering.</code></li><li><b>might</b> → <b>ihtimal</b> (belki): <code>We might live on the Moon.</code></li><li>Üçünden sonra da fiil <b>yalın</b> gelir.</li></ul>"}],
        trap:"Kesinleşmiş bir plan için <code>will</code> kullanmak. Karar zaten verildiyse <code>be going to</code> gelir: <code>I'm going to take the exam in June.</code>",
@@ -2698,7 +2727,7 @@
      plist:{t:"tonguç 7. SINIF kanalında Din Kültürü videoları", u:"https://www.youtube.com/@tonguc7/search?query=Din"},
      note:"Ünite adları resmî programdan birebir alındı.",
      units:[
-      {n:"Melek ve Ahiret İnancı", w:"Eylül–Ekim",
+      {n:"Melek ve Ahiret İnancı", w:"Eylül–Ekim", t:["ÜNİTE 1 · Melek ve Ahiret İnancı"],
        lead:"Meleklere ve ahiret gününe iman; ölüm, kabir ve ahiret hayatının aşamaları.",
        p:["Melekler nurdan yaratılmıştır; yemez, içmez, erkeklik-dişilik özellikleri yoktur.",
           "Dört büyük melek: Cebrail, Mikail, İsrafil, Azrail ve görevleri.",
@@ -2726,7 +2755,7 @@
           "İnsan yaptığının hesabını vereceğini bildiği için görülmediğinde de dürüst davranır; örneğin bulduğu parayı sahibine ulaştırır.",
           "<b>Kıyamet:</b> evrenin düzeninin bozulup hayatın son bulması. <b>Ba's:</b> insanların hesap vermek üzere yeniden diriltilmesi."]},
 
-      {n:"Hac, Umre ve Kurban", w:"Kasım–Aralık",
+      {n:"Hac, Umre ve Kurban", w:"Kasım–Aralık", t:["ÜNİTE 2 · Hac, Umre ve Kurban"],
        lead:"Hac ve umre ibadetleri, kurban ibadeti ve bunların toplumsal boyutu.",
        p:["Hac, şartlarını taşıyan Müslümana ömürde bir kez farzdır.",
           "Hac belirli zamanda (Zilhicce ayında) yapılır; umrenin belirli bir zamanı yoktur.",
@@ -2751,7 +2780,7 @@
           "Hac ve umre için girilen <b>özel ibadet hâli</b>dir. İhramlıyken tırnak-saç kesilmez, canlıya zarar verilmez, tartışılmaz.",
           "<b>Sabır</b> ve <b>eşitlik bilinci</b> (kardeşlik, dayanışma da kabul) — herkes aynı kıyafetle aynı yerde bulunur."]},
 
-      {n:"İslam Düşüncesinde Yorumlar", w:"Ocak–Şubat",
+      {n:"İslam Düşüncesinde Yorumlar", w:"Ocak–Şubat", t:["ÜNİTE 3 · İslam Düşüncesinde Yorumlar"],
        lead:"İslam düşüncesindeki itikadi, fıkhi ve tasavvufi yorum farklılıkları.",
        p:["Yorum farklılıkları zenginliktir; dinin özünde ayrılık değildir.",
           "Fıkhi yorumlar: Hanefilik, Malikilik, Şafiilik, Hanbelilik.",
@@ -2775,7 +2804,7 @@
           "<b>Hayır.</b> Farklılık dinin temel esaslarında değil, <b>yorumunda</b>dır; bu da düşünce zenginliği sayılır.",
           "<b>Ahlak ve manevi derinliğe</b> odaklanır. Örnek: <b>Mevlevilik</b> (Yesevilik, Nakşibendilik de kabul)."]},
 
-      {n:"Peygamber Olarak Hz. Muhammed", w:"Mart–Nisan",
+      {n:"Peygamber Olarak Hz. Muhammed", w:"Mart–Nisan", t:["ÜNİTE 4 · Peygamber Olarak Hz. Muhammed"],
        lead:"Peygamberlik kavramı, Hz. Muhammed'in insani yönü ve örnek davranışları.",
        p:["Peygamber, Allah'ın mesajını insanlara ulaştıran seçilmiş insandır.",
           "Peygamberlerin ortak sıfatları: sıdk, emanet, fetanet, ismet, tebliğ.",
@@ -2802,7 +2831,7 @@
           "Sözünde durması, emaneti koruması, komşusuna ve çalışana iyi davranması (affediciliği, sabrı da kabul).",
           "Aldığı mesajı <b>eksiksiz iletmek</b>tir. Hz. Muhammed her koşulda, zorluklara ve baskıya rağmen aldığı vahyi insanlara ulaştırmıştır."]},
 
-      {n:"Yaşayan Dünya Dinleri", w:"Mayıs–Haziran",
+      {n:"Yaşayan Dünya Dinleri", w:"Mayıs–Haziran", t:["ÜNİTE 5 · Yaşayan Dünya Dinleri"],
        lead:"Günümüzde yaşayan dinler, kutsal kitapları, ibadet yerleri ve ortak değerleri.",
        p:["İlahi dinler: Yahudilik (Tevrat), Hıristiyanlık (İncil), İslam (Kur'an).",
           "İbadet yerleri: sinagog, kilise, cami, tapınak.",
@@ -3840,7 +3869,8 @@
      ve ana testin ünite çiplerinden ayrı, mor çerçeveli çizilir.
 
      Yeni set eklerken: ilgili sınıfın altına ders anahtarıyla yeni
-     dizi aç ya da mevcut diziye yeni u başlığıyla ekle. */
+     dizi aç ya da mevcut diziye yeni u başlığıyla ekle. Etiketi ilgili
+     ünitenin t dizisine de yaz, yoksa Dersler ↔ Testler bağlantısı çıkmaz. */
 
   var EKC6 = {
     mat:[
@@ -4198,6 +4228,7 @@
           if(uo){
             h += '<div class="unit-body">';
             if(u.lead) h += '<p class="lead">'+u.lead+'</p>';
+            h += testBari(s.key, u, id);
             /* Öğretmenin tahta notları. Sınavda sorulacak asıl kaynak bu
                olduğu için gövdenin üstünde, ayrı bir kutuda duruyor ve
                tarih damgasıyla birikiyor. */
@@ -4253,6 +4284,7 @@
                 h += '</ol></details>';
               }
             }
+            h += testBari(s.key, u, id);
             h += '</div>';
           }
           h += '</div>';
@@ -4351,6 +4383,99 @@
     box.innerHTML = h;
   }
 
+  /* ---------- Dersler ↔ Testler geçişi ----------
+     Ünitenin t alanı o üniteye ait test etiketlerini listeler (ilki ana
+     test, sonrakiler ek çalışma setleri). İki yön de bu alandan kurulur;
+     ad benzerliğine güvenilmez, çünkü ünite adlarıyla test etiketleri
+     birebir tutmuyor. Gidilen yerden "← Teste dön / ← Derse dön" düğmesi
+     öğrenciyi kaldığı soruya ya da üniteye geri getirir. */
+  function etiketUnite(sk, etiket){
+    var s = subjByKey(sk), r = null;
+    if(s) s.units.forEach(function(u){
+      if(!r && (u.t || []).indexOf(etiket) !== -1) r = { s:s, u:u, id:uid(sk, u) };
+    });
+    return r;
+  }
+  function etiketSay(sk, etiket){
+    var hepsi = ((cur().quiz || {})[sk] || []).concat(((cur().ekstra || {})[sk] || []));
+    var n = 0, c = 0, C = st().cevap;
+    hepsi.forEach(function(q){ if(q.u === etiket){ n++; if(C[wkeyFor(sk, q)] !== undefined) c++; } });
+    return { n:n, c:c };
+  }
+  function kisaAd(ad){
+    return String(ad).replace(/^(TEMA|ÜNİTE|KONU|ALAN|EK)\s*\d*\s*·\s*/, "").split(" · ").pop();
+  }
+  function testBari(sk, u, id){
+    var h = "";
+    (u.t || []).forEach(function(et){
+      var c = etiketSay(sk, et);
+      if(!c.n) return;
+      h += '<button class="test-git" type="button" data-test-git="'+esc(et)+'" data-test-sk="'+sk+'" data-test-unit="'+id+'">'
+         + '<span>'+(ekMi(et) ? 'Ek çalışma: '+esc(et.replace(/^EK · /, "")) : 'Bu ünitenin testi')+'</span>'
+         + '<span class="n">'+c.c+'/'+c.n+'</span><span aria-hidden="true">→</span></button>';
+    });
+    return h ? '<div class="test-bar">'+h+'</div>' : "";
+  }
+
+  var donus = null;
+  var donusKutu = document.createElement("div");
+  donusKutu.className = "donus";
+  donusKutu.hidden = true;
+  donusKutu.innerHTML = '<button type="button" class="donus-git"></button>'
+                      + '<button type="button" class="donus-kapat" aria-label="Kapat">×</button>';
+  document.body.appendChild(donusKutu);
+
+  function donusGoster(){
+    var var_ = !!(donus && donus.g === grade);
+    donusKutu.hidden = !var_;
+    if(var_) donusKutu.querySelector(".donus-git").textContent =
+      (donus.tab === "testler" ? "← Teste dön" : "← Derse dön") + " · " + donus.ad;
+  }
+  function kaydir(elm){ if(elm) elm.scrollIntoView({block:"start"}); }
+  function uniteAc(sk, id){
+    openSubj[grade][sk] = true;
+    openUnit[grade][id] = true;
+    switchTab("dersler");
+    renderSubjects();
+    var b = document.querySelector('#subjects .unit-open[data-unit="' + id + '"]');
+    kaydir(b && b.closest(".unit"));
+  }
+  function testeGit(sk, etiket, unitId){
+    var s = subjByKey(sk), ad = "";
+    s.units.forEach(function(u){ if(uid(sk, u) === unitId) ad = u.n; });
+    donus = { tab:"dersler", g:grade, sk:sk, id:unitId, ad:s.name + " · " + kisaAd(ad) };
+    curQuiz = sk; qFilter = etiket; yanlisKume = null;
+    switchTab("testler");
+    renderQuiz();
+    donusGoster();
+    kaydir(el("quizUnits"));
+  }
+  function dersGit(sk, etiket, k){
+    var hedef = etiketUnite(sk, etiket);
+    if(!hedef) return;
+    donus = { tab:"testler", g:grade, sk:sk, filtre:qFilter, k:k,
+              ad: hedef.s.name + (qFilter === "__yanlis__" ? " · Yanlışlarım" : qFilter ? " · " + kisaAd(qFilter) : "") };
+    uniteAc(sk, hedef.id);
+    donusGoster();
+  }
+  function geriDon(){
+    var d = donus;
+    donus = null;
+    donusGoster();
+    if(!d || d.g !== grade) return;
+    if(d.tab === "testler"){
+      curQuiz = d.sk; qFilter = d.filtre;
+      if(qFilter === "__yanlis__" && !yanlisKume) yanlisKumeKur();
+      switchTab("testler");
+      renderQuiz();
+      kaydir((d.k && document.querySelector('#qlist .q[data-k="' + d.k + '"]')) || el("quizUnits"));
+    } else {
+      uniteAc(d.sk, d.id);
+    }
+  }
+  donusKutu.querySelector(".donus-git").addEventListener("click", geriDon);
+  donusKutu.querySelector(".donus-kapat").addEventListener("click", function(){ donus = null; donusGoster(); });
+
   function hav(){ return (cur().havuz || {})[curQuiz] || []; }
   function ekstra(){ return (cur().ekstra || {})[curQuiz] || []; }
   function anaListe(){ return (cur().quiz || {})[curQuiz] || []; }
@@ -4412,8 +4537,11 @@
       var goster = (given !== undefined);   // cevaplandı (ya da cevabına bakıldı)
       var sik = perm(q.o.length, seed + hashNum(it.id) * 7919);   // şık sırası da karışır
 
-      h += '<div class="q" style="--sc:'+s.color+'">'
-        + '<div class="q-unit">'+esc(q.u)+'</div>'
+      var konu = etiketUnite(curQuiz, q.u);
+      h += '<div class="q" data-k="'+esc(wk)+'" style="--sc:'+s.color+'">'
+        + '<div class="q-bas"><div class="q-unit">'+esc(q.u)+'</div>'
+        + (konu ? '<button class="ders-git" type="button" data-ders-git="'+esc(q.u)+'">Konuyu çalış →</button>' : '')
+        + '</div>'
         + (it.havuz ? '<div class="q-pool">Havuzdan · yeni soru</div>' : '')
         + ((st().hata[wk] || W[wk]) && given === undefined
             ? '<div class="q-again">Bunu daha önce yanlış yapmıştın — tekrar dene</div>' : '')
@@ -4574,6 +4702,7 @@
     try{ localStorage.setItem(LS+"-grade", g); }catch(e){}
     renderAll();
     syncAnsBtn();
+    donusGoster();
     window.scrollTo({top:0, behavior:"auto"});
   }
   el("g6").addEventListener("click", function(){ setGrade("g6"); });
@@ -4650,6 +4779,17 @@
       openSubj[grade][sk] = !openSubj[grade][sk];
       renderSubjects();
     }
+  });
+
+  el("subjects").addEventListener("click", function(ev){
+    var b = ev.target.closest("[data-test-git]");
+    if(b) testeGit(b.getAttribute("data-test-sk"), b.getAttribute("data-test-git"), b.getAttribute("data-test-unit"));
+  });
+  el("qlist").addEventListener("click", function(ev){
+    var b = ev.target.closest("[data-ders-git]");
+    if(!b) return;
+    var kart = b.closest(".q");
+    dersGit(curQuiz, b.getAttribute("data-ders-git"), kart ? kart.getAttribute("data-k") : null);
   });
 
   el("quizPills").addEventListener("click", function(ev){

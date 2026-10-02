@@ -2,7 +2,7 @@
      plist:{t:"tonguç 6. SINIF kanalında İngilizce videoları", u:"https://www.youtube.com/@tonguc6/search?query=%C4%B0ngilizce"},
      note:"Tema adları MEB'in güncel programından; 6. sınıf <b>A2.2</b> düzeyindedir. Temaların altındaki dil yapıları bu düzeyde o temalarda işlenen tipik yapılardır — okulunun kitabında sıra biraz farklı olabilir.",
      units:[
-      {n:"School Life & Education", w:"Eylül",
+      {n:"School Life & Education", w:"Eylül", t:["TEMA 1 · School Life & Education"],
        voc:[["Maths","matematik"],["Science","fen bilimleri"],["Turkish","Türkçe"],["English","İngilizce"],
             ["Social Studies","sosyal bilgiler"],["Music","müzik"],["Art","görsel sanatlar"],
             ["PE (Physical Education)","beden eğitimi"],["IT","bilişim teknolojileri"],
@@ -23,7 +23,7 @@
           "Örnek: <b>My favourite lesson is Science because it is interesting.</b>","<b>in</b> October",
           "<b>Çarşamba günü müzik dersimiz yok.</b>"]},
 
-      {n:"Classroom Life & Learning", w:"Ekim",
+      {n:"Classroom Life & Learning", w:"Ekim", t:["TEMA 2 · Classroom Life & Learning"],
        voc:[["board","tahta"],["desk","sıra"],["chair","sandalye"],["ruler","cetvel"],
             ["rubber / eraser","silgi"],["sharpener","kalemtıraş"],["pencil case","kalemlik"],
             ["glue","yapıştırıcı"],["scissors","makas"],["dictionary","sözlük"],["notebook","defter"],
@@ -43,7 +43,7 @@
        a:["<b>are</b> (windows çoğul)","<b>There isn't a map on the wall.</b>","<b>Don't close the door.</b>",
           "<b>Can I borrow your ruler, please?</b>","<b>Dolapta hiç sözlük var mı?</b>"]},
 
-      {n:"Personal Life & Well-Being", w:"Kasım",
+      {n:"Personal Life & Well-Being", w:"Kasım", t:["TEMA 3 · Personal Life & Well-Being"],
        voc:[["get up","(yataktan) kalkmak"],["have breakfast","kahvaltı yapmak"],
             ["brush my teeth","dişlerimi fırçalamak"],["get dressed","giyinmek"],
             ["have a shower","duş almak"],["go to school","okula gitmek"],["do homework","ödev yapmak"],
@@ -65,7 +65,7 @@
        a:["<b>gets</b>","<b>She doesn't watch TV in the evening.</b>","<b>I am never late.</b>","<b>reading</b>",
           "<b>My brother brushes his teeth every morning.</b>"]},
 
-      {n:"Family Life & Home", w:"Aralık",
+      {n:"Family Life & Home", w:"Aralık", t:["TEMA 4 · Family Life & Home"],
        lead:"<b>Aile:</b> mother, father, parents, sister, brother, grandmother, grandfather, aunt, uncle, cousin.<br><b>Görünüş:</b> tall, short, slim, curly/straight hair, wear glasses. <b>Kişilik:</b> funny, kind, hard-working, shy, helpful, clever.",
        box:[{t:"have got & possessives", h:"<ul><li><code>I / you / we / they <b>have got</b></code> · <code>he / she / it <b>has got</b></code></li><li>Olumsuz: <code>I haven't got a sister.</code> Soru: <code>Have you got any cousins?</code></li><li><b>'s</b> sahiplik bildirir: <code>my father's car</code></li><li>İyelik sıfatları: my, your, his, her, its, our, their</li></ul>"}],
        trap:"<code>his</code> ile <code>her</code>'i sahip olunan şeye göre seçmek. İyelik sıfatı <b>sahibin</b> cinsiyetine göre belirlenir: <code>My brother and <b>his</b> book.</code>",
@@ -77,7 +77,7 @@
        a:["<b>has</b>","aunt · cousin","<b>my father's car</b>","<b>His</b>",
           "<b>My grandfather is very kind and helpful.</b>"]},
 
-      {n:"Life in the Neighbourhood, City & Social Life", w:"Ocak",
+      {n:"Life in the Neighbourhood, City & Social Life", w:"Ocak", t:["TEMA 5 · Life in the Neighbourhood, City & Social Life"],
        lead:"<b>Mekânlar:</b> library, hospital, bank, post office, bus stop, pharmacy, bookstore, supermarket, mosque, park, cinema, museum.<br><b>Yol sorma:</b> Excuse me, how can I get to the library? – Go straight ahead. Turn left / right. It's on your left.",
        box:[{t:"Prepositions of place", h:"<code>next to</code> (yanında) · <code>across from / opposite</code> (karşısında) · <code>between</code> (arasında) · <code>behind</code> (arkasında) · <code>in front of</code> (önünde) · <code>on the corner of</code> (köşesinde)"}],
        trap:"<code>in front of</code> ile <code>opposite</code>'i karıştırmak. <code>in front of</code> aynı tarafta önünde, <code>opposite</code> yolun karşısında demektir.",
@@ -89,7 +89,7 @@
        a:["pharmacy (chemist's) · post office","<b>between</b>","<b>Excuse me, how can I get to the library?</b>",
           "<b>across from</b> (veya <b>opposite</b>)","<b>Go straight ahead and turn right at the second street.</b>"]},
 
-      {n:"Life in the World & Culture", w:"Şubat–Mart",
+      {n:"Life in the World & Culture", w:"Şubat–Mart", t:["TEMA 6 · Life in the World & Culture"],
        lead:"<b>Ülke – milliyet:</b> Türkiye – Turkish, England – English, Germany – German, France – French, Italy – Italian, Japan – Japanese, Spain – Spanish.<br><b>Kültür:</b> festival, traditional, costume, celebrate, national day, folk dance, souvenir.",
        box:[{t:"Comparatives", h:"<ul><li>Kısa sıfat + <b>-er than</b>: <code>big → bigger than</code></li><li>Sonu <b>-y</b> ile bitenlerde y → i: <code>happy → happier</code></li><li>Uzun sıfatlarda <b>more … than</b>: <code>more beautiful than</code></li><li>Düzensiz: <code>good → better</code>, <code>bad → worse</code></li></ul>"}],
        trap:"Uzun sıfata hem <code>more</code> hem <code>-er</code> eklemek. <code>more bigger</code> yanlış, doğrusu <code>bigger</code>.",
@@ -101,7 +101,7 @@
        a:["<b>bigger</b>","<b>more interesting</b>","<b>Japanese</b>","<b>celebrate</b> (People çoğul)",
           "<b>Turkish cuisine is one of the most famous cuisines in the world.</b>"]},
 
-      {n:"Life in Nature & Global Problems", w:"Nisan–Mayıs",
+      {n:"Life in Nature & Global Problems", w:"Nisan–Mayıs", t:["TEMA 7 · Life in Nature & Global Problems"],
        lead:"<b>Hava:</b> sunny, rainy, snowy, cloudy, windy, foggy, stormy.<br><b>Çevre:</b> recycle, reuse, reduce, pollution, waste, save water, plant trees, global warming, endangered animals.",
        box:[{t:"should / shouldn't", h:"Öğüt ve tavsiye için kullanılır; ardından fiil <b>yalın</b> gelir. <code>We should save water.</code> / <code>We shouldn't waste paper.</code> Soru: <code>What should we do?</code>"}],
        trap:"<code>should</code>'dan sonra <code>to</code> koymak. <code>We should to save water</code> yanlıştır; doğrusu <code>We should save water.</code>",
@@ -113,7 +113,7 @@
        a:["<b>should</b>","<b>shouldn't</b>","recycling · global warming","<b>Turn off the lights.</b>",
           "<b>We should plant trees to protect the planet.</b>"]},
 
-      {n:"Life in the Universe & Future", w:"Mayıs–Haziran",
+      {n:"Life in the Universe & Future", w:"Mayıs–Haziran", t:["TEMA 8 · Life in the Universe & Future"],
        lead:"<b>Uzay:</b> planet, star, moon, sun, space, astronaut, rocket, spaceship, telescope, satellite, solar system, galaxy.<br><b>Gelecek:</b> in the future, one day, next year, dream job, invent, discover, explore.",
        box:[{t:"be going to & will", h:"<ul><li><b>be going to</b> → planlanmış niyet: <code>I am going to be an engineer.</code></li><li><b>will</b> → tahmin, anlık karar: <code>People will live on Mars one day.</code></li><li>Olumsuz: <code>won't</code> (= will not)</li><li>İkisinden sonra da fiil <b>yalın</b> gelir</li></ul>"}],
        trap:"<code>going to</code>'dan sonra fiili çekmek. <code>I am going to be</code> doğru, <code>I am going to am</code> yanlıştır.",
@@ -130,7 +130,7 @@
      plist:{t:"tonguç 6. SINIF kanalında Din Kültürü videoları", u:"https://www.youtube.com/@tonguc6/search?query=Din"},
      note:"Ünite adları yeni programda değişti: eski programdaki <b>Namaz</b>, <b>Zararlı Alışkanlıklar</b> ve <b>Temel Değerlerimiz</b> başlıkları yerine <b>Ramazan ve Oruç</b>, <b>Ahlaki Davranışlar</b> ve <b>Kültürümüzdeki Dinî Motifler</b> geldi.",
      units:[
-      {n:"Peygamber ve İlahi Kitap İnancı", w:"Eylül–Ekim",
+      {n:"Peygamber ve İlahi Kitap İnancı", w:"Eylül–Ekim", t:["ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı"],
        lead:"Allah'ın insanlara doğru yolu göstermek için peygamber göndermesi ve onlara kitap indirmesi, İslam inancının temel esaslarından ikisidir.",
        p:["<b>Peygamber:</b> Allah'ın mesajını insanlara ulaştırmakla görevlendirdiği seçilmiş insan. Peygamberler de insandır; yer, içer, yorulur.",
           "<b>Peygamberlerin ortak sıfatları:</b> sıdk (doğruluk), emanet (güvenilirlik), fetanet (akıllılık), ismet (günahsızlık), tebliğ (bildirme).",
@@ -152,7 +152,7 @@
           "İndirildiği günden beri <b>hiç değiştirilmeden korunmuş</b> olmasıdır.",
           "<b>Hz. Nuh, Hz. İbrahim, Hz. Musa, Hz. İsa ve Hz. Muhammed</b>"]},
 
-      {n:"Ramazan ve Oruç", w:"Kasım–Aralık",
+      {n:"Ramazan ve Oruç", w:"Kasım–Aralık", t:["ÜNİTE 2 · Ramazan ve Oruç"],
        lead:"Oruç, İslam'ın beş şartından biridir. Ramazan ayı boyunca imsaktan iftara kadar yeme, içme ve orucu bozan davranışlardan uzak durmaktır.",
        p:["<b>İmsak</b> orucun başlama, <b>iftar</b> bitiş vaktidir. <b>Sahur</b>, imsaktan önce yenen yemektir.",
           "Oruç; ergenlik çağına girmiş, akıllı ve sağlıklı her Müslümana farzdır.",
@@ -174,7 +174,7 @@
           "Kur'an bu ayda indirilmeye başlanmıştır; <b>Kadir Gecesi</b> bu aydadır (teravih namazı da bu aya özgüdür).",
           "<b>Sabır</b> ve <b>irade</b> (yoksulun hâlini anlama, paylaşma da kabul)."]},
 
-      {n:"Ahlaki Davranışlar", w:"Ocak–Şubat",
+      {n:"Ahlaki Davranışlar", w:"Ocak–Şubat", t:["ÜNİTE 3 · Ahlaki Davranışlar"],
        lead:"Ahlak, insanın başkalarıyla ve kendisiyle kurduğu ilişkideki tutumudur. Dinin amacı yalnızca ibadet değil, <b>güzel ahlak</b>tır.",
        p:["<b>Doğruluk ve dürüstlük:</b> sözünde durmak, yalan söylememek. Hz. Muhammed'e peygamberlikten önce <b>el-Emin</b> denmesinin sebebi budur.",
           "<b>Adalet:</b> herkese hakkını vermek, taraf tutmamak.",
@@ -197,7 +197,7 @@
           "Hayır. <b>Su, ekmek, elektrik ve zaman</b> israfı da israftır.",
           "Kimse görmediğinde de aynı davranışı sürdürüyorsa ahlakidir; yalnızca izlenirken doğru davranmak ahlak değildir."]},
 
-      {n:"Peygamberliğinden Önce Hz. Muhammed", w:"Mart–Nisan",
+      {n:"Peygamberliğinden Önce Hz. Muhammed", w:"Mart–Nisan", t:["ÜNİTE 4 · Peygamberliğinden Önce Hz. Muhammed"],
        lead:"Hz. Muhammed'in doğumundan peygamberliğine kadar geçen dönem, onun toplum içindeki güvenilir kişiliğini gösterir.",
        p:["<b>571</b> yılında <b>Mekke</b>'de doğdu. Babası <b>Abdullah</b> o doğmadan, annesi <b>Âmine</b> altı yaşındayken vefat etti.",
           "Önce dedesi <b>Abdülmuttalib</b>, sonra amcası <b>Ebu Talib</b> tarafından büyütüldü. Sütannesi <b>Halime</b>'dir.",
@@ -220,7 +220,7 @@
           "Mekke'de <b>haksızlığa uğrayanların hakkını korumak</b> için kurulan Erdemliler Birliği'dir.",
           "Hacerü'l-Esved'i bir <b>örtünün üzerine koyup</b> kabile temsilcilerinin hepsine birden taşıtarak, kimseyi üstün kılmadan çözmüştür."]},
 
-      {n:"Kültürümüzdeki Dinî Motifler", w:"Mayıs–Haziran",
+      {n:"Kültürümüzdeki Dinî Motifler", w:"Mayıs–Haziran", t:["ÜNİTE 5 · Kültürümüzdeki Dinî Motifler"],
        lead:"Din, günlük dilden mimariye, sanattan geleneklere kadar kültürümüzün her yerinde iz bırakmıştır. Bu ünite o izleri tanımayı amaçlar.",
        p:["<b>Dildeki izler:</b> \"Allah'a emanet\", \"inşallah\", \"maşallah\", \"Allah razı olsun\", \"hayırlı olsun\", \"başın sağ olsun\" gibi kalıplar.",
           "<b>Mimarideki izler:</b> cami, medrese, külliye, çeşme, han, kervansaray, imarethane, şifahane. <b>Mimar Sinan</b>'ın Selimiye ve Süleymaniye camileri en bilinen örneklerdir.",

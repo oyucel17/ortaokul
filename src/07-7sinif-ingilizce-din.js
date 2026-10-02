@@ -2,7 +2,7 @@
      plist:{t:"7. Sınıf İngilizce — tonguçCUP 2024-2025 · tüm konular", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBksl4DQJRlkizS0bBePQ_BX"},
      note:"Tema adları MEB'in resmî programından birebir alındı. 7. sınıf haftada <b>7 saat</b> İngilizce okuyor. Temaların altındaki dil yapıları bu düzeyde o temalarda işlenen tipik yapılardır — okulunun kitabında sıra farklı olabilir.",
      units:[
-      {n:"School Life & Education", w:"Eylül",
+      {n:"School Life & Education", w:"Eylül", t:["TEMA 1 · School Life & Education"],
        voc:[["timetable","ders programı"],["schedule","çizelge, program"],["term","dönem"],
             ["break","teneffüs"],["canteen","kantin"],["assembly","tören, toplanma"],
             ["uniform","okul forması"],["attend","katılmak, devam etmek"],["attendance","devam durumu"],
@@ -27,7 +27,7 @@
           "Örnek: <b>I have English lessons seven times a week.</b>",
           "absence (absent) · grade (report card)"]},
 
-      {n:"Classroom Life & Learning", w:"Ekim",
+      {n:"Classroom Life & Learning", w:"Ekim", t:["TEMA 2 · Classroom Life & Learning"],
        voc:[["take notes","not almak"],["revise","tekrar etmek"],["memorise","ezberlemek"],
             ["highlight","işaretlemek, vurgulamak"],["underline","altını çizmek"],
             ["practise","alıştırma yapmak"],["project","proje"],["presentation","sunum"],
@@ -51,7 +51,7 @@
           "take notes (not tutmak) · revise (tekrar etmek) · highlight (işaretlemek)",
           "Örnek: <b>I revise by taking notes and doing practice tests.</b>"]},
 
-      {n:"Personal Life & Well-Being", w:"Kasım",
+      {n:"Personal Life & Well-Being", w:"Kasım", t:["TEMA 3 · Personal Life & Well-Being"],
        voc:[["healthy diet","sağlıklı beslenme"],["exercise","egzersiz"],["sleep well","iyi uyumak"],
             ["stress","stres"],["screen time","ekran süresi"],["hobby","hobi"],["feelings","duygular"],
             ["energetic","enerjik"],["tired","yorgun"],["worried","endişeli"],["relax","rahatlamak"],
@@ -75,7 +75,7 @@
           "Örnek: <b>I listen to music and go for a walk to relax.</b>",
           "Örnek: <b>You should drink more water. You should do exercise every day. You shouldn't eat too much fast food.</b>"]},
 
-      {n:"Family Life & Home", w:"Aralık",
+      {n:"Family Life & Home", w:"Aralık", t:["TEMA 4 · Family Life & Home"],
        lead:"<b>Kelimeler:</b> relative, household chores, do the washing-up, tidy up, take out the rubbish, get on well with, argue, share.<br><b>Kalıplar:</b> Who does the chores at home? I get on well with my cousin. We used to live in a village.",
        box:[{t:"Past Simple tekrarı", h:"<ul><li>Düzenli fiiller: <code>-ed</code> (watched, played). Düzensizler ezberlenir (go → went, have → had).</li><li>Olumsuz ve soru: <code>did</code> + <b>yalın fiil</b>. <code>She didn't go.</code> / <code>Did you see it?</code></li><li><code>was / were</code>: I-he-she-it → <b>was</b>; you-we-they → <b>were</b>.</li></ul>"},
             {t:"used to", h:"Geçmişte <b>düzenli yapılan ama artık yapılmayan</b> şeyler için: <code>We used to live in Ankara.</code> Olumsuz ve soruda <code>use to</code>: <code>I didn't use to like olives.</code>"}],
@@ -90,7 +90,7 @@
           "<b>were</b>","do the washing-up (bulaşık yıkamak) · tidy up (toplamak) · take out the rubbish (çöpü çıkarmak)",
           "Örnek: <b>My mother and I do most of the chores, but my brother takes out the rubbish.</b>"]},
 
-      {n:"Life in the Neighbourhood, City & Social Life", w:"Ocak–Şubat",
+      {n:"Life in the Neighbourhood, City & Social Life", w:"Ocak–Şubat", t:["TEMA 5 · Life in the Neighbourhood, City & Social Life"],
        lead:"<b>Kelimeler:</b> neighbourhood, crowded, quiet, facilities, public transport, invite, accept, refuse, meet up, plan.<br><b>Kalıplar:</b> Would you like to come to my birthday party? I'd love to, but I'm busy. Let's meet at five.",
        box:[{t:"Invitations — kabul ve ret", h:"<b>Davet:</b> <code>Would you like to…?</code> · <code>How about…?</code> · <code>Shall we…?</code><br><b>Kabul:</b> <code>I'd love to.</code> · <code>That sounds great.</code><br><b>Ret (kibar):</b> <code>I'd love to, but I'm afraid I can't.</code> · <code>Sorry, I'm busy that day.</code><br>Ret ederken <b>mutlaka gerekçe</b> eklenir; sadece \"No\" demek kaba kaçar."},
             {t:"Present Continuous for future", h:"Kesinleşmiş plan ve randevular için şimdiki zaman kullanılır: <code>I am meeting my friends at six.</code> = Buluşacağım (plan yapıldı)."}],
@@ -107,7 +107,7 @@
           "<b>Go out of the library and turn left. Go straight ahead. The post office will be on your right.</b>",
           "public transport · crowded"]},
 
-      {n:"Life in the World & Culture", w:"Mart",
+      {n:"Life in the World & Culture", w:"Mart", t:["TEMA 6 · Life in the World & Culture"],
        lead:"<b>Kelimeler:</b> tradition, custom, festival, heritage, landmark, cuisine, souvenir, ceremony, national.<br><b>Kalıplar:</b> In Türkiye, people celebrate… It is the most famous museum in the city. Turkish coffee is more popular than tea in some regions.",
        box:[{t:"Comparative & Superlative", h:"<ul><li>Kısa sıfat: <code>big → bigger than → the biggest</code></li><li>-y ile biten: <code>happy → happier → the happiest</code></li><li>Uzun sıfat: <code>famous → more famous than → the most famous</code></li><li>Düzensiz: <code>good → better → the best</code> · <code>bad → worse → the worst</code></li><li><code>as … as</code> → eşitlik: <code>as big as</code></li></ul>"}],
        trap:"Üstünlükte <code>the</code>'ı unutmak. <code>It is most famous museum</code> yanlıştır; doğrusu <code>the most famous museum</code>.",
@@ -122,7 +122,7 @@
           "Spain – Spanish · Japan – Japanese · Germany – German · Italy – Italian",
           "Örnek: <b>In my city, people make a special dessert for Ramadan. Families visit each other and share it.</b>"]},
 
-      {n:"Life in Nature & Global Problems", w:"Nisan",
+      {n:"Life in Nature & Global Problems", w:"Nisan", t:["TEMA 7 · Life in Nature & Global Problems"],
        lead:"<b>Kelimeler:</b> endangered species, habitat, deforestation, drought, waste, renewable, protect, survive, climate change.<br><b>Kalıplar:</b> If we cut down trees, animals lose their homes. We must protect endangered animals.",
        box:[{t:"Conditionals — Type 0 ve Type 1", h:"<b>Type 0</b> (her zaman doğru): <code>If + present simple, present simple.</code> → <code>If you heat water to 100°C, it boils.</code><br><b>Type 1</b> (gerçekçi gelecek): <code>If + present simple, will + yalın fiil.</code> → <code>If we recycle, we will save energy.</code><br>Dikkat: <b>if</b>'li kısımda <code>will</code> kullanılmaz."}],
        trap:"<code>if</code> cümleciğinde <code>will</code> kullanmak. <code>If it will rain</code> yanlıştır; doğrusu <code>If it rains, we will stay at home.</code>",
@@ -138,7 +138,7 @@
           "endangered species · deforestation",
           "Örnek: <b>We should recycle our waste. We must save water. We shouldn't leave rubbish in nature.</b>"]},
 
-      {n:"Life in the Universe & Future", w:"Mayıs–Haziran",
+      {n:"Life in the Universe & Future", w:"Mayıs–Haziran", t:["TEMA 8 · Life in the Universe & Future"],
        lead:"<b>Kelimeler:</b> astronaut, orbit, gravity, telescope, satellite, launch, explore, discovery, invention, robot, artificial intelligence.<br><b>Kalıplar:</b> People will travel to Mars one day. I am going to study engineering. What do you think life will be like in 2050?",
        box:[{t:"will / be going to / might", h:"<ul><li><b>will</b> → tahmin, anlık karar: <code>I think robots will do most jobs.</code></li><li><b>be going to</b> → planlanmış niyet ya da görünür kanıt: <code>I am going to study engineering.</code></li><li><b>might</b> → <b>ihtimal</b> (belki): <code>We might live on the Moon.</code></li><li>Üçünden sonra da fiil <b>yalın</b> gelir.</li></ul>"}],
        trap:"Kesinleşmiş bir plan için <code>will</code> kullanmak. Karar zaten verildiyse <code>be going to</code> gelir: <code>I'm going to take the exam in June.</code>",
@@ -158,7 +158,7 @@
      plist:{t:"tonguç 7. SINIF kanalında Din Kültürü videoları", u:"https://www.youtube.com/@tonguc7/search?query=Din"},
      note:"Ünite adları resmî programdan birebir alındı.",
      units:[
-      {n:"Melek ve Ahiret İnancı", w:"Eylül–Ekim",
+      {n:"Melek ve Ahiret İnancı", w:"Eylül–Ekim", t:["ÜNİTE 1 · Melek ve Ahiret İnancı"],
        lead:"Meleklere ve ahiret gününe iman; ölüm, kabir ve ahiret hayatının aşamaları.",
        p:["Melekler nurdan yaratılmıştır; yemez, içmez, erkeklik-dişilik özellikleri yoktur.",
           "Dört büyük melek: Cebrail, Mikail, İsrafil, Azrail ve görevleri.",
@@ -186,7 +186,7 @@
           "İnsan yaptığının hesabını vereceğini bildiği için görülmediğinde de dürüst davranır; örneğin bulduğu parayı sahibine ulaştırır.",
           "<b>Kıyamet:</b> evrenin düzeninin bozulup hayatın son bulması. <b>Ba's:</b> insanların hesap vermek üzere yeniden diriltilmesi."]},
 
-      {n:"Hac, Umre ve Kurban", w:"Kasım–Aralık",
+      {n:"Hac, Umre ve Kurban", w:"Kasım–Aralık", t:["ÜNİTE 2 · Hac, Umre ve Kurban"],
        lead:"Hac ve umre ibadetleri, kurban ibadeti ve bunların toplumsal boyutu.",
        p:["Hac, şartlarını taşıyan Müslümana ömürde bir kez farzdır.",
           "Hac belirli zamanda (Zilhicce ayında) yapılır; umrenin belirli bir zamanı yoktur.",
@@ -211,7 +211,7 @@
           "Hac ve umre için girilen <b>özel ibadet hâli</b>dir. İhramlıyken tırnak-saç kesilmez, canlıya zarar verilmez, tartışılmaz.",
           "<b>Sabır</b> ve <b>eşitlik bilinci</b> (kardeşlik, dayanışma da kabul) — herkes aynı kıyafetle aynı yerde bulunur."]},
 
-      {n:"İslam Düşüncesinde Yorumlar", w:"Ocak–Şubat",
+      {n:"İslam Düşüncesinde Yorumlar", w:"Ocak–Şubat", t:["ÜNİTE 3 · İslam Düşüncesinde Yorumlar"],
        lead:"İslam düşüncesindeki itikadi, fıkhi ve tasavvufi yorum farklılıkları.",
        p:["Yorum farklılıkları zenginliktir; dinin özünde ayrılık değildir.",
           "Fıkhi yorumlar: Hanefilik, Malikilik, Şafiilik, Hanbelilik.",
@@ -235,7 +235,7 @@
           "<b>Hayır.</b> Farklılık dinin temel esaslarında değil, <b>yorumunda</b>dır; bu da düşünce zenginliği sayılır.",
           "<b>Ahlak ve manevi derinliğe</b> odaklanır. Örnek: <b>Mevlevilik</b> (Yesevilik, Nakşibendilik de kabul)."]},
 
-      {n:"Peygamber Olarak Hz. Muhammed", w:"Mart–Nisan",
+      {n:"Peygamber Olarak Hz. Muhammed", w:"Mart–Nisan", t:["ÜNİTE 4 · Peygamber Olarak Hz. Muhammed"],
        lead:"Peygamberlik kavramı, Hz. Muhammed'in insani yönü ve örnek davranışları.",
        p:["Peygamber, Allah'ın mesajını insanlara ulaştıran seçilmiş insandır.",
           "Peygamberlerin ortak sıfatları: sıdk, emanet, fetanet, ismet, tebliğ.",
@@ -262,7 +262,7 @@
           "Sözünde durması, emaneti koruması, komşusuna ve çalışana iyi davranması (affediciliği, sabrı da kabul).",
           "Aldığı mesajı <b>eksiksiz iletmek</b>tir. Hz. Muhammed her koşulda, zorluklara ve baskıya rağmen aldığı vahyi insanlara ulaştırmıştır."]},
 
-      {n:"Yaşayan Dünya Dinleri", w:"Mayıs–Haziran",
+      {n:"Yaşayan Dünya Dinleri", w:"Mayıs–Haziran", t:["ÜNİTE 5 · Yaşayan Dünya Dinleri"],
        lead:"Günümüzde yaşayan dinler, kutsal kitapları, ibadet yerleri ve ortak değerleri.",
        p:["İlahi dinler: Yahudilik (Tevrat), Hıristiyanlık (İncil), İslam (Kur'an).",
           "İbadet yerleri: sinagog, kilise, cami, tapınak.",

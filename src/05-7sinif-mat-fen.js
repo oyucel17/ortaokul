@@ -5,7 +5,7 @@
      plist:{t:"7. Sınıf Matematik — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBkJB0sv8aW58-o4CAsje7Vp"},
      note:"7. sınıf 2026–2027'de <b>ilk kez</b> Maarif Modeli ile okuyor. Matematik \"ünite\" değil <b>tema</b> başlıkları altında işleniyor; ünite adları geçen yılki kaynaklarla birebir uyuşmaz.",
      units:[
-      {n:"Sayılar ve Nicelikler (1) · Tam Sayılar", w:"Eylül",
+      {n:"Sayılar ve Nicelikler (1) · Tam Sayılar", w:"Eylül", t:["TEMA 1 · Tam Sayılar"],
        lead:"Tema 1'in ilk konusu. Tam sayılar: … −3, −2, −1, 0, 1, 2, 3 … Sıcaklık, borç, deniz seviyesinden derinlik, asansör katı — <b>yönü olan</b> her nicelik. Konunun kalbi iki şey: <b>işaret kuralları</b> ve <b>mutlak değer</b>.",
        p:["Tam sayılar doğal sayıları kapsar. Sıfır ne pozitiftir ne negatif; işareti yoktur.",
           "Sayı doğrusunda sağdaki her zaman büyüktür: −5 &lt; −2 &lt; 0 &lt; 3.",
@@ -35,7 +35,7 @@
           "−18 + 7 − 12 = <b>−23</b>, yani deniz seviyesinin <b>23 m altında</b>.",
           "İlkinde parantez gibi davranılıp <b>önce toplama</b> yapılır: |−3| = <b>3</b>. İkincisinde her sayının mutlak değeri <b>ayrı ayrı</b> alınıp toplanır: 4 + 1 = <b>5</b>."]},
 
-      {n:"Sayılar ve Nicelikler (1) · Rasyonel Sayılar", w:"Ekim",
+      {n:"Sayılar ve Nicelikler (1) · Rasyonel Sayılar", w:"Ekim", t:["TEMA 1 · Sayılar ve Nicelikler (1)"],
        lead:"Tam sayılardan rasyonel sayılara geçiş. <code>a/b</code> biçiminde yazılabilen (b≠0) her sayı rasyoneldir; ondalık gösterim, devirli ondalıklar, mutlak değer ve sıralama bu temanın belkemiği.",
        p:["Her tam sayı rasyoneldir (5 = 5/1), ama her rasyonel sayı tam sayı değildir.",
           "Negatif kesirlerde sıralama ters işler: −1/2 sayısı −3/4 sayısından büyüktür.",
@@ -60,7 +60,7 @@
           "(−4/7) · (21/2) = −84/14 = <b>−6</b>",
           "<b>−1/2, −0,25, 0,3, 2/5</b> (−0,5 < −0,25 < 0,3 < 0,4)"]},
 
-      {n:"Sayılar ve Nicelikler (2)", w:"Kasım",
+      {n:"Sayılar ve Nicelikler (2)", w:"Kasım", t:["TEMA 2 · Sayılar ve Nicelikler (2)"],
        lead:"Oran, orantı ve yüzde. Günlük hayatın en çok karşına çıkan matematiği: indirim, kâr-zarar, harita ölçeği, tarif oranları.",
        p:["Oran birimsizdir; ancak aynı türden iki çokluk oranlanır.",
           "Doğru orantıda bölüm sabittir (a/b = k), ters orantıda çarpım sabittir (a·b = k).",
@@ -82,7 +82,7 @@
           "Kız + erkek = 3 + 5 = 8 pay. 40 ÷ 8 = 5 → kız = 3 × 5 = <b>15</b>",
           "400 × 1,15 = <b>460 TL</b>"]},
 
-      {n:"İşlemlerle Cebirsel Düşünme ve Değişimler", w:"Aralık",
+      {n:"İşlemlerle Cebirsel Düşünme ve Değişimler", w:"Aralık", t:["TEMA 3 · İşlemlerle Cebirsel Düşünme"],
        lead:"Cebirsel ifadelerle toplama-çıkarma, bir rasyonel sayıyla çarpma; birinci dereceden bir bilinmeyenli denklem ve eşitsizlik kurma ve çözme.",
        p:["Benzer terim = aynı değişken ve aynı üs. 3x ile 3x² benzer terim değildir.",
           "Denklemde eşitliğin iki tarafına aynı işlem uygulanır — denge bozulmaz.",
@@ -109,7 +109,7 @@
           "4x + 2(3x) = 60 → 10x = 60 → <b>x = 6 TL</b>",
           "2x + 5 − x + 3 = <b>x + 8</b>"]},
 
-      {n:"Dönüşüm", w:"Ocak",
+      {n:"Dönüşüm", w:"Ocak", t:["TEMA 4 · Dönüşüm"],
        lead:"Yansıma ve ötelemeyle şekillerin düzlemde yer değiştirmesi; orta dikme ve açıortayın temel özellikleri.",
        p:["Yansımada şekil ile görüntüsü eştir; uzunluklar ve açılar korunur, yön değişir.",
           "Bir doğru parçasının orta dikmesi üzerindeki her nokta, uç noktalara eşit uzaklıktadır.",
@@ -130,7 +130,7 @@
           "Bir açıyı <b>iki eş açıya</b> bölen ışındır. Üzerindeki her nokta, açının <b>iki koluna eşit uzaklıktadır</b>.",
           "Yansımada şekil eş kalır ama <b>yönü ters döner</b>; ötelemede şekil aynen kaydırılır, yönü değişmez."]},
 
-      {n:"Geometrik Nicelikler (1)", w:"Şubat",
+      {n:"Geometrik Nicelikler (1)", w:"Şubat", t:["TEMA 5 · Geometrik Nicelikler (1)"],
        lead:"Eş küplerle yapılar kurma ve prizmaların yüzey alanı. Açınımı çizebilmek bu temanın anahtarı.",
        p:["Yüzey alanı = 2 × (taban alanı) + yanal alan.",
           "Yanal alan = taban çevresi × yükseklik.",
@@ -151,7 +151,7 @@
           "6a² = 150 → a² = 25 → <b>a = 5 cm</b>",
           "27 = 3³ olduğundan bir ayrıtta <b>3 küp</b> vardır."]},
 
-      {n:"Geometrik Nicelikler (2)", w:"Mart",
+      {n:"Geometrik Nicelikler (2)", w:"Mart", t:["TEMA 6 · Geometrik Nicelikler (2)"],
        lead:"Prizmaların hacmi ve hacim birimleri arasındaki dönüşümler.",
        p:["Hacim = taban alanı × yükseklik.",
           "1 dm³ = 1 litre = 1000 cm³.",
@@ -177,7 +177,7 @@
           "288 ÷ 36 = <b>8 cm</b>",
           "50 · 40 · 30 = 60 000 cm³ = <b>60 litre</b>"]},
 
-      {n:"Geometrik Şekiller", w:"Nisan",
+      {n:"Geometrik Şekiller", w:"Nisan", t:["TEMA 7 · Geometrik Şekiller"],
        lead:"Üçgenin yardımcı elemanları (yükseklik, kenarortay, açıortay) ve üçgende kenar-açı ilişkileri.",
        p:["Üçgen eşitsizliği: iki kenarın toplamı üçüncü kenardan büyük olmalı.",
           "Büyük kenarın karşısında büyük açı bulunur.",
@@ -199,7 +199,7 @@
           "Her köşe için bu üçü <b>aynı doğru parçasıdır</b> (çakışıktır).",
           "<b>Hipotenüs</b>tür ve üçgenin <b>en uzun kenarıdır</b>."]},
 
-      {n:"İstatistiksel Araştırma Süreci", w:"Mayıs",
+      {n:"İstatistiksel Araştırma Süreci", w:"Mayıs", t:["TEMA 8 · İstatistiksel Araştırma Süreci"],
        lead:"Veri toplama, merkezî eğilim ölçüleri (aritmetik ortalama, ortanca, tepe değer) ve yayılım ölçüleri (açıklık, ortalama mutlak sapma).",
        p:["Ortancayı bulmadan önce veriyi mutlaka küçükten büyüğe sırala.",
           "Veri sayısı çiftse ortanca, ortadaki iki sayının ortalamasıdır.",
@@ -220,7 +220,7 @@
           "<b>Ortalama belirgin biçimde artar</b>, <b>ortanca ise çok az değişir veya aynı kalır</b>.",
           "İkisi de <b>0</b>'dır. Bütün veriler birbirine eşit, yani hiç dağılım yok demektir."]},
 
-      {n:"Veriden Olasılığa", w:"Haziran",
+      {n:"Veriden Olasılığa", w:"Haziran", t:["TEMA 9 · Veriden Olasılığa"],
        lead:"Olayların ayrık olup olmamasına göre sınıflandırılması ve teorik olasılık hesabı.",
        p:["Olasılık = istenen durum sayısı / tüm durum sayısı; her zaman 0 ile 1 arasındadır.",
           "Kesin olayın olasılığı 1, imkânsız olayın 0'dır.",
@@ -246,7 +246,7 @@
      plist:{t:"7. Sınıf Fen — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBm8SgZEFz_jTGmIbO5zHiJP"},
      note:"Ünite adları resmî programdan birebir alındı. Eski kaynaklardaki <b>Hücre ve Bölünmeler</b> ile <b>Saf Madde ve Karışımlar</b> başlıkları bu programda farklı adlar altında yeniden düzenlendi.",
      units:[
-      {n:"Uzay Çağı", w:"Eylül–Ekim",
+      {n:"Uzay Çağı", w:"Eylül–Ekim", t:["ÜNİTE 1 · Uzay Çağı"],
        ogr:[{d:"24 Eylül 2026", h:
          '<p><b>Uzay Roketi:</b> Uzaya gönderilen uzay araçlarını taşıyan, itici gücü sağlayan, ' +
          'radyoaktif elementler yakıtı olan uzay aracıdır. İnsansızdır. Eskiden tek kullanımlıktı; ' +
@@ -303,7 +303,15 @@
          'oluşturmuşlardır. Bu gök atlasları üzerinde birbirine göre konum değiştirmeyen yıldız ' +
          'kümelerine takımyıldızı demişlerdir. Bunlara insan, hayvan ve nesne isimleri vermişlerdir.</p>' +
          '<p>En bilinen takımyıldızları: Kuzey Tacı, Küçük ve Büyük Ayı, Avcı, Çoban ve 12 Burç ' +
-         '(Aslan, Yay, Başak vb.). <b>88 tane takımyıldızı vardır.</b></p>'}],
+         '(Aslan, Yay, Başak vb.). <b>88 tane takımyıldızı vardır.</b></p>' +
+         '<p><b>Galaksiler (Gökadalar):</b> İçlerinde yıldız, gezegen, nebula, takımyıldız, asteroit vs. ' +
+         'bulunan, bunları büyük bir çekim gücü ile bir arada tutan, evrendeki en büyük gök cismi ' +
+         'topluluklarıdır.</p>' +
+         '<p><b>Gökada çeşitleri ve örnekleri:</b></p>' +
+         '<ul><li>Sarmal gökada → Andromeda</li>' +
+         '<li>Çubuklu sarmal gökada → Samanyolu ve Sombrero</li>' +
+         '<li>Eliptik gökada → M87 Gökadası</li>' +
+         '<li>Düzensiz gökada → Büyük Macellan Gökadası</li></ul>'}],
        lead:"Gök cisimleri, Güneş sistemi, uzay araştırmaları ve uzay teknolojilerinin günlük hayattaki karşılıkları.",
        p:["Yıldız ışık üretir, gezegen üretmez — gezegen yıldızın ışığını yansıtır.",
           "Işık yılı bir uzaklık birimidir, zaman birimi değildir.",
@@ -334,7 +342,7 @@
           "GPS ile konum bulma, uydu ile haberleşme, hava durumu tahmini.",
           "Görevini tamamlamış uydu ve roket parçalarının yörüngede birikmesidir. Çok yüksek hızla döndükleri için çalışan uydulara çarpma riski oluştururlar."]},
 
-      {n:"Kuvvet ve Enerjiyi Keşfedelim", w:"Kasım",
+      {n:"Kuvvet ve Enerjiyi Keşfedelim", w:"Kasım", t:["ÜNİTE 2 · Kuvvet ve Enerjiyi Keşfedelim"],
        lead:"Kütle-ağırlık ayrımı, iş kavramı, kinetik ve potansiyel enerji, enerji dönüşümleri.",
        p:["Kütle maddenin miktarıdır (kg) ve değişmez; ağırlık bir kuvvettir (N) ve yer çekimine bağlıdır.",
           "İş = Kuvvet × Yol. Kuvvet doğrultusunda yol alınmazsa iş sıfırdır.",
@@ -362,7 +370,7 @@
           "Suyun <b>potansiyel enerjisi</b> → düşerken <b>kinetik enerji</b> → türbini döndürür → <b>elektrik enerjisi</b>.",
           "5 × 10 = <b>50 N</b>. Ay'da yer çekimi Dünya'nın yaklaşık 1/6'sı olduğundan ağırlık <b>yaklaşık 8,3 N</b>'a düşer; kütle yine 5 kg kalır."]},
 
-      {n:"Vücudumuzdaki Sistemler", w:"Aralık–Ocak",
+      {n:"Vücudumuzdaki Sistemler", w:"Aralık–Ocak", t:["ÜNİTE 3 · Vücudumuzdaki Sistemler"],
        lead:"Sindirim, dolaşım, solunum ve boşaltım sistemlerinin yapısı, görevleri ve birbirleriyle ilişkisi.",
        p:["Sindirim yolu: ağız → yutak → yemek borusu → mide → ince bağırsak → kalın bağırsak.",
           "Karbonhidratların kimyasal sindirimi ağızda, proteinlerinki midede, yağlarınki ince bağırsakta başlar.",
@@ -389,7 +397,7 @@
           "<b>Deri</b> terleme yoluyla su ve tuz atar; <b>akciğer</b> soluk verirken karbondioksit ve su buharı atar.",
           "Solunum sistemi kana oksijen verir, dolaşım sistemi bu oksijeni bütün hücrelere taşır."]},
 
-      {n:"Işığın Kırılması ve Mercekler", w:"Şubat",
+      {n:"Işığın Kırılması ve Mercekler", w:"Şubat", t:["ÜNİTE 4 · Işığın Kırılması ve Mercekler"],
        lead:"Işığın ortam değiştirirken kırılması, mercek türleri ve göz kusurlarının mercekle düzeltilmesi.",
        p:["Işık az yoğun ortamdan çok yoğun ortama geçerken normale yaklaşır.",
           "İnce kenarlı mercek yakınsaktır (toplar); kalın kenarlı mercek ıraksaktır (dağıtır).",
@@ -415,7 +423,7 @@
           "<b>İnce kenarlı (yakınsak)</b> mercektir; ışınları topladığı için cismi büyük gösterir.",
           "Havuzun dibinden gelen ışık sudan havaya geçerken kırılır ve <b>normalden uzaklaşır</b>; bu yüzden dip olduğundan daha yukarıdaymış gibi görünür."]},
 
-      {n:"Maddenin Doğasına Yolculuk", w:"Mart–Nisan",
+      {n:"Maddenin Doğasına Yolculuk", w:"Mart–Nisan", t:["ÜNİTE 5 · Maddenin Doğasına Yolculuk"],
        lead:"Atomun yapısı, element-bileşik-karışım ayrımı ve karışımları ayırma yöntemleri.",
        p:["Atomda proton ve nötron çekirdekte, elektronlar katmanlarda bulunur.",
           "Proton sayısı elementin kimliğidir; değişirse element değişir.",
@@ -443,7 +451,7 @@
           "<b>Mıknatısla ayırma.</b> Demir mıknatıstan etkilenir, kum etkilenmez.",
           "Alkol suda <b>çözündüğü</b> için süzgeçten birlikte geçer. <b>Damıtma</b> kullanılır — kaynama noktaları farklıdır."]},
 
-      {n:"Elektriklenme", w:"Nisan–Mayıs",
+      {n:"Elektriklenme", w:"Nisan–Mayıs", t:["ÜNİTE 6 · Elektriklenme"],
        lead:"Elektriklenme çeşitleri, yüklü cisimlerin etkileşimi, elektroskop ve topraklama.",
        p:["Üç yolla elektriklenir: sürtünme, dokunma, etki.",
           "Aynı cins yükler birbirini iter, zıt cins yükler çeker.",
@@ -469,7 +477,7 @@
           "Cismin <b>yüklü</b> olduğunu gösterir.",
           "Bir cismin fazla yükünün <b>toprağa aktarılmasıdır</b>; cismi nötr hâle getirir ve elektrik çarpmasını önler."]},
 
-      {n:"Sürdürülebilir Yaşam ve Enerji", w:"Mayıs–Haziran",
+      {n:"Sürdürülebilir Yaşam ve Enerji", w:"Mayıs–Haziran", t:["ÜNİTE 7 · Sürdürülebilir Yaşam ve Enerji"],
        lead:"Yenilenebilir ve yenilenemez enerji kaynakları, geri dönüşüm, kaynakların bilinçli kullanımı.",
        p:["Yenilenebilir: güneş, rüzgâr, hidroelektrik, jeotermal, biyokütle, dalga.",
           "Yenilenemez: kömür, petrol, doğal gaz, nükleer yakıt.",

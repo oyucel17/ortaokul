@@ -59,6 +59,22 @@ git add -A && git commit -m "Aciklama" && git push
 
 Tüm alanlar isteğe bağlıdır (`n` ve `w` hariç). `a` dizisi `q` ile **birebir aynı sırada** olmalıdır.
 
+### Dersler ↔ Testler bağlantısı (`t`)
+
+Her ünitenin `t` alanı o üniteye ait test etiketlerini listeler: ilki ana test, varsa sonrakiler
+ek çalışma setleri. Ünite gövdesinin başında ve sonunda **"Bu ünitenin testi"** düğmesi, test
+kartlarında **"Konuyu çalış →"** bağlantısı bu alandan kurulur; ekranın altındaki **"← Teste dön /
+← Derse dön"** düğmesi öğrenciyi kaldığı soruya ya da üniteye geri getirir.
+
+```js
+{n:"Uzay Çağı", w:"Eylül–Ekim", t:["ÜNİTE 1 · Uzay Çağı"], …}
+```
+
+Ad benzerliğine güvenilmez: ünite adlarıyla test etiketleri birebir tutmuyor (ör. 7. sınıf
+matematikte "TEMA 1 · Sayılar ve Nicelikler (1)" etiketi iki üniteye birden uyardı).
+**Yeni bir test etiketi ya da ek set açınca ilgili ünitenin `t` dizisine ekle**, yoksa o
+sorularda bağlantı çıkmaz.
+
 ### Öğretmenden notlar (`ogr`)
 
 Sınıfta tahtaya yazılan notlar. Sınavda sorulacak asıl kaynak bu olduğu için ünite gövdesinin

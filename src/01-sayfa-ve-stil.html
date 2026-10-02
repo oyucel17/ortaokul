@@ -438,6 +438,27 @@
     .prg-ogr{grid-column:2 / -1}
     .prg-ara-saat{margin-left:0;min-width:0}
   }
+  /* ---------- Dersler ↔ Testler geçişi ---------- */
+  .test-bar{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px}
+  .test-git{display:inline-flex;align-items:center;gap:9px;padding:8px 15px;border-radius:999px;
+    border:1.5px solid var(--sc);color:var(--sc);background:var(--card);font-size:13.5px;font-weight:600}
+  .test-git:hover{background:var(--sc);color:var(--card)}
+  .test-git .n{font-family:"IBM Plex Mono",monospace;font-size:11.5px;opacity:.85}
+  .q-bas{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+  .q-bas .q-unit{margin-bottom:0}
+  .ders-git{margin-left:auto;font-size:12.5px;font-weight:600;color:var(--sc);padding:2px 2px;
+    text-decoration:underline;text-underline-offset:3px}
+  .unit,.q,#quizUnits{scroll-margin-top:62px}
+  .donus{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));
+    transform:translateX(-50%);z-index:40;display:flex;align-items:stretch;max-width:calc(100vw - 32px);
+    background:var(--accent);color:#fff;border-radius:999px;box-shadow:0 10px 26px -10px rgba(0,0,0,.55)}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .donus{color:var(--paper)} }
+  :root[data-theme="dark"] .donus{color:var(--paper)}
+  .donus-git{color:inherit;font-weight:600;font-size:14px;padding:12px 4px 12px 19px;min-width:0;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .donus-kapat{color:inherit;font-size:19px;line-height:1;padding:0 17px 0 12px;opacity:.75}
+  @media print{ .test-bar,.ders-git,.donus{display:none!important} }
+
   /* Ek çalışma seti çipi — ana testin ünite çiplerinden ayrılsın. */
   .ufilter.ek{border-color:var(--s-ing);color:var(--s-ing);border-style:dashed}
   .ufilter.ek[aria-pressed="true"]{background:var(--s-ing);border-style:solid;color:#fff}

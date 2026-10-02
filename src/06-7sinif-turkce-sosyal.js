@@ -2,7 +2,7 @@
      plist:{t:"tonguç 7. SINIF kanalında Türkçe videoları", u:"https://www.youtube.com/@tonguc7/search?query=T%C3%BCrk%C3%A7e"},
      note:"Tema adları metin temalarıdır; dil bilgisi konuları bu temaların içine dağıtılmıştır. Aşağıda her temanın yanına o temada ağırlıklı işlenen dil bilgisi konusu eklendi.",
      units:[
-      {n:"Hayat Boyu Gelişim", w:"Eylül–Ekim",
+      {n:"Hayat Boyu Gelişim", w:"Eylül–Ekim", t:["TEMA 1 · Hayat Boyu Gelişim"],
        lead:"Tema metinleri kişisel gelişim ve öğrenme üzerine. <b>Dil bilgisi yükü: fiiller ve fiilde kip.</b>",
        p:["Fiil iş, oluş veya hareket bildirir ve çekimlenebilir.",
           "Haber kipleri: −di (görülen geçmiş), −miş (duyulan geçmiş), −yor (şimdiki), −ecek (gelecek), −r (geniş).",
@@ -35,7 +35,7 @@
           "Haber: <b>okudu, okuyacak, okur</b>. Dilek: <b>okusa, okumalı</b>.",
           "Emir kipinin <b>eki yoktur</b>; 2. tekil kişide fiil yalın hâlde kullanılır (gel). 1. tekil ve 1. çoğul çekimi yoktur."]},
 
-      {n:"Bir Hilal Uğruna", w:"Kasım",
+      {n:"Bir Hilal Uğruna", w:"Kasım", t:["TEMA 2 · Bir Hilal Uğruna"],
        lead:"Millî mücadele ve vatan temalı metinler. <b>Dil bilgisi yükü: ek fiil.</b>",
        p:["Ek fiil, isim soylu sözcükleri yüklem yapar: \"öğrenciyim\", \"güzeldi\".",
           "Ek fiilin dört çekimi vardır: −di, −miş, −se, −dir.",
@@ -61,7 +61,7 @@
           "<b>-di</b> (öğrenciydi), <b>-miş</b> (öğrenciymiş), <b>-se</b> (öğrenciyse), <b>-dir</b> (öğrencidir).",
           "<b>Geniş zaman</b> çekimindedir (-dir)."]},
 
-      {n:"İletişim ve Sosyal İlişkiler", w:"Aralık–Ocak",
+      {n:"İletişim ve Sosyal İlişkiler", w:"Aralık–Ocak", t:["TEMA 3 · İletişim ve Sosyal İlişkiler"],
        lead:"İletişim, empati ve sosyal ilişkiler üzerine metinler. <b>Dil bilgisi yükü: zarflar ve cümlede anlam.</b>",
        p:["Zarf; fiili, sıfatı veya başka bir zarfı niteler ya da belirtir.",
           "Türleri: durum, zaman, yer-yön, miktar, soru zarfı.",
@@ -89,7 +89,7 @@
           "<b>Nesnel</b> — sayfa sayısı sayılarak kanıtlanabilir.",
           "Sıfat olan <b>\"güzel\"</b>i nitelemektedir; bu yüzden miktar zarfıdır."]},
 
-      {n:"Türk Sanatı", w:"Şubat–Mart",
+      {n:"Türk Sanatı", w:"Şubat–Mart", t:["TEMA 4 · Türk Sanatı"],
        lead:"Geleneksel ve çağdaş Türk sanatları üzerine metinler. <b>Dil bilgisi yükü: söz sanatları ve edebî türler.</b>",
        p:["Benzetme: iki varlık ortak özellik üzerinden karşılaştırılır (\"aslan gibi cesur\").",
           "Kişileştirme: insan dışı varlığa insan özelliği verilir.",
@@ -118,7 +118,7 @@
           "Tiyatro <b>sahnede oynanmak için</b> yazılır ve <b>diyaloglardan</b> oluşur; hikâye okunmak için yazılır ve anlatıcısı vardır.",
           "<b>Güzel benzetme.</b> Benzetme yönü ve edatı düşmüş, yalnızca kendisine benzetilen (aslan) kalmıştır."]},
 
-      {n:"Okuma Kültürü", w:"Nisan–Mayıs",
+      {n:"Okuma Kültürü", w:"Nisan–Mayıs", t:["TEMA 5 · Okuma Kültürü"],
        lead:"Okuma alışkanlığı ve kütüphane kültürü üzerine metinler. <b>Dil bilgisi yükü: anlatım bozuklukları, yazım ve noktalama.</b>",
        p:["Gereksiz sözcük: \"en ideal\", \"geri iade\", \"yukarı çıkmak\".",
           "Özne-yüklem uyumsuzluğu: \"Öğrenciler geldi ve sınava girdiler\" hatalıdır.",
@@ -178,7 +178,7 @@
      plist:{t:"7. Sınıf Sosyal — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PL2P63LIKTuBlGst2Xz9L__iwsxZc1fak_"},
      note:"Öğrenme alanı adları 6. sınıfla aynıdır; içerik 7. sınıf düzeyinde derinleşir. Eski programdaki \"Birey ve Toplum, Kültür ve Miras…\" başlıkları artık kullanılmıyor.",
      units:[
-      {n:"Birlikte Yaşamak", w:"Eylül–Ekim",
+      {n:"Birlikte Yaşamak", w:"Eylül–Ekim", t:["ALAN 1 · Birlikte Yaşamak"],
        lead:"İletişim, empati, kitle iletişim araçları ve özel hayatın gizliliği.",
        p:["Etkili iletişimde \"ben dili\" kullanılır: suçlamaz, duyguyu anlatır.",
           "\"Sen dili\" suçlayıcıdır ve iletişimi kapatır.",
@@ -204,7 +204,7 @@
           "Kaynağın kim olduğu; haberin tarihi; aynı bilginin <b>başka güvenilir kaynaklarda</b> da yer alıp almadığı.",
           "Herkesin başkalarıyla paylaşmak istemediği bilgileri vardır. Örnek: bir kişinin sağlık bilgisinin izinsiz paylaşılması, o kişiye ayrımcılık yapılmasına yol açabilir."]},
 
-      {n:"Evimiz Dünya", w:"Kasım–Aralık",
+      {n:"Evimiz Dünya", w:"Kasım–Aralık", t:["ALAN 2 · Evimiz Dünya"],
        lead:"Türkiye'de ve dünyada nüfusun dağılışı, göç ve yerleşme.",
        p:["Nüfus dağılışını etkileyen doğal faktörler: iklim, yer şekilleri, su kaynakları, toprak.",
           "Beşerî faktörler: sanayi, ulaşım, tarım, turizm, madencilik.",
@@ -232,7 +232,7 @@
           "<b>Nitelikli iş gücünün</b> yurt dışına gitmesidir. Ülke, eğitimine kaynak ayırdığı insanların üretiminden yararlanamaz.",
           "<b>Doğum oranının yüksek</b>, nüfusun <b>genç</b> olduğunu gösterir."]},
 
-      {n:"Ortak Mirasımız", w:"Aralık–Ocak",
+      {n:"Ortak Mirasımız", w:"Aralık–Ocak", t:["ALAN 3 · Ortak Mirasımız"],
        lead:"Türk tarihinde yolculuk, kültürel miras, Türk-İslam bilginleri ve vakıf kültürü.",
        p:["Osmanlı'nın kuruluş ve yükselişi, İstanbul'un fethi ve sonuçları.",
           "Ahilik, esnaf ve sanatkârın mesleki ve ahlaki düzenini sağlayan teşkilattır.",
@@ -259,7 +259,7 @@
           "<b>Piri Reis</b> – haritacılık/denizcilik, <b>İbn Sina</b> – tıp, <b>Ali Kuşçu</b> – astronomi/matematik, <b>El-Cezeri</b> – mekanik/otomatik makineler.",
           "Osmanlı Timur'a yenildi; şehzadeler arasındaki taht mücadelesiyle <b>Fetret Devri</b> başladı ve devlet yaklaşık 11 yıl dağınık kaldı."]},
 
-      {n:"Yaşayan Demokrasimiz", w:"Şubat–Mart",
+      {n:"Yaşayan Demokrasimiz", w:"Şubat–Mart", t:["ALAN 4 · Yaşayan Demokrasimiz"],
        lead:"Demokrasinin temel ilkeleri, devletin üç erki ve Atatürk'ün demokrasi anlayışı.",
        p:["Temel ilkeler: millî egemenlik, eşitlik, özgürlük, hukukun üstünlüğü, çoğulculuk.",
           "Yasama TBMM'nin, yürütme Cumhurbaşkanı'nın, yargı bağımsız mahkemelerindir.",
@@ -285,7 +285,7 @@
           "Belirli bir amaç için gönüllülerin kurduğu, devletten bağımsız örgüttür. Örnek: <b>Kızılay</b>, <b>TEMA</b>. Vatandaşın yönetime katılmasını ve toplumsal sorunlara çözüm üretmesini sağlar.",
           "Halkın kendisini yönetecek kişileri <b>seçmesini</b> ve istediğinde <b>aday olmasını</b> sağlar; millî egemenliğin en somut uygulamasıdır."]},
 
-      {n:"Hayatımızdaki Ekonomi", w:"Nisan–Mayıs",
+      {n:"Hayatımızdaki Ekonomi", w:"Nisan–Mayıs", t:["ALAN 5 · Hayatımızdaki Ekonomi"],
        lead:"Üretim, dağıtım ve tüketim; kaynakların sınırlılığı, bilinçli tüketicilik ve meslek seçimi.",
        p:["İhtiyaç olmadan yaşanamayan, istek ise olmasa da yaşanabilen şeydir.",
           "Kaynaklar sınırlı, ihtiyaçlar sınırsızdır — bu yüzden tercih yapmak gerekir.",
@@ -307,7 +307,7 @@
           "Eğitim ve beceriyle donanmış, işini verimli yapabilen çalışandır. Aynı kaynakla <b>daha çok ve daha kaliteli üretim</b> sağlayarak büyümeyi hızlandırır.",
           "Tasarruf edilen para bankaya ya da üretime aktarıldığında <b>yatırıma</b> dönüşür; yatırım yeni iş ve üretim yaratır."]},
 
-      {n:"Teknoloji ve Sosyal Bilimler", w:"Mayıs–Haziran",
+      {n:"Teknoloji ve Sosyal Bilimler", w:"Mayıs–Haziran", t:["ALAN 6 · Teknoloji ve Sosyal Bilimler"],
        lead:"Bilimsel ve teknolojik gelişmelerin topluma etkisi, dijital vatandaşlık ve telif hakkı.",
        p:["Teknolojinin olumlu ve olumsuz sonuçlarını birlikte değerlendirmek gerekir.",
           "Telif hakkı, eseri üretenin emeğini korur; izinsiz kullanmak hak ihlalidir.",

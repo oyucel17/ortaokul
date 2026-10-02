@@ -3,7 +3,7 @@
      note:"İskelet MEB'in <b>6 teması</b>: Dilimizin Zenginliği, Bağımsızlık Yolu, Farklı Dünyalar, İletişim ve Sosyal İlişkiler, Bilim ve Teknoloji, Lider Ruhlar. Resmî program dil bilgisini tema tema sabitlemiyor — aşağıdaki dağılım, her temanın resmî içerik çerçevesine (ör. 4. temada <i>yazım kurallarını uygulama</i> ve <i>noktalama işaretlerini uygulama</i>) bakılarak yapıldı. <b>Okulunun kitabında sıra biraz kayabilir.</b>",
      units:[
 
-      {n:"Dilimizin Zenginliği · Sözcükte Anlam", w:"Eylül",
+      {n:"Dilimizin Zenginliği · Sözcükte Anlam", w:"Eylül", t:["KONU 1 · Sözcükte Anlam"],
        lead:"Bir sözcüğün anlamı, içinde bulunduğu cümleye göre değişir. Sınavda sorulan da tam olarak budur: sözcüğün o cümledeki anlamı.",
        p:["<b>Gerçek (temel) anlam:</b> akla ilk gelen anlam. \"Buzlu <u>soğuk</u> su içti.\"",
           "<b>Yan anlam:</b> temel anlamla <b>benzerlik</b> ilişkisi kuran anlam. \"Masanın <u>ayağı</u> kırıldı.\"",
@@ -25,7 +25,7 @@
           "Örnek: \"Sınavdan yüz aldı.\" (sayı) / \"Yüzünü yıkadı.\" (surat)"]},
 
 
-      {n:"Dilimizin Zenginliği · Deyim, Atasözü ve Söz Sanatları", w:"Ekim",
+      {n:"Dilimizin Zenginliği · Deyim, Atasözü ve Söz Sanatları", w:"Ekim", t:["KONU 2 · Deyimler, Atasözleri ve Söz Sanatları"],
        lead:"Deyim ve atasözü ayrımı her sınavda çıkar; ayırmanın tek pratik yolu öğüt olup olmadığına bakmaktır.",
        box:[{t:"Deyim mi atasözü mü?", h:"<b>Deyim</b> bir durumu çarpıcı anlatır, öğüt vermez, cümle içinde kullanılır: \"etekleri zil çalmak\". <b>Atasözü</b> anonimdir, genel bir doğruyu ya da öğüdü tek başına bir yargı olarak söyler: \"Damlaya damlaya göl olur.\" Kısacası: <b>öğüt varsa atasözü</b>."}],
        p:["<b>Benzetme (teşbih):</b> bir varlığı başkasına benzetmek. \"<u>Aslan gibi</u> delikanlı\"",
@@ -45,7 +45,7 @@
           "<b>Benzetme (teşbih)</b>","Çok <b>güzel bir kişi</b> için kullanılır."]},
 
 
-      {n:"Bağımsızlık Yolu · Cümlede Anlam", w:"Kasım",
+      {n:"Bağımsızlık Yolu · Cümlede Anlam", w:"Kasım", t:["KONU 3 · Cümlede Anlam"],
        lead:"Cümleler arasındaki anlam ilişkisini bulmak, ipucu sözcükleri tanımakla başlar.",
        tbl:[{h:["Anlam ilişkisi","İpucu","Örnek"], r:[
           ["Neden – sonuç","için, -dığı için, -den dolayı","Yağmur yağdığı <u>için</u> maç ertelendi."],
@@ -66,7 +66,7 @@
           "<b>Nesnel</b> — sayfa sayısı sayılarak kanıtlanabilir."]},
 
 
-      {n:"Farklı Dünyalar · Paragraf ve Metin Türleri", w:"Aralık–Ocak",
+      {n:"Farklı Dünyalar · Paragraf ve Metin Türleri", w:"Aralık–Ocak", t:["KONU 4 · Paragraf ve Metin Türleri"],
        lead:"Paragraf sorularında en çok karıştırılan ikili konu ile ana fikirdir: konu \"neden söz ediliyor\", ana fikir \"bununla ne anlatılmak isteniyor\".",
        p:["<b>Konu:</b> paragrafta neden söz ediliyor. <b>Ana fikir:</b> yazarın vermek istediği temel mesaj. <b>Yardımcı fikirler:</b> ana fikri destekleyen açıklamalar.",
           "<b>Anlatım biçimleri:</b> öyküleyici (olay anlatır), betimleyici (gözümüzde canlandırır), açıklayıcı (bilgi verir), tartışmacı (bir görüşü savunur)."],
@@ -90,7 +90,7 @@
           "Konuyu ya da ana fikri yansıtmalı, <b>kısa ve dikkat çekici</b> olmalı, paragrafın tamamını kapsamalıdır."]},
 
 
-      {n:"İletişim ve Sosyal İlişkiler · Yazım Kuralları ve Noktalama", w:"Şubat–Mart",
+      {n:"İletişim ve Sosyal İlişkiler · Yazım Kuralları ve Noktalama", w:"Şubat–Mart", t:["KONU 5 · Yazım Kuralları ve Noktalama"],
        lead:"Bu konu ezber değil, birkaç sağlam kuralın uygulanmasıdır. En çok sorulan üçlüyü bilmek soruların çoğunu çözer.",
        box:[{t:"Sınavda en çok sorulan üçlü", h:"<ul><li><b>de / da:</b> \"dahi, bile\" anlamı veriyorsa <b>bağlaçtır, ayrı</b> yazılır (\"Ben de geldim.\"). Bulunma hâli eki ise <b>bitişik</b> (\"Evde kimse yok.\"). Ayrı yazılan \"de\" cümleden çıkarılabilir.</li><li><b>ki:</b> bağlaç olan \"ki\" <b>ayrı</b> (\"Biliyorum ki gelecek.\"). İlgi zamiri ve sıfat yapan \"-ki\" <b>bitişik</b> (\"benimki, akşamki\"). İstisnalar bitişik: <b>çünkü, oysaki, sanki, mademki, halbuki, belki, meğerki</b>.</li><li><b>mi:</b> soru eki <b>her zaman ayrı</b>: \"Geldin mi?\"</li></ul>"}],
        p:["<b>Kesme işareti:</b> özel adlara gelen <b>çekim ekleri</b> kesmeyle ayrılır (Ankara'ya, Ali'nin). <b>Yapım ekleri ayrılmaz</b> (Türkçe, Ankaralı).",
@@ -109,7 +109,7 @@
           "<b>\"Ali, eve gelince annesine sordu: 'Yemek hazır mı?'\"</b>"]},
 
 
-      {n:"Bilim ve Teknoloji · Sözcük Yapısı: Kök, Gövde, Ekler", w:"Nisan",
+      {n:"Bilim ve Teknoloji · Sözcük Yapısı: Kök, Gövde, Ekler", w:"Nisan", t:["KONU 6 · Sözcük Yapısı"],
        lead:"<b>Kök</b>, sözcüğün anlamlı en küçük parçasıdır; isim kökü (göz, yol) ya da fiil kökü (gel-, yaz-) olur. Köke yapım eki eklenince <b>gövde</b> oluşur.",
        box:[{t:"Yapım eki mi çekim eki mi?", h:"<b>Yapım eki</b> yeni bir sözcük türetir: göz → göz<u>lük</u> → gözlük<u>çü</u>. <b>Çekim eki</b> yeni sözcük türetmez, yalnızca cümledeki görevini belirler: çoğul (-ler), hâl (-e, -i, -de, -den), iyelik (-im, -in), kip ve kişi ekleri."}],
        p:["<b>Basit sözcük:</b> yapım eki almamış. <em>kitaplar</em> (-lar çekim ekidir), <em>evden</em>",
@@ -128,7 +128,7 @@
           "Yapım eki yeni bir sözcük türetir; çekim eki türetmez, yalnızca cümle içinde görev kazandırır."]},
 
 
-      {n:"Bilim ve Teknoloji · İsim, Sıfat ve Zamir", w:"Nisan–Mayıs",
+      {n:"Bilim ve Teknoloji · İsim, Sıfat ve Zamir", w:"Nisan–Mayıs", t:["KONU 7 · İsim, Sıfat ve Zamir"],
        lead:"Sıfat ile zamiri ayırmanın kuralı tektir: arkasından isim geliyorsa sıfat, ismin yerini tutuyorsa zamirdir.",
        p:["<b>İsim:</b> varlıklara verilen ad. Özel/cins, tekil/çoğul/topluluk, somut/soyut.",
           "<b>Sıfat:</b> ismin <b>önüne</b> gelip onu niteleyen ya da belirten sözcük. Tek başına kullanılamaz.",
@@ -153,7 +153,7 @@
           "<b>Soyut isim</b> — duyu organlarıyla algılanamazlar."]},
 
 
-      {n:"Lider Ruhlar · Fiiller: Kip ve Kişi", w:"Mayıs–Haziran",
+      {n:"Lider Ruhlar · Fiiller: Kip ve Kişi", w:"Mayıs–Haziran", t:["KONU 8 · Fiiller: Kip ve Kişi"],
        lead:"Fiil, iş-oluş-durum bildiren sözcüktür. <b>Kip eki</b> eylemin ne zaman ya da hangi dilekle yapıldığını, <b>kişi eki</b> kimin yaptığını gösterir.",
        tbl:[{h:["Kip","Eki","Örnek"], r:[
           ["Görülen (bilinen) geçmiş","-dı / -di / -du / -dü","geldi"],
@@ -181,7 +181,7 @@
      plist:{t:"6. Sınıf Sosyal — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjCLO23ekG1_euuJfrHI5qU_"},
      note:"Bu dersin ünite adları yeni programda tamamen değişti. Eski \"Birey ve Toplum, Kültür ve Miras, İnsanlar Yerler ve Çevreler…\" başlıkları artık kullanılmıyor.",
      units:[
-      {n:"Birlikte Yaşamak", w:"Eylül–Ekim",
+      {n:"Birlikte Yaşamak", w:"Eylül–Ekim", t:["ALAN 1 · Birlikte Yaşamak"],
        lead:"Üç başlıkta ilerler: <b>zaman içinde değişen gruplar ve roller</b>, <b>kültürel bağlarımız ve millî değerlerimiz</b>, <b>toplumsal sorunlar ve çözüm önerileri</b>.",
        p:["<b>Sosyal rol:</b> bir kişinin içinde bulunduğu gruba göre üstlendiği görev. Aynı kişi aynı gün öğrenci, evlat, kardeş, komşu olabilir. Roller <b>zamanla değişir</b>.",
           "Her rolün bir <b>sorumluluğu</b> vardır. Bir kişinin hakkının bittiği yer, başkasının hakkının başladığı yerdir.",
@@ -201,7 +201,7 @@
           "Dil, bayrak, İstiklal Marşı, bayramlar.","<b>Birleşmiş Milletler</b> tarafından <b>1989</b>'da kabul edilmiştir.",
           "Örnek sorun: koridorlarda koşmak ve gürültü. Çözüm: teneffüs kurallarını panoya asmak; nöbetçi öğrenci uygulamasını yaygınlaştırmak."]},
 
-      {n:"Evimiz Dünya", w:"Kasım–Aralık",
+      {n:"Evimiz Dünya", w:"Kasım–Aralık", t:["ALAN 2 · Evimiz Dünya"],
        lead:"Üç başlık: <b>ülkemizin, kıtaların ve okyanusların konum özellikleri</b>, <b>doğal ve beşerî çevre özellikleri</b>, <b>Türk dünyasıyla kültürel iş birlikleri</b>.",
        p:["<b>Yedi kıta:</b> Asya, Afrika, Kuzey Amerika, Güney Amerika, Antarktika, Avrupa, Okyanusya. <b>Beş okyanus:</b> Büyük (Pasifik), Atlas, Hint, Kuzey Buz, Güney.",
           "<b>Matematik konum:</b> 36°–42° kuzey enlemleri, 26°–45° doğu boylamları arasında. <b>Kuzey ve Doğu Yarım Küre'de</b>, <b>orta kuşakta</b> — dört mevsim bu yüzden belirgin yaşanır.",
@@ -221,7 +221,7 @@
           "Doğal çevre insandan bağımsız oluşur: dağ, akarsu. Beşerî çevre insan eliyle oluşur: baraj, otoyol.",
           "<b>TİKA</b> — kardeş ülkelerde kalkınma projeleri yürütür. <b>TÜRKSOY</b> — ortak kültür ve sanat çalışmalarını yürütür."]},
 
-      {n:"Ortak Mirasımız", w:"Aralık–Ocak",
+      {n:"Ortak Mirasımız", w:"Aralık–Ocak", t:["ALAN 3 · Ortak Mirasımız"],
        lead:"Dört başlık: <b>Türkistan'da kurulan ilk Türk devletleri</b>, <b>İslam medeniyetinin katkıları</b>, <b>İslamiyet'in kabulüyle gelen değişimler</b>, <b>Anadolu'nun Türkleşmesi</b>.",
        tbl:[{h:["Devlet / Olay","Tarih","Önemi"], r:[
           ["Asya Hun Devleti","MÖ 3. yy","Bilinen ilk Türk devleti; Mete Han orduyu onluk sisteme göre düzenledi"],
@@ -245,7 +245,7 @@
           "Türkler ile Araplar yakınlaştı ve Türkler İslamiyet'i kabul etmeye başladı; <b>kâğıt üretimi</b> Çin dışına yayıldı.",
           "<b>El-Harezmi.</b> <b>Matematik</b> alanında çalışmış, cebirin kurucusu sayılır."]},
 
-      {n:"Yaşayan Demokrasimiz", w:"Şubat–Mart",
+      {n:"Yaşayan Demokrasimiz", w:"Şubat–Mart", t:["ALAN 4 · Yaşayan Demokrasimiz"],
        lead:"Demokrasinin ilkeleri, yönetim şekilleri ve devletin üç erki. Bu alanın sorularında kuvvetler ayrılığı her zaman çıkar.",
        p:["<b>Temel ilkeler:</b> millî egemenlik, özgürlük, eşitlik, hukukun üstünlüğü, çoğulculuk, katılım, serbest ve düzenli seçimler.",
           "<b>Yönetim şekilleri:</b> <b>demokrasi</b> (halk yönetir), <b>monarşi</b> (tek kişi, genellikle veraset), <b>oligarşi</b> (belirli bir zümre), <b>cumhuriyet</b> (devlet başkanı seçimle belirlenir).",
@@ -264,7 +264,7 @@
           "<b>Dilekçe hakkını</b> kullanmak, <b>CİMER</b>'e başvurmak, <b>Kamu Denetçiliği Kurumu</b>'na başvurmak.",
           "Herkes aday olabilir ve oyunu özgürce kullanır; bu katılım ve eşitlik ilkelerinin uygulanmasıdır. Çoğunluğun kararına saygı da demokratik tutumun gereğidir."]},
 
-      {n:"Hayatımızdaki Ekonomi", w:"Nisan–Mayıs",
+      {n:"Hayatımızdaki Ekonomi", w:"Nisan–Mayıs", t:["ALAN 5 · Hayatımızdaki Ekonomi"],
        lead:"Kaynaklar, ekonomik faaliyetler ve bilinçli tüketicilik. Günlük hayatta en çok işe yarayan öğrenme alanı budur.",
        p:["<b>Kaynak çeşitleri:</b> <b>doğal kaynaklar</b> (su, orman, madenler), <b>insan kaynağı</b> (nitelikli iş gücü), <b>sermaye</b> (makine, para, bina).",
           "<b>Ekonomik faaliyetler:</b> tarım, hayvancılık, madencilik, sanayi, ticaret, turizm. Hangi faaliyetin öne çıktığını <b>iklim, yer şekilleri ve kaynaklar</b> belirler.",
@@ -285,7 +285,7 @@
           "Eğitim ve beceriyle donanmış, işini verimli yapabilen çalışandır. Aynı kaynakla daha çok üretim sağlar.",
           "Bölgede <b>her mevsim yağış</b> görülmesi ve ılıman iklim uygun koşulları oluşturur."]},
 
-      {n:"Teknoloji ve Sosyal Bilimler", w:"Mayıs–Haziran",
+      {n:"Teknoloji ve Sosyal Bilimler", w:"Mayıs–Haziran", t:["ALAN 6 · Teknoloji ve Sosyal Bilimler"],
        lead:"Ana tema: <b>dijitalleşmenin ve teknolojik gelişmelerin vatandaşlık hak ve sorumluluklarına etkisi</b>.",
        tbl:[{h:["Sosyal bilim","Neyi inceler"], r:[
           ["Tarih","Geçmişteki olayları yer ve zaman göstererek, belgelere dayanarak"],

@@ -113,7 +113,7 @@
      plist:{t:"6. Sınıf Matematik — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjBQiwKtt4aLD1xKfNia8cjI"},
      note:"Yeni programda matematik \"ünite\" değil <b>tema</b> başlıkları altında işleniyor. Aşağıdaki sıra, yıllık planın öğretim sırası. Eski kaynaklardaki <b>tam sayılar, kümeler, oran, üslü ifadeler ve hacim</b> bu programda 6. sınıfta yok — başka sınıflara taşındı.",
      units:[
-      {n:"Sayılar ve Nicelikler (1): Çarpanlar, Katlar, Asal Sayılar", w:"Eylül–Ekim",
+      {n:"Sayılar ve Nicelikler (1): Çarpanlar, Katlar, Asal Sayılar", w:"Eylül–Ekim", t:["TEMA 1 · Çarpanlar, Katlar, Asal Sayılar","EK · Bölünebilme Kuralları"],
        lead:"Bir sayıyı kalansız bölen sayılara o sayının <b>çarpanı (böleni)</b>, çarpma yoluyla elde edilen büyük kardeşlerine <b>katı</b> denir. 12'nin çarpanları 1, 2, 3, 4, 6, 12; katları 12, 24, 36… diye gider.",
        p:["<b>Asal sayı:</b> 1'den büyük ve yalnızca 1 ile kendisine bölünen sayı. 2, 3, 5, 7, 11, 13, 17, 19… En küçüğü 2'dir ve <b>tek çift asal sayı</b> odur.",
           "<b>Asal çarpanlara ayırma:</b> sayıyı asal sayılara böle böle indirgemek. <code>60 = 2² · 3 · 5</code>",
@@ -146,7 +146,7 @@
           "2, 3, 5, 7, 11, 13, 17, 19",
           "Hem 3 hem 4 ile bölünen = 12'nin katı. İki basamaklı en büyük 12 katı 96'dır ve 5 ile bölünmez → <b>96</b>"]},
 
-      {n:"İstatistiksel Araştırma Süreci", w:"Ekim",
+      {n:"İstatistiksel Araştırma Süreci", w:"Ekim", t:["TEMA 2 · İstatistiksel Araştırma Süreci"],
        lead:"Bir istatistik araştırması dört adımda yürür: <b>araştırma sorusunu kur</b> → <b>veriyi topla</b> → <b>düzenle ve görselleştir</b> → <b>yorumla</b>. İyi bir araştırma sorusu, verisi toplanabilir ve tek cevabı olmayan sorudur.",
        p:["<b>Sıklık (frekans):</b> bir değerin kaç kez tekrarlandığı.",
           "<b>Daire grafiği:</b> tüm veri 360°'dir. Bir dilimin merkez açısı = (o gruptaki veri ÷ toplam veri) × 360°.",
@@ -171,7 +171,7 @@
           "Gözlem ya da anketle veri toplanır, seçenekler sıklık tablosuna yazılır, sonuç sütun grafiğiyle gösterilir ve en yüksek sütun yorumlanır.",
           "Toplam 5·15 = 75. Yeni toplam 85 → 85 ÷ 5 = <b>17</b>"]},
 
-      {n:"Sayılar ve Nicelikler (2): Kesirler, Ondalık Gösterim, Uzunluk", w:"Kasım–Aralık",
+      {n:"Sayılar ve Nicelikler (2): Kesirler, Ondalık Gösterim, Uzunluk", w:"Kasım–Aralık", t:["TEMA 3 · Kesirler, Ondalık Gösterim, Uzunluk"],
        lead:"Kesir çizgisi aslında bir <b>bölme işaretidir</b>: <code>3/4 = 3 ÷ 4 = 0,75</code>. Bu bağlantıyı kurduğunda kesir ile ondalık gösterim arasında istediğin gibi gidip gelirsin.",
        p:["<b>Toplama-çıkarma:</b> paydalar eşitlenir, paylar toplanır/çıkarılır.",
           "<b>Çarpma:</b> pay ile pay, payda ile payda çarpılır.",
@@ -192,7 +192,7 @@
           "4,25 + 0,80 = <b>5,05</b>; 3,7 · 100 = <b>370</b>","60 · 2/5 = 24 sayfa okundu → <b>36 sayfa</b> kaldı",
           "2,4 · 1000 = <b>2400 m</b>; 350 ÷ 100 = <b>3,5 m</b>"]},
 
-      {n:"Veriden Olasılığa", w:"Aralık",
+      {n:"Veriden Olasılığa", w:"Aralık", t:["TEMA 4 · Veriden Olasılığa"],
        lead:"Bu temada olasılığı formülden önce <b>deneyerek</b> tahmin ediyorsun. Bir parayı 10 kez atıp yazı sayısını saymak da bir olasılık çalışmasıdır.",
        p:["<b>Kesin olay:</b> gerçekleşmesi şüphesiz. Zarda 1–6 arası bir sayı gelmesi.",
           "<b>İmkânsız olay:</b> asla gerçekleşmez. Zarda 7 gelmesi.",
@@ -211,7 +211,7 @@
           "<b>Sarı.</b> Sarının olasılığı 6/10, yeşilinki 4/10.",
           "Evet, <b>eşit şanslıdır</b>. Atış sayısı arttıkça deneysel olasılık 1/2 değerine yaklaşır."]},
 
-      {n:"Geometrik Şekiller: Açılar, Üçgenler, Dörtgenler", w:"Ocak–Şubat",
+      {n:"Geometrik Şekiller: Açılar, Üçgenler, Dörtgenler", w:"Ocak–Şubat", t:["TEMA 5 · Açılar, Üçgenler, Dörtgenler"],
        lead:"Açı çeşitleri: <b>dar</b> (0°–90°), <b>dik</b> (90°), <b>geniş</b> (90°–180°), <b>doğru</b> (180°), <b>tam</b> (360°).",
        p:["<b>Tümler açılar</b> toplamı 90°, <b>bütünler açılar</b> toplamı 180°.",
           "<b>Ters açılar</b> birbirine <b>eşittir</b>.",
@@ -236,7 +236,7 @@
           "Karşılıklı açılar eşit, ardışık açılar bütünler → <b>110°, 70°, 110°</b>",
           "<b>60°</b> — üç açı da eşit ve toplamları 180° olduğundan 180 ÷ 3 = 60."]},
 
-      {n:"İşlemlerle Cebirsel Düşünme ve Değişimler", w:"Mart–Nisan",
+      {n:"İşlemlerle Cebirsel Düşünme ve Değişimler", w:"Mart–Nisan", t:["TEMA 6 · İşlemlerle Cebirsel Düşünme"],
        lead:"Bilinmeyen bir niceliği harfle göstermeye <b>değişken</b>, içinde değişken bulunan ifadeye <b>cebirsel ifade</b> denir. <code>3x + 5</code> ifadesinde 3 <b>katsayı</b>, x <b>değişken</b>, 5 <b>sabit terim</b>dir.",
        p:["Yalnızca <b>benzer terimler</b> toplanıp çıkarılabilir: <code>5a + 3a = 8a</code>, ama <code>5a + 3b</code> sadeleşmez.",
           "<b>Örüntü:</b> belirli bir kurala göre ilerleyen dizi. Ardışık terimler arasındaki <b>farka</b> bak: fark sabitse kural <code>(fark)·n + (1. terim − fark)</code> biçimindedir.",
@@ -253,7 +253,7 @@
           "<b>4a</b>","Defter 2x TL. 3x + 2·(2x) = <b>7x</b>","Fark 3, ilk terim 4 → <b>3n + 1</b>",
           "<b>2x − 3</b>; x = 8 için 16 − 3 = <b>13</b>"]},
 
-      {n:"Geometrik Nicelikler: Alan, Çember, Merkez Açı", w:"Mayıs–Haziran",
+      {n:"Geometrik Nicelikler: Alan, Çember, Merkez Açı", w:"Mayıs–Haziran", t:["TEMA 7 · Alan, Çember, Merkez Açı"],
        lead:"Alanda dikkat edilecek tek şey <b>yüksekliğin tabana dik olması</b>. Eğik kenar yükseklik değildir; paralelkenarda da üçgende de tabana indirilen dikme ölçülür.",
        box:[{t:"Formüller", h:"<ul><li>Dikdörtgen alanı = <code>kısa kenar · uzun kenar</code></li><li>Paralelkenar alanı = <code>taban · yükseklik</code></li><li>Üçgen alanı = <code>(taban · yükseklik) ÷ 2</code></li><li>Çap = <code>2 · yarıçap</code> · Çember uzunluğu = <code>2 · π · r</code> (π ≈ 3)</li><li>Merkez açısı α olan yayın uzunluğu = <code>(α ÷ 360) · çember uzunluğu</code></li></ul>"},
             {t:"Arazi ölçüleri", h:"<code>1 dönüm = 1000 m²</code> · <code>1 hektar = 10 000 m²</code> · <code>1 km² = 1 000 000 m²</code>"}],
@@ -277,7 +277,7 @@
      plist:{t:"6. Sınıf Fen — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjDznWPQy4PkvygYjDvO-tSw"},
      note:"Eski programdaki <b>Ses ve Özellikleri</b> ile <b>Bitki ve Hayvanlarda Üreme</b> üniteleri bu programda yok; yerlerine <b>Işığın Yansıması ve Renkler</b> ile <b>Sürdürülebilir Yaşam ve Etkileşim</b> geldi.",
      units:[
-      {n:"Güneş Sistemi ve Tutulmalar", w:"Eylül–Ekim",
+      {n:"Güneş Sistemi ve Tutulmalar", w:"Eylül–Ekim", t:["ÜNİTE 1 · Güneş Sistemi ve Tutulmalar"],
        lead:"Güneş'ten uzaklaşarak sekiz gezegen: <b>Merkür, Venüs, Dünya, Mars, Jüpiter, Satürn, Uranüs, Neptün.</b> İlk dördü küçük ve kayaçtan, son dördü dev ve gazdan oluşur.",
        p:["En büyük gezegen <b>Jüpiter</b>, en küçüğü <b>Merkür</b>.",
           "Güneş'e en yakın gezegen Merkür, ama <b>en sıcak gezegen Venüs</b>'tür — yoğun atmosferi ısıyı hapseder.",
@@ -316,7 +316,7 @@
           "İç gezegenler küçük ve kayaçtan oluşur, uyduları az ya da yoktur. Dış gezegenler çok büyüktür, gazdan oluşur, halka ve çok sayıda uyduya sahiptir.",
           "Ay'ın yörüngesi Dünya'nın yörünge düzlemine yaklaşık 5° eğik olduğundan üçü çoğu Yeni Ay'da tam aynı doğrultuya gelmez."]},
 
-      {n:"Kuvvetin Etkisinde Hareket", w:"Kasım",
+      {n:"Kuvvetin Etkisinde Hareket", w:"Kasım", t:["ÜNİTE 2 · Kuvvetin Etkisinde Hareket"],
        lead:"Bir cisme etki eden kuvvetlerin tek başına yaptığı etkiye eşdeğer kuvvete <b>bileşke kuvvet</b> denir. Kuvvetin birimi <b>newton (N)</b>'dur ve dinamometre ile ölçülür.",
        box:[{t:"Bileşke kuvvet", h:"<ul><li><b>Aynı yönlü</b> kuvvetler <b>toplanır</b>.</li><li><b>Zıt yönlü</b> kuvvetler <b>çıkarılır</b>, yön büyük kuvvetin yönündedir.</li><li>Bileşke <b>sıfırsa</b> kuvvetler <b>dengelenmiştir</b>: duran durur, hareketli sabit süratle doğrusal gider.</li><li>Bileşke <b>sıfırdan farklıysa</b> süratin ya da yönün değişir.</li></ul>"},
             {t:"Sürat", h:"<code>Sürat = alınan yol ÷ geçen süre</code> · <code>Yol = sürat · süre</code> · <code>Süre = yol ÷ sürat</code>. Birimi m/s veya km/h'dir."}],
@@ -334,7 +334,7 @@
           "Duruyorsa durmaya devam eder; hareket hâlindeyse <b>sabit süratle doğrusal</b> hareketini sürdürür.",
           "<b>Hareket etmez.</b> Kuvvetler eşit ve zıt yönlü olduğundan bileşke sıfırdır."]},
 
-      {n:"Canlılarda Sistemler", w:"Aralık–Ocak",
+      {n:"Canlılarda Sistemler", w:"Aralık–Ocak", t:["ÜNİTE 3 · Canlılarda Sistemler"],
        lead:"Vücutta hiçbir sistem tek başına çalışmaz: sindirim besini kana verir, dolaşım taşır, solunum oksijeni sağlar, boşaltım atığı süzer.",
        tbl:[{h:["Sistem","Yapıları","Görevi"], r:[
           ["Destek ve hareket","Kemik, kas, eklem","Vücuda şekil verir, organları korur, hareketi sağlar"],
@@ -357,7 +357,7 @@
           "<b>Alveol</b> (hava kesecikleri)","<b>Çizgili kas</b>; <b>istemli</b> çalışır.",
           "Sindirim sistemi besinleri kana geçebilecek küçüklüğe getirip emer, dolaşım sistemi bu besinleri bütün hücrelere taşır."]},
 
-      {n:"Işığın Yansıması ve Renkler", w:"Şubat",
+      {n:"Işığın Yansıması ve Renkler", w:"Şubat", t:["ÜNİTE 4 · Işığın Yansıması ve Renkler"],
        lead:"Işık bir yüzeye çarptığında geri döner; buna <b>yansıma</b> denir.",
        box:[{t:"Yansıma kanunu", h:"<b>Gelme açısı = yansıma açısı.</b> Açılar, yüzeye dik olan <b>normal</b> doğrusuyla ölçülür — yüzeyin kendisiyle değil."}],
        p:["<b>Düzgün yansıma:</b> pürüzsüz yüzeyde ışınlar düzenli döner, net görüntü oluşur.",
@@ -381,7 +381,7 @@
           "Kırmızı, turuncu, sarı, yeşil, mavi, lacivert ve mor renklere ayrılır. Doğadaki örneği <b>gökkuşağı</b>dır.",
           "Yaprak beyaz ışığın içindeki <b>yeşil rengi yansıtır</b>, diğerlerini soğurur."]},
 
-      {n:"Maddenin Ayırt Edici Özellikleri", w:"Mart–Nisan",
+      {n:"Maddenin Ayırt Edici Özellikleri", w:"Mart–Nisan", t:["ÜNİTE 5 · Maddenin Ayırt Edici Özellikleri"],
        lead:"<b>Ayırt edici özellik</b>, madde miktarı değişse de değişmeyen, maddeyi tanımaya yarayan özelliktir. Yoğunluk, erime/donma noktası ve kaynama noktası böyledir; kütle ve hacim değildir.",
        p:["<b>Genleşme:</b> madde ısı alınca tanecikleri hızlanır, aralarındaki boşluk artar, madde genişler.",
           "Gazlar en çok, katılar en az genleşir. Demiryolu raylarındaki boşluk, köprü derzleri bu yüzdendir.",
@@ -399,7 +399,7 @@
           "Alınan ısı, sıcaklığı yükseltmek yerine <b>tanecikler arasındaki bağları koparmaya</b> harcanır.",
           "<b>Erime noktaları eşittir.</b> Erime noktası ayırt edici özelliktir; miktar arttıkça yalnızca erime <b>süresi</b> uzar."]},
 
-      {n:"Elektriğin İletimi ve Direnç", w:"Nisan–Mayıs",
+      {n:"Elektriğin İletimi ve Direnç", w:"Nisan–Mayıs", t:["ÜNİTE 6 · Elektriğin İletimi ve Direnç"],
        lead:"Elektrik akımını geçiren maddelere <b>iletken</b> (bakır, alüminyum, demir, grafit, tuzlu su), geçirmeyenlere <b>yalıtkan</b> (plastik, cam, kuru tahta, lastik) denir. Kabloların içi bakır, dışı plastiktir.",
        box:[{t:"Direnç", h:"Bir iletkenin elektrik akımına karşı gösterdiği zorluğa <b>direnç</b> denir. Birimi <b>ohm</b>, sembolü <b>Ω</b>'dır. Ampulün içindeki ince tel bir dirençtir; akıma zorluk gösterdiği için ısınır ve ışık verir."}],
        p:["Telin <b>boyu uzarsa</b> direnç <b>artar</b>.","Telin <b>kesiti (kalınlığı) artarsa</b> direnç <b>azalır</b>.",
@@ -417,7 +417,7 @@
           "<b>Azalır (sönükleşir).</b> Toplam direnç arttığı için devreden geçen akım azalır.",
           "Plastik <b>yalıtkandır</b>; akımın dışarı çıkmasını ve dokunan kişiye geçmesini engeller."]},
 
-      {n:"Sürdürülebilir Yaşam ve Etkileşim", w:"Mayıs–Haziran",
+      {n:"Sürdürülebilir Yaşam ve Etkileşim", w:"Mayıs–Haziran", t:["ÜNİTE 7 · Sürdürülebilir Yaşam ve Etkileşim"],
        lead:"Bu ünite yeni programla eklendi. İki ana başlığı var: <b>biyoçeşitlilik</b> ve <b>insan-çevre etkileşimi</b>.",
        p:["<b>Biyoçeşitlilik:</b> bir bölgedeki canlı türlerinin çeşitliliği. Bir türün yok olması bütün besin zincirini etkiler.",
           "Türkiye, üç farklı iklim ve bitki örtüsüne sahip olduğu için biyoçeşitliliği çok yüksek bir ülkedir.",

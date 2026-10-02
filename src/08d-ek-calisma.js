@@ -11,7 +11,8 @@
      ve ana testin ünite çiplerinden ayrı, mor çerçeveli çizilir.
 
      Yeni set eklerken: ilgili sınıfın altına ders anahtarıyla yeni
-     dizi aç ya da mevcut diziye yeni u başlığıyla ekle. */
+     dizi aç ya da mevcut diziye yeni u başlığıyla ekle. Etiketi ilgili
+     ünitenin t dizisine de yaz, yoksa Dersler ↔ Testler bağlantısı çıkmaz. */
 
   var EKC6 = {
     mat:[
