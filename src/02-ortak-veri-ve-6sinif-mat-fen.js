@@ -113,7 +113,7 @@
      plist:{t:"6. Sınıf Matematik — tonguçCUP 2025-2026 · dönemin tüm konuları", u:"https://www.youtube.com/playlist?list=PLSRKiOhQKAjBQiwKtt4aLD1xKfNia8cjI"},
      note:"Yeni programda matematik \"ünite\" değil <b>tema</b> başlıkları altında işleniyor. Aşağıdaki sıra, yıllık planın öğretim sırası. Eski kaynaklardaki <b>tam sayılar, kümeler, oran, üslü ifadeler ve hacim</b> bu programda 6. sınıfta yok — başka sınıflara taşındı.",
      units:[
-      {n:"Sayılar ve Nicelikler (1): Çarpanlar, Katlar, Asal Sayılar", w:"Eylül–Ekim", t:["TEMA 1 · Çarpanlar, Katlar, Asal Sayılar","EK · Bölünebilme Kuralları"],
+      {n:"Sayılar ve Nicelikler (1): Çarpanlar, Katlar, Asal Sayılar", w:"Eylül–Ekim", t:["TEMA 1 · Çarpanlar, Katlar, Asal Sayılar","EK · Bölünebilme Kuralları","EK · EBOB mu, EKOK mu?","EK · Asal Çarpanlar ve Bölenler"],
        lead:"Bir sayıyı kalansız bölen sayılara o sayının <b>çarpanı (böleni)</b>, çarpma yoluyla elde edilen büyük kardeşlerine <b>katı</b> denir. 12'nin çarpanları 1, 2, 3, 4, 6, 12; katları 12, 24, 36… diye gider.",
        p:["<b>Asal sayı:</b> 1'den büyük ve yalnızca 1 ile kendisine bölünen sayı. 2, 3, 5, 7, 11, 13, 17, 19… En küçüğü 2'dir ve <b>tek çift asal sayı</b> odur.",
           "<b>Asal çarpanlara ayırma:</b> sayıyı asal sayılara böle böle indirgemek. <code>60 = 2² · 3 · 5</code>",
@@ -146,7 +146,7 @@
           "2, 3, 5, 7, 11, 13, 17, 19",
           "Hem 3 hem 4 ile bölünen = 12'nin katı. İki basamaklı en büyük 12 katı 96'dır ve 5 ile bölünmez → <b>96</b>"]},
 
-      {n:"İstatistiksel Araştırma Süreci", w:"Ekim", t:["TEMA 2 · İstatistiksel Araştırma Süreci"],
+      {n:"İstatistiksel Araştırma Süreci", w:"Ekim", t:["TEMA 2 · İstatistiksel Araştırma Süreci","EK · Ortalama, Ortanca, Tepe Değer"],
        lead:"Bir istatistik araştırması dört adımda yürür: <b>araştırma sorusunu kur</b> → <b>veriyi topla</b> → <b>düzenle ve görselleştir</b> → <b>yorumla</b>. İyi bir araştırma sorusu, verisi toplanabilir ve tek cevabı olmayan sorudur.",
        p:["<b>Sıklık (frekans):</b> bir değerin kaç kez tekrarlandığı.",
           "<b>Daire grafiği:</b> tüm veri 360°'dir. Bir dilimin merkez açısı = (o gruptaki veri ÷ toplam veri) × 360°.",
