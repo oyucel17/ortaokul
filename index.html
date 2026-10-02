@@ -3586,10 +3586,152 @@
   };
 
   /* Ek soruları ana havuzlara ekle */
+  /* ---------- 2026 Ekim bakımı: Kasım ünitelerini 10'a tamamlama ---------- */
+
+  var EK6c = {
+    mat:[
+      {u:"TEMA 3 · Kesirler, Ondalık Gösterim, Uzunluk", q:"3/4 + 2/5 işleminin sonucu kaçtır?", o:["5/9","23/20","6/20","5/20"], a:1,
+       w:"Paydalar 20'de eşitlenir: 15/20 + 8/20 = 23/20. Payları ve paydaları ayrı ayrı toplamak (5/9) yanlıştır."},
+      {u:"TEMA 3 · Kesirler, Ondalık Gösterim, Uzunluk", q:"2/3 · 9/10 işleminin en sade sonucu hangisidir?", o:["11/13","18/13","3/5","27/20"], a:2,
+       w:"Pay ile pay, payda ile payda çarpılır: 18/30 = 3/5."},
+      {u:"TEMA 3 · Kesirler, Ondalık Gösterim, Uzunluk", q:"3/8 kesrinin ondalık gösterimi hangisidir?", o:["0,38","0,375","3,8","0,83"], a:1,
+       w:"Kesir çizgisi bölmedir: 3 ÷ 8 = 0,375."},
+      {u:"TEMA 3 · Kesirler, Ondalık Gösterim, Uzunluk", q:"0,75 ondalık gösterimi hangi kesre eşittir?", o:["7/5","3/4","75/10","1/75"], a:1,
+       w:"0,75 = 75/100 = 3/4."},
+      {u:"TEMA 3 · Kesirler, Ondalık Gösterim, Uzunluk", q:"4,25 + 0,8 işleminin sonucu kaçtır?", o:["4,33","5,05","4,105","12,25"], a:1,
+       w:"Virgüller alt alta gelecek şekilde yazılır: 4,25 + 0,80 = 5,05."},
+      {u:"TEMA 3 · Kesirler, Ondalık Gösterim, Uzunluk", q:"3,7 · 100 işleminin sonucu kaçtır?", o:["0,037","37","370","3700"], a:2,
+       w:"100 ile çarparken virgül iki basamak sağa kayar: 3,7 → 370."},
+      {u:"TEMA 3 · Kesirler, Ondalık Gösterim, Uzunluk", q:"2,4 km kaç metredir?", o:["24","240","2400","24000"], a:2,
+       w:"1 km = 1000 m. Büyükten küçüğe giderken çarpılır: 2,4 · 1000 = 2400 m."},
+      {u:"TEMA 3 · Kesirler, Ondalık Gösterim, Uzunluk", q:"60 sayfalık bir kitabın 2/5'i okunmuştur. Geriye kaç sayfa kalmıştır?", o:["12","24","36","40"], a:2,
+       w:"Okunan: 60 · 2/5 = 24 sayfa. Kalan: 60 − 24 = 36 sayfa."}
+    ],
+    tur:[
+      {u:"KONU 3 · Cümlede Anlam", q:"\"Yağmur yağdığı için maç ertelendi.\" cümlesindeki anlam ilişkisi hangisidir?", o:["Neden – sonuç","Amaç – sonuç","Koşul (şart)","Karşılaştırma"], a:0,
+       w:"Maçın ertelenmesinin sebebi zaten olmuş bir olay (yağmur) → neden – sonuç."},
+      {u:"KONU 3 · Cümlede Anlam", q:"\"Erken gelirsen seni de götürürüm.\" cümlesindeki anlam ilişkisi hangisidir?", o:["Neden – sonuç","Amaç – sonuç","Koşul (şart)","Karşılaştırma"], a:2,
+       w:"\"-sen\" eki, götürmenin şartını bildirir → koşul."},
+      {u:"KONU 3 · Cümlede Anlam", q:"\"Bu film diğerinden daha sürükleyiciydi.\" cümlesindeki anlam ilişkisi hangisidir?", o:["Neden – sonuç","Amaç – sonuç","Koşul (şart)","Karşılaştırma"], a:3,
+       w:"\"Diğerinden daha\" iki şeyi kıyaslıyor → karşılaştırma."},
+      {u:"KONU 3 · Cümlede Anlam", q:"\"Kitap 240 sayfadır.\" cümlesi nasıl bir yargıdır?", o:["Öznel","Nesnel","Koşul","Amaç – sonuç"], a:1,
+       w:"Sayfa sayısı sayılarak kanıtlanabilir, herkes için aynıdır → nesnel."},
+      {u:"KONU 3 · Cümlede Anlam", q:"\"Bu kitap çok sıkıcıydı.\" cümlesi nasıl bir yargıdır?", o:["Nesnel","Öznel","Karşılaştırma","Neden – sonuç"], a:1,
+       w:"\"Sıkıcı\" kişiden kişiye değişen bir değerlendirmedir → öznel."},
+      {u:"KONU 3 · Cümlede Anlam", q:"Aşağıdaki cümlelerin hangisinde amaç – sonuç ilişkisi vardır?", o:["Hastalandığı için okula gelmedi.","Daha iyi görmek için öne oturdu.","Kar yağdığından yollar kapandı.","Çalışırsan başarırsın."], a:1,
+       w:"Öne oturmak, henüz gerçekleşmemiş bir hedef (daha iyi görmek) için yapılmış → amaç – sonuç. \"İçin\" gören her cümle neden – sonuç değildir."},
+      {u:"KONU 3 · Cümlede Anlam", q:"Aşağıdaki cümlelerin hangisinde neden – sonuç ilişkisi vardır?", o:["Ödevini bitirmek için erken kalktı.","Trafik yoğun olduğu için geç kaldı.","Hava güzel olursa pikniğe gideriz.","Ali, Veli kadar hızlı koşar."], a:1,
+       w:"Geç kalmanın sebebi zaten var olan bir durum (yoğun trafik) → neden – sonuç."},
+      {u:"KONU 3 · Cümlede Anlam", q:"Aşağıdakilerden hangisi nesnel bir yargıdır?", o:["Türkiye'nin başkenti Ankara'dır.","Ankara çok güzel bir şehirdir.","En lezzetli yemek mantıdır.","Bu şarkı insanı çok duygulandırıyor."], a:0,
+       w:"Başkentin Ankara olduğu kanıtlanabilir bir bilgidir; diğerleri kişisel görüştür."},
+      {u:"KONU 3 · Cümlede Anlam", q:"Aşağıdaki eklerden hangisi genellikle koşul (şart) anlamı katar?", o:["-sa / -se","daha","diye","-den dolayı"], a:0,
+       w:"\"Gelirse, okursan\" gibi -sa/-se ekleri şart bildirir. \"Daha\" karşılaştırma, \"diye\" amaç, \"-den dolayı\" neden bildirir."}
+    ],
+    ing:[
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"He ____ (get) up at seven every day.", o:["get","gets","getting","is get"], a:1,
+       w:"He / she / it ile Present Simple'da fiil -s alır: gets."},
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"____ your sister play the piano?", o:["Do","Does","Is","Are"], a:1,
+       w:"Üçüncü tekil (your sister = she) sorusu Does ile kurulur: Does your sister play…?"},
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"I like ____ (read) books.", o:["read","reads","reading","readed"], a:2,
+       w:"like / love / enjoy / hate'ten sonra fiil -ing alır: I like reading."},
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"Choose the correct sentence.", o:["I always get up at seven.","I get always up at seven.","Always I get up at seven.","I get up at always seven."], a:0,
+       w:"Sıklık zarfı (always) ana fiilden ÖNCE gelir: I always get up…"},
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"My brother doesn't ____ fish.", o:["like","likes","liking","to likes"], a:0,
+       w:"doesn't -s'yi zaten taşır, fiil yalın kalır: doesn't like."},
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"Which word means \"her zaman\"?", o:["never","sometimes","always","rarely"], a:2,
+       w:"always = her zaman, never = asla, sometimes = bazen, rarely = nadiren."},
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"\"brush my teeth\" ne demektir?", o:["yüzümü yıkamak","dişlerimi fırçalamak","saçımı taramak","kahvaltı yapmak"], a:1,
+       w:"brush = fırçalamak, teeth = dişler."},
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"She ____ to school by bus.", o:["go","goes","going","gos"], a:1,
+       w:"she ile fiil -s alır; \"go\" fiili -es alır: goes."}
+    ],
+    din:[
+      {u:"ÜNİTE 2 · Ramazan ve Oruç", q:"Orucun bitiş vaktine ne ad verilir?", o:["İmsak","Sahur","İftar","Teravih"], a:2,
+       w:"İmsak başlama, iftar bitiş vaktidir."},
+      {u:"ÜNİTE 2 · Ramazan ve Oruç", q:"İmsaktan önce yenen yemeğe ne ad verilir?", o:["İftar","Sahur","Fitre","Kaza"], a:1,
+       w:"Sahur, oruç başlamadan (imsaktan önce) yenen yemektir."},
+      {u:"ÜNİTE 2 · Ramazan ve Oruç", q:"Ramazan gecelerinde kılınan namaz hangisidir?", o:["Teravih","Bayram namazı","Cuma namazı","Kuşluk namazı"], a:0,
+       w:"Teravih namazı Ramazan ayına özgüdür, yatsı namazından sonra kılınır."},
+      {u:"ÜNİTE 2 · Ramazan ve Oruç", q:"Ramazan Bayramı'ndan önce verilen sadakaya ne ad verilir?", o:["Fidye","Fitre","Kurban","Zekât"], a:1,
+       w:"Fitre (fıtır sadakası) bayramdan önce verilir. Fidye ise tutulamayan oruç karşılığıdır — karıştırma."},
+      {u:"ÜNİTE 2 · Ramazan ve Oruç", q:"Kur'an-ı Kerim'in indirilmeye başlandığı gece hangisidir?", o:["Kadir Gecesi","Miraç Kandili","Mevlit Kandili","Berat Kandili"], a:0,
+       w:"Kur'an Ramazan ayında, Kadir Gecesi'nde indirilmeye başlanmıştır."},
+      {u:"ÜNİTE 2 · Ramazan ve Oruç", q:"Hastalığı yüzünden oruç tutamayan ve iyileşince tutabilecek kişi ne yapar?", o:["Fidye verir","Kaza eder","Fitre verir","Hiçbir şey yapmaz"], a:1,
+       w:"Sonradan tutabilecek durumda olan kişi orucunu daha sonra kaza eder. Fidye, bir daha tutamayacaklar içindir."},
+      {u:"ÜNİTE 2 · Ramazan ve Oruç", q:"Aşağıdakilerden hangisi oruç tutmakla yükümlü DEĞİLDİR?", o:["Sağlıklı bir yetişkin","Ergenlik çağına girmemiş bir çocuk","Akıllı ve ergen bir genç","Yolculukta olmayan sağlıklı bir kişi"], a:1,
+       w:"Oruç; ergenlik çağına girmiş, akıllı ve sağlıklı Müslümana farzdır."},
+      {u:"ÜNİTE 2 · Ramazan ve Oruç", q:"Orucun kişiye kazandırdığı değerlerden biri hangisidir?", o:["Sabır","Kibir","Cimrilik","Bencillik"], a:0,
+       w:"Oruç sabrı, iradeyi ve yoksulun hâlini anlamayı öğretir."}
+    ]
+  };
+
+  var EK7c = {
+    tur:[
+      {u:"TEMA 2 · Bir Hilal Uğruna", q:"Ek fiilin görevlerinden biri hangisidir?", o:["İsim soylu sözcükleri yüklem yapmak","Fiilden isim yapmak","Sözcüğü çoğul yapmak","Olumsuzluk anlamı katmak"], a:0,
+       w:"Ek fiil iki iş yapar: isim soylu sözcüğü yüklem yapar (öğrenciydi) ve basit zamanlı fiili birleşik zamanlı yapar (geliyordu)."},
+      {u:"TEMA 2 · Bir Hilal Uğruna", q:"\"Hava çok soğuktu.\" cümlesindeki ek fiil hangi çekimdedir?", o:["Görülen geçmiş zaman","Duyulan geçmiş zaman","Şart","Geniş zaman"], a:0,
+       w:"soğuk + -tu: ek fiilin görülen geçmiş zaman çekimi (-di)."},
+      {u:"TEMA 2 · Bir Hilal Uğruna", q:"\"Öğrenciymiş\" sözcüğündeki ek fiil hangi çekimdedir?", o:["Görülen geçmiş zaman","Duyulan geçmiş zaman","Şart","Geniş zaman"], a:1,
+       w:"öğrenci + -ymiş: ek fiilin duyulan geçmiş zaman çekimi (-miş)."},
+      {u:"TEMA 2 · Bir Hilal Uğruna", q:"\"Çalışkandır\" sözcüğündeki ek fiil hangi çekimdedir?", o:["Görülen geçmiş zaman","Duyulan geçmiş zaman","Şart","Geniş zaman"], a:3,
+       w:"çalışkan + -dır: ek fiilin geniş zaman çekimi (-dir)."},
+      {u:"TEMA 2 · Bir Hilal Uğruna", q:"\"Yorgunsa\" sözcüğündeki ek fiil hangi çekimdedir?", o:["Görülen geçmiş zaman","Duyulan geçmiş zaman","Şart","Geniş zaman"], a:2,
+       w:"yorgun + -sa: ek fiilin şart çekimi (-se)."},
+      {u:"TEMA 2 · Bir Hilal Uğruna", q:"Hangisinde ek fiil, basit zamanlı bir fiili birleşik zamanlı yapmıştır?", o:["Öğrenciydi","Geliyordu","Güzelmiş","Doktordur"], a:1,
+       w:"gel + -iyor (şimdiki zaman) + -du (ek fiil) → birleşik zamanlı fiil. Diğerlerinde kök isimdir."},
+      {u:"TEMA 2 · Bir Hilal Uğruna", q:"Hangisinde ek fiil, isim soylu bir sözcüğü yüklem yapmıştır?", o:["Koşuyordu","Gelecekmiş","Mutluydu","Yazmışsa"], a:2,
+       w:"mutlu (isim soylu) + -ydu. Diğerlerinin kökü fiildir; ek fiil orada zamanı birleştirir."},
+      {u:"TEMA 2 · Bir Hilal Uğruna", q:"\"Geldi\" ile \"güzeldi\" sözcükleri arasındaki fark hangisidir?", o:["İkisi de ek fiil almıştır","\"Geldi\" fiildir, \"güzeldi\" isim + ek fiildir","İkisi de isimdir","\"Güzeldi\" fiildir"], a:1,
+       w:"Kökü yokla: \"gel-\" fiil, \"güzel\" isim soyludur. \"Güzeldi\"deki -di ek fiildir, \"geldi\"deki -di ise fiil çekim ekidir."},
+      {u:"TEMA 2 · Bir Hilal Uğruna", q:"Ek fiilin kaç çekimi vardır?", o:["İki","Üç","Dört","Beş"], a:2,
+       w:"Dört çekim: -di (görülen geçmiş), -miş (duyulan geçmiş), -se (şart), -dir (geniş zaman)."}
+    ],
+    ing:[
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"You ____ eat too much junk food. It's unhealthy.", o:["should","shouldn't","should to","don't should"], a:1,
+       w:"Yapılmaması gereken bir şey için shouldn't kullanılır. should'dan sonra \"to\" gelmez."},
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"You should ____ more water.", o:["drink","to drink","drinking","drinks"], a:0,
+       w:"should'dan sonra fiil yalın gelir: should drink."},
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"Which sentence gives advice?", o:["Why don't you go to bed early?","Where do you go to bed?","Did you go to bed early?","Do you go to bed early?"], a:0,
+       w:"\"Why don't you…?\" bir tavsiye kalıbıdır; diğerleri bilgi soran sorulardır."},
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"How about ____ for a walk?", o:["go","going","to go","goes"], a:1,
+       w:"How about'tan sonra fiil -ing alır: How about going…?"},
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"I usually ____ to school, but this week I ____ the bus.", o:["walk / am taking","am walking / take","walks / taking","walk / take"], a:0,
+       w:"Alışkanlık → Present Simple (walk); bu haftaya özgü geçici durum → Present Continuous (am taking)."},
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"She ____ for an exam this week.", o:["studies","is studying","study","studying"], a:1,
+       w:"\"this week\" geçici bir durumu anlatır → Present Continuous: is studying."},
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"\"stay up late\" ne demektir?", o:["erken kalkmak","geç saate kadar oturmak","geç kalmak","yatağa uzanmak"], a:1,
+       w:"stay up late = geç saate kadar (uyumadan) oturmak."},
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"I feel ____ because I didn't sleep well.", o:["energetic","tired","confident","calm"], a:1,
+       w:"İyi uyumamanın sonucu yorgunluktur: tired."},
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"Too much screen time ____ your eyes.", o:["damage","damages","damaging","is damage"], a:1,
+       w:"\"Too much screen time\" tekil özne → fiil -s alır: damages."}
+    ],
+    din:[
+      {u:"ÜNİTE 2 · Hac, Umre ve Kurban", q:"Hac, şartlarını taşıyan Müslümana ne sıklıkla farzdır?", o:["Her yıl","Ömründe bir kez","İki yılda bir","Hiç farz değildir"], a:1,
+       w:"Hac, şartlarını taşıyana ömürde bir kez farzdır."},
+      {u:"ÜNİTE 2 · Hac, Umre ve Kurban", q:"Hac hangi ayda yapılır?", o:["Ramazan","Muharrem","Zilhicce","Şaban"], a:2,
+       w:"Hac belirli günlerde, Zilhicce ayında yapılır."},
+      {u:"ÜNİTE 2 · Hac, Umre ve Kurban", q:"Umrenin hükmü nedir?", o:["Farz","Sünnet","Vacip","Haram"], a:1,
+       w:"Hac farz, umre sünnettir."},
+      {u:"ÜNİTE 2 · Hac, Umre ve Kurban", q:"Arafat'ta belirli vakitte bulunmaya ne ad verilir?", o:["Tavaf","Arafat vakfesi","Sa'y","İhram"], a:1,
+       w:"Arafat vakfesi haccın farzlarındandır; umrede yoktur."},
+      {u:"ÜNİTE 2 · Hac, Umre ve Kurban", q:"Kâbe'nin çevresinde yedi kez dönmeye ne ad verilir?", o:["Vakfe","Tavaf","İhram","Kurban"], a:1,
+       w:"Tavaf, Kâbe'nin etrafında yedi kez dönmektir. Haccın farzı olan tavaf, ziyaret tavafıdır."},
+      {u:"ÜNİTE 2 · Hac, Umre ve Kurban", q:"Hac ve umre için niyet edilip girilen özel ibadet hâline ne ad verilir?", o:["İhram","Tavaf","Vakfe","Telbiye"], a:0,
+       w:"İhram, hac ve umre için girilen ibadet hâlidir; bu sırada bazı davranışlar yasaktır."},
+      {u:"ÜNİTE 2 · Hac, Umre ve Kurban", q:"Kurban ibadetinin toplumsal faydalarından biri hangisidir?", o:["Paylaşma ve dayanışmayı güçlendirir","İnsanları birbirinden uzaklaştırır","Yalnızca zenginlere fayda sağlar","Sadece bayramda yemek yemeyi sağlar"], a:0,
+       w:"Kurban, yoksulun et ihtiyacını karşılar; paylaşma ve dayanışmayı güçlendirir."},
+      {u:"ÜNİTE 2 · Hac, Umre ve Kurban", q:"Hac ile umrenin ORTAK özelliği hangisidir?", o:["Arafat vakfesi","Belirli bir zamanda yapılması","İhrama girilmesi","Farz olması"], a:2,
+       w:"İkisinde de ihram gerekir. Arafat vakfesi, belirli zaman ve farz olma yalnızca hacca aittir."}
+    ]
+  };
+
   Object.keys(EK6).forEach(function(k){ if(Q6[k]) Q6[k] = Q6[k].concat(EK6[k]); });
   Object.keys(EK7).forEach(function(k){ if(Q7[k]) Q7[k] = Q7[k].concat(EK7[k]); });
   Object.keys(EK6b).forEach(function(k){ if(Q6[k]) Q6[k] = Q6[k].concat(EK6b[k]); });
   Object.keys(EK7b).forEach(function(k){ if(Q7[k]) Q7[k] = Q7[k].concat(EK7b[k]); });
+  Object.keys(EK6c).forEach(function(k){ if(Q6[k]) Q6[k] = Q6[k].concat(EK6c[k]); });
+  Object.keys(EK7c).forEach(function(k){ if(Q7[k]) Q7[k] = Q7[k].concat(EK7c[k]); });
 
   /* Soruları ünite numarasına göre grupla — filtre çipleri sıralı görünsün */
   function uniteNo(u){ var m = String(u).match(/(\d+)/); return m ? parseInt(m[1],10) : 99; }
@@ -3856,6 +3998,101 @@
        w:"\"Can\" gelecek zamanla kullanılamaz; \"will be able to\" gelir."}
     ]
   };
+
+  /* ---------- 2026 Ekim bakımı: Kasım ünitelerinin havuzu ---------- */
+
+  var H6c = {
+    mat:[
+      {u:"TEMA 3 · Kesirler, Ondalık Gösterim, Uzunluk", q:"1/2 − 1/3 işleminin sonucu kaçtır?", o:["1/6","0","2/5","1/5"], a:0,
+       w:"Payda 6: 3/6 − 2/6 = 1/6."},
+      {u:"TEMA 3 · Kesirler, Ondalık Gösterim, Uzunluk", q:"4/9 ÷ 2/3 işleminin sonucu kaçtır?", o:["8/27","2/3","3/2","12/27"], a:1,
+       w:"İkinci kesir ters çevrilip çarpılır: 4/9 · 3/2 = 12/18 = 2/3."},
+      {u:"TEMA 3 · Kesirler, Ondalık Gösterim, Uzunluk", q:"5,6 ÷ 10 işleminin sonucu kaçtır?", o:["56","0,56","0,056","5,06"], a:1,
+       w:"10'a bölerken virgül bir basamak sola kayar: 0,56."},
+      {u:"TEMA 3 · Kesirler, Ondalık Gösterim, Uzunluk", q:"350 cm kaç metredir?", o:["35","3,5","0,35","3500"], a:1,
+       w:"Küçükten büyüğe giderken bölünür: 350 ÷ 100 = 3,5 m."},
+      {u:"TEMA 3 · Kesirler, Ondalık Gösterim, Uzunluk", q:"7,463 sayısı onda birler basamağına yuvarlanırsa kaç olur?", o:["7,4","7,5","7,46","8"], a:1,
+       w:"Onda birler basamağı 4; sağındaki rakam 6 ≥ 5 olduğu için 1 artar: 7,5."}
+    ],
+    tur:[
+      {u:"KONU 3 · Cümlede Anlam", q:"\"Annesine yardım etmek için erkenden kalktı.\" cümlesindeki anlam ilişkisi hangisidir?", o:["Neden – sonuç","Amaç – sonuç","Koşul (şart)","Karşılaştırma"], a:1,
+       w:"Erken kalkmak, henüz gerçekleşmemiş bir hedef (yardım etmek) için → amaç – sonuç."},
+      {u:"KONU 3 · Cümlede Anlam", q:"\"Çok çalıştığı için sınavı kazandı.\" cümlesindeki anlam ilişkisi hangisidir?", o:["Neden – sonuç","Amaç – sonuç","Koşul (şart)","Karşılaştırma"], a:0,
+       w:"Kazanmanın sebebi gerçekleşmiş bir durum (çok çalışmak) → neden – sonuç."},
+      {u:"KONU 3 · Cümlede Anlam", q:"\"Ödevini bitirirsen dışarı çıkabilirsin.\" cümlesindeki anlam ilişkisi hangisidir?", o:["Neden – sonuç","Amaç – sonuç","Koşul (şart)","Karşılaştırma"], a:2,
+       w:"\"-rsen\" şart bildirir → koşul."},
+      {u:"KONU 3 · Cümlede Anlam", q:"\"Kardeşim benden daha uzundur.\" cümlesindeki anlam ilişkisi hangisidir?", o:["Neden – sonuç","Amaç – sonuç","Koşul (şart)","Karşılaştırma"], a:3,
+       w:"\"Benden daha\" iki kişiyi kıyaslıyor → karşılaştırma."},
+      {u:"KONU 3 · Cümlede Anlam", q:"Aşağıdakilerden hangisi öznel bir yargıdır?", o:["Su 100 °C'de kaynar.","Bir hafta yedi gündür.","Kış, yılın en güzel mevsimidir.","İstanbul'da boğaz köprüleri vardır."], a:2,
+       w:"\"En güzel mevsim\" kişiden kişiye değişir, kanıtlanamaz → öznel."}
+    ],
+    ing:[
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"They ____ football on Saturdays.", o:["play","plays","playing","is play"], a:0,
+       w:"They ile fiil yalın kalır: play."},
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"____ you like swimming?", o:["Do","Does","Are","Is"], a:0,
+       w:"you ile soru Do ile kurulur."},
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"Which word means \"asla\"?", o:["often","never","usually","always"], a:1,
+       w:"never = asla."},
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"He ____ his homework after school.", o:["do","does","doing","dos"], a:1,
+       w:"he ile \"do\" fiili -es alır: does."},
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"\"free time\" ne demektir?", o:["boş zaman","ücretsiz","özgür","hafta sonu"], a:0,
+       w:"free time = boş zaman."}
+    ],
+    din:[
+      {u:"ÜNİTE 2 · Ramazan ve Oruç", q:"Oruç, İslam'ın kaç şartından biridir?", o:["Üç","Dört","Beş","Altı"], a:2,
+       w:"Oruç, İslam'ın beş şartından biridir."},
+      {u:"ÜNİTE 2 · Ramazan ve Oruç", q:"Fitre ile fidye arasındaki fark hangisidir?", o:["Fitre bayram öncesi verilen sadakadır; fidye tutulamayan oruç karşılığıdır","İkisi aynı şeydir","Fidye bayramda, fitre Ramazan'ın başında verilir","Fitre yalnızca zenginlere verilir"], a:0,
+       w:"Fitre: bayramdan önce verilen sadaka. Fidye: bir daha oruç tutamayacak kişinin verdiği karşılık."},
+      {u:"ÜNİTE 2 · Ramazan ve Oruç", q:"Yolculuk sebebiyle oruç tutamayan kişi ne yapar?", o:["Fidye verir","Sonra kaza eder","Fitre verir","Bir daha oruç tutmaz"], a:1,
+       w:"Yolcu, orucunu daha sonra kaza eder."},
+      {u:"ÜNİTE 2 · Ramazan ve Oruç", q:"Kadir Gecesi hangi aydadır?", o:["Recep","Şaban","Ramazan","Zilhicce"], a:2,
+       w:"Kadir Gecesi Ramazan ayındadır."},
+      {u:"ÜNİTE 2 · Ramazan ve Oruç", q:"Orucun asıl amacı nedir?", o:["Yalnızca aç kalmak","Sabrı ve iradeyi güçlendirip yoksulun hâlini anlamak","Kilo vermek","Gece uyanık kalmak"], a:1,
+       w:"Oruç yalnızca aç kalmak değil; sabır, irade ve paylaşmayı öğrenmektir."}
+    ]
+  };
+
+  var H7c = {
+    tur:[
+      {u:"TEMA 2 · Bir Hilal Uğruna", q:"\"Kahramandı\" sözcüğündeki ek fiil hangi çekimdedir?", o:["Görülen geçmiş zaman","Duyulan geçmiş zaman","Şart","Geniş zaman"], a:0,
+       w:"kahraman + -dı: görülen geçmiş zaman çekimi."},
+      {u:"TEMA 2 · Bir Hilal Uğruna", q:"\"Okuyormuş\" sözcüğünde ek fiilin görevi nedir?", o:["İsmi yüklem yapmak","Basit zamanlı fiili birleşik zamanlı yapmak","Fiili isim yapmak","Sözcüğü çoğul yapmak"], a:1,
+       w:"oku + -yor (şimdiki zaman) + -muş (ek fiil) → birleşik zamanlı fiil."},
+      {u:"TEMA 2 · Bir Hilal Uğruna", q:"\"Askerdir\" sözcüğündeki ek fiil hangi çekimdedir?", o:["Görülen geçmiş zaman","Duyulan geçmiş zaman","Şart","Geniş zaman"], a:3,
+       w:"asker + -dir: geniş zaman çekimi."},
+      {u:"TEMA 2 · Bir Hilal Uğruna", q:"Aşağıdakilerden hangisinde ek fiil vardır?", o:["Koştu","Yazdı","Hastaydı","Gitti"], a:2,
+       w:"hasta (isim soylu) + -ydı. Diğerlerinde kök fiildir, -dı fiil çekim ekidir."},
+      {u:"TEMA 2 · Bir Hilal Uğruna", q:"Aşağıdaki cümlelerin hangisinin yüklemi isim soyludur?", o:["Çocuklar bahçede koştu.","Bu ev çok eskiydi.","Kitabı dikkatle okudu.","Yarın sinemaya gideceğiz."], a:1,
+       w:"\"Eskiydi\" = eski (isim soylu) + ek fiil. Diğer yüklemler fiildir."}
+    ],
+    ing:[
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"You look stressed. You should ____.", o:["relax","to relax","relaxing","relaxes"], a:0,
+       w:"should'dan sonra fiil yalın gelir: should relax."},
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"\"junk food\" ne demektir?", o:["sağlıklı yemek","abur cubur","kahvaltı","meyve"], a:1,
+       w:"junk food = abur cubur."},
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"I ____ to music every evening.", o:["listen","am listening","listening","listens"], a:0,
+       w:"\"every evening\" alışkanlık → Present Simple: listen."},
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"You shouldn't ____ breakfast.", o:["skip","skipping","to skip","skips"], a:0,
+       w:"shouldn't'tan sonra fiil yalın gelir: shouldn't skip."},
+      {u:"TEMA 3 · Personal Life & Well-Being", q:"Which sentence is correct?", o:["You should to rest.","You should rest.","You should resting.","You should rests."], a:1,
+       w:"should + yalın fiil: You should rest. \"should to\" sık yapılan bir hatadır."}
+    ],
+    din:[
+      {u:"ÜNİTE 2 · Hac, Umre ve Kurban", q:"Aşağıdakilerden hangisi haccın farzlarındandır?", o:["Ziyaret tavafı","Kurban kesmek","Zemzem içmek","Medine'yi ziyaret etmek"], a:0,
+       w:"Haccın farzları: ihram, Arafat vakfesi, ziyaret tavafı."},
+      {u:"ÜNİTE 2 · Hac, Umre ve Kurban", q:"Umre ne zaman yapılabilir?", o:["Yalnızca Zilhicce'de","Yalnızca Ramazan'da","Yılın her zamanı","Yalnızca bayramda"], a:2,
+       w:"Umrenin belirli bir zamanı yoktur; yılın her zamanı yapılabilir."},
+      {u:"ÜNİTE 2 · Hac, Umre ve Kurban", q:"Haccın kişiye kazandırdığı değerlerden biri hangisidir?", o:["Eşitlik bilinci","Kibir","Gösteriş","Cimrilik"], a:0,
+       w:"Herkes aynı kıyafetle aynı yerde bulunur; bu, eşitlik ve kardeşlik bilincini güçlendirir."},
+      {u:"ÜNİTE 2 · Hac, Umre ve Kurban", q:"İhramlıyken aşağıdakilerden hangisi yapılmaz?", o:["Dua etmek","Saç ve tırnak kesmek","Tavaf yapmak","Telbiye getirmek"], a:1,
+       w:"İhramlıyken saç ve tırnak kesilmez, canlıya zarar verilmez."},
+      {u:"ÜNİTE 2 · Hac, Umre ve Kurban", q:"Hacda olup umrede olmayan hangisidir?", o:["İhram","Tavaf","Arafat vakfesi","Niyet"], a:2,
+       w:"Arafat vakfesi yalnızca hacda vardır; hac ile umrenin en belirgin farklarından biridir."}
+    ]
+  };
+
+  Object.keys(H6c).forEach(function(k){ H6[k] = (H6[k] || []).concat(H6c[k]); });
+  Object.keys(H7c).forEach(function(k){ H7[k] = (H7[k] || []).concat(H7c[k]); });
   /* ===================== EK ÇALIŞMA SETLERİ =====================
      Kullanıcının istediği konuya özel çalışma setleri.
 
@@ -3948,8 +4185,8 @@
        w:"Kısa kenara 30 ÷ 6 = 5, uzun kenara 42 ÷ 6 = 7 kare sığar. 5 × 7 = 35 kare."},
       {u:"EK · Asal Çarpanlar ve Bölenler", q:"Aşağıdakilerden hangisi asal sayıdır?", o:["1","9","15","13"], a:3,
        w:"Asal sayının yalnızca iki böleni vardır: 1 ve kendisi. 13'ün bölenleri 1 ve 13. 1'in tek böleni olduğu için asal değildir; 9 = 3·3, 15 = 3·5."},
-      {u:"EK · Asal Çarpanlar ve Bölenler", q:"En küçük asal sayı hangisidir?", o:["0","1","2","3"], a:2,
-       w:"0 ve 1 asal değildir. 2 hem en küçük asal sayıdır hem de tek çift asal sayıdır."},
+      {u:"EK · Asal Çarpanlar ve Bölenler", q:"Hem çift hem de asal olan tek sayı hangisidir?", o:["0","1","2","4"], a:2,
+       w:"2'nin yalnızca iki böleni vardır: 1 ve 2. Diğer bütün çift sayılar 2'ye de bölündüğü için asal olamaz. 0 ve 1 asal değildir."},
       {u:"EK · Asal Çarpanlar ve Bölenler", q:"60 sayısının asal çarpanlarına ayrılmış hâli hangisidir?", o:["2 · 3 · 10","2² · 3 · 5","2³ · 5","4 · 15"], a:1,
        w:"60 = 2 · 30 = 2 · 2 · 15 = 2 · 2 · 3 · 5 = 2² · 3 · 5. 10 ve 4 asal değildir, onlar da parçalanmalı."},
       {u:"EK · Asal Çarpanlar ve Bölenler", q:"72 sayısının asal çarpanlarına ayrılmış hâli hangisidir?", o:["2³ · 3²","2² · 3³","2 · 6²","8 · 9"], a:0,
@@ -3970,8 +4207,8 @@
        w:"Ortalama = toplam ÷ veri sayısı."},
       {u:"EK · Ortalama, Ortanca, Tepe Değer", q:"Veriler küçükten büyüğe sıralandığında tam ortada kalan değere ne ad verilir?", o:["Ortanca","Tepe değer","Açıklık","Aritmetik ortalama"], a:0,
        w:"ORTAnca → ORTAdaki. Ama önce sıralamak şart."},
-      {u:"EK · Ortalama, Ortanca, Tepe Değer", q:"Bir veri grubunda en çok tekrar eden değere ne ad verilir?", o:["Açıklık","Ortanca","Tepe değer","Aritmetik ortalama"], a:2,
-       w:"En çok görülen, \"tepeye çıkan\" değer → tepe değer."},
+      {u:"EK · Ortalama, Ortanca, Tepe Değer", q:"Bir sınıfta en çok hangi ayakkabı numarasının giyildiğini bulmak için hangisine bakılır?", o:["Açıklık","Ortanca","Tepe değer","Aritmetik ortalama"], a:2,
+       w:"\"En çok\" sorusu, en çok tekrar eden değeri arar → tepe değer."},
       {u:"EK · Ortalama, Ortanca, Tepe Değer", q:"En büyük değer ile en küçük değer arasındaki farka ne ad verilir?", o:["Aritmetik ortalama","Açıklık","Tepe değer","Ortanca"], a:1,
        w:"Açıklık = en büyük − en küçük. Verinin ne kadar \"açıldığını\", yayıldığını gösterir."},
       {u:"EK · Ortalama, Ortanca, Tepe Değer", q:"4, 6, 8, 10, 12 verilerinin aritmetik ortalaması kaçtır?", o:["6","8","10","40"], a:1,
