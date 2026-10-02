@@ -461,6 +461,15 @@
 
   /* Ek çalışma seti çipi — ana testin ünite çiplerinden ayrılsın. */
   .ufilter.ek{border-color:var(--s-ing);color:var(--s-ing);border-style:dashed}
+  /* Ek setler temanın altında, ayrı bir satırda */
+  .ek-satir{flex-basis:100%;display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:2px;
+    padding:8px 10px;border-radius:12px;background:color-mix(in srgb,var(--s-ing) 6%,transparent);
+    border:1px dashed color-mix(in srgb,var(--s-ing) 35%,transparent)}
+  .ek-bas{font-size:11.5px;font-weight:600;color:var(--s-ing);margin-right:4px}
+  .ufilter .ek-say{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:600;margin-left:6px;
+    padding:1px 6px;border-radius:10px;background:color-mix(in srgb,var(--s-ing) 14%,transparent);color:var(--s-ing)}
+  .ufilter[aria-pressed="true"] .ek-say{background:rgba(255,255,255,.22);color:inherit}
+  .ufilter.ebeveyn{border-color:var(--sc);box-shadow:inset 0 0 0 1px var(--sc);color:var(--ink)}
   .ufilter.ek[aria-pressed="true"]{background:var(--s-ing);border-style:solid;color:#fff}
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]) .ufilter.ek[aria-pressed="true"]{color:var(--paper)} }

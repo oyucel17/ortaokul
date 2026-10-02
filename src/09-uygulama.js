@@ -445,21 +445,40 @@
       h += '<button class="ufilter hata" data-uf="__yanlis__" aria-pressed="'+(qFilter==="__yanlis__")+'">'
          + 'Yanlışlarım <span class="n">'+(yanlis ? yanlis+(ek ? " + "+ek+" yeni" : "") : "temiz")+'</span></button>';
     }
-    sira.forEach(function(u){
-      h += '<button class="ufilter" data-uf="'+esc(u)+'" aria-pressed="'+(qFilter===u)+'">'
-         + esc(u)+' <span class="n">'+adet[u]+'</span></button>';
-    });
-    /* Ek çalışma setleri en sonda, ayrı renkte. Ana testin ünite
-       çipleriyle karışmasınlar diye. */
-    var ekAdet = {}, ekSira = [];
+    /* Ek setler ana satırda değil, ait oldukları TEMANIN ALTINDA açılır:
+       set sayısı arttıkça satır taşmasın diye. Tema çipinde yalnızca
+       "+N ek" işareti durur; tema ya da setlerinden biri seçilince altta
+       "Bu temanın ek setleri" satırı görünür. Bağ ünitenin t dizisinden. */
+    var ekAdet = {}, ekSira = [], ekleri = {}, yetim = [];
     ekstra().forEach(function(q){
       if(ekAdet[q.u] === undefined){ ekSira.push(q.u); ekAdet[q.u] = 0; }
       ekAdet[q.u]++;
     });
-    ekSira.forEach(function(u){
-      h += '<button class="ufilter ek" data-uf="'+esc(u)+'" aria-pressed="'+(qFilter===u)+'">'
-         + esc(u.replace(/^EK · /, "Ek · "))+' <span class="n">'+ekAdet[u]+'</span></button>';
+    ekSira.forEach(function(e){
+      var p = ekEbeveyn(e);
+      if(p && adet[p] !== undefined) (ekleri[p] = ekleri[p] || []).push(e);
+      else yetim.push(e);
     });
+    var aktifTema = ekMi(qFilter) ? ekEbeveyn(qFilter) : qFilter;
+    var ekCip = function(u, kisa){
+      return '<button class="ufilter ek" data-uf="'+esc(u)+'" aria-pressed="'+(qFilter===u)+'">'
+           + esc(kisa ? u.replace(/^EK · /, "") : u.replace(/^EK · /, "Ek · "))
+           + ' <span class="n">'+ekAdet[u]+'</span></button>';
+    };
+    sira.forEach(function(u){
+      var es = (ekleri[u] || []).length;
+      var ebeveyn = ekMi(qFilter) && aktifTema === u;
+      h += '<button class="ufilter'+(ebeveyn ? ' ebeveyn' : '')+'" data-uf="'+esc(u)+'" aria-pressed="'+(qFilter===u)+'">'
+         + esc(u)+' <span class="n">'+adet[u]+'</span>'
+         + (es ? '<span class="ek-say">+'+es+' ek</span>' : '')+'</button>';
+    });
+    yetim.forEach(function(u){ h += ekCip(u, false); });   // temaya bağlanmamış set: eski yerinde
+    var alt = ekleri[aktifTema] || [];
+    if(alt.length){
+      h += '<div class="ek-satir"><span class="ek-bas">Bu temanın ek setleri</span>';
+      alt.forEach(function(u){ h += ekCip(u, true); });
+      h += '</div>';
+    }
     box.innerHTML = h;
   }
 
@@ -559,6 +578,15 @@
   function hav(){ return (cur().havuz || {})[curQuiz] || []; }
   function ekstra(){ return (cur().ekstra || {})[curQuiz] || []; }
   function anaListe(){ return (cur().quiz || {})[curQuiz] || []; }
+  /* Ek setin ait olduğu temanın ana test etiketi (ünitenin t dizisinden) */
+  function ekEbeveyn(etiket){
+    var s = subjByKey(curQuiz), r = null;
+    if(s) s.units.forEach(function(un){
+      var t = un.t || [];
+      if(!r && t.indexOf(etiket) !== -1) r = t.filter(function(x){ return !ekMi(x); })[0] || null;
+    });
+    return r;
+  }
   /* Ek çalışma seti filtresi mi? Setlerin u alanı "EK · " ile başlar. */
   function ekMi(f){ return typeof f === "string" && f.indexOf("EK · ") === 0; }
   function hashNum(s){ var n = 0; for(var i=0;i<s.length;i++) n = (n*31 + s.charCodeAt(i)) | 0; return n; }
@@ -884,7 +912,8 @@
     var b = ev.target.closest("[data-uf]");
     if(!b) return;
     var v = b.getAttribute("data-uf");
-    qFilter = (v === "" || v === qFilter) ? null : v;
+    if(v === qFilter && ekMi(v)) qFilter = ekEbeveyn(v);   // ek seti kapatınca temasına dön
+    else qFilter = (v === "" || v === qFilter) ? null : v;
     if(qFilter === "__yanlis__") yanlisKumeKur(); else yanlisKume = null;
     renderQuiz();
     el("qlist").scrollIntoView({block:"start", behavior:"auto"});

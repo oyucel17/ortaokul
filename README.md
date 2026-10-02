@@ -157,8 +157,11 @@ var EKC6 = { mat:[
 ] };
 ```
 
-`u` alanı **`"EK · "` ile başlamalı** — kod bu önekten tanıyor (`ekMi()`). Çip, ana testin ünite
-çiplerinden sonra, mor kesik çerçeveyle çizilir ve `Ek · <ad>` yazar.
+`u` alanı **`"EK · "` ile başlamalı** — kod bu önekten tanıyor (`ekMi()`). Ek setler ana
+çip satırında **görünmez**: ait oldukları temanın çipinde "+N ek" işareti çıkar, tema ya da
+setlerinden biri seçilince altta "Bu temanın ek setleri" satırı açılır (set sayısı arttıkça satır
+taşmasın diye). Setin hangi temaya ait olduğu ünitenin `t` dizisinden okunur; `t`'ye
+yazılmamış set eski usulle ana satırın sonunda görünür.
 
 Takip normal işler: doğru/yanlış `cevap`'a yazılır, yanlışlar **Yanlışlarım**'da tekrar çıkar,
 veli raporunda `EK · …` kendi satırı olur. Yalnızca **puan ayrıdır** — set açıkken skor o setin
