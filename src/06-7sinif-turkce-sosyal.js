@@ -21,7 +21,9 @@
           ["Emir","eki yoktur","gel, gelsin","Dilek"]]}],
        box:[{t:"Anlam (zaman) kayması", h:"Bir kip eki, cümlede <b>başka bir zamanı</b> anlatabilir. \"Yarın <u>geliyorum</u>.\" → şimdiki zaman eki, gelecek zaman anlamı. \"Fatih İstanbul'u <u>fetheder</u>.\" → geniş zaman eki, geçmiş zaman anlamı. Soruda \"hangi cümlede anlam kayması var\" diye sorulur."}],
        trap:"Gelecek zaman (−ecek) ile istek kipini (−e) karıştırmak. \"Gideyim\" istek, \"gideceğim\" gelecek zamandır.",
-       vid:[{t:"Fiiller — 7. Sınıf Türkçe #2025", u:"https://www.youtube.com/watch?v=cTGNSPuKdF0"}],
+       vid:[{t:"Fiiller — 7TURK1 #2026", u:"https://www.youtube.com/watch?v=sI5gMgmX5No"},
+            {t:"Fiiller, Konu Özeti — 7TURK1 #2026", u:"https://www.youtube.com/watch?v=em3V-3l-lC4"},
+            {t:"Fiiller — 7. Sınıf Türkçe #2025", u:"https://www.youtube.com/watch?v=cTGNSPuKdF0"}],
        q:["\"Sabah erken kalkmalıyım.\" cümlesindeki fiilin kipini ve kişisini yaz.",
           "Haber kipleri ile dilek kipleri arasındaki temel farkı yaz.",
           "\"Yarın İstanbul'a gidiyorum.\" cümlesinde anlam kayması var mıdır? Açıkla.",
@@ -36,6 +38,7 @@
           "Emir kipinin <b>eki yoktur</b>; 2. tekil kişide fiil yalın hâlde kullanılır (gel). 1. tekil ve 1. çoğul çekimi yoktur."]},
 
       {n:"Bir Hilal Uğruna", w:"Kasım", t:["TEMA 2 · Bir Hilal Uğruna"],
+       vid:[{t:"Ek Fiil — 7TURK13 #2026", u:"https://www.youtube.com/watch?v=LPNdgci-8Z8"}],
        lead:"Millî mücadele ve vatan temalı metinler. <b>Dil bilgisi yükü: ek fiil.</b>",
        p:["Ek fiil, isim soylu sözcükleri yüklem yapar: \"öğrenciyim\", \"güzeldi\".",
           "Ek fiilin dört çekimi vardır: −di, −miş, −se, −dir.",
@@ -179,6 +182,8 @@
      note:"Öğrenme alanı adları 6. sınıfla aynıdır; içerik 7. sınıf düzeyinde derinleşir. Eski programdaki \"Birey ve Toplum, Kültür ve Miras…\" başlıkları artık kullanılmıyor.",
      units:[
       {n:"Birlikte Yaşamak", w:"Eylül–Ekim", t:["ALAN 1 · Birlikte Yaşamak"],
+       vid:[{t:"İletişim ve İnsan İlişkileri — 7SOS1 #2026", u:"https://www.youtube.com/watch?v=SIKVdup37cg"},
+            {t:"İletişim ve İnsan İlişkileri, Konu Özeti — 7SOS1 #2026", u:"https://www.youtube.com/watch?v=2ZRDZLGZVMk"}],
        lead:"İletişim, empati, kitle iletişim araçları ve özel hayatın gizliliği.",
        p:["Etkili iletişimde \"ben dili\" kullanılır: suçlamaz, duyguyu anlatır.",
           "\"Sen dili\" suçlayıcıdır ve iletişimi kapatır.",
@@ -205,6 +210,7 @@
           "Herkesin başkalarıyla paylaşmak istemediği bilgileri vardır. Örnek: bir kişinin sağlık bilgisinin izinsiz paylaşılması, o kişiye ayrımcılık yapılmasına yol açabilir."]},
 
       {n:"Evimiz Dünya", w:"Kasım–Aralık", t:["ALAN 2 · Evimiz Dünya"],
+       vid:[{t:"Türkiye Nüfusunun Özellikleri — 7SOS6 #2026", u:"https://www.youtube.com/watch?v=mSJ0h9HQgYg"}],
        lead:"Türkiye'de ve dünyada nüfusun dağılışı, göç ve yerleşme.",
        p:["Nüfus dağılışını etkileyen doğal faktörler: iklim, yer şekilleri, su kaynakları, toprak.",
           "Beşerî faktörler: sanayi, ulaşım, tarım, turizm, madencilik.",

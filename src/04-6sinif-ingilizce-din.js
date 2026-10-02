@@ -3,6 +3,7 @@
      note:"Tema adları MEB'in güncel programından; 6. sınıf <b>A2.2</b> düzeyindedir. Temaların altındaki dil yapıları bu düzeyde o temalarda işlenen tipik yapılardır — okulunun kitabında sıra biraz farklı olabilir.",
      units:[
       {n:"School Life & Education", w:"Eylül", t:["TEMA 1 · School Life & Education"],
+       vid:[{t:"School Life — 6ING1 #2027", u:"https://www.youtube.com/watch?v=YhEPU4_3Gac"}],
        voc:[["Maths","matematik"],["Science","fen bilimleri"],["Turkish","Türkçe"],["English","İngilizce"],
             ["Social Studies","sosyal bilgiler"],["Music","müzik"],["Art","görsel sanatlar"],
             ["PE (Physical Education)","beden eğitimi"],["IT","bilişim teknolojileri"],
@@ -131,6 +132,8 @@
      note:"Ünite adları yeni programda değişti: eski programdaki <b>Namaz</b>, <b>Zararlı Alışkanlıklar</b> ve <b>Temel Değerlerimiz</b> başlıkları yerine <b>Ramazan ve Oruç</b>, <b>Ahlaki Davranışlar</b> ve <b>Kültürümüzdeki Dinî Motifler</b> geldi.",
      units:[
       {n:"Peygamber ve İlahi Kitap İnancı", w:"Eylül–Ekim", t:["ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı"],
+       vid:[{t:"Peygamber ve İlahi Kitap İnancı - 1 — 6DIN1 #2027", u:"https://www.youtube.com/watch?v=sjL3MT1eseI"},
+            {t:"Peygamber ve İlahi Kitap İnancı - 2 — 6DIN2 #2027", u:"https://www.youtube.com/watch?v=yOnGzbdgNX8"}],
        lead:"Allah'ın insanlara doğru yolu göstermek için peygamber göndermesi ve onlara kitap indirmesi, İslam inancının temel esaslarından ikisidir.",
        p:["<b>Peygamber:</b> Allah'ın mesajını insanlara ulaştırmakla görevlendirdiği seçilmiş insan. Peygamberler de insandır; yer, içer, yorulur.",
           "<b>Peygamberlerin ortak sıfatları:</b> sıdk (doğruluk), emanet (güvenilirlik), fetanet (akıllılık), ismet (günahsızlık), tebliğ (bildirme).",
@@ -153,6 +156,8 @@
           "<b>Hz. Nuh, Hz. İbrahim, Hz. Musa, Hz. İsa ve Hz. Muhammed</b>"]},
 
       {n:"Ramazan ve Oruç", w:"Kasım–Aralık", t:["ÜNİTE 2 · Ramazan ve Oruç"],
+       vid:[{t:"Ramazan ve Oruç - 1 — 6DIN3 #2026", u:"https://www.youtube.com/watch?v=ujuRSM4D0kI"},
+            {t:"Ramazan ve Oruç - 2 — 6DIN4 #2026", u:"https://www.youtube.com/watch?v=0aofeJOMKGQ"}],
        lead:"Oruç, İslam'ın beş şartından biridir. Ramazan ayı boyunca imsaktan iftara kadar yeme, içme ve orucu bozan davranışlardan uzak durmaktır.",
        p:["<b>İmsak</b> orucun başlama, <b>iftar</b> bitiş vaktidir. <b>Sahur</b>, imsaktan önce yenen yemektir.",
           "Oruç; ergenlik çağına girmiş, akıllı ve sağlıklı her Müslümana farzdır.",

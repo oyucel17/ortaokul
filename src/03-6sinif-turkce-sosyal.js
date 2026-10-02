@@ -33,7 +33,8 @@
           "<b>Konuşturma (intak):</b> insan dışı varlığı konuşturmak. Konuşturma varsa kişileştirme de vardır.",
           "<b>Abartma (mübalağa):</b> olağandan çok büyütmek. \"Sesi dağları inletti.\""],
        trap:"Konuşturma olan bir cümlede kişileştirmeyi görmemek. Bir varlık konuşuyorsa zaten kişileştirilmiştir — ikisi birlikte bulunur.",
-       vid:[{t:"Deyimler ve Atasözleri — 6TURK5 #2026", u:"https://www.youtube.com/watch?v=Mse9D9_eKRY"}],
+       vid:[{t:"Söz Sanatları — 6TURK3 #2026", u:"https://www.youtube.com/watch?v=2fXbJcx-2w0"},
+            {t:"Deyimler ve Atasözleri — 6TURK5 #2026", u:"https://www.youtube.com/watch?v=Mse9D9_eKRY"}],
        q:["\"İğneden ipliğe dönmek\" deyiminin anlamı nedir?",
           "\"Ağaç yaşken eğilir.\" bir deyim midir atasözü müdür? Anlamını yaz.",
           "\"Rüzgâr pencereyi dövüyordu.\" cümlesinde hangi söz sanatı vardır?",
@@ -46,6 +47,8 @@
 
 
       {n:"Bağımsızlık Yolu · Cümlede Anlam", w:"Kasım", t:["KONU 3 · Cümlede Anlam"],
+       vid:[{t:"Cümlede Anlam — 6TURK4 #2026", u:"https://www.youtube.com/watch?v=0rj3-da_9jA"},
+            {t:"Cümlede Anlam, Konu Özeti — 6TURK4 #2026", u:"https://www.youtube.com/watch?v=DqFTq5gJLTs"}],
        lead:"Cümleler arasındaki anlam ilişkisini bulmak, ipucu sözcükleri tanımakla başlar.",
        tbl:[{h:["Anlam ilişkisi","İpucu","Örnek"], r:[
           ["Neden – sonuç","için, -dığı için, -den dolayı","Yağmur yağdığı <u>için</u> maç ertelendi."],
@@ -182,6 +185,9 @@
      note:"Bu dersin ünite adları yeni programda tamamen değişti. Eski \"Birey ve Toplum, Kültür ve Miras, İnsanlar Yerler ve Çevreler…\" başlıkları artık kullanılmıyor.",
      units:[
       {n:"Birlikte Yaşamak", w:"Eylül–Ekim", t:["ALAN 1 · Birlikte Yaşamak"],
+       vid:[{t:"Zaman İçinde Değişen Gruplar ve Roller — 6SOS1 #2026", u:"https://www.youtube.com/watch?v=JU3AQsOaXys"},
+            {t:"Zaman İçinde Değişen Gruplar ve Roller, Konu Özeti — 6SOS1 #2026", u:"https://www.youtube.com/watch?v=1Z97Et3ZaFk"},
+            {t:"Kültürel Bağlarımız ve Millî Değerlerimiz — 6SOS2 #2026", u:"https://www.youtube.com/watch?v=awhPI6IPAX4"}],
        lead:"Üç başlıkta ilerler: <b>zaman içinde değişen gruplar ve roller</b>, <b>kültürel bağlarımız ve millî değerlerimiz</b>, <b>toplumsal sorunlar ve çözüm önerileri</b>.",
        p:["<b>Sosyal rol:</b> bir kişinin içinde bulunduğu gruba göre üstlendiği görev. Aynı kişi aynı gün öğrenci, evlat, kardeş, komşu olabilir. Roller <b>zamanla değişir</b>.",
           "Her rolün bir <b>sorumluluğu</b> vardır. Bir kişinin hakkının bittiği yer, başkasının hakkının başladığı yerdir.",
@@ -202,6 +208,9 @@
           "Örnek sorun: koridorlarda koşmak ve gürültü. Çözüm: teneffüs kurallarını panoya asmak; nöbetçi öğrenci uygulamasını yaygınlaştırmak."]},
 
       {n:"Evimiz Dünya", w:"Kasım–Aralık", t:["ALAN 2 · Evimiz Dünya"],
+       vid:[{t:"Ülkemizin, Kıtaların ve Okyanusların Konum Özellikleri — 6SOS4 #2026", u:"https://www.youtube.com/watch?v=63tB3CrPkCM"},
+            {t:"Doğal ve Beşerî Çevre Özellikleri Arasındaki İlişki — 6SOS5 #2026", u:"https://www.youtube.com/watch?v=5rJut2AqFJk"},
+            {t:"Ülkemizin Türk Dünyasıyla Kültürel İş Birlikleri — 6SOS6 #2026", u:"https://www.youtube.com/watch?v=qfoOygewYnw"}],
        lead:"Üç başlık: <b>ülkemizin, kıtaların ve okyanusların konum özellikleri</b>, <b>doğal ve beşerî çevre özellikleri</b>, <b>Türk dünyasıyla kültürel iş birlikleri</b>.",
        p:["<b>Yedi kıta:</b> Asya, Afrika, Kuzey Amerika, Güney Amerika, Antarktika, Avrupa, Okyanusya. <b>Beş okyanus:</b> Büyük (Pasifik), Atlas, Hint, Kuzey Buz, Güney.",
           "<b>Matematik konum:</b> 36°–42° kuzey enlemleri, 26°–45° doğu boylamları arasında. <b>Kuzey ve Doğu Yarım Küre'de</b>, <b>orta kuşakta</b> — dört mevsim bu yüzden belirgin yaşanır.",

@@ -159,6 +159,7 @@
      note:"Ünite adları resmî programdan birebir alındı.",
      units:[
       {n:"Melek ve Ahiret İnancı", w:"Eylül–Ekim", t:["ÜNİTE 1 · Melek ve Ahiret İnancı"],
+       vid:[{t:"Melek ve Ahiret İnancı — 7DIN1 #2027", u:"https://www.youtube.com/watch?v=6N2_rd1J_Oo"}],
        lead:"Meleklere ve ahiret gününe iman; ölüm, kabir ve ahiret hayatının aşamaları.",
        p:["Melekler nurdan yaratılmıştır; yemez, içmez, erkeklik-dişilik özellikleri yoktur.",
           "Dört büyük melek: Cebrail, Mikail, İsrafil, Azrail ve görevleri.",
@@ -187,6 +188,8 @@
           "<b>Kıyamet:</b> evrenin düzeninin bozulup hayatın son bulması. <b>Ba's:</b> insanların hesap vermek üzere yeniden diriltilmesi."]},
 
       {n:"Hac, Umre ve Kurban", w:"Kasım–Aralık", t:["ÜNİTE 2 · Hac, Umre ve Kurban"],
+       vid:[{t:"Hac ve Kurban - 1 — 7DIN2 #2026", u:"https://www.youtube.com/watch?v=aQfiQMewL5A"},
+            {t:"Hac ve Kurban - 2 — 7DIN3 #2026", u:"https://www.youtube.com/watch?v=n8WYxMzCHhE"}],
        lead:"Hac ve umre ibadetleri, kurban ibadeti ve bunların toplumsal boyutu.",
        p:["Hac, şartlarını taşıyan Müslümana ömürde bir kez farzdır.",
           "Hac belirli zamanda (Zilhicce ayında) yapılır; umrenin belirli bir zamanı yoktur.",
