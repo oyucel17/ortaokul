@@ -96,9 +96,16 @@
       var v = S.video[url];
       var s = null;
       G[g].subj.forEach(function(x){ if(x.key === v.s) s = x; });
+      /* Ünite adı kayıttan değil, videonun BUGÜN hangi ünitede durduğundan
+         alınır: ünite sonradan yeniden adlandırılınca eski kayıtlar ayrı
+         bir başlık altında kalmasın. Bulunamazsa kayıttaki ad kullanılır. */
+      var uAd = v.u || "";
+      if(s) s.units.forEach(function(un){
+        (un.vid || []).forEach(function(vv){ if(vv.u === url) uAd = un.n; });
+      });
       videolar.push({
         sad: s ? s.name : v.s, renk: s ? s.color : "var(--ink-faint)",
-        u: v.u || "", t: v.t || url, n: v.n || 1, son: v.son || "", url: url
+        u: uAd, t: v.t || url, n: v.n || 1, son: v.son || "", url: url
       });
     });
     videolar.sort(function(a,b){ return (b.son || "").localeCompare(a.son || ""); });
@@ -264,35 +271,67 @@
     }
     h += '</div>';
 
-    /* izlediği videolar */
+    /* izlediği videolar — ders → ünite. Ünite sırası Dersler sekmesindeki
+       sırayla aynı; bugünkü adla eşleşmeyen eski kayıtlar sona, "ders
+       geneli" (oynatma listesi) en sona. */
     var vid = o.videolar || [];
-    h += '<div class="veli-bolum"><h4>İzlediği konu anlatımları</h4>';
+    h += '<div class="veli-bolum"><h4>İzlediği konu anlatımları'
+       + (vid.length ? ' — ' + vid.length + ' video' : '') + '</h4>';
     if(!vid.length){ h += '<p class="veli-bos">Henüz video açılmamış.</p>'; }
     else {
-      vid.forEach(function(v){
-        h += '<div class="veli-satir"><i style="background:' + v.renk + '"></i>'
-           + '<span><b style="font-weight:600">' + esc(v.sad) + '</b>'
-           + (v.u ? ' — ' + esc(v.u) : '') + '<br>'
-           + '<a href="' + esc(v.url) + '" target="_blank" rel="noopener" class="veli-vlink">'
-           + esc(v.t) + '</a></span>'
-           + '<b>' + v.n + '×' + (v.son ? ' · ' + esc(tarihYaz(v.son.slice(0,10))) : '') + '</b></div>';
+      G[o.g].subj.forEach(function(sj){
+        var buDers = vid.filter(function(v){ return v.sad === sj.name; });
+        if(!buDers.length) return;
+        var izleme = buDers.reduce(function(t, v){ return t + (v.n || 1); }, 0);
+        var sonTarih = buDers.map(function(v){ return v.son || ""; }).sort().pop();
+        var sira = sj.units.map(function(un){ return un.n; });
+        var adlar = [];
+        buDers.forEach(function(v){ if(adlar.indexOf(v.u) < 0) adlar.push(v.u); });
+        adlar.sort(function(a, b){
+          var ia = sira.indexOf(a), ib = sira.indexOf(b);
+          if(a === "(ders geneli)") ia = 9999; if(b === "(ders geneli)") ib = 9999;
+          if(ia < 0) ia = 5000; if(ib < 0) ib = 5000;
+          return ia - ib;
+        });
+        h += '<details class="vg" style="--sc:' + sj.color + '"><summary>'
+           + '<span class="vg-ad"><i></i>' + esc(sj.name) + '</span><span class="vg-ozet">'
+           + '<span>' + buDers.length + ' video</span><span>' + izleme + ' izleme</span>'
+           + (sonTarih ? '<span>son ' + esc(tarihYaz(sonTarih.slice(0, 10))) + '</span>' : '')
+           + '</span></summary><div class="vg-ic">';
+        adlar.forEach(function(ad){
+          h += '<div class="vu-bas">' + esc(ad === "(ders geneli)" ? "Ders geneli (oynatma listesi)" : ad) + '</div>';
+          buDers.filter(function(v){ return v.u === ad; }).forEach(function(v){
+            h += '<div class="veli-satir"><i style="background:' + v.renk + '"></i>'
+               + '<span><a href="' + esc(v.url) + '" target="_blank" rel="noopener" class="veli-vlink">'
+               + esc(v.t) + '</a></span>'
+               + '<b>' + v.n + '×' + (v.son ? ' · ' + esc(tarihYaz(v.son.slice(0, 10))) : '') + '</b></div>';
+          });
+        });
+        h += '</div></details>';
       });
     }
     h += '</div>';
 
-    /* çözdüğü sorular */
+    /* çözdüğü sorular — ders → test/ünite → kartlar. Başlıklarda özet,
+       içeride yanlışlar üstte. Ek setler ait oldukları temanın hemen
+       ardından gelir (sıra ünitenin t dizisinden). */
     var cev = o.cevaplar || [];
-    var dogruS = cev.filter(function(c){ return c.ok; }).length;
-    h += '<div class="veli-bolum"><h4>Çözdüğü sorular'
-       + (cev.length ? ' — ' + cev.length + ' soru, ' + dogruS + ' doğru' : '') + '</h4>';
-    if(!cev.length){ h += '<p class="veli-bos">Henüz soru çözülmemiş.</p>'; }
-    else {
-      h += '<details class="ans"><summary>' + cev.length + ' sorunun tamamını göster</summary>'
-         + '<div class="cev-liste">';
-      cev.forEach(function(c){
-        h += '<div class="cev-kart' + (c.ok ? ' ok' : ' hata') + '">'
-           + '<div class="cev-ust"><i style="background:' + c.renk + '"></i>'
-           + '<span>' + esc(c.sad) + ' · ' + esc(c.u) + '</span>'
+    var say = function(k){
+      var r = { n:k.length, ok:0, no:0, bk:0 };
+      k.forEach(function(c){ if(c.ok) r.ok++; else if(c.bakti) r.bk++; else r.no++; });
+      return r;
+    };
+    var ozet = function(r){
+      var y = r.n ? Math.round(100 * r.ok / r.n) : 0;
+      return '<span class="vg-ozet"><span>' + r.n + ' soru</span>'
+           + '<span class="ok">' + r.ok + ' doğru</span>'
+           + (r.no ? '<span class="no">' + r.no + ' yanlış</span>' : '')
+           + (r.bk ? '<span class="bk">' + r.bk + ' baktı</span>' : '')
+           + '<span class="yz ' + (y >= 80 ? 'ok' : y >= 50 ? 'bk' : 'no') + '">%' + y + '</span></span>';
+    };
+    var kart = function(c){
+      return '<div class="cev-kart' + (c.ok ? ' ok' : ' hata') + '">'
+           + '<div class="cev-ust"><span></span>'
            + (c.havuz ? '<em class="cev-havuz">havuz</em>' : '')
            + (c.duz ? '<em class="cev-duz">düzeltti</em>' : '')
            + (c.bakti ? '<em class="cev-bakti">cevabına baktı</em>' : '')
@@ -302,8 +341,35 @@
            + (c.bakti ? '— (çözmeden cevabı açtı)' : esc(c.verilen)) + '</div>'
            + (c.ok ? '' : '<div class="cev-sik dogru"><em>doğrusu:</em> ' + esc(c.dogru) + '</div>')
            + '</div>';
+    };
+    var tum = say(cev);
+    h += '<div class="veli-bolum"><h4>Çözdüğü sorular'
+       + (cev.length ? ' — ' + cev.length + ' soru, ' + tum.ok + ' doğru' : '') + '</h4>';
+    if(!cev.length){ h += '<p class="veli-bos">Henüz soru çözülmemiş.</p>'; }
+    else {
+      G[o.g].subj.forEach(function(sj){
+        var buDers = cev.filter(function(c){ return c.sad === sj.name; });
+        if(!buDers.length) return;
+        var sira = [];
+        sj.units.forEach(function(un){ (un.t || []).forEach(function(et){ if(sira.indexOf(et) < 0) sira.push(et); }); });
+        buDers.forEach(function(c){ if(sira.indexOf(c.u) < 0) sira.push(c.u); });
+        h += '<details class="vg" style="--sc:' + sj.color + '"><summary>'
+           + '<span class="vg-ad"><i></i>' + esc(sj.name) + '</span>' + ozet(say(buDers))
+           + '</summary><div class="vg-ic">';
+        sira.forEach(function(et){
+          var k = buDers.filter(function(c){ return c.u === et; });
+          if(!k.length) return;
+          var ek = /^EK · /.test(et);
+          /* yanlış ve bakılanlar üstte */
+          k = k.filter(function(c){ return !c.ok; }).concat(k.filter(function(c){ return c.ok; }));
+          h += '<details class="vg alt' + (ek ? ' ek' : '') + '"><summary>'
+             + '<span class="vg-ad">' + esc(ek ? 'Ek çalışma · ' + et.replace(/^EK · /, '') : et) + '</span>'
+             + ozet(say(k)) + '</summary><div class="cev-liste">';
+          k.forEach(function(c){ h += kart(c); });
+          h += '</div></details>';
+        });
+        h += '</div></details>';
       });
-      h += '</div></details>';
     }
     h += '</div></div>';
     return h;

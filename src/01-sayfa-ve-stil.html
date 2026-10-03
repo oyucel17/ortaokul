@@ -355,6 +355,30 @@
   .veli-satir span br + .veli-vlink{display:inline-block;margin-top:2px}
 
   .cev-liste{display:flex;flex-direction:column;gap:10px;padding:13px 15px 15px}
+  /* Veli: ders → ünite gruplu listeler */
+  details.vg{border:1px solid var(--line);border-radius:10px;background:var(--card);margin-top:8px}
+  details.vg > summary{list-style:none;cursor:pointer;display:flex;align-items:center;flex-wrap:wrap;
+    gap:6px 12px;padding:10px 14px;font-size:13.8px}
+  details.vg > summary::-webkit-details-marker{display:none}
+  details.vg > summary::before{content:"+";font-family:"IBM Plex Mono",monospace;color:var(--sc);width:10px;flex:none}
+  details.vg[open] > summary::before{content:"\2013"}
+  details.vg[open] > summary{border-bottom:1px solid var(--line-soft)}
+  .vg-ad{font-weight:600;display:flex;align-items:center;gap:8px;min-width:0}
+  .vg-ad i{width:8px;height:8px;border-radius:50%;background:var(--sc);display:block;flex:none}
+  .vg-ozet{margin-left:auto;display:flex;flex-wrap:wrap;gap:3px 11px;font-family:"IBM Plex Mono",monospace;
+    font-size:11px;color:var(--ink-faint)}
+  .vg-ozet .ok{color:var(--ok)}
+  .vg-ozet .no{color:var(--bad)}
+  .vg-ozet .bk{color:var(--warn)}
+  .vg-ozet .yz{font-weight:600}
+  .vg-ic{padding:6px 10px 10px}
+  details.vg.alt{background:var(--card-2);margin-top:6px}
+  details.vg.alt > summary{font-size:13px;padding:8px 12px}
+  details.vg.alt .vg-ad{font-weight:500}
+  details.vg.alt.ek{border-style:dashed;border-color:color-mix(in srgb,var(--s-ing) 45%,transparent)}
+  details.vg.alt.ek .vg-ad{color:var(--s-ing)}
+  .vu-bas{font-size:12px;font-weight:600;color:var(--ink-soft);margin:12px 4px 2px}
+  .vu-bas:first-child{margin-top:4px}
   .cev-kart{border:1px solid var(--line);border-left:3px solid var(--ok);border-radius:8px;
     padding:11px 13px;background:var(--card)}
   .cev-kart.hata{border-left-color:var(--bad)}
