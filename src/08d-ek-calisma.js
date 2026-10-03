@@ -181,4 +181,47 @@
     ]
   };
 
-  var EKC7 = {};
+  var EKC7 = {
+    mat:[
+      {u:"EK · Rasyonel Sayılar – Karışık", q:"Aşağıdakilerden hangisi her zaman doğrudur?", o:["Her rasyonel sayı bir tam sayıdır","Her tam sayı bir rasyonel sayıdır","Her rasyonel sayı bir doğal sayıdır","Ondalık gösterimi olan sayılar rasyonel değildir"], a:1,
+       w:"Her tam sayı paydası 1 olan bir kesirdir: 5 = 5/1, −3 = −3/1. Tersi doğru değil: 1/2 rasyoneldir ama tam sayı değildir."},
+      {u:"EK · Rasyonel Sayılar – Karışık", q:"Aşağıdakilerden hangisi −3 tam sayısına eşittir?", o:["−1/3","−6/2","3/−9","−3/3"], a:1,
+       w:"−6 ÷ 2 = −3. Diğerleri: −1/3, 3/−9 = −1/3 ve −3/3 = −1."},
+      {u:"EK · Rasyonel Sayılar – Karışık", q:"Aşağıdakilerden hangisi en büyüktür?", o:["−0,5","−2/3","−0,45","−3/5"], a:2,
+       w:"Hepsini ondalığa çevir: −0,5; −0,666…; −0,45; −0,6. Negatif sayılarda sıfıra en yakın olan en büyüktür: −0,45."},
+      {u:"EK · Rasyonel Sayılar – Karışık", q:"5/6, 3/4 ve 7/12 sayılarının küçükten büyüğe sıralanışı hangisidir?", o:["7/12 < 3/4 < 5/6","3/4 < 5/6 < 7/12","5/6 < 3/4 < 7/12","7/12 < 5/6 < 3/4"], a:0,
+       w:"Paydaları 12'de eşitle: 10/12, 9/12, 7/12. Paylara bak: 7/12 < 9/12 (= 3/4) < 10/12 (= 5/6)."},
+      {u:"EK · Rasyonel Sayılar – Karışık", q:"|−2/5| + |1/5| işleminin sonucu kaçtır?", o:["−1/5","1/5","3/5","−3/5"], a:2,
+       w:"Mutlak değer uzaklıktır, negatif olmaz: 2/5 + 1/5 = 3/5."},
+      {u:"EK · Rasyonel Sayılar – Karışık", q:"|−4,5| − |2,5| işleminin sonucu kaçtır?", o:["−7","−2","2","7"], a:2,
+       w:"Önce mutlak değerler: 4,5 − 2,5 = 2."},
+      {u:"EK · Rasyonel Sayılar – Karışık", q:"Sayı doğrusunda sıfıra uzaklığı 3/4 birim olan sayılar hangileridir?", o:["Yalnız 3/4","Yalnız −3/4","3/4 ve −3/4","4/3 ve −4/3"], a:2,
+       w:"Sıfırın sağında ve solunda aynı uzaklıkta iki sayı vardır: |3/4| = |−3/4| = 3/4."},
+      {u:"EK · Rasyonel Sayılar – Karışık", q:"5/8 kesrinin ondalık gösterimi hangisidir?", o:["0,58","0,625","0,6̄","1,6"], a:1,
+       w:"Kesir çizgisi bölmedir: 5 ÷ 8 = 0,625. Bölme bittiği için devirli değildir."},
+      {u:"EK · Rasyonel Sayılar – Karışık", q:"2/9 kesrinin ondalık gösterimi hangisidir?", o:["0,29","0,2̄","0,2̄9̄","0,92"], a:1,
+       w:"2 ÷ 9 = 0,222… Hep 2 tekrar ettiği için 2'nin üstüne çizgi konur: 0,2̄."},
+      {u:"EK · Rasyonel Sayılar – Karışık", q:"0,4̄5̄ devirli ondalık sayısının kesir gösterimi hangisidir?", o:["45/100","5/11","4/9","9/20"], a:1,
+       w:"İki basamak devrediyor → paydaya iki tane 9: 45/99 = 5/11. (0,45 olsaydı 45/100 = 9/20 olurdu.)"},
+      {u:"EK · Rasyonel Sayılar – Karışık", q:"0,16̄ devirli ondalık sayısının kesir gösterimi hangisidir?", o:["16/99","1/6","16/90","4/25"], a:1,
+       w:"Yalnız 6 devrediyor, 1 devretmiyor. (Tüm sayı − devretmeyen kısım) / (devreden kadar 9, devretmeyen kadar 0): (16 − 1)/90 = 15/90 = 1/6."},
+      {u:"EK · Rasyonel Sayılar – Karışık", q:"Aşağıdaki kesirlerden hangisinin ondalık gösterimi devirlidir?", o:["3/4","7/20","5/6","9/25"], a:2,
+       w:"5 ÷ 6 = 0,8333… bölme bitmez, 3 tekrar eder. Diğerleri biter: 0,75; 0,35; 0,36."},
+      {u:"EK · Rasyonel Sayılar – Karışık", q:"(−3/4) + (5/6) işleminin sonucu kaçtır?", o:["2/10","1/12","−1/12","−19/12"], a:1,
+       w:"Payda 12: −9/12 + 10/12 = 1/12. Payları ve paydaları ayrı ayrı toplamak (2/10) yanlıştır."},
+      {u:"EK · Rasyonel Sayılar – Karışık", q:"(−2/3) − (−1/6) işleminin sonucu kaçtır?", o:["−5/6","−1/2","1/2","−1/3"], a:1,
+       w:"Çıkanın işareti değişir: −2/3 + 1/6 = −4/6 + 1/6 = −3/6 = −1/2."},
+      {u:"EK · Rasyonel Sayılar – Karışık", q:"(−4/9) · (−3/8) işleminin sonucu kaçtır?", o:["−1/6","1/6","−7/17","32/27"], a:1,
+       w:"Aynı işaret → pozitif. 4·3 / 9·8 = 12/72 = 1/6."},
+      {u:"EK · Rasyonel Sayılar – Karışık", q:"(−5/6) ÷ (10/9) işleminin sonucu kaçtır?", o:["−3/4","−4/3","−25/27","3/4"], a:0,
+       w:"İkinci kesir ters çevrilip çarpılır: −5/6 · 9/10 = −45/60 = −3/4. Ters çevirmeden çarpmak (−25/27) yanlıştır."},
+      {u:"EK · Rasyonel Sayılar – Karışık", q:"1,2 · (−0,5) işleminin sonucu kaçtır?", o:["0,6","−0,6","−6","−0,06"], a:1,
+       w:"Farklı işaret → negatif. 12 · 5 = 60; virgülden sonra toplam iki basamak → 0,60 → −0,6."},
+      {u:"EK · Rasyonel Sayılar – Karışık", q:"(−1/2 + 1/3) · 6 işleminin sonucu kaçtır?", o:["−1","1","−5","5"], a:0,
+       w:"Önce parantez: −3/6 + 2/6 = −1/6. Sonra çarpma: −1/6 · 6 = −1."},
+      {u:"EK · Rasyonel Sayılar – Karışık", q:"Bir su deposunun 3/5'i doludur. Depodan, deponun tamamının 1/4'ü kadar su kullanılıyor. Depoda kalan su deponun kaçta kaçıdır?", o:["7/20","2/9","3/20","1/2"], a:0,
+       w:"3/5 − 1/4 = 12/20 − 5/20 = 7/20."},
+      {u:"EK · Rasyonel Sayılar – Karışık", q:"Hava sıcaklığı −2,5 °C iken önce 4,5 °C artıyor, sonra 3,25 °C düşüyor. Son sıcaklık kaç °C olur?", o:["−1,25","1,25","−10,25","5,75"], a:0,
+       w:"−2,5 + 4,5 = 2; 2 − 3,25 = −1,25 °C."}
+    ]
+  };
