@@ -346,7 +346,19 @@
           "GPS ile konum bulma, uydu ile haberleşme, hava durumu tahmini.",
           "Görevini tamamlamış uydu ve roket parçalarının yörüngede birikmesidir. Çok yüksek hızla döndükleri için çalışan uydulara çarpma riski oluştururlar."]},
 
-      {n:"Kuvvet ve Enerjiyi Keşfedelim", w:"Kasım", t:["ÜNİTE 2 · Kuvvet ve Enerjiyi Keşfedelim"],
+      {n:"Kuvvet ve Enerjiyi Keşfedelim", w:"Ekim–Kasım", t:["ÜNİTE 2 · Kuvvet ve Enerjiyi Keşfedelim"],
+       ogr:[{d:"13 Ekim 2026", h:
+         '<p><b>FİZİKSEL ANLAMDA İŞ</b></p>' +
+         '<p>Fiziksel anlamda iş yapılabilmesi için <b>üç şart aynı anda</b> sağlanmalıdır:</p>' +
+         '<ol><li>Kuvvet uygulanmalı <b>(F)</b></li>' +
+         '<li>Cisim yol almalı <b>(x)</b></li>' +
+         '<li>Uygulanan kuvvet ile cismin hareket doğrultusu aynı (paralel) olmalı <b>(F // x)</b></li></ol>' +
+         '<p><b>Örnekler:</b></p>' +
+         '<ul><li><b>I.</b> Duvarı iten kişi: kuvvet var ama duvar yerinden oynamıyor, <b>x = 0</b> → <b>İş yok</b></li>' +
+         '<li><b>II.</b> Sabit hızla giden araba (sürtünme ihmal): <b>F = 0</b> → <b>İş yok</b></li>' +
+         '<li><b>III.</b> Çantayı elinde taşıyarak yürüyen kişi: kuvvet yukarı, hareket yatay, <b>F ⊥ x</b> → <b>İş yok</b></li>' +
+         '<li><b>IV.</b> Market arabasını iten kişi: <b>F // x (yatay)</b> → <b>İş var</b></li>' +
+         '<li><b>V.</b> Kutuyu kaldırıp rafa koyan kişi: <b>F // x (dikey)</b> → <b>İş var</b></li></ul>'}],
        lead:"Kütle-ağırlık ayrımı, iş kavramı, kinetik ve potansiyel enerji, enerji dönüşümleri.",
        p:["Kütle maddenin miktarıdır (kg) ve değişmez; ağırlık bir kuvvettir (N) ve yer çekimine bağlıdır.",
           "İş = Kuvvet × Yol. Kuvvet doğrultusunda yol alınmazsa iş sıfırdır.",
