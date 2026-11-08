@@ -47,7 +47,7 @@ git add -A && git commit -m "Aciklama" && git push
 { n:"Ünite adı", w:"Kasım–Aralık",
   lead:"Giriş paragrafı (HTML serbest)",
   ogr:[{d:"24 Eylül 2026", h:"<p>Öğretmenin tahta notu (HTML)</p>"}],
-  voc:[["word","Türkçe anlamı"]],            // yalnız İngilizce ünitelerinde
+  voc:[["sözcük","anlamı"]],                  // İngilizce üniteleri + 7. sınıf Türkçe Tema 1 (tema söz varlığı)
   p:["madde", "madde"],                      // Bilmen gerekenler
   box:[{t:"Kutu başlığı", h:"HTML içerik"}], // Kural / formül kutusu
   tbl:[{h:["Sütun1","Sütun2"], r:[["a","b"]]}],
@@ -107,7 +107,9 @@ Oynatma listeleri için `url=https://www.youtube.com/playlist?list=LISTE_ID` kul
 `u` alanında `playlist` geçerse sayfa otomatik olarak "oynatma listesi" etiketi basar.
 
 Videolar **ay ay** ekleniyor; şu an Eylül ve Ekim üniteleri kaplı.
-Tonguç video başlıklarındaki `6MAT3 #2026` gibi kodlar dersi, sırayı ve müfredat yılını gösterir — `#2026` olanları tercih et.
+Tonguç video başlıklarındaki `6MAT3 #2026` gibi kodlar dersi, sırayı ve öğretim yılını gösterir: `#2027` = 2026–2027 (bu yıl), `#2026` = geçen yıl.
+**Önce `#2027`yi ara, yoksa `#2026`yı al.** 7. sınıf geçen yıl eski programdaydı; o yılın videoları konu adı tutsa bile eski programa göre anlatılmış olabilir.
+Emin olmak için watch sayfasındaki yayın tarihine bak (`publishDate`).
 
 ## Aylık bakım
 
@@ -168,6 +170,9 @@ veli raporunda `EK · …` kendi satırı olur. Yalnızca **puan ayrıdır** —
 kendi içinde gösterilir (`renderScore` erken çıkar), dersin "en iyi skor" kaydına dokunulmaz.
 
 Yeni set eklerken dokunulacak tek yer bu dosyadır; yeni bir `u` başlığı açmak yeterli.
+Metinli sorularda `q` içinde `
+` kullanılabilir — `.q-txt` `white-space:pre-line` ile satır sonlarını korur
+(örnek: `EK · 1. Yazılı Hazırlık`, 7. sınıf Türkçe, metin + boş satır + soru).
 Ek sorular `countQ`'ya dahildir, yani sekme rozetindeki toplam soru sayısına sayılır.
 ### "Cevapları göster" — bakmak yanlış sayılır
 
