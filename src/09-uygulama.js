@@ -2,7 +2,7 @@
 
   var G = {
     g6:{ label:"6. Sınıf", cal:CAL6, subj:S6, quiz:Q6, havuz:H6, ekstra:EKC6,
-         sub:"Altı dersin ünite ünite özeti, her ünitenin sonunda açık uçlu sorular ve kapalı duran bir cevap anahtarı — yanında yıllık takvim, haftalık program ve çoktan seçmeli testler.",
+         sub:"Yedi dersin ünite ünite özeti, her ünitenin sonunda açık uçlu sorular ve kapalı duran bir cevap anahtarı — yanında yıllık takvim, haftalık program ve çoktan seçmeli testler.",
          lede:"6. sınıf ikinci yılında Maarif Modeli ile okuyor. Ünite adları MEB'in resmî programından birebir alındı. Bir üniteyi bitirince soldaki kutuyu işaretle; ilerleme kaydediliyor." },
     g7:{ label:"7. Sınıf", cal:CAL7, subj:S7, quiz:Q7, havuz:H7, ekstra:EKC7,
          sub:"Altı dersin ünite ünite özeti, her ünitenin sonunda açık uçlu sorular ve kapalı duran bir cevap anahtarı — yanında yıllık takvim, haftalık program ve çoktan seçmeli testler.",

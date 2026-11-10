@@ -4,7 +4,7 @@
 
 Her sınıf için:
 - **Plan** — MEB 2026–2027 çalışma takvimine oturtulmuş yıllık konu takvimi, haftalık çalışma programı, dört çalışma kuralı
-- **Dersler** — 6 dersin 41 ünitesi; özet, "bilmen gerekenler", kural/formül kutuları, tablolar, sık yapılan hata, ünite sonu açık uçlu sorular ve kapalı cevap anahtarı
+- **Dersler** — 6. sınıfta 7 ders / 45 ünite, 7. sınıfta 6 ders / 42 ünite; özet, "bilmen gerekenler", kural/formül kutuları, tablolar, sık yapılan hata, ünite sonu açık uçlu sorular ve kapalı cevap anahtarı
 - **Testler** — çoktan seçmeli, anında geri bildirimli
 - **İlerleme** — ders bazında yüzde ve test skorları
 - **Yazdır** — o sınıfın tamamını fasikül olarak çıkarır
@@ -39,6 +39,7 @@ git add -A && git commit -m "Aciklama" && git push
 | `06-7sinif-turkce-sosyal.js` | 7. sınıf Türkçe, Sosyal Bilgiler |
 | `07-7sinif-ingilizce-din.js` | 7. sınıf İngilizce, Din Kültürü |
 | `08-testler.js` | Çoktan seçmeli soru havuzları |
+| `08e-6sinif-peygamberimizin-hayati.js` | 6. sınıf Peygamberimizin Hayatı — dersin **tamamı** tek dosyada: üniteler (`S6.push`), takvim satırları, ana test, havuz, ek setler |
 | `09-uygulama.js` | Çizim ve etkileşim kodu |
 
 ### Ünite veri şeması
@@ -238,6 +239,8 @@ Bilinen tuzaklar:
 - **6. sınıf Din Kültürü** ünite adları değişti: *Namaz / Zararlı Alışkanlıklar / Temel Değerlerimiz* yerine *Ramazan ve Oruç / Ahlaki Davranışlar / Kültürümüzdeki Dinî Motifler*.
 - **6. sınıf Matematik**'te tam sayılar, kümeler, oran, üslü ifadeler ve hacim yok — başka sınıflara taşındı.
 - **6. sınıf Fen**'de *Ses ve Özellikleri* ile *Bitki ve Hayvanlarda Üreme* yok; yerlerine *Işığın Yansıması ve Renkler* ve *Sürdürülebilir Yaşam ve Etkileşim* geldi.
+
+- **6. sınıf Peygamberimizin Hayatı** (imam hatip ortaokulu, haftada 2 saat) 4 ünite: *Gençlik Yıllarında Peygamberimiz / Peygamberimizin Çevresindeki Gençler / Rehberim Peygamberim / Toplumsal Hayatta Peygamberimiz*. Program sayfası `…/ogretim-programlari/peygamberimizin-hayati-dersi-temel-egitim/7`; ünite sayfaları **başında `/ogretim-programlari` olmadan** açılır (`tymm.meb.gov.tr/peygamberimizin-hayati-dersi-temel-egitim/unite/206`…`209`), öbür türlü 500 verir. Ders kitabı `tymm.meb.gov.tr/kitap/536`. Bu dersin ülke geneli sınav tablosu yok; konu-soru dağılımını il ÖDM'leri yayımlıyor, senaryoyu okul seçiyor. Kaynak ayrıntıları `src/08e-…` dosyasının başındaki notta.
 
 Okulun kendi ünitelendirilmiş yıllık planı her durumda esastır.
 
