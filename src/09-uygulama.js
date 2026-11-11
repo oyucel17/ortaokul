@@ -279,7 +279,7 @@
     var h = "", OS = openSubj[grade], OU = openUnit[grade], D = st().done;
     cur().subj.forEach(function(s){
       var dc = doneCount(s), isOpen = !!OS[s.key];
-      h += '<article class="subj" style="--sc:'+s.color+'" data-open="'+(isOpen?1:0)+'">'
+      h += '<article class="subj" data-key="'+s.key+'" style="--sc:'+s.color+'" data-open="'+(isOpen?1:0)+'">'
         + '<button class="subj-head" data-subj="'+s.key+'" aria-expanded="'+isOpen+'">'
         + '<div class="subj-title"><h3>'+esc(s.name)+'</h3><div class="meta">'+esc(s.meta)+'</div></div>'
         + '<span class="subj-prog">'+dc+'/'+s.units.length+'</span>'+CHEV_BIG+'</button>';

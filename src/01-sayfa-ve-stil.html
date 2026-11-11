@@ -238,6 +238,8 @@
     padding:12px 15px;max-width:72ch}
   .rbox .rb-t{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
     color:var(--sc);font-weight:600;margin:0 0 7px}
+  /* İngilizce başlıklarında Türkçe büyük harf kuralı "SİMPLE, SKİMMİNG" yazıyordu; başlık Türkçe-İngilizce karışık olduğu için dönüştürmeden göster */
+  .subj[data-key="ing"] .rbox .rb-t{text-transform:none;letter-spacing:.02em}
   .rbox ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
   .rbox li{font-size:13.8px}
   .rbox li::marker{color:var(--sc)}
