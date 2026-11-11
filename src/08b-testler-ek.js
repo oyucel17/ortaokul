@@ -250,32 +250,6 @@
       {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Ahiret inancının insan davranışına etkisi nedir?", o:["Kişiyi görülmediğinde de sorumlu davranmaya yöneltir","Kişiyi dünya işlerinden uzaklaştırır","Yalnızca ibadetleri ilgilendirir","Davranışlarla ilgisi yoktur"], a:0,
        w:"Yaptığının hesabını vereceğini bilen kişi, kimse görmese de dürüst davranır."}
     ],
-    ing:[
-      {u:"TEMA 1 · School Life & Education", q:"You ____ run in the corridor. (yasak)", o:["must","have to","mustn't","don't have to"], a:2,
-       w:"Yasak bildirmek için \"mustn't\" kullanılır."},
-      {u:"TEMA 1 · School Life & Education", q:"\"Devamsız\" anlamına gelen sözcük hangisidir?", o:["absent","present","attend","assembly"], a:0,
-       w:"Absent devamsız, present ise mevcut demektir."},
-      {u:"TEMA 1 · School Life & Education", q:"We ____ bring our books every day. It is a school rule.", o:["have to","don't have to","mustn't","might"], a:0,
-       w:"Dışarıdan gelen bir kural için \"have to\" kullanılır."},
-      {u:"TEMA 1 · School Life & Education", q:"\"Teneffüs\" sözcüğünün İngilizcesi hangisidir?", o:["term","break","grade","canteen"], a:1,
-       w:"Break teneffüs, term dönem, canteen kantindir."},
-      {u:"TEMA 1 · School Life & Education", q:"Hangisi \"gerek yok\" anlamı taşır?", o:["mustn't","can't","don't have to","shouldn't"], a:2,
-       w:"\"Don't have to\" zorunlu olmadığını, \"mustn't\" ise yasak olduğunu anlatır."},
-      {u:"TEMA 1 · School Life & Education", q:"How often ____ you have Science lessons?", o:["do","does","are","have"], a:0,
-       w:"\"You\" öznesiyle present simple soruda \"do\" gelir."},
-      {u:"TEMA 2 · Classroom Life & Learning", q:"____ you help me with this exercise, please?", o:["Could","Must","Should","May"], a:0,
-       w:"Kibar rica için \"Could you…?\" en uygunudur."},
-      {u:"TEMA 2 · Classroom Life & Learning", q:"\"Not tutmak\" ifadesinin İngilizcesi hangisidir?", o:["take notes","make notes up","do notes","get notes"], a:0,
-       w:"\"Take notes\" not tutmak demektir."},
-      {u:"TEMA 2 · Classroom Life & Learning", q:"I ____ read when I was four years old.", o:["can","could","will can","am able"], a:1,
-       w:"Geçmişteki bir yetenek için \"could\" kullanılır."},
-      {u:"TEMA 2 · Classroom Life & Learning", q:"\"Tekrar etmek, gözden geçirmek\" anlamındaki fiil hangisidir?", o:["revise","refuse","reduce","replace"], a:0,
-       w:"Revise, sınav öncesi konuyu tekrar etmek anlamındadır."},
-      {u:"TEMA 2 · Classroom Life & Learning", q:"Next week I ____ finish my project.", o:["will can","can","will be able to","am can"], a:2,
-       w:"\"Can\" gelecek zamanla kullanılamaz; yerine \"be able to\" gelir."},
-      {u:"TEMA 2 · Classroom Life & Learning", q:"\"Teslim tarihi\" anlamına gelen sözcük hangisidir?", o:["deadline","headline","timeline","outline"], a:0,
-       w:"Deadline, bir işin teslim edilmesi gereken son tarihtir."}
-    ]
   };
 
   /* ---------- Eylül–Ekim partisi, 8'den 10'a tamamlama ---------- */
@@ -384,16 +358,6 @@
       {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Evrenin düzeninin bozulup hayatın son bulmasına ne ad verilir?", o:["Ba's","Kıyamet","Mizan","Mahşer"], a:1,
        w:"Kıyamet evrenin düzeninin bozulmasıdır; ba's yeniden diriliştir."}
     ],
-    ing:[
-      {u:"TEMA 1 · School Life & Education", q:"Students ____ use mobile phones during lessons. It is forbidden.", o:["don't have to","mustn't","should","can"], a:1,
-       w:"Yasak bildirmek için \"mustn't\" kullanılır."},
-      {u:"TEMA 1 · School Life & Education", q:"\"Başarı\" anlamına gelen sözcük hangisidir?", o:["absence","achievement","attendance","assembly"], a:1,
-       w:"Achievement başarı, absence devamsızlık, attendance devam demektir."},
-      {u:"TEMA 2 · Classroom Life & Learning", q:"\"Altını çizmek\" anlamındaki fiil hangisidir?", o:["highlight","underline","memorise","practise"], a:1,
-       w:"Underline altını çizmek, highlight ise fosforlu kalemle işaretlemektir."},
-      {u:"TEMA 2 · Classroom Life & Learning", q:"Sorry, I'm not sure I ____. Could you say it again?", o:["follow","following","followed","am follow"], a:0,
-       w:"\"I don't follow\" ya da \"I'm not sure I follow\" = anlayamadım."}
-    ]
   };
 
   /* Ek soruları ana havuzlara ekle */
@@ -496,26 +460,6 @@
        w:"Kökü yokla: \"gel-\" fiil, \"güzel\" isim soyludur. \"Güzeldi\"deki -di ek fiildir, \"geldi\"deki -di ise fiil çekim ekidir."},
       {u:"TEMA 2 · Bir Hilal Uğruna", q:"Ek fiilin kaç çekimi vardır?", o:["İki","Üç","Dört","Beş"], a:2,
        w:"Dört çekim: -di (görülen geçmiş), -miş (duyulan geçmiş), -se (şart), -dir (geniş zaman)."}
-    ],
-    ing:[
-      {u:"TEMA 3 · Personal Life & Well-Being", q:"You ____ eat too much junk food. It's unhealthy.", o:["should","shouldn't","should to","don't should"], a:1,
-       w:"Yapılmaması gereken bir şey için shouldn't kullanılır. should'dan sonra \"to\" gelmez."},
-      {u:"TEMA 3 · Personal Life & Well-Being", q:"You should ____ more water.", o:["drink","to drink","drinking","drinks"], a:0,
-       w:"should'dan sonra fiil yalın gelir: should drink."},
-      {u:"TEMA 3 · Personal Life & Well-Being", q:"Which sentence gives advice?", o:["Why don't you go to bed early?","Where do you go to bed?","Did you go to bed early?","Do you go to bed early?"], a:0,
-       w:"\"Why don't you…?\" bir tavsiye kalıbıdır; diğerleri bilgi soran sorulardır."},
-      {u:"TEMA 3 · Personal Life & Well-Being", q:"How about ____ for a walk?", o:["go","going","to go","goes"], a:1,
-       w:"How about'tan sonra fiil -ing alır: How about going…?"},
-      {u:"TEMA 3 · Personal Life & Well-Being", q:"I usually ____ to school, but this week I ____ the bus.", o:["walk / am taking","am walking / take","walks / taking","walk / take"], a:0,
-       w:"Alışkanlık → Present Simple (walk); bu haftaya özgü geçici durum → Present Continuous (am taking)."},
-      {u:"TEMA 3 · Personal Life & Well-Being", q:"She ____ for an exam this week.", o:["studies","is studying","study","studying"], a:1,
-       w:"\"this week\" geçici bir durumu anlatır → Present Continuous: is studying."},
-      {u:"TEMA 3 · Personal Life & Well-Being", q:"\"stay up late\" ne demektir?", o:["erken kalkmak","geç saate kadar oturmak","geç kalmak","yatağa uzanmak"], a:1,
-       w:"stay up late = geç saate kadar (uyumadan) oturmak."},
-      {u:"TEMA 3 · Personal Life & Well-Being", q:"I feel ____ because I didn't sleep well.", o:["energetic","tired","confident","calm"], a:1,
-       w:"İyi uyumamanın sonucu yorgunluktur: tired."},
-      {u:"TEMA 3 · Personal Life & Well-Being", q:"Too much screen time ____ your eyes.", o:["damage","damages","damaging","is damage"], a:1,
-       w:"\"Too much screen time\" tekil özne → fiil -s alır: damages."}
     ],
     din:[
       {u:"ÜNİTE 2 · Hac, Umre ve Kurban", q:"Hac, şartlarını taşıyan Müslümana ne sıklıkla farzdır?", o:["Her yıl","Ömründe bir kez","İki yılda bir","Hiç farz değildir"], a:1,

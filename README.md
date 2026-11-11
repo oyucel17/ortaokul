@@ -110,7 +110,7 @@ Oynatma listeleri için `url=https://www.youtube.com/playlist?list=LISTE_ID` kul
 
 Videolar **ay ay** ekleniyor; şu an Eylül ve Ekim üniteleri kaplı.
 Tonguç video başlıklarındaki `6MAT3 #2026` gibi kodlar dersi, sırayı ve öğretim yılını gösterir: `#2027` = 2026–2027 (bu yıl), `#2026` = geçen yıl.
-**Önce `#2027`yi ara, yoksa `#2026`yı al.** 7. sınıf geçen yıl eski programdaydı; o yılın videoları konu adı tutsa bile eski programa göre anlatılmış olabilir.
+**Önce `#2027`yi ara, yoksa `#2026`yı al.** 7. sınıf geçen yıl eski programdaydı; o yılın videoları konu adı tutsa bile eski programa göre anlatılmış olabilir. İstisna 7. sınıf İngilizce: okul hâlâ eski programda, Tonguç'un `7ING` videoları da öyle, `#2026` videoları doğrudan kullanılır.
 Emin olmak için watch sayfasındaki yayın tarihine bak (`publishDate`).
 
 ## Aylık bakım
@@ -236,7 +236,8 @@ Araya ünite eklemek ya da sırayı değiştirmek işaretlenmiş konuları kayd�
 Ünite adlarını **her zaman** resmî kaynaktan doğrula: <https://tymm.meb.gov.tr/ogretim-programlari>
 
 Bilinen tuzaklar:
-- **İngilizce** artık ÇYDEM (Çoklu Yabancı Dil Eğitim Modeli). 8 tema: *School Life & Education* → *Life in the Universe & Future*. Eski 10 ünitelik liste (*Appearance and Personality, Sports…*) geçersiz.
+- **6. sınıf İngilizce** Maarif temalarıyla okuyor (8 tema, *School Life* ile başlıyor).
+- **7. sınıf İngilizce bu okulda hâlâ 2018 programında.** Kitabın 1. ünitesi *Appearance and Personality*, 10. ünitesi *Planets*. TYMM sayfasındaki 7. sınıf temaları (*School Life & Education …*) bu sınıfta kullanılmıyor. Kasım 2026'da kitap ve öğretmenin yazdırdığı sınav konularıyla doğrulandı. Kazanım kodları (E7.1.R1 …) il ÖDM'lerinin konu-soru dağılım tablolarında: <https://eskisehirodm.meb.gov.tr/meb_iys_dosyalar/2025_10/13122525_26114549_7_ingilizce.pdf> (1. dönem), <https://bingolodm.meb.gov.tr/meb_iys_dosyalar/2025_03/03124124_ing7.pdf> (2. dönem).
 - **6. sınıf Din Kültürü** ünite adları değişti: *Namaz / Zararlı Alışkanlıklar / Temel Değerlerimiz* yerine *Ramazan ve Oruç / Ahlaki Davranışlar / Kültürümüzdeki Dinî Motifler*.
 - **6. sınıf Matematik**'te tam sayılar, kümeler, oran, üslü ifadeler ve hacim yok — başka sınıflara taşındı.
 - **6. sınıf Fen**'de *Ses ve Özellikleri* ile *Bitki ve Hayvanlarda Üreme* yok; yerlerine *Işığın Yansıması ve Renkler* ve *Sürdürülebilir Yaşam ve Etkileşim* geldi.

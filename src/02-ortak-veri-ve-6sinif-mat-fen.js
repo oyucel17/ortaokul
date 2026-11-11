@@ -73,37 +73,37 @@
   var CAL7 = [
     {m:"Eylül", d:"14–30 Eylül", key:"eylul", items:[
       ["mat","Tam sayılar"],["fen","Uzay Çağı"],["tur","Hayat Boyu Gelişim"],
-      ["sos","Birlikte Yaşamak"],["din","Melek ve Ahiret İnancı"],["ing","School Life & Education"]]},
+      ["sos","Birlikte Yaşamak"],["din","Melek ve Ahiret İnancı"],["ing","Appearance and Personality"]]},
     {m:"Ekim", d:"1–31 Ekim", key:"ekim", items:[
       ["mat","Rasyonel sayılar ve işlemler"],["fen","Uzay Çağı / Kuvvet ve Enerji"],["tur","Hayat Boyu Gelişim"],
-      ["sos","Birlikte Yaşamak / Evimiz Dünya"],["ing","Classroom Life & Learning"]]},
+      ["sos","Birlikte Yaşamak / Evimiz Dünya"],["ing","Appearance and Personality / Sports"]]},
     {b:"b1"},
     {m:"Kasım", d:"1–30 Kasım", key:"kasim", items:[
       ["mat","Oran, orantı, yüzde"],["fen","Kuvvet ve Enerjiyi Keşfedelim"],["tur","Bir Hilal Uğruna"],
-      ["sos","Evimiz Dünya"],["din","Hac, Umre ve Kurban"],["ing","Personal Life & Well-Being"]]},
+      ["sos","Evimiz Dünya"],["din","Hac, Umre ve Kurban"],["ing","Sports / Biographies"]]},
     {m:"Aralık", d:"1–31 Aralık", key:"aralik", items:[
       ["mat","Cebirsel ifadeler ve denklem"],["fen","Vücudumuzdaki Sistemler"],["tur","İletişim ve Sosyal İlişkiler"],
-      ["sos","Ortak Mirasımız"],["ing","Family Life & Home"]]},
+      ["sos","Ortak Mirasımız"],["ing","Biographies / Wild Animals"]]},
     {m:"Ocak", d:"1–22 Ocak", key:"ocak", items:[
       ["mat","Dönüşüm"],["fen","Vücudumuzdaki Sistemler"],["tur","İletişim ve Sosyal İlişkiler"],
-      ["sos","Ortak Mirasımız"],["din","İslam Düşüncesinde Yorumlar"],["ing","Life in the Neighbourhood & City"]]},
+      ["sos","Ortak Mirasımız"],["din","İslam Düşüncesinde Yorumlar"],["ing","Wild Animals / Television"]]},
     {b:"b2"},
     {m:"Şubat", d:"8–28 Şubat", key:"subat", items:[
       ["mat","Prizmanın yüzey alanı"],["fen","Işığın Kırılması ve Mercekler"],["tur","Türk Sanatı"],
-      ["sos","Yaşayan Demokrasimiz"],["ing","Life in the Neighbourhood & City"]]},
+      ["sos","Yaşayan Demokrasimiz"],["ing","Television / Celebrations"]]},
     {b:"b3"},
     {m:"Mart", d:"1–31 Mart", key:"mart", items:[
       ["mat","Hacim"],["fen","Maddenin Doğasına Yolculuk"],["tur","Türk Sanatı"],
-      ["sos","Yaşayan Demokrasimiz"],["din","Peygamber Olarak Hz. Muhammed"],["ing","Life in the World & Culture"]]},
+      ["sos","Yaşayan Demokrasimiz"],["din","Peygamber Olarak Hz. Muhammed"],["ing","Celebrations / Dreams"]]},
     {m:"Nisan", d:"1–30 Nisan", key:"nisan", items:[
       ["mat","Üçgenin yardımcı elemanları"],["fen","Maddenin Doğası / Elektriklenme"],["tur","Okuma Kültürü"],
-      ["sos","Hayatımızdaki Ekonomi"],["ing","Life in Nature"]]},
+      ["sos","Hayatımızdaki Ekonomi"],["ing","Public Buildings"]]},
     {m:"Mayıs", d:"1–31 Mayıs", key:"mayis", items:[
       ["mat","İstatistiksel araştırma süreci"],["fen","Elektriklenme / Sürdürülebilir Yaşam"],["tur","Okuma Kültürü / Hak ve Sorumluluklar"],
-      ["sos","Hayatımızdaki Ekonomi / Teknoloji"],["din","Yaşayan Dünya Dinleri"],["ing","Life in Nature / Life in the Universe"]]},
+      ["sos","Hayatımızdaki Ekonomi / Teknoloji"],["din","Yaşayan Dünya Dinleri"],["ing","Environment / Planets"]]},
     {m:"Haziran", d:"1–25 Haziran", key:"haziran", items:[
       ["mat","Veriden olasılığa"],["fen","Sürdürülebilir Yaşam ve Enerji"],["tur","Hak ve Sorumluluklar"],
-      ["sos","Teknoloji ve Sosyal Bilimler"],["ing","Life in the Universe & Future"]]}
+      ["sos","Teknoloji ve Sosyal Bilimler"],["ing","Planets"]]}
   ];
 
   /* ===================== 6. SINIF ===================== */

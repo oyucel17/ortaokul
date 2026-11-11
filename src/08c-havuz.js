@@ -234,26 +234,38 @@
        w:"Cebrail peygamberlere vahiy getirmekle görevlidir."}
     ],
     ing:[
-      {u:"TEMA 1 · School Life & Education", q:"I ____ study tonight. I have an exam tomorrow.", o:["mustn't","must","don't have to","couldn't"], a:1,
-       w:"Konuşanın kendi koyduğu güçlü zorunluluk için \"must\" kullanılır."},
-      {u:"TEMA 1 · School Life & Education", q:"\"Devam, katılım\" anlamına gelen sözcük hangisidir?", o:["attendance","absence","achievement","assembly"], a:0,
-       w:"Attendance devam/katılım, absence devamsızlıktır."},
-      {u:"TEMA 1 · School Life & Education", q:"We ____ wear our uniforms on Saturdays. There is no school.", o:["must","have to","don't have to","mustn't"], a:2,
-       w:"Gerekmediğini anlatmak için \"don't have to\" kullanılır."},
-      {u:"TEMA 1 · School Life & Education", q:"\"Ders programı\" anlamına gelen sözcük hangisidir?", o:["term","timetable","grade","rule"], a:1,
-       w:"Timetable ders programıdır."},
-      {u:"TEMA 1 · School Life & Education", q:"How often do you have Maths lessons? sorusuna uygun cevap hangisidir?", o:["At school.","Five times a week.","With my friend.","In the morning."], a:1,
-       w:"\"How often\" sıklık sorar; cevabı \"five times a week\" gibi olur."},
-      {u:"TEMA 2 · Classroom Life & Learning", q:"____ you speak French when you were little?", o:["Can","Could","Will","Must"], a:1,
-       w:"Geçmişteki yetenek için \"could\" kullanılır."},
-      {u:"TEMA 2 · Classroom Life & Learning", q:"\"Ezberlemek\" anlamındaki fiil hangisidir?", o:["memorise","revise","practise","highlight"], a:0,
-       w:"Memorise ezberlemek, revise tekrar etmektir."},
-      {u:"TEMA 2 · Classroom Life & Learning", q:"\"Sunum\" anlamına gelen sözcük hangisidir?", o:["project","presentation","deadline","group work"], a:1,
-       w:"Presentation sunum, project ise projedir."},
-      {u:"TEMA 2 · Classroom Life & Learning", q:"Hangisi kibar bir ricadır?", o:["Repeat that.","You repeat that.","Could you repeat that, please?","Must you repeat that?"], a:2,
-       w:"\"Could you…, please?\" en kibar rica kalıbıdır."},
-      {u:"TEMA 2 · Classroom Life & Learning", q:"Next year I ____ speak English very well.", o:["will can","can will","will be able to","am able will"], a:2,
-       w:"\"Can\" gelecek zamanla kullanılamaz; \"will be able to\" gelir."}
+      {u:"UNIT 1 · Appearance and Personality", q:"\"She is very kind and she always helps people.\" Bu cümle hangi sorunun cevabıdır?", o:["What does she look like?","What does she like?","What is she like?","How old is she?"], a:2,
+       w:"Kişiliği anlatan cevap \"What is she like?\" sorusuna verilir."},
+      {u:"UNIT 1 · Appearance and Personality", q:"Elif ____ green eyes and freckles.", o:["is","has got","have got","are"], a:1,
+       w:"Göz ve çil için have got. Özne Elif (she) olduğu için has got."},
+      {u:"UNIT 1 · Appearance and Personality", q:"My cousin is 15. I am 12. My cousin is ____ than me.", o:["younger","older","taller","shorter"], a:1,
+       w:"15 yaş 12 yaştan büyüktür: older. Boy bilgisi verilmediği için taller ya da shorter seçilemez."},
+      {u:"UNIT 1 · Appearance and Personality", q:"\"funny\" sıfatının karşılaştırma hâli hangisidir?", o:["funnier","funnyer","more funny","the funniest"], a:0,
+       w:"Ünsüz + y ile biten sıfatta y düşer, -ier gelir: funnier."},
+      {u:"UNIT 1 · Appearance and Personality", q:"\"He doesn't share his toys with anybody.\" Bu kişi nasıl biridir?", o:["generous","helpful","patient","selfish"], a:3,
+       w:"Oyuncaklarını kimseyle paylaşmayan kişi selfish (bencil) kişidir."},
+
+      {u:"UNIT 2 · Sports", q:"We ____ hiking in the mountains at weekends.", o:["play","go","do","make"], a:1,
+       w:"-ing ile biten sporların çoğu go ile söylenir: go hiking. Dövüş sporlarında do kullanılır: do boxing."},
+      {u:"UNIT 2 · Sports", q:"\"twice a week\" ne demektir?", o:["haftada bir","ayda iki kez","haftada iki kez","her hafta sonu"], a:2,
+       w:"twice = iki kez, a week = haftada: haftada iki kez."},
+      {u:"UNIT 2 · Sports", q:"He ____ basketball every day.", o:["play","playing","is play","plays"], a:3,
+       w:"Özne he olduğu için geniş zamanda fiil -s alır: plays."},
+      {u:"UNIT 2 · Sports", q:"\"You sit on a big animal in this sport. The animal runs and jumps.\" Hangi spordur?", o:["horse riding","cycling","rowing","jogging"], a:0,
+       w:"Büyük bir hayvanın (at) sırtında yapılan spor horse riding (binicilik)."},
+      {u:"UNIT 2 · Sports", q:"Sıklık zarfı doğru yerde olan cümle hangisidir?", o:["I play usually tennis on Sundays.","I usually play tennis on Sundays.","I play tennis on usually Sundays.","Usually play I tennis on Sundays."], a:1,
+       w:"Sıklık zarfı esas fiilden önce gelir: I usually play."},
+
+      {u:"UNIT 3 · Biographies", q:"They ____ in Ankara in 2010.", o:["was","were","is","did"], a:1,
+       w:"They ile geçmişte were kullanılır."},
+      {u:"UNIT 3 · Biographies", q:"\"become\" fiilinin geçmiş hâli hangisidir?", o:["became","becomed","becamed","become"], a:0,
+       w:"Become düzensizdir: become → became."},
+      {u:"UNIT 3 · Biographies", q:"Did she ____ the race?", o:["won","wins","win","winning"], a:2,
+       w:"Did'den sonra fiil yalın gelir: Did she win…?"},
+      {u:"UNIT 3 · Biographies", q:"I was born ____ 2014.", o:["on","in","at","from"], a:1,
+       w:"Yılın önünde in kullanılır: in 2014."},
+      {u:"UNIT 3 · Biographies", q:"\"Emekli olmak\" anlamındaki fiil hangisidir?", o:["graduate","move","grow up","retire"], a:3,
+       w:"Retire emekli olmak, graduate mezun olmak demektir."}
     ]
   };
 
@@ -322,18 +334,6 @@
        w:"hasta (isim soylu) + -ydı. Diğerlerinde kök fiildir, -dı fiil çekim ekidir."},
       {u:"TEMA 2 · Bir Hilal Uğruna", q:"Aşağıdaki cümlelerin hangisinin yüklemi isim soyludur?", o:["Çocuklar bahçede koştu.","Bu ev çok eskiydi.","Kitabı dikkatle okudu.","Yarın sinemaya gideceğiz."], a:1,
        w:"\"Eskiydi\" = eski (isim soylu) + ek fiil. Diğer yüklemler fiildir."}
-    ],
-    ing:[
-      {u:"TEMA 3 · Personal Life & Well-Being", q:"You look stressed. You should ____.", o:["relax","to relax","relaxing","relaxes"], a:0,
-       w:"should'dan sonra fiil yalın gelir: should relax."},
-      {u:"TEMA 3 · Personal Life & Well-Being", q:"\"junk food\" ne demektir?", o:["sağlıklı yemek","abur cubur","kahvaltı","meyve"], a:1,
-       w:"junk food = abur cubur."},
-      {u:"TEMA 3 · Personal Life & Well-Being", q:"I ____ to music every evening.", o:["listen","am listening","listening","listens"], a:0,
-       w:"\"every evening\" alışkanlık → Present Simple: listen."},
-      {u:"TEMA 3 · Personal Life & Well-Being", q:"You shouldn't ____ breakfast.", o:["skip","skipping","to skip","skips"], a:0,
-       w:"shouldn't'tan sonra fiil yalın gelir: shouldn't skip."},
-      {u:"TEMA 3 · Personal Life & Well-Being", q:"Which sentence is correct?", o:["You should to rest.","You should rest.","You should resting.","You should rests."], a:1,
-       w:"should + yalın fiil: You should rest. \"should to\" sık yapılan bir hatadır."}
     ],
     din:[
       {u:"ÜNİTE 2 · Hac, Umre ve Kurban", q:"Aşağıdakilerden hangisi haccın farzlarındandır?", o:["Ziyaret tavafı","Kurban kesmek","Zemzem içmek","Medine'yi ziyaret etmek"], a:0,
