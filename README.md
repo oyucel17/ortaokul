@@ -4,7 +4,7 @@
 
 Her sınıf için:
 - **Plan** — MEB 2026–2027 çalışma takvimine oturtulmuş yıllık konu takvimi, haftalık çalışma programı, dört çalışma kuralı
-- **Dersler** — 6. sınıfta 7 ders / 45 ünite, 7. sınıfta 6 ders / 42 ünite; özet, "bilmen gerekenler", kural/formül kutuları, tablolar, sık yapılan hata, ünite sonu açık uçlu sorular ve kapalı cevap anahtarı
+- **Dersler** — 6. sınıfta 7 ders / 45 ünite, 7. sınıfta 7 ders / 46 ünite; özet, "bilmen gerekenler", kural/formül kutuları, tablolar, sık yapılan hata, ünite sonu açık uçlu sorular ve kapalı cevap anahtarı
 - **Testler** — çoktan seçmeli, anında geri bildirimli
 - **İlerleme** — ders bazında yüzde ve test skorları
 - **Yazdır** — o sınıfın tamamını fasikül olarak çıkarır
@@ -40,6 +40,7 @@ git add -A && git commit -m "Aciklama" && git push
 | `07-7sinif-ingilizce-din.js` | 7. sınıf İngilizce, Din Kültürü |
 | `08-testler.js` | Çoktan seçmeli soru havuzları |
 | `08e-6sinif-peygamberimizin-hayati.js` | 6. sınıf Peygamberimizin Hayatı — dersin **tamamı** tek dosyada: üniteler (`S6.push`), takvim satırları, ana test, havuz, ek setler |
+| `08f-7sinif-peygamberimizin-hayati.js` | 7. sınıf Peygamberimizin Hayatı — aynı kalıp (`S7.push`, `CAL7`, `Q7.pey`, `H7.pey`, `EKC7.pey`) |
 | `09-uygulama.js` | Çizim ve etkileşim kodu |
 
 ### Ünite veri şeması
@@ -241,6 +242,7 @@ Bilinen tuzaklar:
 - **6. sınıf Fen**'de *Ses ve Özellikleri* ile *Bitki ve Hayvanlarda Üreme* yok; yerlerine *Işığın Yansıması ve Renkler* ve *Sürdürülebilir Yaşam ve Etkileşim* geldi.
 
 - **6. sınıf Peygamberimizin Hayatı** (imam hatip ortaokulu, haftada 2 saat) 4 ünite: *Gençlik Yıllarında Peygamberimiz / Peygamberimizin Çevresindeki Gençler / Rehberim Peygamberim / Toplumsal Hayatta Peygamberimiz*. Program sayfası `…/ogretim-programlari/peygamberimizin-hayati-dersi-temel-egitim/7`; ünite sayfaları **başında `/ogretim-programlari` olmadan** açılır (`tymm.meb.gov.tr/peygamberimizin-hayati-dersi-temel-egitim/unite/206`…`209`), öbür türlü 500 verir. Ders kitabı `tymm.meb.gov.tr/kitap/536`. Bu dersin ülke geneli sınav tablosu yok; konu-soru dağılımını il ÖDM'leri yayımlıyor, senaryoyu okul seçiyor. Kaynak ayrıntıları `src/08e-…` dosyasının başındaki notta.
+- **7. sınıf Peygamberimizin Hayatı** 4 ünite: *Hicretten Önce Peygamberimiz / Peygamberimizin Mekkeli Arkadaşları / Rehberim Peygamberim / İlim Hayatında Peygamberimiz*. Program sayfası aynı adresin `/8`'i, ünite sayfaları `…/unite/210`…`213`. Ders kitabının adresi **adıyla birlikte** yazılır: `tymm.meb.gov.tr/kitap/537/peygamberimizin-hayati-7sinif-ders-kitabi` (yalnız `/kitap/537` 500 verir; kitap listesi `/Kitap/GetDersKitaplariList?page=1&kademe=temel-egitim`). 1. dönem 1. yazılı (Antalya ÖDM tablosu): gizli ve açık davet + isra ve miraç ağırlıklı, Hicret Yolculuğu bölümü kapsam dışı. Kaynak ayrıntıları `src/08f-…` dosyasının başındaki notta.
 
 Okulun kendi ünitelendirilmiş yıllık planı her durumda esastır.
 

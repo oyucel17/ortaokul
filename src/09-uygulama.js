@@ -5,7 +5,7 @@
          sub:"Yedi dersin ünite ünite özeti, her ünitenin sonunda açık uçlu sorular ve kapalı duran bir cevap anahtarı — yanında yıllık takvim, haftalık program ve çoktan seçmeli testler.",
          lede:"6. sınıf ikinci yılında Maarif Modeli ile okuyor. Ünite adları MEB'in resmî programından birebir alındı. Bir üniteyi bitirince soldaki kutuyu işaretle; ilerleme kaydediliyor." },
     g7:{ label:"7. Sınıf", cal:CAL7, subj:S7, quiz:Q7, havuz:H7, ekstra:EKC7,
-         sub:"Altı dersin ünite ünite özeti, her ünitenin sonunda açık uçlu sorular ve kapalı duran bir cevap anahtarı — yanında yıllık takvim, haftalık program ve çoktan seçmeli testler.",
+         sub:"Yedi dersin ünite ünite özeti, her ünitenin sonunda açık uçlu sorular ve kapalı duran bir cevap anahtarı — yanında yıllık takvim, haftalık program ve çoktan seçmeli testler.",
          lede:"2026–2027, 7. sınıfın Maarif Modeli'ne geçtiği <b>ilk yıl</b> — ünite adları geçen yılkinden farklı. Başlıklar MEB'in resmî programından birebir alındı. Bir üniteyi bitirince soldaki kutuyu işaretle; ilerleme kaydediliyor." }
   };
 
@@ -218,7 +218,9 @@
 
   /* ---------- takvim ---------- */
   function renderTimeline(){
-    var h = "", NOW = "eylul";
+    /* "şu an buradasın" işareti gerçek aya göre konur; eskiden "eylul" sabitti ve
+       yıl boyu Eylül'de kalıyordu. Temmuz–Ağustos'ta hiçbir satır işaretlenmez. */
+    var h = "", NOW = ["ocak","subat","mart","nisan","mayis","haziran","temmuz","agustos","eylul","ekim","kasim","aralik"][new Date().getMonth()];
     cur().cal.forEach(function(row){
       if(row.b){
         var b = BREAKS[row.b];
