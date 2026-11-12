@@ -113,12 +113,12 @@
       {u:"ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı", q:"\"Sıdk\" sıfatı ne anlama gelir?", o:["Güvenilir olmak","Doğru sözlü olmak","Akıllı olmak","Mesajı iletmek"], a:1,
        w:"Sıdk, peygamberin her zaman doğruyu söylemesidir."},
       {u:"ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı", q:"Suhuf ne demektir?", o:["Dört büyük kitaptan biri","Bazı peygamberlere verilen küçük sayfalar","Peygamberlerin sözleri","Meleklerin görevleri"], a:1,
-       w:"Suhuf, Hz. Âdem, Hz. Şit, Hz. İdris ve Hz. İbrahim'e verilen küçük sayfalardır."},
-      {u:"ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı", q:"Kur'an-ı Kerim'i diğer ilahi kitaplardan ayıran en önemli özellik nedir?", o:["En uzun olması","Değiştirilmeden korunmuş olması","Arapça olması","Son indirilmiş olması"], a:1,
-       w:"Kur'an indirildiği günden beri hiç değiştirilmeden korunmuştur."},
-      {u:"ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı", q:"Aşağıdakilerden hangisi ulu'l-azm peygamberlerden biri DEĞİLDİR?", o:["Hz. Nuh","Hz. İbrahim","Hz. Yusuf","Hz. Musa"], a:2,
-       w:"Ulu'l-azm peygamberler Hz. Nuh, Hz. İbrahim, Hz. Musa, Hz. İsa ve Hz. Muhammed'dir."},
-      {u:"ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı", q:"\"İsmet\" sıfatı peygamberlerin hangi özelliğini anlatır?", o:["Günah işlememeleri","Akıllı olmaları","Güvenilir olmaları","Doğru sözlü olmaları"], a:0,
+       w:"Suhuf, dört büyük kitap dışında bazı peygamberlere gönderilen sayfalardır."},
+      {u:"ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı", q:"Kur'an-ı Kerim'i diğer ilahi kitaplardan ayıran en önemli özellik nedir?", o:["En uzun kitap olması","Değiştirilmeden korunmuş olması","Yalnızca Araplara gönderilmesi","İlk indirilen kitap olması"], a:1,
+       w:"Diğer kitaplar zamanla değiştirildi; Kur'an ise indirildiği günden beri hiç değiştirilmeden korunmuştur. Kur'an aynı zamanda son ilahi kitaptır."},
+      {u:"ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı", q:"İlk peygamber ve son peygamber sırasıyla hangi seçenekte verilmiştir?", o:["Hz. Âdem – Hz. Muhammed","Hz. Nuh – Hz. İsa","Hz. İbrahim – Hz. Muhammed","Hz. Âdem – Hz. İsa"], a:0,
+       w:"Yeryüzündeki ilk insan ve ilk peygamber Hz. Âdem, son peygamber Hz. Muhammed'dir."},
+      {u:"ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı", q:"\"İsmet\" sıfatı peygamberlerin hangi özelliğini anlatır?", o:["Günahtan korunmuş olmaları","Akıllı olmaları","Güvenilir olmaları","Doğru sözlü olmaları"], a:0,
        w:"İsmet, peygamberlerin günah işlemekten korunmuş olmasıdır."}
     ],
     ing:[
@@ -296,7 +296,7 @@
     din:[
       {u:"ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı", q:"Hz. İsa'ya indirilen ilahi kitap hangisidir?", o:["Tevrat","Zebur","İncil","Kur'an"], a:2,
        w:"İncil Hz. İsa'ya indirilmiştir."},
-      {u:"ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı", q:"\"Tebliğ\" sıfatı ne demektir?", o:["Doğru sözlü olmak","Aldığı mesajı eksiksiz iletmek","Güvenilir olmak","Günah işlememek"], a:1,
+      {u:"ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı", q:"\"Tebliğ\" sıfatı ne demektir?", o:["Doğru sözlü olmak","Aldığı mesajı eksiksiz iletmek","Güvenilir olmak","Günahtan korunmuş olmak"], a:1,
        w:"Tebliğ, peygamberin vahyi olduğu gibi insanlara ulaştırmasıdır."}
     ],
     ing:[

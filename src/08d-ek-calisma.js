@@ -445,3 +445,64 @@
        w:"Frozen lake (donmuş göl), special boots (paten): ice skating. Skiing karda, iki uzun tahtayla yapılır."}
     ]
   };
+
+  /* 6. sınıf Din Kültürü — 1. yazılı hazırlığı (2026-11-12). MEB ortak tablosu:
+     vahyin gönderiliş amacı (DKAB.6.1.2), ilahi kitaplar (6.1.3), Felak suresi (6.1.4);
+     öğretmenin listesinde peygamberlerin özellikleri de var. Sıra: özellikler (4),
+     vahiy (8), ilahi kitaplar (8), Felak (5) = 25. Ana testteki ve havuzdaki 15 soru
+     (kitap–peygamber, sıfat tanımları, suhuf, ulu'l-azm) burada tekrar edilmedi. */
+  EKC6.din = [
+    {u:"EK · 1. Yazılı Hazırlık", q:"Hz. İbrahim putları kırdıktan sonra baltayı en büyük putun boynuna astı. Kendisine sorulunca “Bana değil ona sorun!” dedi ve insanları putların hiçbir şey yapamadığını düşünmeye yöneltti.\n\nBu olay peygamberlerin en çok hangi özelliğini gösterir?", o:["Fetanet","Emanet","Tebliğ","İsmet"], a:0,
+     w:"Fetanet, peygamberlerin akıllı ve zeki olmasıdır. Hz. İbrahim, insanları kendi sözleriyle düşünmeye yöneltecek zekice bir yol buldu."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"“Bakınız, ben size gönderilmiş güvenilir bir elçiyim.” (Şuara suresi 143)\n\nBu ayette peygamberlerin hangi özelliği vurgulanmaktadır?", o:["Sıdk","Emanet","Fetanet","Tebliğ"], a:1,
+     w:"Emanet, peygamberlerin güvenilir olmasıdır. Ayetteki “güvenilir elçi” ifadesi bu özelliği anlatır."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"“Ey Peygamber! Rabb'inden sana indirileni tebliğ et. Eğer bunu yapmazsan O'nun verdiği peygamberlik görevini yerine getirmemiş olursun…” (Maide suresi 67)\n\nBu ayete göre peygamberin görevi nedir?", o:["Vahyi eksiksiz insanlara iletmek","Vahyin uygun gördüğü kısmını anlatmak","Vahyi yalnızca kendi yakınlarına bildirmek","Vahyi insanların isteğine göre değiştirmek"], a:0,
+     w:"Tebliğ, vahyi Allah'tan aldığı gibi, hiçbir şey eklemeden ya da eksiltmeden insanlara iletmektir. Bunu yapmayan peygamber görevini yerine getirmemiş olur."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Peygamberlikle ilgili aşağıdaki ifadelerden hangisi YANLIŞTIR?", o:["Peygamberlik, Allah'ın seçtiği kişilere verdiği bir görevdir.","İnsan çok ibadet ederek peygamber olabilir.","Peygamberlerin en önemli özelliği vahiy almalarıdır.","Kur'an'da adı geçen peygamber sayısı yirmi beştir."], a:1,
+     w:"Peygamberlik çalışarak ya da çok ibadet ederek kazanılmaz; Allah elçilik görevini kime vereceğini çok iyi bilir (Enam suresi 124)."},
+
+    {u:"EK · 1. Yazılı Hazırlık", q:"Allah'ın vahiy göndermesinin temel amacı aşağıdakilerden hangisidir?", o:["İnsanların dünya ve ahiret mutluluğunu sağlamak","İnsanlara yalnızca geçmiş milletlerin tarihini öğretmek","Peygamberleri toplumda zengin ve güçlü kılmak","İnsanların aklını kullanmasını gereksiz kılmak"], a:0,
+     w:"Kitaba göre vahyin temel amacı, insanları doğru yola yönlendirerek onların dünya ve ahiret mutluluğunu sağlamaktır."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"“Ben kimim?”, “Hayatın anlamı nedir?”, “Ölümden sonra hayat var mı?” gibi soruların cevabı insandan insana değişebilir.\n\nBu durum aşağıdakilerden hangisini gösterir?", o:["İnsanın bu konularda vahye ihtiyaç duyduğunu","Bu soruların hiçbir zaman cevaplanamayacağını","Herkesin kendi cevabının doğru olduğunu","Aklın hiçbir konuda işe yaramadığını"], a:0,
+     w:"Allah insana akıl verdi; ama akıl bu tür soruları tek başına cevaplayamaz. Allah, insanlar bu konularda doğru bilgiye ulaşsın diye vahiy gönderdi."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"“Ey insanlar! Sizi ve sizden öncekileri yaratan Rabb'inize ibadet edin ki Allah'a karşı gelmekten sakınasınız.” (Bakara suresi 21)\n\nBu ayet vahyin hangi yönünü gösterir?", o:["Görev ve sorumlulukları hatırlattığını","Yalnızca peygamberlere hitap ettiğini","Sadece geçmiş milletleri anlattığını","İbadetin isteğe bağlı olduğunu"], a:0,
+     w:"Allah vahiyle kendini tanıtır ve insanlara görev ve sorumluluklarını hatırlatır. Ayetteki “Ey insanlar!” hitabı vahyin bütün insanlara rehberlik ettiğini gösterir."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"“Müjdeleyiciler ve uyarıcılar olarak peygamberler gönderdik ki peygamberlerden sonra insanların Allah'a karşı bir bahaneleri olmasın…” (Nisa suresi 165)\n\nBu ayete göre peygamberlerin gönderilmesiyle aşağıdakilerden hangisi önlenmiştir?", o:["İnsanların “Haberimiz yoktu.” demesi","İnsanların birbiriyle ticaret yapması","Toplumda farklı dillerin konuşulması","İnsanların akıllarını kullanması"], a:0,
+     w:"Peygamberler Allah'ın emirlerini bildirdi, uyanları müjdeledi, uymayanları uyardı. Böylece kimsenin “Bilmiyorduk.” diye bahanesi kalmadı."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Allah'ın peygamberleri insanlar arasından seçmesinin en önemli sebebi hangisidir?", o:["Vahyin daha iyi anlaşılması ve uygulanması","Peygamberlerin hiç yorulmaması","İnsanların peygamberlere ibadet etmesi","Peygamberlerin ölümsüz olması"], a:0,
+     w:"Peygamberler toplumlarını yakından tanır ve onların diliyle konuşur; bu yüzden vahiy daha iyi anlaşılır ve uygulanır."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Peygamberler namaz, oruç, hac, zekât gibi ibadetleri bizzat uygulayarak göstermiştir.\n\nBu durum aşağıdakilerden hangisini sağlamıştır?", o:["İnsanların ibadetleri kolayca öğrenmesini","İbadetlerin yalnızca peygamberlere farz olmasını","İbadetlerin zamanla değişmesini","İnsanların ibadet etmeye ihtiyaç duymamasını"], a:0,
+     w:"Peygamberler Allah'tan aldıkları mesajları iletmekle kalmadı, nasıl uygulanacağını da gösterdi; insanlar ibadetleri onları örnek alarak öğrendi."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Kur'an'da geçmiş peygamberler ve milletlerle ilgili anlatılan ibretli, tarihî olaylara ne ad verilir?", o:["Kıssa","Suhuf","Mucize","Tebliğ"], a:0,
+     w:"Vahyin mesajlarının bir kısmı kıssalarla anlatılır. Hz. Musa, Hz. Yusuf ve Hz. İbrahim'in hayatı Kur'an'da ayrıntılı anlatılan kıssalardandır."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Aşağıdakilerden hangisi vahyin insanlara getirdiği mesajlar arasında YER ALMAZ?", o:["Allah'ın bir olduğuna inanmak","Ailede sevgi ve saygı","Adaletli davranmak","Güçlü olanın her zaman haklı olduğu"], a:3,
+     w:"Vahiy inanç, ibadet, ahlak ve toplumsal düzen konularında mesajlar getirir: tevhit, aile içi sevgi, adalet gibi. “Güçlü olan haklıdır” anlayışı vahyin mesajı değildir; vahiy zulme karşı çıkar."},
+
+    {u:"EK · 1. Yazılı Hazırlık", q:"İlahi kitaplar peygamberlere hangi melek aracılığıyla ulaşmıştır?", o:["Mikail","İsrafil","Cebrail","Azrail"], a:2,
+     w:"Cebrail vahiy meleğidir; ilahi kitaplar peygamberlere onun aracılığıyla ulaşmıştır."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Dili Aramice olan ve Zebur'dan sonra indirilen ilahi kitap hangisidir?", o:["Tevrat","İncil","Kur'an-ı Kerim","Suhuf"], a:1,
+     w:"İncil Hz. İsa'ya gönderilmiştir ve dili Aramicedir."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Dört büyük ilahi kitabın ilki olan ve dili İbranice olan kitap hangisidir?", o:["Zebur","Kur'an-ı Kerim","İncil","Tevrat"], a:3,
+     w:"Tevrat Hz. Musa'ya gönderilen ve dört büyük kitabın ilki olan kitaptır; dili İbranicedir."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"İçinde dualar bulunan ve Tevrat'tan sonra gönderilen ilahi kitap hangisidir?", o:["Tevrat","Zebur","İncil","Kur'an-ı Kerim"], a:1,
+     w:"Hz. Davud'a indirilen Zebur'da dualar vardır. Hz. Davud Zebur'u güzel okuyuşuyla da bilinir."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Kur'an-ı Kerim'den önceki ilahi kitapların ilk hâliyle günümüze ulaşamamasının sebebi nedir?", o:["Tahrif edilmeleri (değiştirilmeleri)","Çok kısa olmaları","Arapça yazılmış olmaları","Hiç yazıya geçirilmemiş olmaları"], a:0,
+     w:"Önceki kitaplar zamanla insanlar tarafından değiştirildi, yani tahrif edildi; bu yüzden ilk hâlleriyle günümüze ulaşamadı."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Kur'an-ı Kerim ile ilgili aşağıdaki bilgilerden hangisi YANLIŞTIR?", o:["Son ilahi kitaptır.","Ayet ve sureler hâlinde Arapça indirilmiştir.","Vahiy kâtipleri tarafından yazıya geçirilmiştir.","Zamanla bazı ayetleri değiştirilmiştir."], a:3,
+     w:"Kur'an hiç değişmeden günümüze gelmiştir ve kıyamete kadar değişmeyecektir (Hicr suresi 9). Diğer üç bilgi doğrudur."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Kendisine 50 sayfa suhuf gönderilen peygamber hangisidir?", o:["Hz. Âdem","Hz. Şit","Hz. İdris","Hz. İbrahim"], a:1,
+     w:"Hz. Âdem'e 10, Hz. Şit'e 50, Hz. İdris'e 30, Hz. İbrahim'e 10 sayfa suhuf gönderilmiştir."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Aşağıdakilerden hangisi Kur'an-ı Kerim'e saygının bir göstergesi DEĞİLDİR?", o:["Okumadan önce abdest almak","Anlayarak okumaya çalışmak","Öğütlerini hayatında uygulamaya çalışmak","Yalnızca bayramlarda okumak"], a:3,
+     w:"Kitaba göre abdest almak, anlayarak okumak ve hükümlerini uygulamaya çalışmak saygının en önemli göstergelerindendir. Kur'an yalnız belli günlerde değil her zaman okunabilir."},
+
+    {u:"EK · 1. Yazılı Hazırlık", q:"Felak suresinin adını aldığı “felak” kelimesinin anlamı nedir?", o:["Sabah aydınlığı, şafak","Gecenin karanlığı","Kıskançlık","Sığınmak"], a:0,
+     w:"Felak “sabah aydınlığı, şafak” demektir. Sure adını birinci ayetteki bu kelimeden alır."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Felak ve Nâs surelerine birlikte verilen “Muavvizeteyn” adı ne anlama gelir?", o:["Kendileriyle Allah'a sığınılan iki sure","Kur'an'ın en uzun iki suresi","Mekke'de inen ilk iki sure","Namazda okunması zorunlu iki sure"], a:0,
+     w:"Muavvizeteyn “kendileriyle Allah'a sığınılan” iki sure demektir. Peygamberimiz bu iki surenin sabah ve akşam üçer kez okunmasını tavsiye etmiştir."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Felak suresinde kötülüğünden Allah'a sığınılanlar arasında aşağıdakilerden hangisi YOKTUR?", o:["Karanlığı çöken gece","Kıskanç kişi","Düğümlere üfürenler","Yalan söyleyenler"], a:3,
+     w:"Surede yaratılmışların, karanlığı çöken gecenin, düğümlere üfürenlerin ve kıskanç kişinin şerrinden Allah'a sığınılır. Yalan söyleyenler surede geçmez."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Felak suresinin 4. ayeti “Ve min şerrin neffâsâti fil uḳad” şeklinde okunur.\n\nBu ayetin anlamı hangisidir?", o:["Düğümlere üfürenlerin şerrinden,","Cinlerden ve insanlardan.","O doğurmamış ve doğmamıştır.","Hiçbir şey O'na denk değildir."], a:0,
+     w:"“Neffâsât” üfürenler, “ukad” düğümler demektir: düğümlere üfürenlerin şerrinden. Bu ifade büyü yapanları anlatır. Diğer üç ifade Nâs ve İhlas surelerinin anlamlarındandır."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Felak suresinden çıkarılabilecek en doğru mesaj hangisidir?", o:["Önce tedbir alıp sonra Allah'a sığınmak gerekir.","Hiç tedbir almadan yalnızca beklemek gerekir.","Bütün insanlara her konuda güvenmek gerekir.","Kötülükten yalnızca kendi gücümüzle korunuruz."], a:0,
+     w:"Surede kötülükler sıralanır ve bunlardan Allah'a sığınılması öğretilir. Kitaba göre insan önce dikkatli ve tedbirli olmalı, sonra Allah'a dua ederek sığınmalıdır."}
+  ];

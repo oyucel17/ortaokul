@@ -135,8 +135,8 @@
     ],
     din:[
       {u:"ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı", q:"Hz. Musa'ya indirilen ilahi kitap hangisidir?", o:["Zebur","Tevrat","İncil","Kur'an"], a:1,
-       w:"Tevrat Hz. Musa'ya, Zebur Hz. Davud'a, İncil Hz. İsa'ya indirilmiştir."},
-      {u:"ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı", q:"\"Emanet\" sıfatı ne anlama gelir?", o:["Doğru sözlü olmak","Güvenilir olmak","Akıllı olmak","Günah işlememek"], a:1,
+       w:"Tevrat Hz. Musa'ya indirilmiştir; dört büyük kitabın ilkidir."},
+      {u:"ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı", q:"\"Emanet\" sıfatı ne anlama gelir?", o:["Doğru sözlü olmak","Güvenilir olmak","Akıllı olmak","Günahtan korunmuş olmak"], a:1,
        w:"Emanet, peygamberin güvenilir olması demektir."},
       {u:"ÜNİTE 2 · Ramazan ve Oruç", q:"Orucun başlama vaktine ne ad verilir?", o:["Sahur","İmsak","İftar","Teravih"], a:1,
        w:"İmsak orucun başlama, iftar bitiş vaktidir. Sahur imsaktan önce yenen yemektir."},

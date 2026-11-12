@@ -99,14 +99,14 @@
     din:[
       {u:"ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı", q:"Hz. Musa'ya verilen kitap ve Hz. Davud'a verilen kitap sırasıyla hangileridir?", o:["Zebur – Tevrat","Tevrat – Zebur","İncil – Tevrat","Tevrat – İncil"], a:1,
        w:"Tevrat Hz. Musa'ya, Zebur Hz. Davud'a indirilmiştir."},
-      {u:"ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı", q:"\"Fetanet\" sıfatı ne anlama gelir?", o:["Doğru sözlü olmak","Akıllı ve anlayışlı olmak","Güvenilir olmak","Günahsız olmak"], a:1,
-       w:"Fetanet, peygamberin akıllı ve anlayışlı olmasıdır."},
+      {u:"ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı", q:"\"Fetanet\" sıfatı ne anlama gelir?", o:["Doğru sözlü olmak","Akıllı ve zeki olmak","Güvenilir olmak","Günahtan korunmuş olmak"], a:1,
+       w:"Fetanet, peygamberlerin akıllı ve zeki olmasıdır."},
       {u:"ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı", q:"Suhuf verilen peygamberlerden biri hangisidir?", o:["Hz. Musa","Hz. İbrahim","Hz. İsa","Hz. Muhammed"], a:1,
        w:"Suhuf Hz. Âdem, Hz. Şit, Hz. İdris ve Hz. İbrahim'e verilmiştir."},
-      {u:"ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı", q:"Peygamberler hangi özellikleriyle diğer insanlardan ayrılır?", o:["Ölümsüz olmalarıyla","Ahlakları ve görevleriyle","Yemeyip içmemeleriyle","Gaybı bilmeleriyle"], a:1,
-       w:"Peygamberler de insandır; üstünlükleri ahlaklarından ve görevlerinden gelir."},
-      {u:"ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı", q:"Ulu'l-azm peygamberler kaç tanedir?", o:["Üç","Dört","Beş","Altı"], a:2,
-       w:"Hz. Nuh, Hz. İbrahim, Hz. Musa, Hz. İsa ve Hz. Muhammed — beş tanedir."}
+      {u:"ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı", q:"Kitaba göre peygamberlerin en önemli özelliği nedir?", o:["Allah'tan vahiy almaları","Ölümsüz olmaları","Hiç yemeyip içmemeleri","Geleceği bilmeleri"], a:0,
+       w:"Peygamberler de insandır; yer, içer, yaşar ve vefat eder. Onları ayıran en önemli özellik Allah'tan vahiy almalarıdır."},
+      {u:"ÜNİTE 1 · Peygamber ve İlahi Kitap İnancı", q:"Kur'an-ı Kerim'de adı geçen peygamber sayısı kaçtır?", o:["On iki","Yirmi beş","Kırk","Doksan dokuz"], a:1,
+       w:"Kur'an'da yirmi beş peygamberin adı geçer. Peygamberler bunlarla sınırlı değildir; adı bildirilmeyen peygamberler de vardır."}
     ],
     ing:[
       {u:"TEMA 2 · Classroom Life & Learning", q:"____ open your books, please.", o:["You","To","—","Do"], a:2,
