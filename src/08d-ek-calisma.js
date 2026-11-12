@@ -506,3 +506,71 @@
     {u:"EK · 1. Yazılı Hazırlık", q:"Felak suresinden çıkarılabilecek en doğru mesaj hangisidir?", o:["Önce tedbir alıp sonra Allah'a sığınmak gerekir.","Hiç tedbir almadan yalnızca beklemek gerekir.","Bütün insanlara her konuda güvenmek gerekir.","Kötülükten yalnızca kendi gücümüzle korunuruz."], a:0,
      w:"Surede kötülükler sıralanır ve bunlardan Allah'a sığınılması öğretilir. Kitaba göre insan önce dikkatli ve tedbirli olmalı, sonra Allah'a dua ederek sığınmalıdır."}
   ];
+
+  /* ===== 7. SINIF · DİN KÜLTÜRÜ · 1. yazılı hazırlık (12 Kasım 2026) =====
+     Senaryo 3 (6 açık uçlu soru): melekleri sınıflandırma 1 · ahiret hayatının aşamaları 2 ·
+     melek ve ahiret inancının kazandırdıkları 2 · Nâs suresi 1. Set bu ağırlığa göre dizildi:
+     ilk 5 soru melekler ve varlıklar âlemi, 9 soru ahiretin aşamaları, 8 soru kazandırdıkları,
+     son 6 soru Nâs suresi. Kaynak MEB ders kitabı (kitap/516), 1. ünite s. 12–47; yazım
+     kitaptaki gibi (Mikâil, Kiramen Kâtibin, baas). Kitabın ünite sonu sorularını KOPYALAMA. */
+  EKC7.din = [
+    {u:"EK · 1. Yazılı Hazırlık", q:"Aşağıdaki varlıklardan hangisi gelişmiş teknolojik araçlarla bile algılanamaz?", o:["Mikroorganizma","Çok uzaktaki bir yıldız","Melek","Virüs"], a:2,
+     w:"Mikroorganizmalar ve virüsler mikroskopla, çok uzaktaki yıldızlar teleskopla görülebilir. Melek, cin ve şeytan ise duyularla da teknolojik araçlarla da algılanamaz; onlar hakkındaki bilgiyi ayet ve hadislerden öğreniriz."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"“Gayb” ile ilgili aşağıdaki bilgilerden hangisi YANLIŞTIR?", o:["“Görünmez âlem” anlamına gelir.","Gelecekte olacak olaylar da gayb sayılır.","Gaybı yalnızca Allah bilir.","Cinlerden haber alan kişiler gaybı öğrenebilir."], a:3,
+     w:"Gaybı yalnızca Allah bilir; peygamberler de ancak Allah'ın bildirdiği kadarını bilir. Cinlerle iletişim kurup gelecekten haber aldığını söyleyenlere inanmak doğru değildir."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Aşağıdaki eşleştirmelerden hangisi YANLIŞTIR?", o:["Melek – nurdan yaratılmıştır","Şeytan – meleklerdendir","Cin – ateşten yaratılmıştır","Hz. Âdem – topraktan yaratılmıştır"], a:1,
+     w:"Kur'an'a göre şeytan cinlerdendir. Hz. Âdem için saygıyla eğilme emrine yalnız o karşı çıkmış, kendisinin ateşten yaratıldığını söyleyerek büyüklük taslamıştır."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Bir ayette Kur'an'ı Rabbinden “Ruhulkudüs”ün indirdiği bildirilir (Nahl 102).\n\nBu ayette adı geçen melek hangisidir?", o:["Cebrail","Azrail","Mikâil","İsrafil"], a:0,
+     w:"Ruhulkudüs, vahiy meleği Cebrail'in Kur'an'daki adlarındandır; Cibril ve Ruhulemin diye de anılır. Azrail'in Kur'an ve hadislerdeki adı ise Melekülmevt'tir (ölüm meleği)."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Aşağıdakilerden hangisi meleklerin özelliklerinden biridir?", o:["İradeleri vardır; isterlerse emre uymazlar.","Allah'ın izniyle farklı suretlere bürünebilirler.","İnsanlardan sonra yaratılmışlardır.","Sayılarını peygamberler de bilir."], a:1,
+     w:"Melekler Allah'ın izniyle farklı suretlere bürünebilir; Kur'an'da Cebrail'in insan şeklinde göründüğü bildirilir. Meleklerin iradeleri yoktur, insanlardan önce yaratılmışlardır ve sayılarını yalnız Allah bilir."},
+
+    {u:"EK · 1. Yazılı Hazırlık", q:"Ahiret hayatının aşamaları sıralandığında “mahşer”den hemen ÖNCE hangisi gelir?", o:["Mizan","Baas","Kıyamet","Ölüm"], a:1,
+     w:"Sıra: ölüm → kıyamet → baas → mahşer → mizan → cennet ve cehennem. İnsanlar önce diriltilir (baas), sonra mahşerde toplanır."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"İsrafil sûra ikinci kez üflediğinde ne olacaktır?", o:["Kıyamet kopacaktır.","Ameller tartılacaktır.","İnsanlar yeniden diriltilecektir.","Amel defterleri verilecektir."], a:2,
+     w:"Sûra ilk üflenişte kıyamet kopar. İkinci üflenişte insanlar Allah tarafından yeniden diriltilir; ardından mahşerde toplanırlar."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Aşağıdakilerden hangisi mahşerde gerçekleşecek olaylardan biri DEĞİLDİR?", o:["İnsanların hesap vermek üzere toplanması","Amel defterlerinin sahiplerine verilmesi","El ve ayakların yapılanlara tanıklık etmesi","İsrafil'in sûra ilk kez üflemesi"], a:3,
+     w:"Sûra ilk üfleniş kıyameti başlatır; mahşer ise dirilişten sonradır. Mahşerde insanlar toplanır, hesaba çekilir ve amel defterleri verilir; kimse yaptığını inkâr edemez, elleri ve ayakları tanıklık eder."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Kıyametin ne zaman kopacağıyla ilgili aşağıdakilerden hangisi doğrudur?", o:["Yalnızca Allah bilir.","Yalnızca peygamberler bilir.","Dört büyük melek bilir.","Kur'an'da yılı bildirilmiştir."], a:0,
+     w:"Kıyametin kopacağı kesindir ama zamanını yalnızca Allah bilir; Hz. Peygamber de bu konuda bilgisi olmadığını söylemiştir. Önemli olan zamanını bilmek değil, sonsuz hayata hazırlıklı olmaktır."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Kur'an-ı Kerim'de amel defteri yerine de kullanılan kelime hangisidir?", o:["Mizan","Kitap","Berzah","Haşir"], a:1,
+     w:"Kur'an'da amel defteri “kitap” olarak da geçer: “Oku kitabını! Bugün hesap sorucu olarak sana nefsin yeter.” (İsra 14) Bu deftere en küçük ayrıntılar bile kaydedilir."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Aşağıdaki eşleştirmelerden hangisi doğrudur?", o:["Ecel – canlının doğumundan ölümüne kadar yaşadığı süre","Ömür – ölüm için belirlenen zaman","Haşir – dirilişten sonra insanların bir araya getirilmesi","Mahşer – sevap ve günahların tartıldığı terazi"], a:2,
+     w:"Haşir, dirilişten sonra insanların bir araya getirilmesidir; toplanılan yere mahşer denir. Doğumdan ölüme kadar olan süre ömür, ölüm için belirlenen zaman eceldir; sevap ve günahların tartıldığı terazi ise mizandır."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"“Ölüm, insan için bir yok oluş değildir.” cümlesini en iyi açıklayan hangisidir?", o:["Ölüm, yeni ve sonsuz bir hayatın başlangıcıdır.","Ölüm yalnızca bedeni ilgilendirir, önemi yoktur.","İnsan öldükten sonra yeniden dünyaya döner.","Ölümden sonra kimseye hesap sorulmayacaktır."], a:0,
+     w:"İnsan ölünce dünya hayatı biter, kabir hayatı (berzah) başlar. Ölümle birlikte insanın ahiret hayatı başlamış olur; ardından diriliş, hesap ve sonsuz hayat gelir."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Aşağıdakilerden hangisi cennetin Kur'an-ı Kerim'de geçen adlarından biri DEĞİLDİR?", o:["Firdevs","Adn","Naim","Hâviye"], a:3,
+     w:"Firdevs, Adn, Naim, Meva, Darüsselam, Hüsna ve Darülmukame cennetin adlarıdır. Hâviye ise Karia suresinde, tartısı hafif gelenlerin varacağı kızgın ateşin adıdır."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"“Kim bir iyilik yaparsa ona on katı vardır. Kim de bir kötülük yaparsa sadece o kötülüğün misliyle cezalandırılır.” (Enam 160)\n\nBu ayetten çıkarılabilecek sonuç hangisidir?", o:["İyilik de kötülük de aynı ölçüyle karşılık görür.","Allah, kullarına adaletle ve merhametle karşılık verir.","Kötülük yapanlar hiçbir karşılık görmez.","İyiliklerin ödülü yalnızca dünyada verilir."], a:1,
+     w:"İyiliğin kat kat ödüllendirilmesi Allah'ın merhametini, kötülüğe yalnız hak ettiği kadar karşılık verilmesi adaletini gösterir. Kimseye zulmedilmez."},
+
+    {u:"EK · 1. Yazılı Hazırlık", q:"Davranışlarının melekler tarafından kaydedildiğine inanan bir insandan aşağıdakilerden hangisi beklenir?", o:["Yalnız başkalarının yanında dürüst davranması","Yaptıklarının sorumluluğunu meleklere bırakması","Kimse görmese de yalandan ve haksızlıktan uzak durması","İyilik yapmayı gereksiz görüp kendi işine bakması"], a:2,
+     w:"Davranışlarının kaydedildiğini bilen insan, görülmediği yerde de yalandan ve haksızlıktan uzak durur; doğruluk, yardımseverlik ve merhamet gibi güzel ahlak özellikleri kazanır."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Meleklerin Allah'ın izniyle insanları koruduğuna ve onlar için dua ettiğine inanmak, insana en çok ne kazandırır?", o:["Manevi güç ve Allah'ın sevgisini hissetme","Dünya işlerinden bütünüyle uzaklaşma","Sorumluluklarından kurtulma rahatlığı","Başkalarından üstün olma duygusu"], a:0,
+     w:"Meleklerle desteklendiğine inanan insan Allah'ın sevgisini hisseder ve bu sevgiye layık olmaya çalışır. Meleklere iman insanı manevi olarak güçlü kılar."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Ahirete inanan bir insan, başına gelen bir musibet karşısında nasıl davranır?", o:["Hayatın anlamsız olduğunu düşünür, çabalamayı bırakır.","Dünyanın imtihan yeri olduğunu bilir, sabırla mücadele eder.","Sorumluluğu bütünüyle çevresindekilere yükler.","Zorluk kendiliğinden geçene kadar hiçbir şey yapmaz."], a:1,
+     w:"Ahirete inanan insan dünyanın bir imtihan yeri olduğunu bilir; musibetlere sabreder, zorlukların üstesinden gelmeye çalışır."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Aşağıdakilerden hangisi ahiret inancının insana kazandırdıklarından biri DEĞİLDİR?", o:["Yaptıklarının hesabını verme bilinci","Yok olma endişesinden kurtulma","Hayatını anlamlandırma","Dünyadaki sorumluluklarını önemsememe"], a:3,
+     w:"Ahirete inanan insan tam tersine ailesine, çevresine ve bütün canlılara karşı sorumluluklarının bilincinde olur. Ahiret inancı hayata anlam, hesap verme bilinci ve huzur kazandırır."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Zeynep, kantinde para üstünü fazla aldığını fark edince kimse görmediği hâlde geri verdi. “Nasıl olsa kimse fark etmezdi.” diyen arkadaşına “Ben bilirim ya.” dedi.\n\nZeynep'in bu davranışına yol açan en önemli etken aşağıdakilerden hangisi olabilir?", o:["Melek ve ahiret inancının kazandırdığı sorumluluk bilinci","Kantin görevlisinin onu tanımasından çekinmesi","Arkadaşlarına iyi biri gibi görünme isteği","O gün paraya ihtiyacının bulunmaması"], a:0,
+     w:"Kimse görmediği hâlde dürüst davranması, onu bu davranışa yöneltenin birinin görmesi değil, yaptıklarının melekler tarafından kaydedildiğine ve ahirette karşılığını göreceğine inanması olduğunu gösterir."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"“Allah'a ve ahiret gününe iman eden kişi komşusunu rahatsız etmesin; ya hayır söylesin ya da sussun.”\n\nBu hadiste ahiret inancı ile aşağıdakilerden hangisi arasında bağ kurulmuştur?", o:["Yalnız ibadetlere daha çok vakit ayırma","İnsanlardan uzak, tek başına yaşama","Güzel ahlak ve insanlarla iyi geçinme","Dünya işlerini bütünüyle bırakma"], a:2,
+     w:"Hadis, ahirete inanan kişinin komşusunu rahatsız etmemesini ve sözüne dikkat etmesini ister (hadisin tamamında misafire ikram da geçer). Ahiret inancı güzel ahlakı ve insanlarla iyi geçinmeyi gerektirir."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Dünyada haksızlığa uğrayan ve hakkını alamayan bir insan için ahiret inancı ne ifade eder?", o:["Haksızlığa haksızlıkla karşılık verebileceğini","Adaletin ahirette eksiksiz gerçekleşeceğini","Hak aramanın gereksiz bir çaba olduğunu","Haksızlık yapanın hiç hesap vermeyeceğini"], a:1,
+     w:"Dünyada adalet her zaman sağlanamaz. Adaletin tam olarak gerçekleşeceği yer ahirettir; herkes yaptığının karşılığını eksiksiz görecek, kimseye zulmedilmeyecektir."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Ahirete inanan bir öğrenci, hayatının anlamlı olduğunu düşünüyor.\n\nBu düşüncesini en iyi destekleyen gerekçe hangisidir?", o:["Ahirete inanınca dünyada çalışmama gerek kalmaz.","Dünyadaki başarıların her şeyden önemli olduğunu bilirim.","Yalnızca ahireti düşünür, çevremle ilgilenmem.","Her şeyin bir amacı olduğunu, hayatın ölümle bitmediğini bilirim."], a:3,
+     w:"Ahirete inanan insan her şeyin bir yaratılış amacı olduğunu ve hayatın ölümle son bulmadığını bilir; bu yüzden yaptığı işin ve yaşadığı zorluğun bir anlamı vardır."},
+
+    {u:"EK · 1. Yazılı Hazırlık", q:"Felak ve Nâs surelerine birlikte ne ad verilir?", o:["Muavvizeteyn","Melekülmevt","Kiramen Kâtibin","Darüsselam"], a:0,
+     w:"Muavvizeteyn, kötülüklerin şerrinden Allah'a sığınmak için okunan Felak ve Nâs surelerinin ortak adıdır. Melekülmevt Azrail'in, Kiramen Kâtibin yazıcı meleklerin, Darüsselam ise cennetin adlarındandır."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Nâs suresinde kimin kötülüğünden Allah'a sığınılır?", o:["Karanlığı çöktüğü zaman gecenin","Düğümlere üfürenlerin","Kalplere vesvese veren sinsi vesvesecinin","Haset ettiği zaman hasetçinin"], a:2,
+     w:"Nâs suresinde insanların kalplerine vesvese veren sinsi vesvesecinin kötülüğünden Allah'a sığınılır. Diğer üç ifade, 6. sınıfta öğrendiğin Felak suresinde geçer."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Nâs suresinde “Elleẕî yüvesvisü fî sudûrinnâs” ayetinden hemen ÖNCE hangi ayet gelir?", o:["Minel cinneti vennâs","Min şerril vesvâsil ḫannâs","İlâhinnâs","Melikinnâs"], a:1,
+     w:"Sıra: Ḳul eûẕü birabbinnâs · Melikinnâs · İlâhinnâs · Min şerril vesvâsil ḫannâs · Elleẕî yüvesvisü fî sudûrinnâs · Minel cinneti vennâs."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Nâs suresinde Allah hangi üç özelliğiyle art arda anılır?", o:["Rahman, Rahîm ve Kerîm","Yaratan, yaşatan ve dirilten","Bağışlayan, koruyan ve gözeten","İnsanların Rabbi, Melik'i ve İlah'ı"], a:3,
+     w:"Surede “insanların Rabbine, insanların Melik'ine, insanların İlah'ına sığınırım” denir (birabbinnâs, melikinnâs, ilâhinnâs)."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Peygamberimizin Felak ve Nâs surelerini okumasıyla ilgili aşağıdakilerden hangisi doğrudur?", o:["Her gün yatmadan önce okuyarak Allah'a sığınırdı.","Haftada bir, cuma namazından sonra okurdu.","Yolculuğa çıkacağı zaman okumayı tavsiye ederdi.","Ramazan ayında, iftardan sonra okurdu."], a:0,
+     w:"Peygamberimiz her gün yatmadan önce Felak ve Nâs surelerini okuyarak Allah'a sığınır, bu surelerin her namazdan sonra okunmasını da tavsiye ederdi."},
+    {u:"EK · 1. Yazılı Hazırlık", q:"Nâs suresine göre vesvese karşısında insanın yapması gereken nedir?", o:["Hiç önlem almadan yalnızca Allah'tan yardım beklemek","Vesvese verenlerle tartışıp onları susturmaya çalışmak","Vesvese alışkanlığa dönüşmeden önlem alıp Allah'a sığınmak","Vesvese geçinceye kadar insanlardan uzak durmak"], a:2,
+     w:"Sure, vesvese insanın düşüncesini ve davranışlarını etkileyen bir alışkanlık hâline gelmeden önlem almayı ve vesvese verenin kötülüğünden Allah'a sığınmayı öğütler: hem tedbir almak hem Allah'a sığınmak gerekir."}
+  ];

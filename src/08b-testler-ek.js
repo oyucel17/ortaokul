@@ -237,17 +237,17 @@
        w:"Plansız yerleşme, işsizlik, altyapı ve trafik sorunları kentte göçün sonuçlarıdır."}
     ],
     din:[
-      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Tabiat olaylarını ve rızkı düzenlemekle görevli melek hangisidir?", o:["Cebrail","Mikail","İsrafil","Azrail"], a:1,
-       w:"Mikail tabiat olaylarını ve rızkı düzenlemekle görevlidir."},
-      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Sûra üflemekle görevli melek hangisidir?", o:["Cebrail","Mikail","İsrafil","Azrail"], a:2,
+      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Tabiat olaylarını ve rızkı düzenlemekle görevli melek hangisidir?", o:["Cebrail","Mikâil","İsrafil","Azrail"], a:1,
+       w:"Mikâil tabiat olaylarını ve rızkı düzenlemekle görevlidir."},
+      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Sûra üflemekle görevli melek hangisidir?", o:["Cebrail","Mikâil","İsrafil","Azrail"], a:2,
        w:"İsrafil kıyametin kopuşunu ve yeniden dirilişi sûra üfleyerek haber verir."},
-      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"İnsanların hesap vermek üzere yeniden diriltilmesine ne ad verilir?", o:["Kıyamet","Ba's","Mizan","Berzah"], a:1,
-       w:"Ba's yeniden diriliş demektir; kıyamet ise evrenin düzeninin bozulmasıdır."},
-      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Aşağıdakilerden hangisi meleklerin özelliklerinden biri DEĞİLDİR?", o:["Nurdan yaratılmışlardır","Yemez, içmez, uyumazlar","Erkeklik-dişilik özellikleri vardır","Allah'a isyan etmezler"], a:2,
-       w:"Meleklerin erkeklik ya da dişilik özellikleri yoktur."},
+      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"İnsanların hesap vermek üzere yeniden diriltilmesine ne ad verilir?", o:["Ecel","Baas","Mizan","Berzah"], a:1,
+       w:"Baas, ölümden sonra yeniden diriliş demektir: İsrafil sûra ikinci kez üfleyince insanlar diriltilir. Diğer üç şık ahiretle ilgili başka kavramlardır."},
+      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Aşağıdakilerden hangisi meleklerin özelliklerinden biri DEĞİLDİR?", o:["Nurdan yaratılmışlardır.","Yeme, içme ve uyuma ihtiyaçları yoktur.","Cinsiyetleri vardır.","Allah'ın emirlerine karşı gelmezler."], a:2,
+       w:"Meleklerin cinsiyetleri yoktur. Nurdan yaratılmışlardır; yeme, içme, uyuma gibi ihtiyaçları yoktur ve Allah'ın emirlerine karşı gelmezler."},
       {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Ahiret hayatının ilk aşaması hangisidir?", o:["Kıyamet","Ölüm","Mahşer","Mizan"], a:1,
-       w:"Sıralama: ölüm → kabir → kıyamet → yeniden diriliş → mahşer → hesap → mizan."},
-      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Ahiret inancının insan davranışına etkisi nedir?", o:["Kişiyi görülmediğinde de sorumlu davranmaya yöneltir","Kişiyi dünya işlerinden uzaklaştırır","Yalnızca ibadetleri ilgilendirir","Davranışlarla ilgisi yoktur"], a:0,
+       w:"Ahiret hayatı ölümle başlar: insan ölünce dünya hayatı biter, kabir hayatı (berzah) başlar."},
+      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Ahiret inancının insan davranışına etkisi nedir?", o:["Kişiyi görülmediğinde de sorumlu davranmaya yöneltir","Kişiyi dünya işlerinden bütünüyle uzaklaştırır","Yalnızca ibadetleri ilgilendirir, ahlakı etkilemez","Kişinin davranışları üzerinde bir etkisi yoktur"], a:0,
        w:"Yaptığının hesabını vereceğini bilen kişi, kimse görmese de dürüst davranır."}
     ],
   };
@@ -353,10 +353,10 @@
        w:"Yoğunluk nüfusun alana bölünmesidir; geniş bir ilde çok nüfus seyrek dağılabilir."}
     ],
     din:[
-      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"İnsanların yaptıklarını yazmakla görevli melekler hangileridir?", o:["Münker ve Nekir","Kirâmen Kâtibîn","Cebrail ve Mikail","İsrafil ve Azrail"], a:1,
-       w:"Kirâmen Kâtibîn kişinin davranışlarını kaydeder."},
-      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Evrenin düzeninin bozulup hayatın son bulmasına ne ad verilir?", o:["Ba's","Kıyamet","Mizan","Mahşer"], a:1,
-       w:"Kıyamet evrenin düzeninin bozulmasıdır; ba's yeniden diriliştir."}
+      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"İnsanların yaptıklarını yazmakla görevli melekler hangileridir?", o:["Münker ve Nekir","Kiramen Kâtibin","Cebrail ve Mikâil","İsrafil ve Azrail"], a:1,
+       w:"Kiramen Kâtibin kişinin davranışlarını kaydeder."},
+      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Evrenin düzeninin bozulup hayatın son bulmasına ne ad verilir?", o:["Baas","Kıyamet","Mizan","Mahşer"], a:1,
+       w:"Kıyamet, kâinattaki her şeyin son bulmasıdır."}
     ],
   };
 

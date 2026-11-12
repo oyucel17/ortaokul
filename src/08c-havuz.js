@@ -222,15 +222,15 @@
        w:"Dar taban, doğum oranının düştüğünü ve nüfusun yaşlandığını gösterir."}
     ],
     din:[
-      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Canlıların ruhunu almakla görevli melek hangisidir?", o:["Cebrail","Mikail","İsrafil","Azrail"], a:3,
+      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Canlıların ruhunu almakla görevli melek hangisidir?", o:["Cebrail","Mikâil","İsrafil","Azrail"], a:3,
        w:"Azrail ruhları almakla görevlidir."},
-      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Melekler ne ile emredilmiştir?", o:["İsyan etmekle","Allah'a itaat etmekle","Uyumakla","Yemek yemekle"], a:1,
-       w:"Melekler Allah'a isyan etmez, verilen görevi eksiksiz yerine getirir."},
-      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Ahiret hayatında amellerin tartıldığı aşamaya ne ad verilir?", o:["Mahşer","Mizan","Berzah","Ba's"], a:1,
-       w:"Mizan, amellerin tartılmasıdır."},
+      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Melekler ne ile emredilmiştir?", o:["Gaybı bilmekle","Allah'a itaat etmekle","Dünyada imtihan olmakla","Kendi istediklerini yapmakla"], a:1,
+       w:"Melekler Allah'ın emirlerine itaat etmekle görevlidir. Gaybı ise yalnızca Allah bilir."},
+      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Ahiret hayatında amellerin tartıldığı aşamaya ne ad verilir?", o:["Mahşer","Mizan","Berzah","Baas"], a:1,
+       w:"Mizan, sevap ve günahların tartılacağı manevi adalet terazisidir."},
       {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Kabir hayatına verilen ad hangisidir?", o:["Mahşer","Berzah","Mizan","Kıyamet"], a:1,
-       w:"Ölümle yeniden diriliş arasındaki döneme berzah denir."},
-      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Vahiy getirmekle görevli melek hangisidir?", o:["Azrail","İsrafil","Cebrail","Mikail"], a:2,
+       w:"Berzah, dünya ile ahiret arasındaki âlem, yani kabir hayatıdır."},
+      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Vahiy getirmekle görevli melek hangisidir?", o:["Azrail","İsrafil","Cebrail","Mikâil"], a:2,
        w:"Cebrail peygamberlere vahiy getirmekle görevlidir."}
     ],
     ing:[

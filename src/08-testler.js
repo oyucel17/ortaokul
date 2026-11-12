@@ -347,8 +347,8 @@
     din:[
       {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Melekler hangi özelliğe sahiptir?", o:["Topraktan yaratılmışlardır","Nurdan yaratılmışlardır","Ateşten yaratılmışlardır","Sudan yaratılmışlardır"], a:1,
        w:"Melekler nurdan yaratılmış, gözle görülmeyen varlıklardır."},
-      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Kabirde soru sormakla görevli melekler hangileridir?", o:["Cebrail ve Mikail","Kirâmen Kâtibîn","Münker ve Nekir","İsrafil ve Azrail"], a:2,
-       w:"Kirâmen Kâtibîn yaptıklarımızı yazar; Münker ve Nekir kabirde soru sorar."},
+      {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Kabirde soru sormakla görevli melekler hangileridir?", o:["Cebrail ve Mikâil","Kiramen Kâtibin","Münker ve Nekir","İsrafil ve Azrail"], a:2,
+       w:"Münker ve Nekir, insanları sorguya çeken meleklerdir; kabirde soru sorarlar."},
       {u:"ÜNİTE 2 · Hac, Umre ve Kurban", q:"Hac ile umre arasındaki en belirgin fark nedir?", o:["Umrenin belirli bir zamanı yoktur","Umre farzdır","Hac Mekke dışında yapılır","Umrede ihrama girilmez"], a:0,
        w:"Hac yılın belirli günlerinde yapılır; umre yılın her zamanı yapılabilir."},
       {u:"ÜNİTE 2 · Hac, Umre ve Kurban", q:"Aşağıdakilerden hangisi haccın farzlarından biri DEĞİLDİR?", o:["İhram","Arafat vakfesi","Ziyaret tavafı","Kurban kesmek"], a:3,
