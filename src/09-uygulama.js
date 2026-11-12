@@ -5,7 +5,7 @@
          sub:"Sekiz dersin ünite ünite özeti, her ünitenin sonunda açık uçlu sorular ve kapalı duran bir cevap anahtarı — yanında yıllık takvim, haftalık program ve çoktan seçmeli testler.",
          lede:"6. sınıf ikinci yılında Maarif Modeli ile okuyor. Ünite adları MEB'in resmî programından birebir alındı. Bir üniteyi bitirince soldaki kutuyu işaretle; ilerleme kaydediliyor." },
     g7:{ label:"7. Sınıf", cal:CAL7, subj:S7, quiz:Q7, havuz:H7, ekstra:EKC7,
-         sub:"Yedi dersin ünite ünite özeti, her ünitenin sonunda açık uçlu sorular ve kapalı duran bir cevap anahtarı — yanında yıllık takvim, haftalık program ve çoktan seçmeli testler.",
+         sub:"Sekiz dersin ünite ünite özeti, her ünitenin sonunda açık uçlu sorular ve kapalı duran bir cevap anahtarı — yanında yıllık takvim, haftalık program ve çoktan seçmeli testler.",
          lede:"2026–2027, 7. sınıfın Maarif Modeli'ne geçtiği <b>ilk yıl</b> — ünite adları geçen yılkinden farklı. Başlıklar MEB'in resmî programından birebir alındı. İngilizce bunun dışında: okulun kitabı 2018 programını izliyor. Bir üniteyi bitirince soldaki kutuyu işaretle; ilerleme kaydediliyor." }
   };
 

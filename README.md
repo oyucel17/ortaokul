@@ -4,7 +4,7 @@
 
 Her sınıf için:
 - **Plan** — MEB 2026–2027 çalışma takvimine oturtulmuş yıllık konu takvimi, haftalık çalışma programı, dört çalışma kuralı
-- **Dersler** — 6. sınıfta 8 ders / 49 ünite, 7. sınıfta 7 ders / 46 ünite; özet, "bilmen gerekenler", kural/formül kutuları, tablolar, sık yapılan hata, ünite sonu açık uçlu sorular ve kapalı cevap anahtarı
+- **Dersler** — 6. sınıfta 8 ders / 49 ünite, 7. sınıfta 8 ders / 52 ünite; özet, "bilmen gerekenler", kural/formül kutuları, tablolar, sık yapılan hata, ünite sonu açık uçlu sorular ve kapalı cevap anahtarı
 - **Testler** — çoktan seçmeli, anında geri bildirimli
 - **İlerleme** — ders bazında yüzde ve test skorları
 - **Yazdır** — o sınıfın tamamını fasikül olarak çıkarır
@@ -42,6 +42,7 @@ git add -A && git commit -m "Aciklama" && git push
 | `08e-6sinif-peygamberimizin-hayati.js` | 6. sınıf Peygamberimizin Hayatı — dersin **tamamı** tek dosyada: üniteler (`S6.push`), takvim satırları, ana test, havuz, ek setler |
 | `08f-7sinif-peygamberimizin-hayati.js` | 7. sınıf Peygamberimizin Hayatı — aynı kalıp (`S7.push`, `CAL7`, `Q7.pey`, `H7.pey`, `EKC7.pey`) |
 | `08g-6sinif-temel-dini-bilgiler.js` | 6. sınıf Temel Dinî Bilgiler — aynı kalıp (`S6.push`, `CAL6`, `Q6.tdb`, `H6.tdb`, `EKC6.tdb`), renk `--s-tdb` |
+| `08h-7sinif-temel-dini-bilgiler.js` | 7. sınıf Temel Dinî Bilgiler — aynı kalıp (`S7.push`, `CAL7`, `Q7.tdb`, `H7.tdb`, `EKC7.tdb`) |
 | `09-uygulama.js` | Çizim ve etkileşim kodu |
 
 ### Ünite veri şeması
@@ -246,6 +247,7 @@ Bilinen tuzaklar:
 - **6. sınıf Peygamberimizin Hayatı** (imam hatip ortaokulu, haftada 2 saat) 4 ünite: *Gençlik Yıllarında Peygamberimiz / Peygamberimizin Çevresindeki Gençler / Rehberim Peygamberim / Toplumsal Hayatta Peygamberimiz*. Program sayfası `…/ogretim-programlari/peygamberimizin-hayati-dersi-temel-egitim/7`; ünite sayfaları **başında `/ogretim-programlari` olmadan** açılır (`tymm.meb.gov.tr/peygamberimizin-hayati-dersi-temel-egitim/unite/206`…`209`), öbür türlü 500 verir. Ders kitabı `tymm.meb.gov.tr/kitap/536`. Bu dersin ülke geneli sınav tablosu yok; konu-soru dağılımını il ÖDM'leri yayımlıyor, senaryoyu okul seçiyor. Kaynak ayrıntıları `src/08e-…` dosyasının başındaki notta.
 - **7. sınıf Peygamberimizin Hayatı** 4 ünite: *Hicretten Önce Peygamberimiz / Peygamberimizin Mekkeli Arkadaşları / Rehberim Peygamberim / İlim Hayatında Peygamberimiz*. Program sayfası aynı adresin `/8`'i, ünite sayfaları `…/unite/210`…`213`. Ders kitabının adresi **adıyla birlikte** yazılır: `tymm.meb.gov.tr/kitap/537/peygamberimizin-hayati-7sinif-ders-kitabi` (yalnız `/kitap/537` 500 verir; kitap listesi `/Kitap/GetDersKitaplariList?page=1&kademe=temel-egitim`). 1. dönem 1. yazılı (Antalya ÖDM tablosu): gizli ve açık davet + isra ve miraç ağırlıklı, Hicret Yolculuğu bölümü kapsam dışı. Kaynak ayrıntıları `src/08f-…` dosyasının başındaki notta.
 - **6. sınıf Temel Dinî Bilgiler** (imam hatip ortaokulu, haftada 1 saat) okulun kitabına göre: MEB *Temel Dinî Bilgiler (İslam 1)*, `tymm.meb.gov.tr/kitap/533/temel-dini-bilgiler-ders-kitabi-islam-1`. Kitap sınıfa göre değil İslam 1 / İslam 2 diye ayrılıyor; TYMM program sayfasında (`…/temel-dini-bilgiler-dersi-temel-egitim/18`) tema listesi yok, ünite adları kitabın içindekiler sayfasından: *Dinimiz İslam / Hayatımız İbadet / İslam Ölçülü Olmamızı İster / İslam'la Değerlenen Hayatımız*. Sınav tablosu il ÖDM'lerinden (Rize 2026–2027: `rize.meb.gov.tr/ksdt/temel-egitim/tdb6.pdf`); 1. dönem 1. yazılı 1. ünitenin dört bölümünün hepsinden. Kaynak ayrıntıları `src/08g-…` dosyasının başındaki notta.
+- **7. sınıf Temel Dinî Bilgiler** (haftada 1 saat) okulda *İslam 2* kitabıyla: `tymm.meb.gov.tr/kitap/534/temel-dini-bilgiler-ders-kitabi-islam-2`. Üniteler: *İslam ve Ahlak / İslam ve Temizlik / İslam'ın Direği Namaz / İslam ve Günlük Hayat*. Sınav tablosu Rize İl MEB `…/ksdt/temel-egitim/tdb7.pdf` (İslam 2); 1. dönem 1. yazılı 1. ünitenin beş bölümünden 6–9 soru. Kaynak ayrıntıları `src/08h-…` dosyasının başındaki notta.
 
 Okulun kendi ünitelendirilmiş yıllık planı her durumda esastır.
 

@@ -22,6 +22,7 @@ cat src/01-sayfa-ve-stil.html \
     src/08e-6sinif-peygamberimizin-hayati.js \
     src/08f-7sinif-peygamberimizin-hayati.js \
     src/08g-6sinif-temel-dini-bilgiler.js \
+    src/08h-7sinif-temel-dini-bilgiler.js \
     src/09-uygulama.js \
     src/10-veli.js \
     src/11-supabase.js \
