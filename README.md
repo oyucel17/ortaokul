@@ -43,6 +43,7 @@ git add -A && git commit -m "Aciklama" && git push
 | `08f-7sinif-peygamberimizin-hayati.js` | 7. sınıf Peygamberimizin Hayatı — aynı kalıp (`S7.push`, `CAL7`, `Q7.pey`, `H7.pey`, `EKC7.pey`) |
 | `08g-6sinif-temel-dini-bilgiler.js` | 6. sınıf Temel Dinî Bilgiler — aynı kalıp (`S6.push`, `CAL6`, `Q6.tdb`, `H6.tdb`, `EKC6.tdb`), renk `--s-tdb` |
 | `08h-7sinif-temel-dini-bilgiler.js` | 7. sınıf Temel Dinî Bilgiler — aynı kalıp (`S7.push`, `CAL7`, `Q7.tdb`, `H7.tdb`, `EKC7.tdb`) |
+| `08i-2-yazili-hazirlik.js` | 1. dönem **2. yazılı hazırlığı**: kapsamdaki ünitelerin eksik ana/havuz soruları ve her dersin `EK · 2. Yazılı Hazırlık` seti (`Q6/Q7`, `H6/H7`, `EKC6/EKC7`'ye eklenir; Peygamberimizin Hayatı ve Temel Dinî Bilgiler kendi dosyalarında). 08h'den sonra, 09'dan önce |
 | `09-uygulama.js` | Çizim ve etkileşim kodu |
 
 ### Ünite veri şeması
@@ -238,6 +239,9 @@ Araya ünite eklemek ya da sırayı değiştirmek işaretlenmiş konuları kayd�
 Ünite adlarını **her zaman** resmî kaynaktan doğrula: <https://tymm.meb.gov.tr/ogretim-programlari>
 
 Bilinen tuzaklar:
+- **Matematik kitaplarının tema sırası sitedeki ünite sırasından farklı.** 6. sınıf 1. kitap: T1 Sayılar ve Nicelikler (1), T2 Veriden Olasılığa, T3 Sayılar ve Nicelikler (2), T4 İstatistiksel Araştırma Süreci. 7. sınıf 1. kitap: T1 Sayılar ve Nicelikler (1), T2 Geometrik Nicelikler (1), T3 İstatistiksel Araştırma Süreci, T4 Dönüşüm; 2. kitap: T5 Geometrik Şekiller, T6 Sayılar ve Nicelikler (2), T7 Veriden Olasılığa, T8 İşlemlerle Cebirsel Düşünme ve Değişimler, T9 Geometrik Nicelikler (2). Test etiketlerindeki TEMA numaraları eski sıradan kaldı; kayıtlar kaymasın diye değiştirilmedi. 7. sınıfın ünite ayları ve takvimi Kasım 2026'da kitaba göre düzeltildi.
+- **1. dönem 2. yazılı kapsamı (2026–2027):** ÖDSGM ortak yazılı konu-soru dağılım tabloları (matematik, fen, Türkçe, sosyal, İngilizce, din kültürü); seçmeli dersler için il tabloları (Peygamberimizin Hayatı: Antalya, Temel Dinî Bilgiler: Rize `…/ksdt/temel-egitim/tdb6.pdf`, `tdb7.pdf`). Kapsam tabloları ilgili ünitenin tablolarında. 7. sınıf Türkçenin 2. yazılısı 5 Ocak 2027'de ülke geneli ortak sınav (kapsam tablosu yayımlanmadı). Temel Dinî Bilgiler'in 2. yazılısı yalnız 2. üniteden.
+- **Eski programdan kalan sorular yenilendi (Kasım 2026):** 6. sınıf Fen *Canlılarda Sistemler*'deki sindirim ve kan soruları (yeni programda 7. sınıf), 7. sınıf Sosyal *Evimiz Dünya*'daki nüfus-göç soruları ve videosu (yeni kitapta yok). 6. sınıf İngilizce *Personal Life*'taki Present Simple soruları *Classroom Life*'a (daily routines) taşındı; kökler değişmediği için kayıtlar korundu.
 - **6. sınıf İngilizce** Maarif temalarıyla okuyor (8 tema, *School Life* ile başlıyor).
 - **7. sınıf İngilizce bu okulda hâlâ 2018 programında.** Kitabın 1. ünitesi *Appearance and Personality*, 10. ünitesi *Planets*. TYMM sayfasındaki 7. sınıf temaları (*School Life & Education …*) bu sınıfta kullanılmıyor. Kasım 2026'da kitap ve öğretmenin yazdırdığı sınav konularıyla doğrulandı. Kazanım kodları (E7.1.R1 …) il ÖDM'lerinin konu-soru dağılım tablolarında: <https://eskisehirodm.meb.gov.tr/meb_iys_dosyalar/2025_10/13122525_26114549_7_ingilizce.pdf> (1. dönem), <https://bingolodm.meb.gov.tr/meb_iys_dosyalar/2025_03/03124124_ing7.pdf> (2. dönem).
 - **6. sınıf Din Kültürü** ünite adları değişti: *Namaz / Zararlı Alışkanlıklar / Temel Değerlerimiz* yerine *Ramazan ve Oruç / Ahlaki Davranışlar / Kültürümüzdeki Dinî Motifler*.

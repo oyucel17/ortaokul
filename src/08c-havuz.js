@@ -210,16 +210,16 @@
        w:"Özel hayatın gizliliği ve kişilik hakları basın özgürlüğünün sınırıdır."},
       {u:"ALAN 1 · Birlikte Yaşamak", q:"\"Ben senin yüzünden geç kaldım.\" cümlesi hangi dile girer?", o:["Ben dili","Sen dili","Nesnel dil","Empatik dil"], a:1,
        w:"\"Ben\" ile başlasa da suçlama içerdiği için sen dilidir."},
-      {u:"ALAN 2 · Evimiz Dünya", q:"Nüfusun seyrek olduğu yerlerin ortak özelliği hangisidir?", o:["Ulaşımın kolay olması","Engebeli arazi ve sert iklim","Sanayinin gelişmiş olması","Kıyıda bulunması"], a:1,
-       w:"Dağlık, engebeli ve sert iklimli alanlarda nüfus seyrektir."},
-      {u:"ALAN 2 · Evimiz Dünya", q:"Aşağıdakilerden hangisi beşerî faktördür?", o:["İklim","Yer şekilleri","Sanayi","Su kaynakları"], a:2,
-       w:"Sanayi, ulaşım, tarım ve turizm beşerî faktörlerdir."},
-      {u:"ALAN 2 · Evimiz Dünya", q:"Bir ülkeden başka bir ülkeye yapılan göç hangi türdendir?", o:["İç göç","Dış göç","Mevsimlik göç","Kırsal göç"], a:1,
-       w:"Ülke sınırları dışına yapılan göç dış göçtür."},
-      {u:"ALAN 2 · Evimiz Dünya", q:"Kırdan kente göçün kırsalda yol açtığı sonuç hangisidir?", o:["Nüfusun artması","Tarım iş gücünün azalması","Okulların çoğalması","Sanayinin gelişmesi"], a:1,
-       w:"Genç nüfus kente gidince kırsalda çalışacak iş gücü azalır."},
-      {u:"ALAN 2 · Evimiz Dünya", q:"Nüfus piramidinin tabanının daralması neyi gösterir?", o:["Doğum oranının azaldığını","Ölüm oranının azaldığını","Göç alındığını","Nüfusun gençleştiğini"], a:0,
-       w:"Dar taban, doğum oranının düştüğünü ve nüfusun yaşlandığını gösterir."}
+      {u:"ALAN 2 · Evimiz Dünya", q:"Evden çıkmadan başka ülkelerden alışveriş yapılabilmesi aşağıdaki gelişmelerden hangisiyle mümkün olmuştur?", o:["Tarım alanlarının genişlemesiyle","E-ticaretin yaygınlaşmasıyla","Nüfusun kırsalda artmasıyla","Fabrikaların kapanmasıyla"], a:1,
+       w:"Genel ağ ve iletişim teknolojilerindeki gelişmeler e-ticareti yaygınlaştırdı. Böylece başka ülkelerde üretilen ürünlere evden ulaşmak kolaylaştı."},
+      {u:"ALAN 2 · Evimiz Dünya", q:"COVID-19 salgını sırasında sokağa çıkma kısıtlamaları ve uzaktan eğitim nedeniyle aşağıdakilerden hangisi zayıflamıştır?", o:["Genel ağ kullanımı","Çevrim içi alışveriş","Yüz yüze sosyal ilişkiler","Teknolojiye duyulan ihtiyaç"], a:2,
+       w:"Kısıtlamalar yüzünden insanlar arkadaşlarıyla buluşamadı, akrabalarını ziyaret edemedi. Yüz yüze ilişkiler zayıfladı ve yerini teknoloji aldı."},
+      {u:"ALAN 2 · Evimiz Dünya", q:"Türk Devletleri Teşkilatı toplantılarında 34 harften oluşan Ortak Türk Alfabesi'nin oy birliğiyle kabul edilmesi en çok neyi güçlendirmeyi amaçlar?", o:["Türk dünyasıyla kültürel bağları","Avrupa ile ticari ilişkileri","Komşularla askerî ittifakı","Ülke içindeki göç hareketlerini"], a:0,
+       w:"Ortak alfabe çalışmaları Türk dünyasındaki toplulukların birbirini daha kolay anlamasına ve ortak kültürün korunmasına hizmet eder."},
+      {u:"ALAN 2 · Evimiz Dünya", q:"Aşağıdakilerden hangisi Türkiye'nin girişimci ve insani dış politika anlayışına uygun bir davranıştır?", o:["Bölgedeki krizleri yalnızca uzaktan izlemek","Sığınmacılara sınır kapılarını tamamen kapatmak","Sorunları çözmek için askerî gücü öne çıkarmak","Afet yaşayan bir ülkeye yardım ekibi göndermek"], a:3,
+       w:"Bu anlayış mazlumlara yardım etmeyi, sorunlara çözüm üretmeyi ve çatışmaların sona ermesi için ara buluculuk yapmayı esas alır."},
+      {u:"ALAN 2 · Evimiz Dünya", q:"Türkiye'nin ara buluculuğuyla İstanbul'da imzalanan ve savaş sırasında Karadeniz'deki ticaret gemilerinin güvenli geçişini sağlayan anlaşma hangi küresel sorunun önlenmesine katkı sağlamıştır?", o:["İklim krizinin","Gıda krizinin","Salgın hastalıkların","Su kirliliğinin"], a:1,
+       w:"Anlaşma, savaş yüzünden aksayan tahıl taşımacılığını düzenleyerek dünyada gıda sıkıntısının önüne geçmeyi amaçladı ve Türkiye'ye önemli bir diplomasi başarısı kazandırdı."}
     ],
     din:[
       {u:"ÜNİTE 1 · Melek ve Ahiret İnancı", q:"Canlıların ruhunu almakla görevli melek hangisidir?", o:["Cebrail","Mikâil","İsrafil","Azrail"], a:3,
@@ -293,32 +293,32 @@
        w:"\"-rsen\" şart bildirir → koşul."},
       {u:"KONU 3 · Cümlede Anlam", q:"\"Kardeşim benden daha uzundur.\" cümlesindeki anlam ilişkisi hangisidir?", o:["Neden – sonuç","Amaç – sonuç","Koşul (şart)","Karşılaştırma"], a:3,
        w:"\"Benden daha\" iki kişiyi kıyaslıyor → karşılaştırma."},
-      {u:"KONU 3 · Cümlede Anlam", q:"Aşağıdakilerden hangisi öznel bir yargıdır?", o:["Su 100 °C'de kaynar.","Bir hafta yedi gündür.","Kış, yılın en güzel mevsimidir.","İstanbul'da boğaz köprüleri vardır."], a:2,
-       w:"\"En güzel mevsim\" kişiden kişiye değişir, kanıtlanamaz → öznel."}
+      {u:"KONU 3 · Cümlede Anlam", q:"Aşağıdakilerden hangisi öznel bir yargıdır?", o:["Su 100 °C'de kaynar.","Bir hafta yedi gündür.","Kış, yılın en güzel mevsimidir.","İstanbul'da Boğaz köprüleri vardır."], a:2,
+       w:"“En güzel mevsim” kişiden kişiye değişir, kanıtlanamaz → öznel."}
     ],
     ing:[
-      {u:"TEMA 3 · Personal Life & Well-Being", q:"They ____ football on Saturdays.", o:["play","plays","playing","is play"], a:0,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"They ____ football on Saturdays.", o:["play","plays","playing","is play"], a:0,
        w:"They ile fiil yalın kalır: play."},
-      {u:"TEMA 3 · Personal Life & Well-Being", q:"____ you like swimming?", o:["Do","Does","Are","Is"], a:0,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"____ you like swimming?", o:["Do","Does","Are","Is"], a:0,
        w:"you ile soru Do ile kurulur."},
-      {u:"TEMA 3 · Personal Life & Well-Being", q:"Which word means \"asla\"?", o:["often","never","usually","always"], a:1,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"Which word means \"asla\"?", o:["often","never","usually","always"], a:1,
        w:"never = asla."},
-      {u:"TEMA 3 · Personal Life & Well-Being", q:"He ____ his homework after school.", o:["do","does","doing","dos"], a:1,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"He ____ his homework after school.", o:["do","does","doing","dos"], a:1,
        w:"he ile \"do\" fiili -es alır: does."},
-      {u:"TEMA 3 · Personal Life & Well-Being", q:"\"free time\" ne demektir?", o:["boş zaman","ücretsiz","özgür","hafta sonu"], a:0,
+      {u:"TEMA 2 · Classroom Life & Learning", q:"\"free time\" ne demektir?", o:["boş zaman","ücretsiz","özgür","hafta sonu"], a:0,
        w:"free time = boş zaman."}
     ],
     din:[
       {u:"ÜNİTE 2 · Ramazan ve Oruç", q:"Oruç, İslam'ın kaç şartından biridir?", o:["Üç","Dört","Beş","Altı"], a:2,
        w:"Oruç, İslam'ın beş şartından biridir."},
-      {u:"ÜNİTE 2 · Ramazan ve Oruç", q:"Fitre ile fidye arasındaki fark hangisidir?", o:["Fitre bayram öncesi verilen sadakadır; fidye tutulamayan oruç karşılığıdır","İkisi aynı şeydir","Fidye bayramda, fitre Ramazan'ın başında verilir","Fitre yalnızca zenginlere verilir"], a:0,
-       w:"Fitre: bayramdan önce verilen sadaka. Fidye: bir daha oruç tutamayacak kişinin verdiği karşılık."},
+      {u:"ÜNİTE 2 · Ramazan ve Oruç", q:"Fitre ile fidye arasındaki fark hangisidir?", o:["Fitre kaza orucunun yerine geçer, fidye bayram namazından sonra verilir.","Fitre yalnız oruç tutanlara, fidye yalnız zenginlere verilen yardımdır.","Fitre Kurban Bayramı'nda, fidye Ramazan Bayramı'nda verilen sadakadır.","Fitre sağlıklı olmanın şükrüdür, fidye tutulamayan orucun karşılığıdır."], a:3,
+       w:"Kitaba göre fitre, maddi durumu uygun Müslümanın sağlıklı olmasının şükrü olarak verdiği vacip sadakadır. Fidye ise iyileşemeyecek hastanın oruçsuz geçirdiği her gün için verdiği, bir fakirin günlük yiyeceği kadar yardımdır."},
       {u:"ÜNİTE 2 · Ramazan ve Oruç", q:"Yolculuk sebebiyle oruç tutamayan kişi ne yapar?", o:["Fidye verir","Sonra kaza eder","Fitre verir","Bir daha oruç tutmaz"], a:1,
        w:"Yolcu, orucunu daha sonra kaza eder."},
       {u:"ÜNİTE 2 · Ramazan ve Oruç", q:"Kadir Gecesi hangi aydadır?", o:["Recep","Şaban","Ramazan","Zilhicce"], a:2,
        w:"Kadir Gecesi Ramazan ayındadır."},
-      {u:"ÜNİTE 2 · Ramazan ve Oruç", q:"Orucun asıl amacı nedir?", o:["Yalnızca aç kalmak","Sabrı ve iradeyi güçlendirip yoksulun hâlini anlamak","Kilo vermek","Gece uyanık kalmak"], a:1,
-       w:"Oruç yalnızca aç kalmak değil; sabır, irade ve paylaşmayı öğrenmektir."}
+      {u:"ÜNİTE 2 · Ramazan ve Oruç", q:"Orucun asıl amacı nedir?", o:["Allah'ın rızasını kazanmak","Çevreden takdir toplamak","Yalnızca aç ve susuz kalmak","Aile geleneğini sürdürmek"], a:0,
+       w:"Kitaba göre oruç, Allah'ın rızasını kazanmak için tan yeri ağarınca başlayıp güneş batana kadar yeme, içme ve bazı bedensel isteklerden uzak durmaktır. Sabır, paylaşma, sağlık gibi güzellikler ise orucun kazandırdıklarıdır."}
     ]
   };
 
@@ -338,8 +338,8 @@
     din:[
       {u:"ÜNİTE 2 · Hac, Umre ve Kurban", q:"Aşağıdakilerden hangisi haccın farzlarındandır?", o:["Ziyaret tavafı","Kurban kesmek","Zemzem içmek","Medine'yi ziyaret etmek"], a:0,
        w:"Haccın farzları: ihram, Arafat vakfesi, ziyaret tavafı."},
-      {u:"ÜNİTE 2 · Hac, Umre ve Kurban", q:"Umre ne zaman yapılabilir?", o:["Yalnızca Zilhicce'de","Yalnızca Ramazan'da","Yılın her zamanı","Yalnızca bayramda"], a:2,
-       w:"Umrenin belirli bir zamanı yoktur; yılın her zamanı yapılabilir."},
+      {u:"ÜNİTE 2 · Hac, Umre ve Kurban", q:"Umre ne zaman yapılabilir?", o:["Yalnızca Zilhicce ayında","Yalnızca Ramazan ayında","Hac günleri dışında her zaman","Yalnızca Kurban Bayramı'nda"], a:2,
+       w:"Umrenin hac gibi belirli bir vakti yoktur. Haccın yapıldığı günler dışında yılın herhangi bir vaktinde yapılabilir, bu sayede hac mevsimi dışında da kutsal topraklar ziyaret edilebilir."},
       {u:"ÜNİTE 2 · Hac, Umre ve Kurban", q:"Haccın kişiye kazandırdığı değerlerden biri hangisidir?", o:["Eşitlik bilinci","Kibir","Gösteriş","Cimrilik"], a:0,
        w:"Herkes aynı kıyafetle aynı yerde bulunur; bu, eşitlik ve kardeşlik bilincini güçlendirir."},
       {u:"ÜNİTE 2 · Hac, Umre ve Kurban", q:"İhramlıyken aşağıdakilerden hangisi yapılmaz?", o:["Dua etmek","Saç ve tırnak kesmek","Tavaf yapmak","Telbiye getirmek"], a:1,
